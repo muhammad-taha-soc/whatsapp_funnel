@@ -9,27 +9,33 @@ const SortableUi = ({ match }) => {
   const [listColumns, setListColumns] = useState([
     {
       icon: 'iconsminds-clock',
-      title: 'Pending Orders',
-      value: 14,
+      title: 'Redeemed coupons',
+      value: 40,
       id: 1,
     },
     {
       icon: 'iconsminds-basket-coins',
-      title: 'Completed Orders',
-      value: 32,
+      title: 'Set coupons',
+      value: 50,
       id: 2,
     },
     {
       icon: 'iconsminds-arrow-refresh',
-      title: 'Refund Requests',
-      value: 74,
+      title: 'Click on review link',
+      value: 65,
       id: 3,
     },
     {
       icon: 'iconsminds-mail-read',
-      title: 'New Comments',
-      value: 25,
+      title: 'Unsatisfied customers',
+      value: 150,
       id: 4,
+    },
+    {
+      icon: 'iconsminds-mail-read',
+      title: 'Satisfied customers',
+      value: 250,
+      id: 5,
     },
   ]);
   const [listBasic, setListBasic] = useState([

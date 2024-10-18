@@ -101,7 +101,7 @@ const DataTablePagination = ({
 
   return (
     <>
-      <div className="text-center">
+      <div className="text-right">
         {showPageJump && (
           <div className="float-left pt-2">
             <span>Page </span>
@@ -119,7 +119,7 @@ const DataTablePagination = ({
         <Pagination
           className="d-inline-block"
           size="sm"
-          listClassName="justify-content-center"
+          listClassName="justify-content-end"
           aria-label="Page navigation example"
         >
           <PaginationItem className={`${!canPrevious && 'disabled'}`}>

@@ -283,3 +283,24 @@ export const conversionChartData = {
     },
   ],
 };
+
+export const usersChartData = {
+  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  datasets: [
+    {
+      label: '',
+      data: [65, 600, 800, 550, 1000, 850, 900],
+      borderColor: colors.themeColor2,
+      pointBackgroundColor: colors.foregroundColor,
+      pointBorderColor: colors.themeColor2,
+      pointHoverBackgroundColor: colors.themeColor2,
+      pointHoverBorderColor: colors.foregroundColor,
+      pointRadius: 1,
+      pointBorderWidth: 2,
+      pointHoverRadius: 1,
+      fill: true,
+      borderWidth: 2,
+      backgroundColor: colors.themeColor2_10,
+    },
+  ],
+};

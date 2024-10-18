@@ -72,6 +72,11 @@
     background: $theme-color-green-lime;
   }
 
+  .theme-color-greenbase {
+    border: 3px solid $theme-color-green-base;
+    background: $theme-color-green-base;
+  }
+
   .theme-color-redruby {
     border: 3px solid $theme-color-red-ruby;
     background: $theme-color-red-ruby;

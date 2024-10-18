@@ -15,8 +15,10 @@ const IconCardsCarousel = ({ className = 'icon-cards-row' }) => {
           breakpoints: {
             320: { perView: 1 },
             576: { perView: 2 },
-            1600: { perView: 3 },
-            1800: { perView: 4 },
+            768: { perView: 3 },
+            1100: { perView: 4 },
+            1600: { perView: 5 },
+            // 1800: { perView: 4 },
           },
           hideNav: true,
         }}

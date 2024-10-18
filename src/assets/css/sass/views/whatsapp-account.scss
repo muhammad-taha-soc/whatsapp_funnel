@@ -1,0 +1,38 @@
+.account-profile-img {
+  height: 120px;
+  border-radius: 50% !important;
+  border: 3px solid $foreground-color;
+
+  //   position: absolute;
+  //   left: 50%;
+  //   z-index: 1;
+  //   transform: translateX(-50%);
+  //   top: -75px;
+}
+
+.account-profile-section {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin: 2%;
+
+  div {
+    p {
+      margin: 0;
+      padding: 0;
+      margin-left: 4px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      p {
+        margin: 0;
+        padding: 0;
+        margin-left: 4px;
+        margin-right: 4px;
+      }
+    }
+  }
+}

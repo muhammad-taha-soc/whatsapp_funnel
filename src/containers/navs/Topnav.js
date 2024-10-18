@@ -24,7 +24,7 @@ import {
   // buyUrl,
   adminRoot,
 } from 'constants/defaultValues';
-import { MobileMenuIcon, MenuIcon } from 'components/svg';
+import { MobileMenuIcon } from 'components/svg';
 // import { getDirection, setDirection } from 'helpers/Utils';
 import {
   setContainerClassnames,
@@ -33,7 +33,7 @@ import {
   changeLocale,
 } from 'redux/actions';
 
-import TopnavEasyAccess from './Topnav.EasyAccess';
+// import TopnavEasyAccess from './Topnav.EasyAccess';
 import TopnavNotifications from './Topnav.Notifications';
 import TopnavDarkSwitch from './Topnav.DarkSwitch';
 
@@ -41,15 +41,15 @@ const TopNav = ({
   intl,
   history,
   containerClassnames,
-  menuClickCount,
-  selectedMenuHasSubItems,
+  // menuClickCount,
+  // selectedMenuHasSubItems,
   // locale,
-  setContainerClassnamesAction,
+  // setContainerClassnamesAction,
   clickOnMobileMenuAction,
   logoutUserAction,
   // changeLocaleAction,
 }) => {
-  const [isInFullScreen, setIsInFullScreen] = useState(false);
+  // const [isInFullScreen, setIsInFullScreen] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
 
   const search = () => {
@@ -69,16 +69,16 @@ const TopNav = ({
   //   }
   // };
 
-  const isInFullScreenFn = () => {
-    return (
-      (document.fullscreenElement && document.fullscreenElement !== null) ||
-      (document.webkitFullscreenElement &&
-        document.webkitFullscreenElement !== null) ||
-      (document.mozFullScreenElement &&
-        document.mozFullScreenElement !== null) ||
-      (document.msFullscreenElement && document.msFullscreenElement !== null)
-    );
-  };
+  // const isInFullScreenFn = () => {
+  //   return (
+  //     (document.fullscreenElement && document.fullscreenElement !== null) ||
+  //     (document.webkitFullscreenElement &&
+  //       document.webkitFullscreenElement !== null) ||
+  //     (document.mozFullScreenElement &&
+  //       document.mozFullScreenElement !== null) ||
+  //     (document.msFullscreenElement && document.msFullscreenElement !== null)
+  //   );
+  // };
 
   // const handleSearchIconClick = (e) => {
   //   if (window.innerWidth < menuHiddenBreakpoint) {
@@ -149,50 +149,50 @@ const TopNav = ({
   //   }
   // };
 
-  const toggleFullScreen = () => {
-    const isFS = isInFullScreenFn();
+  // const toggleFullScreen = () => {
+  //   const isFS = isInFullScreenFn();
 
-    const docElm = document.documentElement;
-    if (!isFS) {
-      if (docElm.requestFullscreen) {
-        docElm.requestFullscreen();
-      } else if (docElm.mozRequestFullScreen) {
-        docElm.mozRequestFullScreen();
-      } else if (docElm.webkitRequestFullScreen) {
-        docElm.webkitRequestFullScreen();
-      } else if (docElm.msRequestFullscreen) {
-        docElm.msRequestFullscreen();
-      }
-    } else if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-      document.mozCancelFullScreen();
-    } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
-    }
-    setIsInFullScreen(!isFS);
-  };
+  //   const docElm = document.documentElement;
+  //   if (!isFS) {
+  //     if (docElm.requestFullscreen) {
+  //       docElm.requestFullscreen();
+  //     } else if (docElm.mozRequestFullScreen) {
+  //       docElm.mozRequestFullScreen();
+  //     } else if (docElm.webkitRequestFullScreen) {
+  //       docElm.webkitRequestFullScreen();
+  //     } else if (docElm.msRequestFullscreen) {
+  //       docElm.msRequestFullscreen();
+  //     }
+  //   } else if (document.exitFullscreen) {
+  //     document.exitFullscreen();
+  //   } else if (document.webkitExitFullscreen) {
+  //     document.webkitExitFullscreen();
+  //   } else if (document.mozCancelFullScreen) {
+  //     document.mozCancelFullScreen();
+  //   } else if (document.msExitFullscreen) {
+  //     document.msExitFullscreen();
+  //   }
+  //   setIsInFullScreen(!isFS);
+  // };
 
   const handleLogout = () => {
     logoutUserAction(history);
   };
 
-  const menuButtonClick = (e, _clickCount, _conClassnames) => {
-    e.preventDefault();
+  // const menuButtonClick = (e, _clickCount, _conClassnames) => {
+  //   e.preventDefault();
 
-    setTimeout(() => {
-      const event = document.createEvent('HTMLEvents');
-      event.initEvent('resize', false, false);
-      window.dispatchEvent(event);
-    }, 350);
-    setContainerClassnamesAction(
-      _clickCount + 1,
-      _conClassnames,
-      selectedMenuHasSubItems
-    );
-  };
+  //   setTimeout(() => {
+  //     const event = document.createEvent('HTMLEvents');
+  //     event.initEvent('resize', false, false);
+  //     window.dispatchEvent(event);
+  //   }, 350);
+  //   setContainerClassnamesAction(
+  //     _clickCount + 1,
+  //     _conClassnames,
+  //     selectedMenuHasSubItems
+  //   );
+  // };
 
   const mobileMenuButtonClick = (e, _containerClassnames) => {
     e.preventDefault();
@@ -205,7 +205,7 @@ const TopNav = ({
   return (
     <nav className="navbar fixed-top">
       <div className="d-flex align-items-center navbar-left">
-        <NavLink
+        {/* <NavLink
           to="#"
           location={{}}
           className="menu-button d-none d-md-block"
@@ -214,7 +214,7 @@ const TopNav = ({
           }
         >
           <MenuIcon />
-        </NavLink>
+        </NavLink> */}
         <NavLink
           to="#"
           location={{}}
@@ -223,57 +223,6 @@ const TopNav = ({
         >
           <MobileMenuIcon />
         </NavLink>
-
-        {/* <div className="search">
-          <Input
-            name="searchKeyword"
-            id="searchKeyword"
-            placeholder={messages['menu.search']}
-            value={searchKeyword}
-            onChange={(e) => setSearchKeyword(e.target.value)}
-            onKeyPress={(e) => handleSearchInputKeyPress(e)}
-          />
-          <span
-            className="search-icon"
-            onClick={(e) => handleSearchIconClick(e)}
-          >
-            <i className="simple-icon-magnifier" />
-          </span>
-        </div> */}
-
-        {/* <div className="d-inline-block">
-          <UncontrolledDropdown className="ml-2">
-            <DropdownToggle
-              caret
-              color="light"
-              size="sm"
-              className="language-button"
-            >
-              <span className="name">{locale.toUpperCase()}</span>
-            </DropdownToggle>
-            <DropdownMenu className="mt-3" right>
-              {localeOptions.map((l) => {
-                return (
-                  <DropdownItem
-                    onClick={() => handleChangeLocale(l.id, l.direction)}
-                    key={l.id}
-                  >
-                    {l.name}
-                  </DropdownItem>
-                );
-              })}
-            </DropdownMenu>
-          </UncontrolledDropdown>
-        </div>
-        <div className="position-relative d-none d-none d-lg-inline-block">
-          <a
-            className="btn btn-outline-primary btn-sm ml-2"
-            target="_top"
-            href={buyUrl}
-          >
-            <IntlMessages id="user.buy" />
-          </a>
-        </div> */}
       </div>
       <NavLink className="navbar-logo" to={adminRoot}>
         <span className="logo d-none d-xs-block" />
@@ -283,9 +232,64 @@ const TopNav = ({
       <div className="navbar-right">
         {isDarkSwitchActive && <TopnavDarkSwitch />}
         <div className="header-icons d-inline-block align-middle">
-          <TopnavEasyAccess />
+          {/* <TopnavEasyAccess /> */}
+          {/* <i className="iconsminds-envelope-2" /> */}
+          <div className="position-relative d-none d-sm-inline-block">
+            <UncontrolledDropdown className="dropdown-menu-right">
+              <DropdownToggle className="header-icon" color="empty">
+                {/* <i className="simple-icon-grid" /> */}
+                <i className="simple-icon-envelope" />
+              </DropdownToggle>
+              {/* <DropdownMenu
+                className="position-absolute mt-3"
+                right
+                id="iconMenuDropdown"
+              >
+                <NavLink
+                  to={`${adminRoot}/dashboards/default`}
+                  className="icon-menu-item"
+                >
+                  <i className="iconsminds-shop-4 d-block" />{' '}
+                  <IntlMessages id="menu.dashboards" />
+                </NavLink>
+
+                <NavLink to={`${adminRoot}/ui`} className="icon-menu-item">
+                  <i className="iconsminds-pantone d-block" />{' '}
+                  <IntlMessages id="menu.ui" />
+                </NavLink>
+                <NavLink
+                  to={`${adminRoot}/ui/charts`}
+                  className="icon-menu-item"
+                >
+                  <i className="iconsminds-bar-chart-4 d-block" />{' '}
+                  <IntlMessages id="menu.charts" />
+                </NavLink>
+                <NavLink
+                  to={`${adminRoot}/applications/chat`}
+                  className="icon-menu-item"
+                >
+                  <i className="iconsminds-speach-bubble d-block" />{' '}
+                  <IntlMessages id="menu.chat" />
+                </NavLink>
+                <NavLink
+                  to={`${adminRoot}/applications/survey`}
+                  className="icon-menu-item"
+                >
+                  <i className="iconsminds-formula d-block" />{' '}
+                  <IntlMessages id="menu.survey" />
+                </NavLink>
+                <NavLink
+                  to={`${adminRoot}/applications/todo`}
+                  className="icon-menu-item"
+                >
+                  <i className="iconsminds-check d-block" />{' '}
+                  <IntlMessages id="menu.todo" />
+                </NavLink>
+              </DropdownMenu> */}
+            </UncontrolledDropdown>
+          </div>
           <TopnavNotifications />
-          <button
+          {/* <button
             className="header-icon btn btn-empty d-none d-sm-inline-block"
             type="button"
             id="fullScreenButton"
@@ -296,7 +300,7 @@ const TopNav = ({
             ) : (
               <i className="simple-icon-size-fullscreen d-block" />
             )}
-          </button>
+          </button> */}
         </div>
         <div className="user d-inline-block">
           <UncontrolledDropdown className="dropdown-menu-right">

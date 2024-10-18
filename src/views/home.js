@@ -171,6 +171,7 @@ const themes = [
   { title: 'Yale Blue', class: 'blueyale' },
   { title: 'Moss Green', class: 'greenmoss' },
   { title: 'Lime Green', class: 'greenlime' },
+  { title: 'Base Green', class: 'greenbase' },
   { title: 'Carrot Orange', class: 'carrotorange' },
   { title: 'Ruby Red', class: 'rubyred' },
   { title: 'Monster Purple', class: 'monsterpurple' },

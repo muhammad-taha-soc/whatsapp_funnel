@@ -3,8 +3,8 @@ import { injectIntl } from 'react-intl';
 // import { Row } from 'reactstrap';
 import {
   Row,
-  // Card,
-  // CardBody,
+  Card,
+  CardBody,
   // CardTitle,
   // CardHeader,
   Nav,
@@ -12,9 +12,19 @@ import {
   TabContent,
   TabPane,
   // Button,
+  // Badge,
+  // CardText,
+  // CardSubtitle,
+  // Table,
+  // CardImg
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-
+import SingleLightbox from 'components/pages/SingleLightbox';
+// import recentPostsData from 'data/recentposts';
+// import RecentPost from 'components/common/RecentPost';
+// import whotoFollowData from 'data/follow';
+// import UserFollow from 'components/common/UserFollow';
+// import GalleryDetail from 'containers/pages/GalleryDetail';
 import classnames from 'classnames';
 // import IntlMessages from 'helpers/IntlMessages';
 import { Colxx, Separator } from 'components/common/CustomBootstrap';
@@ -24,7 +34,7 @@ import IconCardsCarousel from 'containers/dashboards/IconCardsCarousel';
 // import Logs from 'containers/dashboards/Logs';
 // import Tickets from 'containers/dashboards/Tickets';
 // import Calendar from 'containers/dashboards/Calendar';
-import BestSellers from 'containers/dashboards/BestSellers';
+// import BestSellers from 'containers/dashboards/BestSellers';
 // import ProfileStatuses from 'containers/dashboards/ProfileStatuses';
 // import GradientCardContainer from 'containers/dashboards/GradientCardContainer';
 // import Cakes from 'containers/dashboards/Cakes';
@@ -34,16 +44,21 @@ import BestSellers from 'containers/dashboards/BestSellers';
 // import SmallLineCharts from 'containers/dashboards/SmallLineCharts';
 // import SalesChartCard from 'containers/dashboards/SalesChartCard';
 // import ProductCategoriesPolarArea from 'containers/dashboards/ProductCategoriesPolarArea';
-import WebsiteVisitsChartCard from 'containers/dashboards/WebsiteVisitsChartCard';
+// import WebsiteVisitsChartCard from 'containers/dashboards/WebsiteVisitsChartCard';
 // import ConversionRatesChartCard from 'containers/dashboards/ConversionRatesChartCard';
+import UsersChartCard from 'containers/dashboards/UsersChartCard';
+import NewsLetter from 'containers/dashboards/NewsLetter';
 // import TopRatedItems from 'containers/dashboards/TopRatedItems';
+
+// const friendsData = whotoFollowData.slice();
+// const followData = whotoFollowData.slice(0, 5);
 
 const DefaultDashboard = ({ intl, match }) => {
   const { messages } = intl;
   console.log(messages);
-  
-    // const [activeFirstTab, setActiveFirstTab] = useState('1');
-    const [activeSecondTab, setActiveSecondTab] = useState('1');
+
+  // const [activeFirstTab, setActiveFirstTab] = useState('1');
+  const [activeSecondTab, setActiveSecondTab] = useState('1');
 
   return (
     <>
@@ -104,12 +119,13 @@ const DefaultDashboard = ({ intl, match }) => {
             </Row>
             <Row>
               <Colxx sm="12" md="12" className="mb-4">
-                <WebsiteVisitsChartCard />
+                {/* <WebsiteVisitsChartCard /> */}
+                <UsersChartCard />
               </Colxx>
             </Row>
             <Row>
               <Colxx xl="12" md="12" lg="12" className="mb-4">
-                <BestSellers />
+                <NewsLetter />
               </Colxx>
             </Row>
             {/* <Row>
@@ -130,8 +146,8 @@ const DefaultDashboard = ({ intl, match }) => {
               <Colxx xl="6" lg="12" className="mb-4">
                 <BestSellers />
               </Colxx>
-            </Row>
-            <Row>
+            </Row> */}
+            {/* <Row>
               <Colxx sm="12" lg="4" className="mb-4">
                 <ProfileStatuses />
               </Colxx>
@@ -141,8 +157,8 @@ const DefaultDashboard = ({ intl, match }) => {
               <Colxx md="6" lg="4" className="mb-4">
                 <Cakes />
               </Colxx>
-            </Row>
-            <SortableStaticticsRow messages={messages} />
+            </Row> */}
+            {/* <SortableStaticticsRow messages={messages} />
             <Row>
               <Colxx sm="12" md="6" className="mb-4">
                 <WebsiteVisitsChartCard />
@@ -150,8 +166,8 @@ const DefaultDashboard = ({ intl, match }) => {
               <Colxx sm="12" md="6" className="mb-4">
                 <ConversionRatesChartCard />
               </Colxx>
-            </Row>
-            <Row>
+            </Row> */}
+            {/* <Row>
               <Colxx lg="12" md="6" xl="4">
                 <Row>
                   <Colxx lg="4" xl="12" className="mb-4">
@@ -194,8 +210,113 @@ const DefaultDashboard = ({ intl, match }) => {
           </TabPane>
           <TabPane tabId="2">
             <Row>
-              <Colxx sm="12" xxs="12" xs="6" lg="12" xl="12" md="12">
-                hi
+              {/* <Colxx xxs="12">
+                <CardTitle className="mb-4">
+                  <IntlMessages id="cards.image-card" />
+                </CardTitle>
+                <Row>
+                  <Colxx xxs="12" xs="12" lg="12" md='12'>
+                    <Card className="mb-4">
+                      <div className="position-relative ">
+                        <CardImg
+                          top
+                          src="/assets/img/cards/thumb-1.jpg"
+                          alt="Card image cap"
+                        />
+                      </div>
+                      <CardBody>
+                        <CardSubtitle className="mb-4">
+                          Homemade Cheesecake with Fresh Berries and Mint
+                        </CardSubtitle>
+                        <CardText className="text-muted text-small mb-0 font-weight-light">
+                          09.04.2018
+                        </CardText>
+                      </CardBody>
+                    </Card>
+                  </Colxx>
+                </Row>
+              </Colxx> */}
+              <Colxx xxs="12" lg="12" md="12" xl="12" className="">
+                <Card className="mb-4">
+                  <div className="account-profile-section">
+                    <SingleLightbox
+                      thumb="/assets/img/profiles/l-1.jpg"
+                      large="/assets/img/profiles/1.jpg"
+                      className="account-profile-img"
+                    />
+                    <div>
+                      <p className="">Sarah Cortney</p>
+                      <div>
+                        <p className="">SmartLeadsPRO - Workshop</p>
+                        <i className="simple-icon-pencil" />
+                      </div>
+                    </div>
+                  </div>
+                  <Separator className="mb-5" />
+                  <CardBody>
+                    {/* <Colxx xxs="12" lg="12" md="12" xl="12" className="">
+                      <p className="mb-3">
+                        <Badge
+                          color="outline-secondary"
+                          className="mb-1 mr-1"
+                          pill
+                        >
+                          FRONTEND
+                        </Badge>
+                        <Badge
+                          color="outline-secondary"
+                          className="mb-1 mr-1"
+                          pill
+                        >
+                          JAVASCRIPT
+                        </Badge>
+                        <Badge
+                          color="outline-secondary"
+                          className="mb-1 mr-1"
+                          pill
+                        >
+                          SECURITY
+                        </Badge>
+                        <Badge
+                          color="outline-secondary"
+                          className="mb-1 mr-1"
+                          pill
+                        >
+                          DESIGN
+                        </Badge>
+                      </p>
+                    </Colxx> */}
+                    {/* <Table borderless>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                      </tbody>
+                    </Table> */}
+                    <Row>
+                      <Colxx md="4" lg="4" xl="4" className="mb-4">
+                        {/* <SalesChartCard /> */}
+                        hi
+                      </Colxx>
+                      <Colxx md="4" lg="4" xl="4" className="mb-4">
+                        {/* <SalesChartCard /> */}
+                        hi
+                      </Colxx>
+
+                      <Colxx lg="4" xl="4" className="mb-4">
+                        {/* <RecentOrders /> */}hi
+                      </Colxx>
+                    </Row>
+                  </CardBody>
+                </Card>
               </Colxx>
             </Row>
           </TabPane>
