@@ -62,7 +62,9 @@ module.exports = {
   /* 03.Menu */
   'menu.home': 'Home',
   'menu.app': 'Home',
-  'menu.dashboards': 'Dashboards',
+  'menu.dashboards': 'Dashboard',
+  'menu.contacts': 'Contacts',
+  'menu.coupon': 'Coupon',
   'menu.default': 'Default',
   'menu.analytics': 'Analytics',
   'menu.ecommerce': 'Ecommerce',

@@ -17,11 +17,11 @@
 .nav-tabs .nav-item.show .nav-link::before {
   content: ' ';
   background: $theme-color-1;
-  border-radius: 10px;
+  // border-radius: 10px;
   position: absolute;
-  width: calc(100% - 1rem);
-  height: 5px;
-  top: 0;
+  width: calc(100% - 0rem);
+  height: 3px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
 }

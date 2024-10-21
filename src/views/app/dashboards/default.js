@@ -3,14 +3,16 @@ import { injectIntl } from 'react-intl';
 // import { Row } from 'reactstrap';
 import {
   Row,
-  Card,
-  CardBody,
+  // Card,
+  // CardBody,
   // CardTitle,
   // CardHeader,
   Nav,
   NavItem,
   TabContent,
   TabPane,
+  // CardTitle,
+  // Badge,
   // Button,
   // Badge,
   // CardText,
@@ -19,7 +21,7 @@ import {
   // CardImg
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-import SingleLightbox from 'components/pages/SingleLightbox';
+// import SingleLightbox from 'components/pages/SingleLightbox';
 // import recentPostsData from 'data/recentposts';
 // import RecentPost from 'components/common/RecentPost';
 // import whotoFollowData from 'data/follow';
@@ -49,6 +51,8 @@ import IconCardsCarousel from 'containers/dashboards/IconCardsCarousel';
 import UsersChartCard from 'containers/dashboards/UsersChartCard';
 import NewsLetter from 'containers/dashboards/NewsLetter';
 import MakeMoney from 'containers/dashboards/MakeMoney';
+// import IntlMessages from 'helpers/IntlMessages';
+import AccountProfile from 'containers/dashboards/AccountProfile';
 // import TopRatedItems from 'containers/dashboards/TopRatedItems';
 
 // const friendsData = whotoFollowData.slice();
@@ -70,7 +74,7 @@ const DefaultDashboard = ({ intl, match }) => {
         </Colxx>
       </Row>
       <Colxx xxs="12" xs="12" sm="12" lg="12" md="12" xxl="12" xl="12">
-        <Nav tabs className=" card-header-tabs mb-2 ml-0 mr-0">
+        <Nav tabs className=" mb-3 ml-0 mr-0">
           <NavItem className="w-14 text-center">
             <NavLink
               to="#"
@@ -243,86 +247,7 @@ const DefaultDashboard = ({ intl, match }) => {
                 </Row>
               </Colxx> */}
               <Colxx xxs="12" lg="12" md="12" xl="12" className="">
-                <Card className="mb-4">
-                  <div className="account-profile-section">
-                    <SingleLightbox
-                      thumb="/assets/img/profiles/l-1.jpg"
-                      large="/assets/img/profiles/1.jpg"
-                      className="account-profile-img"
-                    />
-                    <div>
-                      <p className="">Sarah Cortney</p>
-                      <div>
-                        <p className="">SmartLeadsPRO - Workshop</p>
-                        <i className="simple-icon-pencil" />
-                      </div>
-                    </div>
-                  </div>
-                  <Separator className="mb-5" />
-                  <CardBody>
-                    {/* <Colxx xxs="12" lg="12" md="12" xl="12" className="">
-                      <p className="mb-3">
-                        <Badge
-                          color="outline-secondary"
-                          className="mb-1 mr-1"
-                          pill
-                        >
-                          FRONTEND
-                        </Badge>
-                        <Badge
-                          color="outline-secondary"
-                          className="mb-1 mr-1"
-                          pill
-                        >
-                          JAVASCRIPT
-                        </Badge>
-                        <Badge
-                          color="outline-secondary"
-                          className="mb-1 mr-1"
-                          pill
-                        >
-                          SECURITY
-                        </Badge>
-                        <Badge
-                          color="outline-secondary"
-                          className="mb-1 mr-1"
-                          pill
-                        >
-                          DESIGN
-                        </Badge>
-                      </p>
-                    </Colxx> */}
-                    {/* <Table borderless>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                      </tbody>
-                    </Table> */}
-                    <Row>
-                      <Colxx md="4" lg="4" xl="4" className="mb-4">
-                        {/* <SalesChartCard /> */}
-                        hi
-                      </Colxx>
-                      <Colxx md="4" lg="4" xl="4" className="mb-4">
-                        {/* <SalesChartCard /> */}
-                        hi
-                      </Colxx>
-
-                      <Colxx lg="4" xl="4" className="mb-4">
-                        {/* <RecentOrders /> */}hi
-                      </Colxx>
-                    </Row>
-                  </CardBody>
-                </Card>
+                <AccountProfile />
               </Colxx>
             </Row>
           </TabPane>
