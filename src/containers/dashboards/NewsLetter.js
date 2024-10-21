@@ -5,7 +5,7 @@
 /* eslint-disable react/jsx-key */
 import React from 'react';
 import { useTable, usePagination, useSortBy } from 'react-table';
-import { Card, CardBody, CardTitle } from 'reactstrap'; //
+import { Badge, Card, CardBody, CardTitle } from 'reactstrap'; //
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 
@@ -44,15 +44,26 @@ function Table({ columns, data }) {
                 <th
                   key={`th_${columnIndex}`}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
-                  className={
-                    column.isSorted
-                      ? column.isSortedDesc
-                        ? 'sorted-desc'
-                        : 'sorted-asc'
-                      : ''
-                  }
+                  // className={`
+                  //   ${
+                  //     column.isSorted
+                  //       ? column.isSortedDesc
+                  //         ? 'sorted-desc'
+                  //         : 'sorted-asc'
+                  //       : ''
+                  //   }
+                  // `}
                 >
-                  {column.render('Header')}
+                  {column.render('Header')}{' '}
+                  {column.render('Header') !== 'Newsletter' && (
+                    <i
+                      className={`ml-2 mt-1 ${
+                        column.isSortedDesc
+                          ? 'simple-icon-arrow-up'
+                          : 'simple-icon-arrow-down'
+                      }`}
+                    />
+                  )}
                   <span />
                 </th>
               ))}
@@ -142,16 +153,18 @@ const NewsLetter = () => {
   return (
     <Card className="h-100">
       <CardBody>
-        <CardTitle>
+        <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
           <IntlMessages id="dashboards.news-letter" />
-          {/* <div>
-            <Badge color="light" className="mb-1">
-              <IntlMessages id="badge.light" />
+          <div>
+            <Badge color="" className="mb-1 rounder border border-theme-4">
+              <i className="iconsminds-calendar-4" />
+              <IntlMessages id="dashboards.select-date" />
             </Badge>{' '}
-            <Badge color="light" className="mb-1">
-              <IntlMessages id="badge.light" />
+            <Badge color="" className="mb-1 border border-theme-4">
+              <i className="iconsminds-calendar-4" />
+              <IntlMessages id="dashboards.filters" />
             </Badge>{' '}
-          </div> */}
+          </div>
         </CardTitle>
         <Table columns={cols} data={products} />
       </CardBody>

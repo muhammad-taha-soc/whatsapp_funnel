@@ -289,7 +289,7 @@ export const usersChartData = {
   datasets: [
     {
       label: '',
-      data: [65, 600, 800, 550, 1000, 850, 900],
+      data: [65, 60, 80, 55, 30, 85, 90],
       borderColor: colors.themeColor2,
       pointBackgroundColor: colors.foregroundColor,
       pointBorderColor: colors.themeColor2,

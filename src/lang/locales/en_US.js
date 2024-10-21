@@ -163,6 +163,8 @@ module.exports = {
   'dashboards.calendar': 'Calendar',
   'dashboards.best-sellers': 'Best Sellers',
   'dashboards.news-letter': 'News Letter',
+  'dashboards.make-money': 'Make Money',
+  'dashboards.view-profiles': 'View Profiles',
   'dashboards.website-visits': 'Website Visits',
   'dashboards.unique-visitors': 'Unique Visitors',
   'dashboards.this-week': 'This Week',
@@ -205,6 +207,8 @@ module.exports = {
   'dashboards.type': 'Type',
   'dashboards.keyword': 'Keyword',
   'dashboards.search': 'Search',
+  'dashboards.select-date': 'Select Date',
+  'dashboards.filters': 'Filters',
   'dashboards.top-rated-items': 'Top Rated Items',
 
   /* 05.Pages */

@@ -48,6 +48,7 @@ import IconCardsCarousel from 'containers/dashboards/IconCardsCarousel';
 // import ConversionRatesChartCard from 'containers/dashboards/ConversionRatesChartCard';
 import UsersChartCard from 'containers/dashboards/UsersChartCard';
 import NewsLetter from 'containers/dashboards/NewsLetter';
+import MakeMoney from 'containers/dashboards/MakeMoney';
 // import TopRatedItems from 'containers/dashboards/TopRatedItems';
 
 // const friendsData = whotoFollowData.slice();
@@ -104,6 +105,11 @@ const DefaultDashboard = ({ intl, match }) => {
 
         <TabContent activeTab={activeSecondTab}>
           <TabPane tabId="1">
+            <Row>
+              <Colxx xl="12" md="12" lg="12" className="mb-4">
+                <MakeMoney />
+              </Colxx>
+            </Row>
             <Row>
               <Colxx lg="12" xl="12" md="12" className="mb-4">
                 <IconCardsCarousel />

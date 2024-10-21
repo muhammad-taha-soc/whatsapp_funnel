@@ -22,7 +22,7 @@ const UsersChartCard = () => {
       <CardBody>
         <div className="float-left float-none-xs">
           <div className="d-inline-block">
-            <h5 className="d-inline">
+            <h5 className="d-inline font-weight-bold">
               <IntlMessages id="dashboards.users" />
             </h5>
             <span className="text-muted text-small d-block mt-2">

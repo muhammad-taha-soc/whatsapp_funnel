@@ -35,6 +35,10 @@
   border-color: $primary-color !important;
 }
 
+.border-theme-4 {
+  border-color: $theme-color-6 !important;
+}
+
 .remove-last-border > *:last-child {
   border-bottom: initial !important;
 }
