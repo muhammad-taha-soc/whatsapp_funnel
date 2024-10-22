@@ -8,6 +8,9 @@ import AppLayout from 'layout/AppLayout';
 const Dashboards = React.lazy(() =>
   import(/* webpackChunkName: "dashboards" */ './dashboards')
 );
+const NewsLetter = React.lazy(() =>
+  import(/* webpackChunkName: "dashboards" */ './newsletter')
+);
 const Pages = React.lazy(() =>
   import(/* webpackChunkName: "pages" */ './pages')
 );
@@ -34,6 +37,10 @@ const App = ({ match }) => {
             <Route
               path={`${match.url}/dashboards`}
               render={(props) => <Dashboards {...props} />}
+            />
+            <Route
+              path={`${match.url}/news-letter`}
+              render={(props) => <NewsLetter {...props} />}
             />
             <Route
               path={`${match.url}/applications`}

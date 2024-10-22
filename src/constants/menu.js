@@ -397,35 +397,37 @@ const data = [
     id: 'newsletter',
     icon: 'iconsminds-inbox-full',
     label: 'dashboards.news-letter',
-      to: `${adminRoot}/menu`,
-      subs: [
-        {
-          icon: 'simple-icon-logout',
-          label: 'menu.types',
-          to: `${adminRoot}/menu/types`,
-        },
-        {
-          icon: 'simple-icon-layers',
-          label: 'menu.levels',
-          to: `${adminRoot}/menu/levels`,
-          subs: [
-            {
-              icon: 'simple-icon-arrow-right',
-              label: 'menu.third-level-1',
-              to: `${adminRoot}/menu/levels/third-level-1`,
-            },
-            {
-              icon: 'simple-icon-arrow-right',
-              label: 'menu.third-level-2',
-              to: `${adminRoot}/menu/levels/third-level-2`,
-            },
-            {
-              icon: 'simple-icon-arrow-right',
-              label: 'menu.third-level-3',
-              to: `${adminRoot}/menu/levels/third-level-3`,
-            },
-          ],
-  }]},
+    to: `${adminRoot}/news-letter`,
+    subs: [
+      {
+        icon: 'simple-icon-logout',
+        label: 'dashboards.news-letter',
+        to: `${adminRoot}/news-letter`,
+      },
+      // {
+      //   icon: 'simple-icon-layers',
+      //   label: 'menu.levels',
+      //   to: `${adminRoot}/menu/levels`,
+      //   subs: [
+      //     {
+      //       icon: 'simple-icon-arrow-right',
+      //       label: 'menu.third-level-1',
+      //       to: `${adminRoot}/menu/levels/third-level-1`,
+      //     },
+      //     {
+      //       icon: 'simple-icon-arrow-right',
+      //       label: 'menu.third-level-2',
+      //       to: `${adminRoot}/menu/levels/third-level-2`,
+      //     },
+      //     {
+      //       icon: 'simple-icon-arrow-right',
+      //       label: 'menu.third-level-3',
+      //       to: `${adminRoot}/menu/levels/third-level-3`,
+      //     },
+      //   ],
+      // },
+    ],
+  },
   // {
   //   id: 'docs',
   //   icon: 'iconsminds-library',

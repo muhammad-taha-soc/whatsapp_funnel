@@ -3,9 +3,18 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-key */
-import React from 'react';
+import React, { useState } from 'react';
 import { useTable, usePagination, useSortBy } from 'react-table';
-import { Badge, Card, CardBody, CardTitle } from 'reactstrap'; //
+import {
+  Badge,
+  Card,
+  CardBody,
+  CardTitle,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from 'reactstrap'; // Added Dropdown, DropdownToggle, DropdownMenu, DropdownItem
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 
@@ -44,18 +53,9 @@ function Table({ columns, data }) {
                 <th
                   key={`th_${columnIndex}`}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
-                  // className={`
-                  //   ${
-                  //     column.isSorted
-                  //       ? column.isSortedDesc
-                  //         ? 'sorted-desc'
-                  //         : 'sorted-asc'
-                  //       : ''
-                  //   }
-                  // `}
                 >
                   {column.render('Header')}{' '}
-                  {column.render('Header') !== 'Newsletter' && (
+                  {column.render('Header') === 'Last edit' && (
                     <i
                       className={`ml-2 mt-1 ${
                         column.isSortedDesc
@@ -110,43 +110,29 @@ function Table({ columns, data }) {
   );
 }
 
-const NewsLetter = () => {
+const Draft = () => {
   const cols = React.useMemo(
     () => [
       {
-        Header: 'Newsletter',
+        Header: 'Surname',
         accessor: 'newsLetter',
-        cellClass: 'font-weight-bold w-25',
+        cellClass: 'font-weight-bold w-75',
         Cell: (props) => <>{props.value}</>,
         sortType: 'basic',
       },
       {
-        Header: 'Date',
+        Header: 'Last edit',
         accessor: 'createDate',
         cellClass: 'text-muted w-20',
         Cell: (props) => <>{props.value}</>,
         sortType: 'basic',
       },
       {
-        Header: 'Delivered (%)',
-        accessor: 'delivered',
-        cellClass: 'text-theme-3 w-20 ',
-        Cell: (props) => <>{props.value}</>,
-        sortType: 'basic',
-      },
-      {
-        Header: 'Read (%)',
-        accessor: 'read',
-        cellClass: 'text-primary w-20',
-        Cell: (props) => <>{props.value}</>,
-        sortType: 'basic',
-      },
-      {
-        Header: 'Clicked (%)',
-        accessor: 'clicked',
-        cellClass: 'text-theme-2 w-20',
-        Cell: (props) => <>{props.value}</>,
-        sortType: 'basic',
+        Header: 'Action',
+        accessor: '',
+        cellClass: 'w-20',
+        Cell: (props) => <ActionDropdown props={props} />, // Replaced with ActionDropdown component
+        disableSortBy: true,
       },
     ],
     []
@@ -156,14 +142,8 @@ const NewsLetter = () => {
     <Card className="h-100">
       <CardBody>
         <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
-          <IntlMessages id='dashboards.news-letter' />
+          <IntlMessages id="Draft" />
           <div>
-           
-              <Badge color="" className="mb-1 rounder border border-theme-4">
-                <i className="iconsminds-calendar-4" />
-                <IntlMessages id="dashboards.select-date" />
-              </Badge>
-            
             <Badge color="" className="mb-1 border border-theme-4">
               <i className="iconsminds-calendar-4" />
               <IntlMessages id="dashboards.filters" />
@@ -176,4 +156,37 @@ const NewsLetter = () => {
   );
 };
 
-export default NewsLetter;
+// Action Dropdown component
+const ActionDropdown = ({ props }) => {
+  console.log({ props });
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => setDropdownOpen((prevState) => !prevState);
+
+  return (
+    <Dropdown
+      isOpen={dropdownOpen}
+      toggle={toggleDropdown}
+      className=" c-pointer"
+    >
+      <DropdownToggle
+        className="simple-icon-options-vertical"
+        tag="span"
+        data-toggle="dropdown"
+      />
+      <DropdownMenu right>
+        <DropdownItem className="">
+          <i className="simple-icon-minus mr-2" />
+          Duplicate{' '}
+        </DropdownItem>
+        <DropdownItem divider />
+        <DropdownItem className='text-theme-5 '>
+          <i className="simple-icon-trash mr-2" /> Delete
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+};
+
+export default Draft;

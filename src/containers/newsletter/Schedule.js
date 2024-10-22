@@ -55,7 +55,7 @@ function Table({ columns, data }) {
                   // `}
                 >
                   {column.render('Header')}{' '}
-                  {column.render('Header') !== 'Newsletter' && (
+                  {column.render('Header') === 'Last edit' && (
                     <i
                       className={`ml-2 mt-1 ${
                         column.isSortedDesc
@@ -110,43 +110,34 @@ function Table({ columns, data }) {
   );
 }
 
-const NewsLetter = () => {
+const Schedule = () => {
   const cols = React.useMemo(
     () => [
       {
-        Header: 'Newsletter',
+        Header: 'Surname',
         accessor: 'newsLetter',
-        cellClass: 'font-weight-bold w-25',
+        cellClass: 'font-weight-bold w-75',
         Cell: (props) => <>{props.value}</>,
         sortType: 'basic',
       },
       {
-        Header: 'Date',
+        Header: 'Last edit',
         accessor: 'createDate',
         cellClass: 'text-muted w-20',
         Cell: (props) => <>{props.value}</>,
         sortType: 'basic',
       },
       {
-        Header: 'Delivered (%)',
-        accessor: 'delivered',
-        cellClass: 'text-theme-3 w-20 ',
-        Cell: (props) => <>{props.value}</>,
-        sortType: 'basic',
-      },
-      {
-        Header: 'Read (%)',
-        accessor: 'read',
-        cellClass: 'text-primary w-20',
-        Cell: (props) => <>{props.value}</>,
-        sortType: 'basic',
-      },
-      {
-        Header: 'Clicked (%)',
-        accessor: 'clicked',
-        cellClass: 'text-theme-2 w-20',
-        Cell: (props) => <>{props.value}</>,
-        sortType: 'basic',
+        Header: 'Action',
+        accessor: '',
+        cellClass: 'w-20',
+        Cell: (props) => (
+          <>
+            {props.value} <i className="simple-icon-options-vertical" />
+          </>
+        ),
+        // sortType: 'basic',
+        disableSortBy: true,
       },
     ],
     []
@@ -156,14 +147,8 @@ const NewsLetter = () => {
     <Card className="h-100">
       <CardBody>
         <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
-          <IntlMessages id='dashboards.news-letter' />
+          <IntlMessages id="Schedule" />
           <div>
-           
-              <Badge color="" className="mb-1 rounder border border-theme-4">
-                <i className="iconsminds-calendar-4" />
-                <IntlMessages id="dashboards.select-date" />
-              </Badge>
-            
             <Badge color="" className="mb-1 border border-theme-4">
               <i className="iconsminds-calendar-4" />
               <IntlMessages id="dashboards.filters" />
@@ -176,4 +161,4 @@ const NewsLetter = () => {
   );
 };
 
-export default NewsLetter;
+export default Schedule;
