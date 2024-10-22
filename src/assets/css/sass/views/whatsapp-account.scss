@@ -2,19 +2,34 @@
   height: 120px;
   border-radius: 50% !important;
   border: 3px solid $foreground-color;
+}
 
-  //   position: absolute;
-  //   left: 50%;
-  //   z-index: 1;
-  //   transform: translateX(-50%);
-  //   top: -75px;
+.account-profile-background-layer {
+  height: 15vh;
+}
+
+.account-profile-background-layer-btn {
+  text-align: end;
+  align-content: flex-end;
+
+  button {
+    margin-right: 2%;
+    margin-bottom: 2%;
+  }
 }
 
 .account-profile-section {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
-  margin: 2%;
+  align-items: flex-end;
+  margin-left: 2%;
+  border-radius: 10px !important;
+
+  position: relative;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+  top: -75px;
 
   div {
     p {

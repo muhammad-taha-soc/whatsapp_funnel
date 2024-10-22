@@ -4,27 +4,19 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-key */
 import React from 'react';
-// import { useTable, usePagination, useSortBy } from 'react-table';
 import { Badge, Card, CardBody, CardTitle, Row } from 'reactstrap'; //
-// import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
-
-// import products from 'data/products';
 import { Colxx, Separator } from 'components/common/CustomBootstrap';
 import SingleLightbox from 'components/pages/SingleLightbox';
 
-
-
 const AccountProfile = () => {
-
-
   return (
     <Card className="mb-4">
       <div className="account-profile-section">
         <SingleLightbox
           thumb="/assets/img/profiles/l-1.jpg"
           large="/assets/img/profiles/1.jpg"
-          className="account-profile-img"
+          className="account-profile-img "
         />
         <div>
           <p className="">Sarah Cortney</p>
@@ -36,53 +28,6 @@ const AccountProfile = () => {
       </div>
       <Separator className="mb-5" />
       <CardBody>
-        {/* <Colxx xxs="12" lg="12" md="12" xl="12" className="">
-                      <p className="mb-3">
-                        <Badge
-                          color="outline-secondary"
-                          className="mb-1 mr-1"
-                          pill
-                        >
-                          FRONTEND
-                        </Badge>
-                        <Badge
-                          color="outline-secondary"
-                          className="mb-1 mr-1"
-                          pill
-                        >
-                          JAVASCRIPT
-                        </Badge>
-                        <Badge
-                          color="outline-secondary"
-                          className="mb-1 mr-1"
-                          pill
-                        >
-                          SECURITY
-                        </Badge>
-                        <Badge
-                          color="outline-secondary"
-                          className="mb-1 mr-1"
-                          pill
-                        >
-                          DESIGN
-                        </Badge>
-                      </p>
-                    </Colxx> */}
-        {/* <Table borderless>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                      </tbody>
-                    </Table> */}
         <Row>
           <Colxx
             md="4"

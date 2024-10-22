@@ -11,6 +11,7 @@ import {
   NavItem,
   TabContent,
   TabPane,
+  Button,
   // CardTitle,
   // Badge,
   // Button,
@@ -53,6 +54,7 @@ import NewsLetter from 'containers/dashboards/NewsLetter';
 import MakeMoney from 'containers/dashboards/MakeMoney';
 // import IntlMessages from 'helpers/IntlMessages';
 import AccountProfile from 'containers/dashboards/AccountProfile';
+import IntlMessages from 'helpers/IntlMessages';
 // import TopRatedItems from 'containers/dashboards/TopRatedItems';
 
 // const friendsData = whotoFollowData.slice();
@@ -63,7 +65,7 @@ const DefaultDashboard = ({ intl, match }) => {
   console.log(messages);
 
   // const [activeFirstTab, setActiveFirstTab] = useState('1');
-  const [activeSecondTab, setActiveSecondTab] = useState('1');
+  const [activeSecondTab, setActiveSecondTab] = useState('2');
 
   return (
     <>
@@ -220,32 +222,17 @@ const DefaultDashboard = ({ intl, match }) => {
           </TabPane>
           <TabPane tabId="2">
             <Row>
-              {/* <Colxx xxs="12">
-                <CardTitle className="mb-4">
-                  <IntlMessages id="cards.image-card" />
-                </CardTitle>
-                <Row>
-                  <Colxx xxs="12" xs="12" lg="12" md='12'>
-                    <Card className="mb-4">
-                      <div className="position-relative ">
-                        <CardImg
-                          top
-                          src="/assets/img/cards/thumb-1.jpg"
-                          alt="Card image cap"
-                        />
-                      </div>
-                      <CardBody>
-                        <CardSubtitle className="mb-4">
-                          Homemade Cheesecake with Fresh Berries and Mint
-                        </CardSubtitle>
-                        <CardText className="text-muted text-small mb-0 font-weight-light">
-                          09.04.2018
-                        </CardText>
-                      </CardBody>
-                    </Card>
-                  </Colxx>
-                </Row>
-              </Colxx> */}
+              <Colxx xxs="12" lg="12" md="12" xl="12" className="">
+                <div className="bg-theme-1 account-profile-background-layer account-profile-background-layer-btn ">
+                  <Button
+                    color="light"
+                    className="default btn btn-primary text-primary font-weight-bold"
+                  >
+                    <i className="iconsminds-repeat-2 mr-2" />
+                    <IntlMessages id="Refresh data" />
+                  </Button>{' '}
+                </div>
+              </Colxx>
               <Colxx xxs="12" lg="12" md="12" xl="12" className="">
                 <AccountProfile />
               </Colxx>
