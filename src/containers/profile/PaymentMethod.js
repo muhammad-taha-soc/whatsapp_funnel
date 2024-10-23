@@ -6,6 +6,7 @@ import {
     Input,
 } from 'reactstrap'; //
 import { Separator } from 'components/common/CustomBootstrap';
+import { all } from 'redux-saga/effects';
 
 const PaymentMethod = () => {
 
@@ -20,7 +21,7 @@ const PaymentMethod = () => {
                             className='d-flex justify-content-between '
                             style={{
                                 border: '1px solid #0dac8a',
-                                borderRadius: '5px',
+                                borderRadius: '8px',
                                 padding: '10px 20px',
                             }}>
                             <div
@@ -29,11 +30,13 @@ const PaymentMethod = () => {
                                 <div
                                     className='d-flex '
                                 >
-                                    <div className='mr-2'>Visa</div>
+                                    <div className='mr-3'>
+                                        <img src={'/assets/img/payment/visa-image.png'} style={{ width: '30px', height: '30px' }} alt='Visa' />
+                                    </div>
                                     <div>
-                                        <p className='mb-0'> Visa Ending in 2424</p>
-                                        <p className='mb-1'> Expiry 06/2024</p>
-                                        <p > Set as default</p>
+                                        <p className='mb-0' style={{ color: '#344054', fontSize: '14px', fontWeight: '600' }}> Visa Ending in 2424</p>
+                                        <p className='mb-1' style={{ color: '#475467', fontSize: '14px', fontWeight: '400' }}> Expiry 06/2024</p>
+                                        <p className='mb-0' style={{ color: "#475467", fontSize: '14px', fontWeight: '600' }}> Set as default <span style={{ color: '#0DAC8A', fontWeight: '800' }}>Edit</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +57,7 @@ const PaymentMethod = () => {
                             className='d-flex justify-content-between align-items-top'
                             style={{
                                 border: '1px solid #0dac8a',
-                                borderRadius: '5px',
+                                borderRadius: '8px',
                                 padding: '10px 20px',
                             }}>
                             <div
@@ -63,11 +66,13 @@ const PaymentMethod = () => {
                                 <div
                                     className='d-flex '
                                 >
-                                    <div className='mr-2'>Visa</div>
+                                    <div className='mr-3'>
+                                        <img src={'/assets/img/payment/visa-image.png'} style={{ width: '30px', height: '30px' }} alt='Visa' />
+                                    </div>
                                     <div>
-                                        <p className='mb-0'> Visa Ending in 2424</p>
-                                        <p className='mb-1'> Expiry 06/2024</p>
-                                        <p > Set as default</p>
+                                        <p className='mb-0' style={{ color: '#344054', fontSize: '14px', fontWeight: '600' }}> Visa Ending in 2424</p>
+                                        <p className='mb-1' style={{ color: '#475467', fontSize: '14px', fontWeight: '400' }}> Expiry 06/2024</p>
+                                        <p className='mb-0' style={{ color: "#475467", fontSize: '14px', fontWeight: '600' }}> Set as default <span style={{ color: '#0DAC8A', fontWeight: '800' }}>Edit</span></p>
                                     </div>
                                 </div>
                             </div>
