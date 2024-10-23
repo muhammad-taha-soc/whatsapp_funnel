@@ -219,6 +219,15 @@ hr {
   margin-bottom: 60px;
 }
 
+.logo-single-login {
+  width: 110px;
+  height: 35px;
+  background: url($logo-path) no-repeat;
+  background-position: center center;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
 .list-item-heading-container {
   width: calc(100% - 125px);
 }
@@ -286,7 +295,7 @@ a {
 p {
   font-size: 0.85rem;
   line-height: 1.3rem;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .text-large {

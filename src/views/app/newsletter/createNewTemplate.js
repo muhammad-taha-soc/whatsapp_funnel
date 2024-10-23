@@ -1,0 +1,283 @@
+import React, { useState } from 'react';
+import { injectIntl } from 'react-intl';
+// import { Row } from 'reactstrap';
+import {
+  Row,
+  Card,
+  // CardBody,
+  // CardTitle,
+  // CardHeader,
+  Nav,
+  NavItem,
+  TabContent,
+  TabPane,
+  Button,
+  // CardTitle,
+  // Badge,
+  // Button,
+  // Badge,
+  // CardText,
+  // CardSubtitle,
+  // Table,
+  // CardImg
+  //   Form,
+  FormGroup,
+  Label,
+  Input,
+  // CardBody,
+  //   CardTitle,
+  Badge,
+  CardTitle,
+} from 'reactstrap';
+import Select from 'react-select';
+
+import { NavLink } from 'react-router-dom';
+// import SingleLightbox from 'components/pages/SingleLightbox';
+// import recentPostsData from 'data/recentposts';
+// import RecentPost from 'components/common/RecentPost';
+// import whotoFollowData from 'data/follow';
+// import UserFollow from 'components/common/UserFollow';
+// import GalleryDetail from 'containers/pages/GalleryDetail';
+import classnames from 'classnames';
+// import IntlMessages from 'helpers/IntlMessages';
+import { Colxx } from 'components/common/CustomBootstrap';
+// import Breadcrumb from 'containers/navs/Breadcrumb';
+// import RecentOrders from 'containers/dashboards/RecentOrders';
+// import Logs from 'containers/dashboards/Logs';
+// import Tickets from 'containers/dashboards/Tickets';
+// import Calendar from 'containers/dashboards/Calendar';
+// import BestSellers from 'containers/dashboards/BestSellers';
+// import ProfileStatuses from 'containers/dashboards/ProfileStatuses';
+// import GradientCardContainer from 'containers/dashboards/GradientCardContainer';
+// import Cakes from 'containers/dashboards/Cakes';
+// import GradientWithRadialProgressCard from 'components/cards/GradientWithRadialProgressCard';
+// import SortableStaticticsRow from 'containers/dashboards/SortableStaticticsRow';
+// import AdvancedSearch from 'containers/dashboards/AdvancedSearch';
+// import SmallLineCharts from 'containers/dashboards/SmallLineCharts';
+// import SalesChartCard from 'containers/dashboards/SalesChartCard';
+// import ProductCategoriesPolarArea from 'containers/dashboards/ProductCategoriesPolarArea';
+// import WebsiteVisitsChartCard from 'containers/dashboards/WebsiteVisitsChartCard';
+// import ConversionRatesChartCard from 'containers/dashboards/ConversionRatesChartCard';
+// import NewsLetter from 'containers/dashboards/NewsLetter';
+// import IntlMessages from 'helpers/IntlMessages';
+// import AccountProfile from 'containers/dashboards/AccountProfile';
+import IntlMessages from 'helpers/IntlMessages';
+// import Schedule from 'containers/newsletter/Schedule';
+// import Draft from 'containers/newsletter/Draft';
+// import History from 'containers/newsletter/History';
+// import TagsInput from 'react-tagsinput';
+import CustomSelectInput from 'components/common/CustomSelectInput';
+// import ReactQuill from 'react-quill';
+// import TagsInputExample from 'containers/forms/TagsInputExample';
+
+const CreateNewTemplate = ({ intl, match }) => {
+  const { messages } = intl;
+  console.log(messages);
+  console.log(match);
+  const selectData = [
+    { label: 'Cake', value: 'cake', key: 0 },
+    { label: 'Cupcake', value: 'cupcake', key: 1 },
+    { label: 'Dessert', value: 'dessert', key: 2 },
+  ];
+
+  const [activeSecondTab, setActiveSecondTab] = useState('1');
+  const [selectedOptionLT, setSelectedOptionLT] = useState('');
+  //    const [textQuillBubble, setTextQuillBubble] = useState('');
+  // const [tagsLT, setTagsLT] = useState([]);
+  return (
+    <>
+      <Row>
+        <Colxx xxs="12">
+          <div className="d-flex flex-row justify-content-between align-items-center mb-4">
+            <IntlMessages id={`${'Dashboard'}`} />
+            <div className="">
+              <Badge
+                className="default btn  text-muted font-weight-bold mr-2"
+                color="light"
+              >
+                <i className="iconsminds-yes" />
+                Saved
+              </Badge>
+              <Button
+                color="light"
+                className="default btn btn-primary bg-primary text-white font-weight-bold"
+              >
+                <IntlMessages id={`${'Send To Review'}`} />
+              </Button>{' '}
+              <Button
+                color="light"
+                className="default btn btn-primary bg-primary text-white font-weight-bold"
+              >
+                <i className="iconsminds-arrow-circle" />
+              </Button>{' '}
+            </div>
+          </div>
+        </Colxx>
+      </Row>
+      <Card>
+        <Colxx xxs="12" xs="12" sm="12" lg="12" md="12" xxl="12" xl="12">
+          <div className="d-flex flex-row justify-content-between">
+            <Nav tabs className=" mb-3 ml-0 mr-0">
+              <NavItem className="w-14 text-center">
+                <NavLink
+                  to="#"
+                  location={{}}
+                  className={classnames({
+                    active: activeSecondTab === '1',
+                    'nav-link': true,
+                  })}
+                  onClick={() => {
+                    setActiveSecondTab('1');
+                  }}
+                >
+                  Create New Templates
+                </NavLink>
+              </NavItem>
+            </Nav>
+            {/* <div className="">
+              <Button
+                color="light"
+                className="default btn btn-primary bg-primary text-white font-weight-bold"
+              >
+                <i className="simple-icon-plus mr-2" />
+                <IntlMessages
+                  id={`${
+                    activeSecondTab === '1'
+                      ? 'Create Newsletter'
+                      : 'New Template'
+                  }`}
+                />
+              </Button>{' '}
+            </div> */}
+          </div>
+          <TabContent activeTab={activeSecondTab}>
+            <TabPane tabId="1">
+              <Row>
+                <Colxx lg="3" xl="3" md="3" className="mb-4">
+                  <FormGroup className="mb-2">
+                    <Label>
+                      <IntlMessages id="Template Name" />
+                    </Label>
+                    <Input type="name" placeholder="Enter name" />
+                  </FormGroup>
+                </Colxx>
+                <Colxx lg="3" xl="3" md="3" className="mb-4">
+                  <FormGroup className="">
+                    <Label>
+                      <IntlMessages id="Language" />
+                    </Label>
+                    <Select
+                      components={{ Input: CustomSelectInput }}
+                      className="react-select"
+                      classNamePrefix="react-select"
+                      name="form-field-name"
+                      value={selectedOptionLT}
+                      onChange={(val) => setSelectedOptionLT(val)}
+                      options={selectData}
+                      placeholder="Select existing template"
+                    />
+                  </FormGroup>
+                </Colxx>
+              </Row>
+              <Row>
+                <Colxx lg="6" xl="6" md="6" className="mb-4">
+                  <CardTitle className="mb-2 font-weight-bold">Blah Blah</CardTitle>
+                  <div>
+                    <IntlMessages id="Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. " />
+                  </div>
+                </Colxx>
+              </Row>
+              <Row>
+                <Colxx lg="6" xl="6" md="6" className="mb-4">
+                  <FormGroup className="mb-2">
+                    <Label>
+                      <IntlMessages id="Headers (Optional)" />
+                    </Label>
+                    <div className="d-flex flex-row justify-content-between">
+                      <Badge color="outline-primary" className="mb-1 mr-1 w-25">
+                        <i className="iconsminds-file-clipboard-file---text" />
+
+                        <IntlMessages id="Text" />
+                      </Badge>
+                      <Badge color="outline-primary" className="mb-1 mr-1 w-25">
+                        <i className="iconsminds-photo" />
+
+                        <IntlMessages id="Image" />
+                      </Badge>
+                      <Badge color="outline-primary" className="mb-1 mr-1 w-25">
+                        <i className="iconsminds-video-5" />
+
+                        <IntlMessages id="Video" />
+                      </Badge>
+                      <Badge color="outline-primary" className="mb-1 mr-1 w-25">
+                        <i className="iconsminds-file" />
+
+                        <IntlMessages id="File" />
+                      </Badge>
+                    </div>
+                  </FormGroup>
+                </Colxx>
+              </Row>
+              <Row>
+                <Colxx lg="6" xl="6" md="6" className="mb-4">
+                  <FormGroup className="mb-2">
+                    <Label>
+                      <IntlMessages id="Message" />
+                    </Label>
+                    {/* <ReactQuill
+                      theme="bubble"
+                      value={textQuillBubble}
+                      onChange={(val) => setTextQuillBubble(val)}
+                    /> */}
+                    <Input type="textarea" placeholder="Write text message" />
+                  </FormGroup>
+                  <IntlMessages id="* Make sure the message you write is in the same language that you chose above." />
+                </Colxx>
+              </Row>
+              <Row>
+                <Colxx lg="6" xl="6" md="6" className="mb-4">
+                  <FormGroup className="mb-2">
+                    <Label>
+                      <IntlMessages id="Footer (Optional)" />
+                    </Label>
+                    <Input type="name" placeholder="Enter Footer text" />
+                  </FormGroup>
+                </Colxx>
+              </Row>
+              <Row>
+                <Colxx lg="3" xl="3" md="3" className="mb-2">
+                  <Label>
+                    <IntlMessages id="Button text" />
+                  </Label>
+                  <Input type="name" placeholder="Enter button text" />
+                </Colxx>
+                <Colxx lg="3" xl="3" md="3" className="mb-2">
+                  <Label>
+                    <IntlMessages id="Website URL" />
+                  </Label>
+                  <Input type="name" placeholder="Enter website URL" />
+                </Colxx>
+              </Row>
+              <Row>
+                <Colxx lg="6" xl="6" md="6" className="mb-4">
+                  <IntlMessages id="* You can add up to three regular buttons or one URL button. You can only pick one type of button, not both." />
+                </Colxx>
+              </Row>
+              <Row>
+                <Colxx lg="6" xl="6" md="6" className="mb-4">
+                  <FormGroup className="mb-2">
+                    <Label>
+                      <IntlMessages id="Variable" />
+                    </Label>
+                    <Input type="name" placeholder="" />
+                  </FormGroup>
+                </Colxx>
+              </Row>
+            </TabPane>
+          </TabContent>
+        </Colxx>
+      </Card>
+    </>
+  );
+};
+export default injectIntl(CreateNewTemplate);

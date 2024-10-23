@@ -13,6 +13,7 @@ import {
 
 import IntlMessages from 'helpers/IntlMessages';
 import { AreaChart } from 'components/charts';
+import {FaCaretUp } from 'react-icons/fa';
 
 import { usersChartData } from 'data/charts';
 
@@ -31,7 +32,8 @@ const UsersChartCard = () => {
             <div className=" d-flex flex-row align-items-center">
               <h2 className="d-inline-block mt-1 font-weight-bold">26,201</h2>
               <span className="ml-2 d-inline mb-2 text-primary">
-                10% <i className="simple-icon-arrow-up text-extra-small" />
+                10%{' '}
+                <FaCaretUp className="text-extra-small" />
               </span>
             </div>
           </div>
@@ -51,7 +53,7 @@ const UsersChartCard = () => {
               </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown> */}
-          <Nav className="">
+          <Nav className="rounded border border-muted">
             <NavItem>
               <NavLink active href="#">
                 <IntlMessages id="dashboards.daily" />

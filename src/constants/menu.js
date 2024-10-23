@@ -1,16 +1,21 @@
+import React from 'react';
+import { RiApps2Fill } from 'react-icons/ri';
+import { BsFillTicketPerforatedFill } from 'react-icons/bs';
+import { BiSolidUserRectangle } from 'react-icons/bi';
+import { HiMiniInboxArrowDown } from 'react-icons/hi2';
 import { adminRoot } from './defaultValues';
 
 const data = [
   {
     id: 'dashboards',
-    icon: 'iconsminds-shop-4',
+    icon: <RiApps2Fill size={30} className="mb-2" />,
     label: 'menu.dashboards',
     to: `${adminRoot}/dashboards`,
     // roles: [UserRole.Admin, UserRole.Editor],
     subs: [
       {
         icon: 'simple-icon-briefcase',
-        label: 'menu.default',
+        label: 'menu.dashboards',
         to: `${adminRoot}/dashboards/default`,
         // roles: [UserRole.Admin],
       },
@@ -383,19 +388,33 @@ const data = [
   // },
   {
     id: 'contacts',
-    icon: 'simple-icon-user',
+    icon: <BiSolidUserRectangle size={30} className="mb-2" />,
     label: 'menu.contacts',
-    to: `${adminRoot}/contacts`,
+    to: `${adminRoot}/contacts/table`,
+    subs: [
+      {
+        icon: 'simple-icon-logout',
+        label: 'menu.contacts',
+        to: `${adminRoot}/contacts/table`,
+      },
+    ],
   },
   {
     id: 'coupons',
-    icon: 'iconsminds-tag-3',
+    icon: <BsFillTicketPerforatedFill size={30} className="mb-2" />,
     label: 'menu.coupons',
     to: `${adminRoot}/coupons`,
+    subs: [
+      {
+        icon: 'simple-icon-logout',
+        label: 'menu.coupons',
+        to: `${adminRoot}/coupons`,
+      },
+    ],
   },
   {
     id: 'newsletter',
-    icon: 'iconsminds-inbox-full',
+    icon: <HiMiniInboxArrowDown size={30} className="mb-2" />,
     label: 'dashboards.news-letter',
     to: `${adminRoot}/news-letter`,
     subs: [
@@ -404,28 +423,6 @@ const data = [
         label: 'dashboards.news-letter',
         to: `${adminRoot}/news-letter`,
       },
-      // {
-      //   icon: 'simple-icon-layers',
-      //   label: 'menu.levels',
-      //   to: `${adminRoot}/menu/levels`,
-      //   subs: [
-      //     {
-      //       icon: 'simple-icon-arrow-right',
-      //       label: 'menu.third-level-1',
-      //       to: `${adminRoot}/menu/levels/third-level-1`,
-      //     },
-      //     {
-      //       icon: 'simple-icon-arrow-right',
-      //       label: 'menu.third-level-2',
-      //       to: `${adminRoot}/menu/levels/third-level-2`,
-      //     },
-      //     {
-      //       icon: 'simple-icon-arrow-right',
-      //       label: 'menu.third-level-3',
-      //       to: `${adminRoot}/menu/levels/third-level-3`,
-      //     },
-      //   ],
-      // },
     ],
   },
   // {

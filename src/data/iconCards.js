@@ -1,30 +1,46 @@
+import { FaLink, FaRegFrown, FaRegSmile } from "react-icons/fa";
+import { BsFillTicketPerforatedFill } from 'react-icons/bs';
+import { MdOutlineChatBubbleOutline } from 'react-icons/md';
+
+import React from 'react'; 
+
 const data = [
   {
-    icon: 'iconsminds-clock',
+    icon: (
+      <BsFillTicketPerforatedFill
+        size={55}
+        className="bg-primary-opacity-icons rounded"
+      />
+    ),
     title: 'Redeemed coupons',
     value: 40,
     id: 1,
   },
   {
-    icon: 'iconsminds-speach-bubble-4',
+    icon: (
+      <MdOutlineChatBubbleOutline
+        size={55}
+        className="bg-primary-opacity-icons rounded"
+      />
+    ),
     title: 'Set coupons',
     value: 50,
     id: 2,
   },
   {
-    icon: 'simple-icon-link',
+    icon: <FaLink size={55} className="bg-primary-opacity-icons rounded" />,
     title: 'Click on review link',
     value: 65,
     id: 3,
   },
   {
-    icon: 'iconsminds-mail-read',
+    icon: <FaRegFrown size={55} className="bg-primary-opacity-icons rounded" />,
     title: 'Unsatisfied customers',
     value: 150,
     id: 4,
   },
   {
-    icon: 'simple-icon-emotsmile',
+    icon: <FaRegSmile size={55} className="bg-primary-opacity-icons rounded" />,
     title: 'Satisfied customers',
     value: 250,
     id: 5,

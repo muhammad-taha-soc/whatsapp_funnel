@@ -3,13 +3,23 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-key */
-import React from 'react';
+import React,{useState} from 'react';
 import { useTable, usePagination, useSortBy } from 'react-table';
-import { Badge, Card, CardBody, CardTitle } from 'reactstrap'; //
+import {
+  Badge,
+  Card,
+  CardBody,
+  CardTitle,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from 'reactstrap'; 
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 
 import products from 'data/products';
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 
 function Table({ columns, data }) {
   const {
@@ -56,13 +66,13 @@ function Table({ columns, data }) {
                 >
                   {column.render('Header')}{' '}
                   {column.render('Header') === 'Last edit' && (
-                    <i
-                      className={`ml-2 mt-1 ${
-                        column.isSortedDesc
-                          ? 'simple-icon-arrow-up'
-                          : 'simple-icon-arrow-down'
-                      }`}
-                    />
+                    <>
+                      {column.isSortedDesc ? (
+                        <FaCaretDown className="ml-2" />
+                      ) : (
+                        <FaCaretUp className="ml-2" />
+                      )}
+                    </>
                   )}
                   <span />
                 </th>
@@ -131,11 +141,7 @@ const Schedule = () => {
         Header: 'Action',
         accessor: '',
         cellClass: 'w-20',
-        Cell: (props) => (
-          <>
-            {props.value} <i className="simple-icon-options-vertical" />
-          </>
-        ),
+        Cell: (props) => <ActionDropdown props={props} />,
         // sortType: 'basic',
         disableSortBy: true,
       },
@@ -158,6 +164,38 @@ const Schedule = () => {
         <Table columns={cols} data={products} />
       </CardBody>
     </Card>
+  );
+};
+
+const ActionDropdown = ({ props }) => {
+  console.log({ props });
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => setDropdownOpen((prevState) => !prevState);
+
+  return (
+    <Dropdown
+      isOpen={dropdownOpen}
+      toggle={toggleDropdown}
+      className=" c-pointer"
+    >
+      <DropdownToggle
+        className="simple-icon-options-vertical "
+        tag="span"
+        data-toggle="dropdown"
+      />
+      <DropdownMenu right className="">
+        <DropdownItem className="">
+          <i className="simple-icon-minus mr-2" />
+          Duplicate{' '}
+        </DropdownItem>
+        <DropdownItem divider />
+        <DropdownItem className="text-theme-5 ">
+          <i className="simple-icon-trash mr-2" /> Delete
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
   );
 };
 

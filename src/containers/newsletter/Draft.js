@@ -17,6 +17,7 @@ import {
 } from 'reactstrap'; // Added Dropdown, DropdownToggle, DropdownMenu, DropdownItem
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 
 import products from 'data/products';
 
@@ -56,13 +57,13 @@ function Table({ columns, data }) {
                 >
                   {column.render('Header')}{' '}
                   {column.render('Header') === 'Last edit' && (
-                    <i
-                      className={`ml-2 mt-1 ${
-                        column.isSortedDesc
-                          ? 'simple-icon-arrow-up'
-                          : 'simple-icon-arrow-down'
-                      }`}
-                    />
+                    <>
+                      {column.isSortedDesc ? (
+                        <FaCaretDown className="ml-2" />
+                      ) : (
+                        <FaCaretUp className="ml-2" />
+                      )}
+                    </>
                   )}
                   <span />
                 </th>
@@ -171,11 +172,11 @@ const ActionDropdown = ({ props }) => {
       className=" c-pointer"
     >
       <DropdownToggle
-        className="simple-icon-options-vertical"
+        className="simple-icon-options-vertical "
         tag="span"
         data-toggle="dropdown"
       />
-      <DropdownMenu right>
+      <DropdownMenu right className=''>
         <DropdownItem className="">
           <i className="simple-icon-minus mr-2" />
           Duplicate{' '}

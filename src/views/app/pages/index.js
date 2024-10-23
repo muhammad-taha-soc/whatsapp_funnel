@@ -13,6 +13,16 @@ const Miscellaneous = React.lazy(() =>
 const Blog = React.lazy(() =>
   import(/* webpackChunkName: "pages-blog" */ './blog')
 );
+const CreateNewsLetter = React.lazy(() =>
+  import(
+    /* webpackChunkName: "dashboard-content" */ '../newsletter/createNewsLetter'
+  )
+);
+const CreateNewTemplate = React.lazy(() =>
+  import(
+    /* webpackChunkName: "dashboard-content" */ '../newsletter/createNewTemplate'
+  )
+);
 
 const Pages = ({ match }) => (
   <Suspense fallback={<div className="loading" />}>
@@ -25,6 +35,14 @@ const Pages = ({ match }) => (
       <Route
         path={`${match.url}/profile`}
         render={(props) => <Profile {...props} />}
+      />
+      <Route
+        path={`${match.url}/create-news-letter`}
+        render={(props) => <CreateNewsLetter {...props} />}
+      />
+      <Route
+        path={`${match.url}/create-new-template`}
+        render={(props) => <CreateNewTemplate {...props} />}
       />
       <Route
         path={`${match.url}/blog`}

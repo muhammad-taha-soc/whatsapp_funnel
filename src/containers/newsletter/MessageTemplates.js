@@ -14,12 +14,13 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-} from 'reactstrap'; 
+  Input,
+} from 'reactstrap';
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
-import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 
 import products from 'data/products';
+import { FaSearch } from 'react-icons/fa';
 
 function Table({ columns, data }) {
   const {
@@ -65,17 +66,7 @@ function Table({ columns, data }) {
                   // `}
                 >
                   {column.render('Header')}{' '}
-                  {!['Action', 'Sent', 'Surname'].includes(
-                    column.render('Header')
-                  ) && (
-                    <>
-                      {column.isSortedDesc ? (
-                        <FaCaretDown className="ml-2" />
-                      ) : (
-                        <FaCaretUp className="ml-2" />
-                      )}
-                    </>
-                  )}
+                  
                   <span />
                 </th>
               ))}
@@ -122,60 +113,70 @@ function Table({ columns, data }) {
   );
 }
 
-const History = () => {
+const MessageTemplates = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedRows, setSelectedRows] = useState(new Set());
+
+    const toggleRowSelection = (id) => {
+      setSelectedRows((prevSelected) => {
+        const newSelected = new Set(prevSelected);
+        if (newSelected.has(id)) {
+          newSelected.delete(id);
+        } else {
+          newSelected.add(id);
+        }
+        return newSelected;
+      });
+    };
+
   const cols = React.useMemo(
     () => [
       {
         Header: 'Surname',
         accessor: 'newsLetter',
-        cellClass: 'font-weight-bold w-20',
-        Cell: (props) => <>{props.value}</>,
+        cellClass: 'font-weight-bold w-40',
+        Cell: ({row}) => (
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <input
+                type="checkbox"
+                checked={selectedRows.has(row.id)}
+                onChange={() => toggleRowSelection(row.id)}
+                style={{ marginRight: '8px' }}
+              />
+              {row.original.title}
+            </div>
+        ),
         sortType: 'basic',
       },
       {
-        Header: 'Begin',
+        Header: 'Category',
         accessor: 'createDate',
-        cellClass: 'text-muted w-15',
-        Cell: (props) => <>{props.value}</>,
+        cellClass: 'text-muted w-20',
+        Cell: () => <>Marketing</>,
         sortType: 'basic',
       },
       {
-        Header: 'Sent',
+        Header: 'Language',
         accessor: 'stock',
-        cellClass: 'text-muted w-10',
-        Cell: (props) => <>{props.value}</>,
+        cellClass: 'text-muted w-20',
+        Cell: () => <>German</>,
         sortType: 'basic',
       },
       {
-        Header: 'Delivered (%)',
-        accessor: 'delivered',
-        cellClass: 'text-center w-20',
-        Cell: (props) => (
-          <div className=" text-theme-3 bg-theme-3-opacity font-weight-bold">
-            {props.value}
-          </div>
-        ),
-        sortType: 'basic',
-      },
-      {
-        Header: 'Read (%)',
+        Header: 'Status',
         accessor: 'read',
-        cellClass: 'text-center w-20',
-        Cell: (props) => (
-          <div className="text-primary bg-primary-opacity font-weight-bold">
-            {props.value}
-          </div>
-        ),
-        sortType: 'basic',
-      },
-      {
-        Header: 'Clicked (%)',
-        accessor: 'clicked',
-        cellClass: 'text-center w-20',
-        Cell: (props) => (
-          <div className="text-theme-2 bg-theme-2-opacity font-weight-bold">
-            {props.value}
-          </div>
+        cellClass: 'text-primary w-20',
+        Cell: () => (
+          <>
+            <Badge
+              color="outline-primary"
+              className="mb-1  text-primary rounder badge-pill border border-theme-1 text-extra-small"
+              pill
+            >
+              {/* <i className="iconsminds-record-2" /> */}
+              <IntlMessages id="Approved" />
+            </Badge>{' '}
+          </>
         ),
         sortType: 'basic',
       },
@@ -195,7 +196,29 @@ const History = () => {
     <Card className="h-100">
       <CardBody>
         <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
-          <IntlMessages id='History' />
+          <div
+            className="input-group"
+            style={{ width: '300px', position: 'relative' }}
+          >
+            <Input
+              type="text"
+              placeholder="Search Customer..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{ paddingLeft: '30px' }}
+            />
+            <FaSearch
+              className="search-icon"
+              style={{
+                position: 'absolute',
+                left: '10px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 1,
+                color: '#888',
+              }}
+            />
+          </div>
           <div>
             <Badge color="" className="mb-1 border border-theme-4">
               <i className="iconsminds-calendar-4" />
@@ -208,7 +231,6 @@ const History = () => {
     </Card>
   );
 };
-
 
 const ActionDropdown = ({ props }) => {
   console.log({ props });
@@ -242,4 +264,4 @@ const ActionDropdown = ({ props }) => {
   );
 };
 
-export default History;
+export default MessageTemplates;

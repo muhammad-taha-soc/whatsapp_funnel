@@ -8,6 +8,8 @@ import React from 'react';
 import { Badge, Button, Card, CardBody, CardTitle } from 'reactstrap'; //
 // import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
+import { GoDotFill } from 'react-icons/go';
+
 
 // import products from 'data/products';
 
@@ -30,12 +32,12 @@ const MakeMoney = () => {
           </div>
         </CardTitle>
         <span className="text-muted">525 689 656</span>
-        <div className="d-flex flex-row justify-content-between mt-1">
+        <div className="d-flex flex-row justify-content-between align-items-center mt-1">
           <Badge
             color="primary"
             className="mb-1 rounder badge-pill border border-theme-4 text-extra-small"
           >
-            <i className="iconsminds-record-2" />
+            <GoDotFill  className="" />
             <IntlMessages id="button.active" />
           </Badge>{' '}
           <span className="ml-2 d-inline mb-2 text-primary">

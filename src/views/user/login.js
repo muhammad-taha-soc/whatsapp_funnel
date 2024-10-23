@@ -67,19 +67,25 @@ const Login = ({ history, loading, error, loginUserAction }) => {
             </p>
           </div>
           <div className="form-side">
-            <NavLink to="/" className="white">
-              <span className="logo-single" />
-            </NavLink>
-            <CardTitle className="mb-4">
-              <IntlMessages id="user.login-title" />
-            </CardTitle>
+            <div className="text-center">
+              {/* <NavLink to="/" className="white"> */}
+              <span className="logo-single-login" />
+              {/* </NavLink> */}
+            </div>
+            <div className="text-center mb-4">
+              <CardTitle className="mb-0 font-weight-bold">
+                <IntlMessages id="Sign Up" />
+              </CardTitle>
+
+              <IntlMessages id="Create your account to start your journey with us!" />
+            </div>
 
             <Formik initialValues={initialValues} onSubmit={onUserLogin}>
               {({ errors, touched }) => (
                 <Form className="av-tooltip tooltip-label-bottom">
-                  <FormGroup className="form-group has-float-label">
+                  <FormGroup className="form-group ">
                     <Label>
-                      <IntlMessages id="user.email" />
+                      <IntlMessages id="Username/email" />
                     </Label>
                     <Field
                       className="form-control"
@@ -92,9 +98,14 @@ const Login = ({ history, loading, error, loginUserAction }) => {
                       </div>
                     )}
                   </FormGroup>
-                  <FormGroup className="form-group has-float-label">
-                    <Label>
+                  <FormGroup className="form-group">
+                    <Label className="d-flex justify-content-between align-items-center">
                       <IntlMessages id="user.password" />
+                      <div className="text-theme-1  font-weight-bold">
+                        {/* <NavLink to="/user/forgot-password"> */}
+                        <IntlMessages id="user.forgot-password" />
+                        {/* </NavLink> */}
+                      </div>
                     </Label>
                     <Field
                       className="form-control"
@@ -109,12 +120,9 @@ const Login = ({ history, loading, error, loginUserAction }) => {
                     )}
                   </FormGroup>
                   <div className="d-flex justify-content-between align-items-center">
-                    <NavLink to="/user/forgot-password">
-                      <IntlMessages id="user.forgot-password-question" />
-                    </NavLink>
                     <Button
                       color="primary"
-                      className={`btn-shadow btn-multiple-state ${
+                      className={`btn-shadow btn-multiple-state w-100 ${
                         loading ? 'show-spinner' : ''
                       }`}
                       size="lg"
@@ -125,9 +133,14 @@ const Login = ({ history, loading, error, loginUserAction }) => {
                         <span className="bounce3" />
                       </span>
                       <span className="label">
-                        <IntlMessages id="user.login-button" />
+                        <IntlMessages id="Sign Up" />
                       </span>
                     </Button>
+                  </div>
+                  <div className="mt-2 text-center">
+                    {/* <NavLink to="/user/forgot-password"> */}
+                    <IntlMessages id="Already have an account?" />
+                    {/* </NavLink> */}
                   </div>
                 </Form>
               )}

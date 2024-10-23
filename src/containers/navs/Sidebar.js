@@ -378,8 +378,10 @@ class Sidebar extends Component {
                             href={item.to}
                             rel="noopener noreferrer"
                             target="_blank"
+                            // className="text-muted"
                           >
-                            <i className={item.icon} />{' '}
+                            {item.icon}
+                            {/* <i className={item.icon} />{' '} */}
                             <IntlMessages id={item.label} />
                           </a>
                         ) : (
@@ -387,8 +389,10 @@ class Sidebar extends Component {
                             to={item.to}
                             onClick={(e) => this.openSubMenu(e, item)}
                             data-flag={item.id}
+                            className="text-muted"
                           >
-                            <i className={item.icon} />{' '}
+                            {item.icon}
+                            {/* <i className={item.icon} />{' '} */}
                             <IntlMessages id={item.label} />
                           </NavLink>
                         )}

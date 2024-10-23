@@ -8,8 +8,10 @@ import { useTable, usePagination, useSortBy } from 'react-table';
 import { Badge, Card, CardBody, CardTitle } from 'reactstrap'; //
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
-
+import { FaCaretDown,FaCaretUp } from 'react-icons/fa';
 import products from 'data/products';
+import { BsSliders2 } from 'react-icons/bs';
+import { FaCalendarDays } from 'react-icons/fa6';
 
 function Table({ columns, data }) {
   const {
@@ -56,13 +58,13 @@ function Table({ columns, data }) {
                 >
                   {column.render('Header')}{' '}
                   {column.render('Header') !== 'Newsletter' && (
-                    <i
-                      className={`ml-2 mt-1 ${
-                        column.isSortedDesc
-                          ? 'simple-icon-arrow-up'
-                          : 'simple-icon-arrow-down'
-                      }`}
-                    />
+                    <>
+                      {column.isSortedDesc ? (
+                        <FaCaretDown className='ml-2' />
+                      ) : (
+                        <FaCaretUp className='ml-2' />
+                      )}
+                    </>
                   )}
                   <span />
                 </th>
@@ -130,22 +132,34 @@ const NewsLetter = () => {
       {
         Header: 'Delivered (%)',
         accessor: 'delivered',
-        cellClass: 'text-theme-3 w-20 ',
-        Cell: (props) => <>{props.value}</>,
+        cellClass: 'text-center w-20',
+        Cell: (props) => (
+          <div className=" text-theme-3 bg-theme-3-opacity font-weight-bold">
+            {props.value}
+          </div>
+        ),
         sortType: 'basic',
       },
       {
         Header: 'Read (%)',
         accessor: 'read',
-        cellClass: 'text-primary w-20',
-        Cell: (props) => <>{props.value}</>,
+        cellClass: 'text-center w-20',
+        Cell: (props) => (
+          <div className="text-primary bg-primary-opacity font-weight-bold">
+            {props.value}
+          </div>
+        ),
         sortType: 'basic',
       },
       {
         Header: 'Clicked (%)',
         accessor: 'clicked',
-        cellClass: 'text-theme-2 w-20',
-        Cell: (props) => <>{props.value}</>,
+        cellClass: 'text-center w-20',
+        Cell: (props) => (
+          <div className="text-theme-2 bg-theme-2-opacity font-weight-bold">
+            {props.value}
+          </div>
+        ),
         sortType: 'basic',
       },
     ],
@@ -156,16 +170,14 @@ const NewsLetter = () => {
     <Card className="h-100">
       <CardBody>
         <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
-          <IntlMessages id='dashboards.news-letter' />
+          <IntlMessages id="dashboards.news-letter" />
           <div>
-           
-              <Badge color="" className="mb-1 rounder border border-theme-4">
-                <i className="iconsminds-calendar-4" />
-                <IntlMessages id="dashboards.select-date" />
-              </Badge>
-            
+            <Badge color="" className="mb-1 rounder align-content-center border border-theme-4">
+              <FaCalendarDays className="mr-2" size={15} />
+              <IntlMessages id="dashboards.select-date"/>
+            </Badge>
             <Badge color="" className="mb-1 border border-theme-4">
-              <i className="iconsminds-calendar-4" />
+              <BsSliders2 className="mr-2"  size={15}/>
               <IntlMessages id="dashboards.filters" />
             </Badge>{' '}
           </div>
