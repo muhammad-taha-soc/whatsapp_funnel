@@ -9,6 +9,7 @@ import products from 'data/products';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { FaEllipsisV, FaWhatsapp, FaFileDownload, FaTrash, FaSearch } from 'react-icons/fa';
 import Modal from './Modal';
+import OverviewModal from './OverviewModal';
 
 function Table({ columns, data, onRowClick }) {
     const {
@@ -414,7 +415,7 @@ const CouponsTable = () => {
                 </CardBody>
             </Card>
             {selectedCustomer && (
-                <Modal customer={selectedCustomer} onClose={() => setSelectedCustomer(null)} /> // Modal
+                <OverviewModal customer={selectedCustomer} onClose={() => setSelectedCustomer(null)} /> // Modal
             )}
         </>
     );
