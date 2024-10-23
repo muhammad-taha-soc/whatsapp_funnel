@@ -201,7 +201,7 @@ const TopNav = ({
 
   const { messages } = intl;
   console.log(messages);
-  
+
   return (
     <nav className="navbar fixed-top">
       <div className="d-flex align-items-center navbar-left">

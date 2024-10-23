@@ -22,6 +22,7 @@ const Menu = React.lazy(() => import(/* webpackChunkName: "menu" */ './menu'));
 const BlankPage = React.lazy(() =>
   import(/* webpackChunkName: "blank-page" */ './blank-page')
 );
+const Profile = React.lazy(() => import(/* webpackChunkName: "menu" */ './profile'));
 
 const App = ({ match }) => {
   return (
@@ -62,6 +63,10 @@ const App = ({ match }) => {
             <Route
               path={`${match.url}/menu`}
               render={(props) => <Menu {...props} />}
+            />
+            <Route
+              path={`${match.url}/profile`}
+              render={(props) => <Profile {...props} />}
             />
             <Route
               path={`${match.url}/blank-page`}
