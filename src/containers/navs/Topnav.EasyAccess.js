@@ -24,6 +24,14 @@ const TopnavEasyAccess = () => {
             <IntlMessages id="menu.dashboards" />
           </NavLink>
 
+          <NavLink
+            to={`${adminRoot}/contacts/table`}
+            className="icon-menu-item"
+          >
+            <i className="iconsminds-shop-4 d-block" />{' '}
+            <IntlMessages id="menu.contacts" />
+          </NavLink>
+
           <NavLink to={`${adminRoot}/ui`} className="icon-menu-item">
             <i className="iconsminds-pantone d-block" />{' '}
             <IntlMessages id="menu.ui" />

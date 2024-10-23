@@ -1,4 +1,4 @@
-// eslint-disable react/forbid-prop-types
+/* esling-disable  */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Glide from '@glidejs/glide';
@@ -8,7 +8,7 @@ import '@glidejs/glide/dist/css/glide.core.min.css';
 let resizeTimeOut = -1;
 let mountTimeOut = -1;
 
-function GlideComponent(props) {
+function GlideComponent({ settings, children }) { // Destructuring props directly
   let carousel;
   let glideCarousel;
 
@@ -22,7 +22,7 @@ function GlideComponent(props) {
 
   const initGlide = () => {
     glideCarousel = new Glide(carousel, {
-      ...props.settings,
+      ...settings, // Using destructured settings directly
       direction: getDirection().direction,
     });
     glideCarousel.mount();
@@ -51,7 +51,7 @@ function GlideComponent(props) {
   }, []);
 
   const renderDots = () => {
-    const total = React.Children.count(props.children);
+    const total = React.Children.count(children); // Using destructured children directly
     const dots = [];
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < total; i++) {
@@ -72,11 +72,9 @@ function GlideComponent(props) {
       {/* eslint-disable-next-line no-return-assign */}
       <div className="glide" ref={(node) => (carousel = node)}>
         <div data-glide-el="track" className="glide__track">
-          {/* eslint-disable-next-line react/destructuring-assignment */}
-          <div className="glide__slides">{props.children}</div>
+          <div className="glide__slides">{children}</div> {/* Using destructured children */}
         </div>
-        {/* eslint-disable-next-line react/destructuring-assignment */}
-        {!props.settings.hideNav && (
+        {!settings.hideNav && ( // Using destructured settings directly
           <div className="glide__arrows slider-nav" data-glide-el="controls">
             <button
               type="button"

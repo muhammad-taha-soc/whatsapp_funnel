@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Suspense } from 'react';
 import { Route, withRouter, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -10,6 +11,10 @@ const Dashboards = React.lazy(() =>
 );
 const NewsLetter = React.lazy(() =>
   import(/* webpackChunkName: "dashboards" */ './newsletter')
+)
+
+const Contacts = React.lazy(() =>
+  import(/* webpackChunkName: "contacts" */ './contacts')
 );
 const Pages = React.lazy(() =>
   import(/* webpackChunkName: "pages" */ './pages')
@@ -52,6 +57,10 @@ const App = ({ match }) => {
                     component={Applications}
                     roles={[UserRole.Admin]}
             /> */}
+            <Route
+              path={`${match.url}/contacts`}
+              render={(props) => <Contacts {...props} />}
+            />
             <Route
               path={`${match.url}/pages`}
               render={(props) => <Pages {...props} />}

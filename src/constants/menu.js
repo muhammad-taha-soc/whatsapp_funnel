@@ -385,7 +385,7 @@ const data = [
     id: 'contacts',
     icon: 'simple-icon-user',
     label: 'menu.contacts',
-    to: `${adminRoot}/blank-page`,
+    to: `${adminRoot}/contacts`,
   },
   {
     id: 'coupon',
