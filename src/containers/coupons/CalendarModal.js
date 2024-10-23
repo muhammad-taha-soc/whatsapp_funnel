@@ -56,9 +56,9 @@ const Calendar = ({ customer, onClose }) => {
 
    return (
     <div className="calendar-modal modal-overlay" onClick={onClose}>
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Select Date</h2>
-            <h3>{`${monthName} ${year}`}</h3>
+        <div className="modal-content" style={{color: 'black'}} onClick={(e) => e.stopPropagation()} >
+            <h2 style={{width:'440px', height:'30px', fontWeight:'600px', lineHeight:'30px', fontSize:'20px'}}>Select Date</h2>
+            <h3 style={{width:'99px', height:'17px', fontWeight:'500px', lineHeight:'16.94px', fontSize:'14px'}}>{`${monthName} ${year}`}</h3>
             
             <div className="calendar-header">
                 <button onClick={handleTodayClick} className="today-button">Today</button>

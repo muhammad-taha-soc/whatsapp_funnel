@@ -89,13 +89,14 @@
 }
 
 .action-button {
-    background-color: #f0f8ff;
+
+    background-color: white;
     /* Light background color for buttons */
-    border: 1px solid #00ff55;
+    border: 1px solid #0DAC8A;
     /* Green border */
-    color: black;
+    color: #0DAC8A;
     /* Button text color */
-    border-radius: 5px;
+    border-radius: 6px;
     padding: 10px;
     margin: 5px 0;
     /* Vertical spacing between buttons */
@@ -115,12 +116,12 @@
 }
 
 .delete-button {
-    background-color: #ffcccc;
+    background-color: white;
     /* Light red background */
-    border: 1px solid red;
+    border: 1px solid #F5430B;
     border-radius: 5px;
     /* Red border */
-    color: red;
+    color: #F5430B;
     /* Button text color */
     transition: background-color 0.3s, transform 0.2s;
     padding: 10px;
@@ -145,6 +146,8 @@
     font-weight: bold;
     color: black;
     display: flex;
+    width: 416px;
+    height: 24px;
     /* Use flexbox for alignment */
     justify-content: space-between;
     /* Space out text and icon */
@@ -156,6 +159,9 @@
 .suggestions,
 .reason,
 .notes {
+    font-weight: 500;
+    line-height: 19.36px;
+    size: 16px;
     color: black;
 }
 

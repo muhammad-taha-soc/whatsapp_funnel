@@ -2,6 +2,8 @@
 import React from 'react';
 import './modal.css'; // Importing updated CSS
 import { FaEnvelope, FaPhone, FaDownload, FaTrash, FaWhatsapp, FaCheck, FaTimes } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileArrowDown, faTrashCan, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai'; // Import success and failure icons
 import { Colxx } from 'components/common/CustomBootstrap';
 
@@ -21,12 +23,13 @@ const Modal = ({ customer, onClose }) => {
     };
 
     const data = customer || dummyCustomer; // Use dummy data if customer is not available
+    
 
     return (
         <div className="modal-overlay">
             <div className="modal-content">
                 <header className="modal-header" style={{ color: 'black' }}>
-                    <h2>Customer Details</h2>
+                    <h2 style={{fontWeight:'600px', fontSize:'20px', lineHeight: '23.5px'}}>Customer Details</h2>
                     <button className="close-button" onClick={onClose}>✖</button>
                 </header>
 
@@ -44,24 +47,27 @@ const Modal = ({ customer, onClose }) => {
 
                             </Colxx>
 
-                            <div className="customer-info" style={{ color: 'black' }}>
-                                <p><FaEnvelope style={{ marginRight: '8px' }} />Email: {dummyCustomer.email}</p>
-                                <p><FaPhone style={{ marginRight: '8px' }} />Telephone Number: {dummyCustomer.phone}</p>
-                                <p><FaCheck style={{ marginRight: '8px' }} />Date: {dummyCustomer.date}</p>
+                            <div className="customer-info">
+                                <p>
+                                    <i className="iconsminds-envelope-2" style={{ marginRight: '8px', width: '20px', height: '20px', color:'#5C5C78' }} />
+                                    Email:<br /><span style={{ marginLeft: '24px', color:'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.email}</span> 
+                                </p>
+                                <p><i className="simple-icon-phone" style={{ marginRight: '8px', width: '20px', height: '20px', color:'#5C5C78' }} />Telephone Number:<br /><span style={{ marginLeft: '24px', color:'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.phone}</span></p>
+                                <p><i className="iconsminds-calendar-4" style={{ marginRight: '8px', width: '20px', height: '20px', color:'#5C5C78' }} />Date:<br /><span style={{ marginLeft: '24px', color:'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.date}</span></p>
                             </div>
 
                             <div className="modal-actions">
                                 <button className="action-button">
-                                    <FaEnvelope /> <span> Unsubscribe from Account</span>
+                                    <i className='simple-icon-minus mr-2' /> <span> Unsubscribe from Account</span>
                                 </button>
                                 <button className="action-button">
-                                    <FaWhatsapp /> <span> Unsubscribe from WhatsApp</span>
+                                    <FaWhatsapp style={{ marginRight: '2px' }} /> <span> Unsubscribe from WhatsApp</span>
                                 </button>
                                 <button className="action-button">
-                                    <FaDownload /> <span> Download Contact Data</span>
+                                    <FontAwesomeIcon icon={faFileArrowDown} style={{ marginRight: '8px' }} /> <span> Download Contact Data</span>
                                 </button>
                                 <button className="delete-button">
-                                    <FaTrash /> <span> Delete Contact</span>
+                                    <FontAwesomeIcon icon={faTrashCan} style={{ marginRight: '8px' }} /> <span> Delete Contact</span>
                                 </button>
                             </div>
                         </div>
@@ -70,32 +76,32 @@ const Modal = ({ customer, onClose }) => {
                             <div className="status">
                                 <div className="status-item satisfied">
                                     <span>Satisfied</span>
-                                    <AiFillCheckCircle style={{ color: 'green', marginLeft: '10px' }} />
+                                    <AiFillCheckCircle style={{ color: '#0DAC8A', width: '24px', height: '24px', marginRight: '35px' }} />
                                 </div>
                                 <div className="status-item">
                                     <span>Review link clicked</span>
-                                    <AiFillCheckCircle style={{ color: 'green', marginLeft: '10px' }} />
+                                    <AiFillCheckCircle style={{ color: '#0DAC8A', width: '24px', height: '24px',  marginRight: '35px' }} />
                                 </div>
                                 <div className="status-item dissatisfied">
                                     <span>Suggestion for improvement</span>
-                                    <AiFillCloseCircle style={{ color: 'red', marginLeft: '10px' }} />
+                                    <AiFillCloseCircle style={{ color: '#F5430B', width: '24px', height: '24px',  marginRight: '35px' }} />
                                 </div>
                             </div>
 
                             <div className="customer-details mt-5">
                                 <div className="coupons">
                                     <h4>Coupons</h4>
-                                    <p>{Array.isArray(dummyCustomer.coupons) ? dummyCustomer.coupons.join(', ') : 'No coupons available'}</p>
+                                    <p style={{ color: '#5C5C78' }}>{Array.isArray(dummyCustomer.coupons) ? dummyCustomer.coupons.join(', ') : 'No coupons available'}</p>
                                 </div>
 
                                 <div className="suggestions mt-5">
                                     <h4>Suggestion for Improvement Submitted</h4>
-                                    <p>{dummyCustomer.suggestionSubmitted}</p>
+                                    <p style={{ color: '#5C5C78' }}>{dummyCustomer.suggestionSubmitted}</p>
                                 </div>
 
                                 <div className="reason mt-5">
                                     <h4>Reason for Dissatisfaction</h4>
-                                    <p>{dummyCustomer.reasonDissatisfaction}</p>
+                                    <p style={{ color: '#5C5C78' }}>{dummyCustomer.reasonDissatisfaction}</p>
                                 </div>
 
                                 <div className="notes mt-5">

@@ -202,6 +202,11 @@ const CouponsTable = () => {
             Header: <IntlMessages id="coupons.id" />,
             accessor: 'id',
             cellClass: 'font-weight-bold',
+            Cell: ({value}) => <div style={{
+                cursor: 'pointer'
+            }}>
+                {value}
+            </div>
         },
         {
             Header: <IntlMessages id="coupons.status" />,
@@ -222,38 +227,62 @@ const CouponsTable = () => {
         {
             Header: <IntlMessages id="coupons.actionName" />,
             accessor: 'actionName',
-            cellClass: 'text-theme-3',
-            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
+            cellClass: 'font-weight-bold',
+            Cell: ({value}) => <div style={{
+                cursor: 'pointer'
+            }}>
+                {value}
+            </div>
         },
         {
             Header: <IntlMessages id="coupons.sourceofOrigin" />,
             accessor: 'sourceOfOrigin',
-            cellClass: 'text-theme-2',
-            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
+            cellClass: 'font-weight-bold',
+            Cell: ({value}) => <div style={{
+                cursor: 'pointer'
+            }}>
+                {value}
+            </div>
         },
         {
             Header: <IntlMessages id="coupons.issue-date" />,
             accessor: 'issueDate',
-            cellClass: 'text-theme-2',
-            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
+            cellClass: 'font-weight-bold',
+            Cell: ({value}) => <div style={{
+                cursor: 'pointer'
+            }}>
+                {value}
+            </div>
         },
         {
             Header: <IntlMessages id="coupons.redemption-date" />,
             accessor: 'redemptionDate',
-            cellClass: 'text-theme-2',
-            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
+            cellClass: 'font-weight-bold',
+            Cell: ({value}) => <div style={{
+                cursor: 'pointer'
+            }}>
+                {value}
+            </div>
         },
         {
             Header: <IntlMessages id="coupons.name" />,
             accessor: 'name',
-            cellClass: 'text-theme-2',
-            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
+            cellClass: 'font-weight-bold',
+            Cell: ({value}) => <div style={{
+                cursor: 'pointer'
+            }}>
+                {value}
+            </div>
         },
         {
             Header: <IntlMessages id="coupons.telephone" />,
             accessor: 'telephoneNo',
-            cellClass: 'text-theme-2',
-            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
+            cellClass: 'font-weight-bold',
+            Cell: ({value}) => <div style={{
+                cursor: 'pointer'
+            }}>
+                {value}
+            </div>
         },
         {
             Header: <IntlMessages id="coupons.action" />,
@@ -315,7 +344,7 @@ const CouponsTable = () => {
                                 placeholder="Search Coupon..."
                                 value={searchTerm}
                                 onChange={e => setSearchTerm(e.target.value)}
-                                style={{ paddingLeft: '30px' }}
+                                style={{ paddingLeft: '30px',borderRadius: '7px' }}
                             />
                             <FaSearch className="search-icon" style={{
                                 position: 'absolute',
@@ -327,7 +356,7 @@ const CouponsTable = () => {
                             }} />
                         </div>
                         <div>
-                            <Badge color="" className="mb-1 border border-theme-4" onClick={toggleFilterDropdown} style={{ cursor: 'pointer', padding: '10px 15px' }}>
+                            <Badge color="" className="mb-1 border border-theme-4" style={{ cursor: 'pointer', padding: '10px 15px' }}>
                                 <i className="iconsminds-calendar-4" />
                                 <IntlMessages id="dashboards.filters" />
                             </Badge>

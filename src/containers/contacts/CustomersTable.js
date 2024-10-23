@@ -54,7 +54,7 @@ function Table({ columns, data, onRowClick }) {
                     {page.map(row => {
                         prepareRow(row);
                         return (
-                            <tr key={row.id} {...row.getRowProps()} onClick={() => onRowClick(row.original)}>
+                            <tr key={row.id} {...row.getRowProps()} onClick={(event) => onRowClick(event,row.original)}>
                                 {row.cells.map(cell => (
                                     <td key={cell.column.id} {...cell.getCellProps({ className: cell.column.cellClass })}>
                                         {cell.render('Cell')}
@@ -109,8 +109,11 @@ const CustomersTable = () => {
         });
         // Reset checkbox states if needed
     };
-    const handleRowClick = (customer) => {
-        setSelectedCustomer(customer); // Set the selected customer
+    const handleRowClick = (event, customer) => {
+        // Check if the clicked element is part of the checkboxes or action button
+        if (!event.target.closest('.checkbox-container') && !event.target.closest('.action-button1')) {
+            setSelectedCustomer(customer); // Set the selected customer if the conditions are met
+        }
     };
 
     const handleActionToggle = id => {
@@ -150,7 +153,7 @@ const CustomersTable = () => {
             accessor: 'title',
             cellClass: 'font-weight-bold',
             Cell: ({ row }) => (
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div className='checkbox-container' style={{ display: 'flex', alignItems: 'center' }}>
                     <input
                         type="checkbox"
                         checked={selectedRows.has(row.id)}
@@ -165,43 +168,81 @@ const CustomersTable = () => {
             Header: <IntlMessages id="contacts.status" />,
             accessor: 'status',
             cellClass: 'text-muted',
+            Cell: ({ value }) => {
+                const stylesOnHold = {
+                    width: '100px',
+                    height: '28px',
+                    padding: '4px 10px',
+                    borderRadius: '100px',
+                    background: '#FF8E0D1A',
+                    opacity: 1, // Change to 1 so it's visible
+                    color: '#FF8E0D', // Adjust text color as needed
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: ' pointer'
+                };
+    
+                const stylesProcessed = {
+                    width: '100px',
+                    height: '28px',
+                    padding: '4px 10px',
+                    borderRadius: '100px',
+                    background: '#488CFB1A',
+                    opacity: 1, // Change to 1 so it's visible
+                    color: '#488CFB', // Adjust text color as needed
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: ' pointer'
+                };
+    
+                if (value === 'ON HOLD') {
+                    return <div style={stylesOnHold}>Customer</div>; // Return styled element for ON HOLD
+                } else if (value === 'PROCESSED') {
+                    return <div style={stylesProcessed}>Interesting</div>; // Return styled element for PROCESSED
+                }
+    
+                return value; // Default case, return the original value
+            },
         },
         {
             Header: <IntlMessages id="contacts.satisfied" />,
             accessor: 'satisfied',
             cellClass: 'text-theme-3',
-            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
+            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" style={{width:'20px', height:'20px', color: "#0DAC8A" , cursor:'pointer'}} /> : <AiFillCloseCircle className="text-danger" style={{width:'20px', height:'20px', color: "#F5430B", cursor:'pointer'}} />,
         },
         {
             Header: <IntlMessages id="contacts.review-link" />,
             accessor: 'reviewLink',
             cellClass: 'text-theme-2',
-            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
+            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" style={{width:'20px', height:'20px', color: "#0DAC8A", cursor:'pointer'}} /> : <AiFillCloseCircle className="text-danger" style={{width:'20px', height:'20px', color: "#F5430B", cursor:'pointer'} }/>,
         },
         {
             Header: <IntlMessages id="contacts.suggestion" />,
             accessor: 'suggestion',
             cellClass: 'text-theme-2',
-            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
+            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success"style={{width:'20px', height:'20px', color: "#0DAC8A", cursor:'pointer'}} /> : <AiFillCloseCircle className="text-danger" style={{width:'20px', height:'20px', color: "#F5430B", cursor:'pointer'}} />,
         },
         {
             Header: <IntlMessages id="contacts.action" />,
             accessor: 'action',
             Cell: ({ row }) => (
-                <div className="position-relative">
+                <div className="position-relative action-button1">
                     <button
                         type="button"
                         onClick={() => handleActionToggle(row.id)}
                         className="btn btn-link"
                         aria-expanded={expandedRowId === row.id}
                         aria-haspopup="true"
+                        style={{cursor:'pointer'}}
                     >
                         <FaEllipsisV />
                     </button>
                     {expandedRowId === row.id && (
                         <div className="dropdown-menu show" style={{ position: 'absolute', zIndex: 1000 }}>
                             <div className="dropdown-item">
-                                <AiFillCloseCircle className="mr-2" /> <IntlMessages id="Unsubscribe from Account" />
+                            <i className='simple-icon-minus mr-2' /> <IntlMessages id="Unsubscribe from Account" />
                             </div>
                             <div className="dropdown-item">
                                 <FaWhatsapp className="mr-2" /> <IntlMessages id="Unsubscribe from Whatsapp" />
@@ -236,7 +277,7 @@ const CustomersTable = () => {
                                 placeholder="Search Customer..."
                                 value={searchTerm}
                                 onChange={e => setSearchTerm(e.target.value)}
-                                style={{ paddingLeft: '30px' }}
+                                style={{ paddingLeft: '30px', borderRadius: '7px' }}
                             />
                             <FaSearch className="search-icon" style={{
                                 position: 'absolute',

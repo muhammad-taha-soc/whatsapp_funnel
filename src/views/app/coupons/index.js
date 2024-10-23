@@ -85,7 +85,7 @@ import AdministrationTable from 'containers/coupons/AdministrationTable';
             <Row>
                 <Colxx xxs="12">
                     <Breadcrumb heading="Coupon" match={match} />
-                    <Separator className="mb-5" />
+                    <Separator className="mb-5" />  
                 </Colxx>
             </Row>
             {isModalOpen &&   < CreateModal   customer={selectedCustomer} onClose={() => setIsModalOpen(false)} /> } 
@@ -113,8 +113,9 @@ import AdministrationTable from 'containers/coupons/AdministrationTable';
                     {/* New Button for Creating Coupon */}
                     <div className="ml-auto">
                         <Button
-                            className="bg-theme-1 text-white d-flex align-items-center justify-content-center p-2 rounded"
+                            className=" text-white d-flex align-items-center justify-content-center p-2"
                             onClick={handleClick}
+                            style={{borderColor: '#0DAC8A',backgroundColor: '#0DAC8A', borderRadius: '8px'}}
 
                         >
                             <i className="simple-icon-plus mr-2" /> {/* Plus icon */}
