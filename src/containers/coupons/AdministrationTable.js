@@ -3,15 +3,18 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-key */
-import React from 'react';
+import React, { useState } from 'react';
 import { useTable, usePagination, useSortBy } from 'react-table';
 import { Badge, Card, CardBody, CardTitle } from 'reactstrap'; //
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 
-import products from 'data/products';
 
-function Table({ columns, data }) {
+import products from 'data/products';
+import Calendar from './CalendarModal';
+import EditCoupon from './EditCouponModal';
+
+function Table({ columns, data, onEditCoupon }) {
     const {
         getTableProps,
         getTableBodyProps,
@@ -75,7 +78,18 @@ function Table({ columns, data }) {
                         console.log({ row });
 
                         return (
-                            <tr {...row.getRowProps()}>
+                            <tr {...row.getRowProps()}
+                                onClick={() => {
+                                 // If the clicked cell is not "Validity", open edit coupon modal
+                                 const isValidityColumnClicked = row.cells.some(
+                                    (cell) => cell.column.id === 'delivered' && cell.getCellProps().onClick
+                                );
+
+                                if (!isValidityColumnClicked) {
+                                    onEditCoupon(row.original);
+                                }
+                            }}
+                            >
                                 {row.cells.map((cell, cellIndex) => (
                                     <td
                                         key={`td_${cellIndex}`}
@@ -96,6 +110,9 @@ function Table({ columns, data }) {
 }
 
 const AdministrationTable = () => {
+    const [isEditCouponOpen, setIsEditCouponOpen] = useState(false);
+    const [selectedCoupon, setSelectedCoupon] = useState(null);
+
     const cols = React.useMemo(
         () => [
             {
@@ -137,9 +154,28 @@ const AdministrationTable = () => {
         []
     );
 
+
+   
+    const handleEditCoupon = (coupon) => {
+        setSelectedCoupon(coupon);
+        setIsEditCouponOpen(true); // Open the edit coupon modal
+    };
+
     return (
         <CardBody className='bg-white rounded-md mt-4'>
-            <Table columns={cols} data={products} />
+            <Table
+                columns={cols}
+                data={products}
+                onEditCoupon={handleEditCoupon}
+            />
+         
+            {isEditCouponOpen && (
+                <EditCoupon
+                    isOpen={isEditCouponOpen}
+                    onClose={() => setIsEditCouponOpen(false)}
+                    coupon={selectedCoupon}
+                />
+            )}
         </CardBody>
     );
 };

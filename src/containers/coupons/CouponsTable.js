@@ -8,8 +8,14 @@ import IntlMessages from 'helpers/IntlMessages';
 import products from 'data/products';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { FaEllipsisV, FaWhatsapp, FaFileDownload, FaTrash, FaSearch } from 'react-icons/fa';
+
 import Modal from './Modal';
 import OverviewModal from './OverviewModal';
+
+
+import Calendar from './CalendarModal';
+
+
 
 
 function Table({ columns, data, onRowClick }) {
@@ -80,6 +86,51 @@ function Table({ columns, data, onRowClick }) {
         </>
     );
 }
+const sampleCoupons = [
+    {
+        id: 'C001',
+        actionName: 'Discount',
+        status: 'on',
+        sourceOfOrigin: 'Website',
+        issueDate: '2024-01-01',
+        redemptionDate: '2024-06-01',
+        name: 'Customer A',
+        telephoneNo: '123-456-7890'
+    },
+    {
+        id: 'C002',
+        actionName: 'Purchase',
+        status: 'on',
+        sourceOfOrigin: 'App',
+        issueDate: '2024-02-01',
+        redemptionDate: '2024-07-01',
+        name: 'Customer B',
+        telephoneNo: '098-765-4321'
+    },
+    {
+        id: 'C003',
+        actionName: 'Referral',
+        status: 'on',
+        sourceOfOrigin: 'Email',
+        issueDate: '2024-03-01',
+        redemptionDate: '2024-08-01',
+        name: 'Customer C',
+        telephoneNo: '555-555-5555'
+    },
+    {
+        id: 'C004',
+        actionName: 'Feedback',
+        status: 'on',
+        sourceOfOrigin: 'Phone',
+        issueDate: '2024-04-01',
+        redemptionDate: '2024-09-01',
+        name: 'Customer D',
+        telephoneNo: '444-444-4444'
+    },
+];
+
+
+
 
 const CouponsTable = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -149,58 +200,58 @@ const CouponsTable = () => {
     const cols = useMemo(() => [
         {
             Header: <IntlMessages id="coupons.id" />,
-            accessor: 'title',
+            accessor: 'id',
             cellClass: 'font-weight-bold',
-            Cell: ({ row }) => (
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <input
-                        type="checkbox"
-                        checked={selectedRows.has(row.id)}
-                        onChange={() => toggleRowSelection(row.id)}
-                        style={{ marginRight: '8px' }}
-                    />
-                    {row.original.title}
-                </div>
-            ),
         },
         {
             Header: <IntlMessages id="coupons.status" />,
             accessor: 'status',
             cellClass: 'text-muted',
+            Cell: ({ value }) => (
+                <div className="status-indicator" style={{
+                    backgroundColor: value === 'On' || 'on' ? '#0DAC8A' : 'red',
+                    borderRadius: '15px',
+                    padding: '5px 10px',
+                    color: 'white',
+                    textAlign: 'center'
+                }}>
+                    {value}
+                </div>
+            ),
         },
         {
             Header: <IntlMessages id="coupons.actionName" />,
-            accessor: 'satisfied',
+            accessor: 'actionName',
             cellClass: 'text-theme-3',
             Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
         },
         {
             Header: <IntlMessages id="coupons.sourceofOrigin" />,
-            accessor: 'reviewLink',
+            accessor: 'sourceOfOrigin',
             cellClass: 'text-theme-2',
             Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
         },
         {
             Header: <IntlMessages id="coupons.issue-date" />,
-            accessor: 'suggestion',
+            accessor: 'issueDate',
             cellClass: 'text-theme-2',
             Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
         },
         {
             Header: <IntlMessages id="coupons.redemption-date" />,
-            accessor: 'suggestion1',
+            accessor: 'redemptionDate',
             cellClass: 'text-theme-2',
             Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
         },
         {
             Header: <IntlMessages id="coupons.name" />,
-            accessor: 'suggestion2',
+            accessor: 'name',
             cellClass: 'text-theme-2',
             Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
         },
         {
             Header: <IntlMessages id="coupons.telephone" />,
-            accessor: 'suggestion3',
+            accessor: 'telephoneNo',
             cellClass: 'text-theme-2',
             Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" /> : <AiFillCloseCircle className="text-danger" />,
         },
@@ -241,9 +292,17 @@ const CouponsTable = () => {
     ], [expandedRowId, selectedRows]);
 
     // Filter data based on search term
-    const filteredData = products.filter(product =>
-        product.title && product.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const filteredData = useMemo(() => {
+        // Use sampleCoupons as the dummy data
+        return sampleCoupons.filter(item =>
+            (!filterStates.status || item.status === 'On') &&
+            (!filterStates.satisfied || item.satisfied === true) &&
+            (!filterStates.reviewLinkClicked || item.reviewLink === true) &&
+            (!filterStates.suggestionImprovement || item.suggestion === true)
+        ).filter(item =>
+            item.id.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    }, [searchTerm, filterStates]);
 
     return (
         <>
@@ -412,12 +471,19 @@ const CouponsTable = () => {
                             )}
                         </div>
                     </CardTitle>
-                    <Table columns={cols} data={filteredData} onRowClick={handleRowClick} />
+                    <Table columns={cols} data={sampleCoupons} onRowClick={handleRowClick} />
                 </CardBody>
             </Card>
             {selectedCustomer && (
+
                 <OverviewModal customer={selectedCustomer} onClose={() => setSelectedCustomer(null)} /> // Modal
             )}
+            {/* {selectedCustomer && (
+
+                <Calendar customer={selectedCustomer} onClose={() => setSelectedCustomer(null)} /> // Modal
+
+
+            )} */}
         </>
     );
 };
