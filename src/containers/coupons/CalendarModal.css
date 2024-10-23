@@ -79,14 +79,18 @@
 .arrow-button {
     padding: 10px 15px; /* Adjusted padding */
     border: 1px ;
-    border-radius: 20px; /* Round buttons */
+    border-radius: 10px; /* Round buttons */
     cursor: pointer;
     transition: background 0.3s; /* Smooth hover effect */
 }
+.today-button, .arrow-button {
+    border-radius: 20px !important;
+}
 
 .cancel-button {
-    background-color: #f44336; /* Red for cancel */
-    color: white;
+    background-color: #ffffff; /* Red for cancel */
+    color: #86868A;
+    border: 1px solid #86868A;
 }
 
 .cancel-button:hover {

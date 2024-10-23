@@ -215,7 +215,7 @@ module.exports = {
 
   /* Contacts */
   'contacts.filters': 'Filters',
-  'contacts.title': 'Title',
+  'contacts.title': 'Customer Name',
   'contacts.select-date': 'Select Date',
   "contacts.customer-name": 'Customer Name',
   'contacts.status': 'Status',
