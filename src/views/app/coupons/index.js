@@ -61,6 +61,9 @@ import CouponsTable from 'containers/coupons/CouponsTable';
  import { FaPlus } from 'react-icons/fa'; // Use this for the plus icon
 import CreateModal from 'containers/coupons/CreateModal';
 
+// Add this import for the icon
+import AdministrationTable from 'containers/coupons/AdministrationTable';
+
  const DefaultCoupons = ({ intl, match }) => {
     const [selectedCustomer, setSelectedCustomer] = useState(null);
     const { messages } = intl;
@@ -106,14 +109,15 @@ import CreateModal from 'containers/coupons/CreateModal';
                             Administration
                         </NavLink>
                     </NavItem>
-                    
+
                     {/* New Button for Creating Coupon */}
                     <div className="ml-auto">
                         <Button
                             className="bg-theme-1 text-white d-flex align-items-center justify-content-center p-2 rounded"
                             onClick={handleClick}
+
                         >
-                           <i className="simple-icon-plus mr-2" /> {/* Plus icon */}
+                            <i className="simple-icon-plus mr-2" /> {/* Plus icon */}
                             Create New Coupon
                         </Button>
                     </div>
@@ -130,18 +134,7 @@ import CreateModal from 'containers/coupons/CreateModal';
                     <TabPane tabId="2">
                         <Row>
                             <Colxx xxs="12" lg="12" md="12" xl="12">
-                                <div className="bg-theme-1 account-profile-background-layer account-profile-background-layer-btn">
-                                    <Button
-                                        color="light"
-                                        className="default btn btn-primary text-primary font-weight-bold"
-                                    >
-                                        <i className="iconsminds-repeat-2 mr-2" />
-                                        <IntlMessages id="Refresh data" />
-                                    </Button>{' '}
-                                </div>
-                            </Colxx>
-                            <Colxx xxs="12" lg="12" md="12" xl="12">
-                                <AccountProfile />
+                                <AdministrationTable />
                             </Colxx>
                         </Row>
                     </TabPane>
