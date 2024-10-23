@@ -16,6 +16,10 @@ const NewsLetter = React.lazy(() =>
 const Contacts = React.lazy(() =>
   import(/* webpackChunkName: "contacts" */ './contacts')
 );
+
+const Coupons = React.lazy(() =>
+  import(/* webpackChunkName: "contacts" */ './coupons')
+);
 const Pages = React.lazy(() =>
   import(/* webpackChunkName: "pages" */ './pages')
 );
@@ -60,6 +64,10 @@ const App = ({ match }) => {
             <Route
               path={`${match.url}/contacts`}
               render={(props) => <Contacts {...props} />}
+            />
+            <Route
+              path={`${match.url}/coupons`}
+              render={(props) => <Coupons {...props} />}
             />
             <Route
               path={`${match.url}/pages`}

@@ -65,7 +65,7 @@ module.exports = {
   'menu.dashboards': 'Dashboard',
   'menu.contacts': 'Contacts',
   'menu.customers': 'Customer',
-  'menu.coupon': 'Coupon',
+  'menu.coupons': 'Coupon',
   'menu.default': 'Default',
   'menu.analytics': 'Analytics',
   'menu.ecommerce': 'Ecommerce',
@@ -224,6 +224,25 @@ module.exports = {
   'contacts.suggestion': 'Suggestion for improvement',
   'contacts.action': 'Action',
   'contacts.edit': 'Edit',
+
+
+  /* Coupons */
+  'coupons.filters': 'Filters',
+  'coupons.id': 'Coupon ID',
+  'coupons.actionName': 'Action Name',
+  'coupons.sourceofOrigin': 'Source of origin',
+  'coupons.issue-date': 'Issue Date',
+  'coupons.redemption-date': 'Redemption Date',
+  "coupons.name": 'Name',
+  "coupons.telephone": 'Telephone No.',
+  'coupons.status': 'Status',
+  'coupons.satisfied': 'Satisfied',
+  'coupons.review-link': 'Review Link Clicked',
+  'coupons.suggestion': 'Suggestion for improvement',
+  'coupons.action': 'Action',
+  'coupons.edit': 'Edit',
+
+  
 
   /* 05.Pages */
   'pages.add-new': 'ADD NEW',

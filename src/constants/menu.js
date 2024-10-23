@@ -388,10 +388,10 @@ const data = [
     to: `${adminRoot}/contacts`,
   },
   {
-    id: 'coupon',
+    id: 'coupons',
     icon: 'iconsminds-tag-3',
-    label: 'menu.coupon',
-    to: `${adminRoot}/blank-page`,
+    label: 'menu.coupons',
+    to: `${adminRoot}/coupons`,
   },
   {
     id: 'newsletter',

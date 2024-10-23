@@ -57,13 +57,6 @@ const DefaultCustomers = ({ match }) => {
               </Colxx>
             </Row>
           </TabPane>
-          <TabPane tabId="2">
-            <Row>
-              <Colxx xxs="12" lg="12" md="12" xl="12" className="">
-                {/* You can place another component here for account details */}
-              </Colxx>
-            </Row>
-          </TabPane>
         {/* </TabContent> */}
       </Colxx>
     </>
