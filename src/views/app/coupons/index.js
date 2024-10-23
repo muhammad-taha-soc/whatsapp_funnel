@@ -57,15 +57,29 @@ import Schedule from 'containers/newsletter/Schedule';
 import Draft from 'containers/newsletter/Draft';
 import History from 'containers/newsletter/History';
 import CouponsTable from 'containers/coupons/CouponsTable';
+ // Add this import for the icon
+ import { FaPlus } from 'react-icons/fa'; // Use this for the plus icon
+import CreateModal from 'containers/coupons/CreateModal';
+
 // Add this import for the icon
-import { FaPlus } from 'react-icons/fa'; // Use this for the plus icon
 import AdministrationTable from 'containers/coupons/AdministrationTable';
 
-const DefaultCoupons = ({ intl, match }) => {
+ const DefaultCoupons = ({ intl, match }) => {
+    const [selectedCustomer, setSelectedCustomer] = useState(null);
     const { messages } = intl;
     console.log(messages);
     const [activeSecondTab, setActiveSecondTab] = useState('1');
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
+    // Function to toggle modal
+    const handleClick = () => {
+        console.log("click")
+        setIsModalOpen(true);
+        console.log(isModalOpen)
+        if (isModalOpen) {
+            setIsModalOpen(false);
+        }
+    };
     return (
         <>
             <Row>
@@ -74,6 +88,7 @@ const DefaultCoupons = ({ intl, match }) => {
                     <Separator className="mb-5" />
                 </Colxx>
             </Row>
+            {isModalOpen &&   < CreateModal   customer={selectedCustomer} onClose={() => setIsModalOpen(false)} /> } 
 
             <Colxx xxs="12">
                 <Nav tabs className="mb-3 ml-0 mr-0">
@@ -99,14 +114,14 @@ const DefaultCoupons = ({ intl, match }) => {
                     <div className="ml-auto">
                         <Button
                             className="bg-theme-1 text-white d-flex align-items-center justify-content-center p-2 rounded"
-                            onClick={() => {/* Add your onClick logic here */ }} // Define what happens when the button is clicked
+                            onClick={handleClick}
+
                         >
                             <i className="simple-icon-plus mr-2" /> {/* Plus icon */}
                             Create New Coupon
                         </Button>
                     </div>
                 </Nav>
-
                 <TabContent activeTab={activeSecondTab}>
                     <TabPane tabId="1">
                         <Row>
