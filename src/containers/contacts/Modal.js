@@ -33,11 +33,15 @@ const Modal = ({ customer, onClose }) => {
                 <div className="modal-body">
                     <div className="bordered-container">
                         <div className="left-column">
-                            <Colxx className='customer-name' xxs='12' lg='12' md='12' xl='12' style={{ color: 'black' }}>
-                            <div className="bg-theme-1 account-profile-background-layer account-profile-background-layer-btn p-4">
+                            <Colxx className=' customer-name p-0' xxs='12' lg='12' md='12' xl='12' style={{ color: 'black' }}>
+                                <div className="bg-theme-1 account-profile-background-layer account-profile-background-layer-btn p-4">
 
-                                <h3>{dummyCustomer.title}</h3>
-                            </div>
+                                    <h3 className='text-left'>{dummyCustomer.title}</h3>
+                                    <div style={{ borderRadius: '25px', backgroundColor: 'white', color: '#FF8E0D', padding: '7px', width: '22%', textAlign: 'center' }}>
+                                        customer
+                                    </div>
+                                </div>
+
                             </Colxx>
 
                             <div className="customer-info" style={{ color: 'black' }}>
@@ -48,10 +52,10 @@ const Modal = ({ customer, onClose }) => {
 
                             <div className="modal-actions">
                                 <button className="action-button">
-                                    <FaWhatsapp /> <span> Unsubscribe from WhatsApp</span>
+                                    <FaEnvelope /> <span> Unsubscribe from Account</span>
                                 </button>
                                 <button className="action-button">
-                                    <FaEnvelope /> <span> Unsubscribe from Account</span>
+                                    <FaWhatsapp /> <span> Unsubscribe from WhatsApp</span>
                                 </button>
                                 <button className="action-button">
                                     <FaDownload /> <span> Download Contact Data</span>

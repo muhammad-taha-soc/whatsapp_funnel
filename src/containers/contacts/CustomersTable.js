@@ -56,7 +56,7 @@ function Table({ columns, data, onRowClick }) {
                         return (
                             <tr key={row.id} {...row.getRowProps()} onClick={() => onRowClick(row.original)}>
                                 {row.cells.map(cell => (
-                                    <td key={cell.column.id} {...cell.getCellProps ({ className: cell.column.cellClass })}>
+                                    <td key={cell.column.id} {...cell.getCellProps({ className: cell.column.cellClass })}>
                                         {cell.render('Cell')}
                                     </td>
                                 ))}
@@ -227,177 +227,177 @@ const CustomersTable = () => {
 
     return (
         <>
-        <Card className="h-100">
-            <CardBody>
-                <CardTitle className="d-flex flex-row justify-content-between font-weight-bold mb-3">
-                    <div className='input-group' style={{ width: '300px', position: 'relative' }}>
-                        <Input
-                            type="text"
-                            placeholder="Search Customer..."
-                            value={searchTerm}
-                            onChange={e => setSearchTerm(e.target.value)}
-                            style={{ paddingLeft: '30px' }}
-                        />
-                        <FaSearch className="search-icon" style={{
-                            position: 'absolute',
-                            left: '10px',
-                            top: '50%',
-                            transform: 'translateY(-50%)',
-                            zIndex: 1,
-                            color: '#888'
-                        }} />
-                    </div>
-                    <div>
-                        <Badge color="" className="mb-1 border border-theme-4" onClick={toggleFilterDropdown} style={{ cursor: 'pointer', padding: '10px 15px' }}>
-                            <i className="iconsminds-calendar-4" />
-                            <IntlMessages id="dashboards.filters" />
-                        </Badge>
-                        {filterDropdownOpen && (
-                            <div className="filter-dropdown" style={{
+            <Card className="h-100">
+                <CardBody>
+                    <CardTitle className="d-flex flex-row justify-content-between font-weight-bold mb-3">
+                        <div className='input-group' style={{ width: '300px', position: 'relative' }}>
+                            <Input
+                                type="text"
+                                placeholder="Search Customer..."
+                                value={searchTerm}
+                                onChange={e => setSearchTerm(e.target.value)}
+                                style={{ paddingLeft: '30px' }}
+                            />
+                            <FaSearch className="search-icon" style={{
                                 position: 'absolute',
-                                background: 'white',
-                                border: '1px solid #ddd',
-                                padding: '15px',
-                                borderRadius: '8px',
-                                boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-                                zIndex: 10,
-                                top: '40px',
-                                right: '0px',
-                            }}>
-                                <div className="d-flex justify-content-between align-items-center mb-3">
-                                    <h6>Filter</h6>
-                                    <button type="button" className="close" onClick={toggleFilterDropdown}>
-                                        <span>&times;</span>
-                                    </button>
+                                left: '10px',
+                                top: '50%',
+                                transform: 'translateY(-50%)',
+                                zIndex: 1,
+                                color: '#888'
+                            }} />
+                        </div>
+                        <div>
+                            <Badge color="" className="mb-1 border border-theme-4" style={{ cursor: 'pointer', padding: '10px 15px' }}>
+                                <i className="iconsminds-calendar-4" />
+                                <IntlMessages id="dashboards.filters" />
+                            </Badge>
+                            {filterDropdownOpen && (
+                                <div className="filter-dropdown" style={{
+                                    position: 'absolute',
+                                    background: 'white',
+                                    border: '1px solid #ddd',
+                                    padding: '15px',
+                                    borderRadius: '8px',
+                                    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+                                    zIndex: 10,
+                                    top: '40px',
+                                    right: '0px',
+                                }}>
+                                    <div className="d-flex justify-content-between align-items-center mb-3">
+                                        <h6>Filter</h6>
+                                        <button type="button" className="close" onClick={toggleFilterDropdown}>
+                                            <span>&times;</span>
+                                        </button>
+                                    </div>
+                                    <div className="filter-options">
+                                        <div className="filter-option">
+                                            <div className="filter-option-title" onClick={() => toggleFilterOption('status')}>
+                                                Status
+                                            </div>
+                                            {filterStates.status && (
+                                                <div className="filter-option-content">
+                                                    <div className="custom-control custom-checkbox">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="custom-control-input"
+                                                            id="checkbox-lead"
+                                                            checked={checkboxStates.status.lead}
+                                                            onChange={() => toggleCheckbox('status', 'lead')}
+                                                        />
+                                                        <label className="custom-control-label" htmlFor="checkbox-lead">Lead</label>
+                                                    </div>
+                                                    <div className="custom-control custom-checkbox">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="custom-control-input"
+                                                            id="checkbox-customer"
+                                                            checked={checkboxStates.status.customer}
+                                                            onChange={() => toggleCheckbox('status', 'customer')}
+                                                        />
+                                                        <label className="custom-control-label" htmlFor="checkbox-customer">Customer</label>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className="filter-option">
+                                            <div className="filter-option-title" onClick={() => toggleFilterOption('satisfied')}>
+                                                Satisfied
+                                            </div>
+                                            {filterStates.satisfied && (
+                                                <div className="filter-option-content">
+                                                    <div className="custom-control custom-checkbox">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="custom-control-input"
+                                                            id="checkbox-satisfied-yes"
+                                                            checked={checkboxStates.satisfied.yes}
+                                                            onChange={() => toggleCheckbox('satisfied', 'yes')}
+                                                        />
+                                                        <label className="custom-control-label" htmlFor="checkbox-satisfied-yes">Yes</label>
+                                                    </div>
+                                                    <div className="custom-control custom-checkbox">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="custom-control-input"
+                                                            id="checkbox-satisfied-no"
+                                                            checked={checkboxStates.satisfied.no}
+                                                            onChange={() => toggleCheckbox('satisfied', 'no')}
+                                                        />
+                                                        <label className="custom-control-label" htmlFor="checkbox-satisfied-no">No</label>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className="filter-option">
+                                            <div className="filter-option-title" onClick={() => toggleFilterOption('reviewLinkClicked')}>
+                                                Review Link Clicked
+                                            </div>
+                                            {filterStates.reviewLinkClicked && (
+                                                <div className="filter-option-content">
+                                                    <div className="custom-control custom-checkbox">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="custom-control-input"
+                                                            id="checkbox-review-yes"
+                                                            checked={checkboxStates.reviewLinkClicked.yes}
+                                                            onChange={() => toggleCheckbox('reviewLinkClicked', 'yes')}
+                                                        />
+                                                        <label className="custom-control-label" htmlFor="checkbox-review-yes">Yes</label>
+                                                    </div>
+                                                    <div className="custom-control custom-checkbox">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="custom-control-input"
+                                                            id="checkbox-review-no"
+                                                            checked={checkboxStates.reviewLinkClicked.no}
+                                                            onChange={() => toggleCheckbox('reviewLinkClicked', 'no')}
+                                                        />
+                                                        <label className="custom-control-label" htmlFor="checkbox-review-no">No</label>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className="filter-option">
+                                            <div className="filter-option-title" onClick={() => toggleFilterOption('suggestionImprovement')}>
+                                                Suggestion for Improvement
+                                            </div>
+                                            {filterStates.suggestionImprovement && (
+                                                <div className="filter-option-content">
+                                                    <div className="custom-control custom-checkbox">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="custom-control-input"
+                                                            id="checkbox-suggestion-yes"
+                                                            checked={checkboxStates.suggestionImprovement.yes}
+                                                            onChange={() => toggleCheckbox('suggestionImprovement', 'yes')}
+                                                        />
+                                                        <label className="custom-control-label" htmlFor="checkbox-suggestion-yes">Yes</label>
+                                                    </div>
+                                                    <div className="custom-control custom-checkbox">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="custom-control-input"
+                                                            id="checkbox-suggestion-no"
+                                                            checked={checkboxStates.suggestionImprovement.no}
+                                                            onChange={() => toggleCheckbox('suggestionImprovement', 'no')}
+                                                        />
+                                                        <label className="custom-control-label" htmlFor="checkbox-suggestion-no">No</label>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="filter-options">
-                                    <div className="filter-option">
-                                        <div className="filter-option-title" onClick={() => toggleFilterOption('status')}>
-                                            Status
-                                        </div>
-                                        {filterStates.status && (
-                                            <div className="filter-option-content">
-                                                <div className="custom-control custom-checkbox">
-                                                    <input
-                                                        type="checkbox"
-                                                        className="custom-control-input"
-                                                        id="checkbox-lead"
-                                                        checked={checkboxStates.status.lead}
-                                                        onChange={() => toggleCheckbox('status', 'lead')}
-                                                    />
-                                                    <label className="custom-control-label" htmlFor="checkbox-lead">Lead</label>
-                                                </div>
-                                                <div className="custom-control custom-checkbox">
-                                                    <input
-                                                        type="checkbox"
-                                                        className="custom-control-input"
-                                                        id="checkbox-customer"
-                                                        checked={checkboxStates.status.customer}
-                                                        onChange={() => toggleCheckbox('status', 'customer')}
-                                                    />
-                                                    <label className="custom-control-label" htmlFor="checkbox-customer">Customer</label>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                    <div className="filter-option">
-                                        <div className="filter-option-title" onClick={() => toggleFilterOption('satisfied')}>
-                                            Satisfied
-                                        </div>
-                                        {filterStates.satisfied && (
-                                            <div className="filter-option-content">
-                                                <div className="custom-control custom-checkbox">
-                                                    <input
-                                                        type="checkbox"
-                                                        className="custom-control-input"
-                                                        id="checkbox-satisfied-yes"
-                                                        checked={checkboxStates.satisfied.yes}
-                                                        onChange={() => toggleCheckbox('satisfied', 'yes')}
-                                                    />
-                                                    <label className="custom-control-label" htmlFor="checkbox-satisfied-yes">Yes</label>
-                                                </div>
-                                                <div className="custom-control custom-checkbox">
-                                                    <input
-                                                        type="checkbox"
-                                                        className="custom-control-input"
-                                                        id="checkbox-satisfied-no"
-                                                        checked={checkboxStates.satisfied.no}
-                                                        onChange={() => toggleCheckbox('satisfied', 'no')}
-                                                    />
-                                                    <label className="custom-control-label" htmlFor="checkbox-satisfied-no">No</label>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                    <div className="filter-option">
-                                        <div className="filter-option-title" onClick={() => toggleFilterOption('reviewLinkClicked')}>
-                                            Review Link Clicked
-                                        </div>
-                                        {filterStates.reviewLinkClicked && (
-                                            <div className="filter-option-content">
-                                                <div className="custom-control custom-checkbox">
-                                                    <input
-                                                        type="checkbox"
-                                                        className="custom-control-input"
-                                                        id="checkbox-review-yes"
-                                                        checked={checkboxStates.reviewLinkClicked.yes}
-                                                        onChange={() => toggleCheckbox('reviewLinkClicked', 'yes')}
-                                                    />
-                                                    <label className="custom-control-label" htmlFor="checkbox-review-yes">Yes</label>
-                                                </div>
-                                                <div className="custom-control custom-checkbox">
-                                                    <input
-                                                        type="checkbox"
-                                                        className="custom-control-input"
-                                                        id="checkbox-review-no"
-                                                        checked={checkboxStates.reviewLinkClicked.no}
-                                                        onChange={() => toggleCheckbox('reviewLinkClicked', 'no')}
-                                                    />
-                                                    <label className="custom-control-label" htmlFor="checkbox-review-no">No</label>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                    <div className="filter-option">
-                                        <div className="filter-option-title" onClick={() => toggleFilterOption('suggestionImprovement')}>
-                                            Suggestion for Improvement
-                                        </div>
-                                        {filterStates.suggestionImprovement && (
-                                            <div className="filter-option-content">
-                                                <div className="custom-control custom-checkbox">
-                                                    <input
-                                                        type="checkbox"
-                                                        className="custom-control-input"
-                                                        id="checkbox-suggestion-yes"
-                                                        checked={checkboxStates.suggestionImprovement.yes}
-                                                        onChange={() => toggleCheckbox('suggestionImprovement', 'yes')}
-                                                    />
-                                                    <label className="custom-control-label" htmlFor="checkbox-suggestion-yes">Yes</label>
-                                                </div>
-                                                <div className="custom-control custom-checkbox">
-                                                    <input
-                                                        type="checkbox"
-                                                        className="custom-control-input"
-                                                        id="checkbox-suggestion-no"
-                                                        checked={checkboxStates.suggestionImprovement.no}
-                                                        onChange={() => toggleCheckbox('suggestionImprovement', 'no')}
-                                                    />
-                                                    <label className="custom-control-label" htmlFor="checkbox-suggestion-no">No</label>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                </CardTitle>
-                <Table columns={cols} data={filteredData} onRowClick={handleRowClick} />
-            </CardBody>
-        </Card>
-         {selectedCustomer && (
-            <Modal customer={selectedCustomer} onClose={() => setSelectedCustomer(null)} /> // Modal
-        )}
+                            )}
+                        </div>
+                    </CardTitle>
+                    <Table columns={cols} data={filteredData} onRowClick={handleRowClick} />
+                </CardBody>
+            </Card>
+            {selectedCustomer && (
+                <Modal customer={selectedCustomer} onClose={() => setSelectedCustomer(null)} /> // Modal
+            )}
         </>
     );
 };
