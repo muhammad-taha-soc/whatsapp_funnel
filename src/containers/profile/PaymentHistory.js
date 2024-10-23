@@ -55,14 +55,14 @@ function Table({ columns, data }) {
                                 // `}
                                 >
                                     {column.render('Header')}{' '}
-                                    {column.render('Header') !== 'Newsletter' && (
+                                    {/* {column.render('Header') !== 'Newsletter' && (
                                         <i
                                             className={`ml-2 mt-1 ${column.isSortedDesc
                                                 ? 'simple-icon-arrow-up'
                                                 : 'simple-icon-arrow-down'
                                                 }`}
                                         />
-                                    )}
+                                    )} */}
                                     <span />
                                 </th>
                             ))}
@@ -116,35 +116,35 @@ const NewsLetter = () => {
                 Header: 'Invoice',
                 accessor: 'newsLetter',
                 cellClass: 'font-weight-bold w-25',
-                Cell: (props) => <>{props.value}</>,
+                Cell: (props) => <>Basic Plan - Dec 2022</>,
                 sortType: 'basic',
             },
             {
                 Header: 'Amount',
                 accessor: 'createDate',
                 cellClass: 'text-muted w-20',
-                Cell: (props) => <>{props.value}</>,
+                Cell: (props) => <>USD $10.00</>,
                 sortType: 'basic',
             },
             {
                 Header: 'Date',
                 accessor: 'delivered',
-                cellClass: 'text-theme-3 w-20 ',
-                Cell: (props) => <>{props.value}</>,
+                cellClass: ' w-20 ',
+                Cell: (props) => <>Dec 1, 2022</>,
                 sortType: 'basic',
             },
             {
                 Header: 'Status',
                 accessor: 'read',
-                cellClass: 'text-primary w-20',
-                Cell: (props) => <>{props.value}</>,
+                cellClass: ' w-20',
+                Cell: (props) => <div><span style={{ backgroundColor: "#0DAC8A1A", color: "#0DAC8A", padding: "4px 10px", borderRadius: "50px" }}>Paid</span> </div>,
                 sortType: 'basic',
             },
             {
                 Header: 'Action',
                 accessor: 'clicked',
                 cellClass: 'text-theme-2 w-20',
-                Cell: (props) => <>{props.value}</>,
+                Cell: (props) => <><i className='simple-icon-options-vertical' style={{ color: "gray" }} /></>,
                 sortType: 'basic',
             },
         ],

@@ -14,37 +14,62 @@ import {
 import IntlMessages from 'helpers/IntlMessages';
 import { Colxx, Separator } from 'components/common/CustomBootstrap';
 import SingleLightbox from 'components/pages/SingleLightbox';
+import ReactCountryDropdown from "react-country-dropdown";
 
 
 const ProfileInfo = () => {
     const [dropdownBasicOpen, setDropdownBasicOpen] = useState(false);
     return (
-        <Card className="mb-4">
-            <div className="account-profile-section">
-                <SingleLightbox
-                    thumb="/assets/img/profiles/l-1.jpg"
-                    large="/assets/img/profiles/1.jpg"
-                    className="account-profile-img "
-                />
-                <div>
-                    <p className="">Name</p>
-                    <CardTitle className="mb-0 font-weight-bold">
-                        <p className="">Sam Emili</p>
-                    </CardTitle>
+        <Card className="mb-4" >
+            <div className="account-profile-section"
+            >
+                <div className='profile-img-d' style={{ display: "flex" }}>
+                    <div style={{ position: "relative" }}>
+                        <SingleLightbox
+                            thumb="/assets/img/profiles/l-1.jpg"
+                            large="/assets/img/profiles/1.jpg"
+                            className="account-profile-img "
+                        />
+                        <span
+                            style={{
+                                position: "absolute",
+                                bottom: "6px",
+                                right: "10px",
+                                backgroundColor: "white",
+                                padding: "5px",
+                                width: "30px",
+                                height: "30px",
+                                borderRadius: "50%",
+                            }}>
+                            <i
+                                className="simple-icon-camera text-primary"
+                                style={{ fontSize: "20px" }}
+                            />
+                        </span>
+                    </div>
+                    <div style={{ marginTop: "80px" }}>
+                        <div>
+                            <p style={{ color: '#86868A', fontWeight: '500', fontSize: '14px' }}>Name</p>
+                            <CardTitle className="mb-0 font-weight-bold">
+                                <p style={{ color: '#0D0D26', fontWeight: '600', fontSize: '20px' }}>Sam Emili</p>
+                            </CardTitle>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <Separator className="mb-5" />
+
             <CardBody>
-                <h2>General Information</h2>
+                <Separator className="mb-5" />
+                <h2 style={{ color: '#0D0D26', fontWeight: '600', fontSize: '16px' }}>General Information</h2>
                 <Row>
                     <Colxx
                         md="6"
                         lg="6"
                         xl="6"
-                        className="mb-4"
+                        className="mb-2"
                     >
                         <div>
-                            <p className="text-muted mb-0">Company Name</p>
+                            <p className="text-muted mb-0" style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}>Company Name</p>
                             <Input className='w-100 rounded-sm' placeholder={"Name"} />
                         </div>
 
@@ -53,10 +78,10 @@ const ProfileInfo = () => {
                         md="6"
                         lg="6"
                         xl="6"
-                        className="mb-4"
+                        className="mb-2"
                     >
                         <div>
-                            <p className="text-muted mb-0">Address</p>
+                            <p className="text-muted mb-0" style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}>Address</p>
                             <Input className='w-100 rounded-sm' placeholder={"Address"} />
                         </div>
                     </Colxx>
@@ -66,10 +91,10 @@ const ProfileInfo = () => {
                         md="6"
                         lg="6"
                         xl="6"
-                        className="mb-4"
+                        className="mb-2"
                     >
                         <div>
-                            <p className="text-muted mb-0">Friendly Name</p>
+                            <p className="text-muted mb-0" style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}>Friendly Name</p>
                             <Input className='w-100 rounded-sm' placeholder={"Friendly Name"} />
                         </div>
 
@@ -78,10 +103,10 @@ const ProfileInfo = () => {
                         md="6"
                         lg="6"
                         xl="6"
-                        className="mb-4"
+                        className="mb-2"
                     >
                         <div>
-                            <p className="text-muted mb-0">E-mail address</p>
+                            <p className="text-muted mb-0" style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}>E-mail address</p>
                             <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
                         </div>
                     </Colxx>
@@ -91,10 +116,10 @@ const ProfileInfo = () => {
                         md="6"
                         lg="6"
                         xl="6"
-                        className="mb-4"
+                        className="mb-2"
                     >
                         <div>
-                            <p className="text-muted mb-0">Website</p>
+                            <p className="text-muted mb-0" style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}>Website</p>
                             <Input className='w-100 rounded-sm' placeholder={"make.io"} />
                         </div>
 
@@ -103,10 +128,10 @@ const ProfileInfo = () => {
                         md="6"
                         lg="6"
                         xl="6"
-                        className="mb-4"
+                        className="mb-2"
                     >
                         <div>
-                            <p className="text-muted mb-0">Google link</p>
+                            <p className="text-muted mb-0" style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}>Google link</p>
                             <Input className='w-100 rounded-sm' placeholder={"google.com"} />
                         </div>
                     </Colxx>
@@ -118,47 +143,26 @@ const ProfileInfo = () => {
                         md="6"
                         lg="6"
                         xl="6"
-                        className="mb-4"
+                        className="mb-2"
                     >
                         <div>
-                            <p className="text-muted mb-0">Telephone Number</p>
+                            <p className="text-muted mb-0" style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}>Telephone Number</p>
                             <Row>
                                 <Colxx
                                     md="3"
                                     lg="3"
                                     xl="3">
-                                    <Dropdown
-                                        isOpen={dropdownBasicOpen}
-                                        toggle={() => setDropdownBasicOpen(!dropdownBasicOpen)}
-                                        className="mb-5 bg-red-1 rounded-sm"
-                                    >
-                                        <DropdownToggle caret color="" outline>
-                                            <IntlMessages id="dropdowns.dropdown" />
-                                        </DropdownToggle>
-                                        <DropdownMenu>
-                                            <DropdownItem header>
-                                                <IntlMessages id="dropdowns.header" />
-                                            </DropdownItem>
-                                            <DropdownItem disabled>
-                                                <IntlMessages id="dropdowns.action" />
-                                            </DropdownItem>
-                                            <DropdownItem>
-                                                UK
-                                                {/* <IntlMessages id="ue" /> */}
-                                            </DropdownItem>
-                                            <DropdownItem divider />
-                                            <DropdownItem>
-                                                <IntlMessages id="dropdowns.another-action" />
-                                            </DropdownItem>
-                                        </DropdownMenu>
-                                    </Dropdown>
+                                    <ReactCountryDropdown
+                                        defaultCountry="US"
+                                        onSelect={(country) => console.log(country.name)}
+                                    />
                                 </Colxx>
                                 <Colxx
                                     md="9"
                                     lg="9"
                                     xl="9"
                                 >
-                                    <Input className='w-100 rounded-sm' placeholder={"make.io"} />
+                                    <Input className='w-100 rounded-sm' placeholder={"5415415214"} />
                                 </Colxx>
                             </Row>
                         </div>
@@ -168,47 +172,26 @@ const ProfileInfo = () => {
                         md="6"
                         lg="6"
                         xl="6"
-                        className="mb-4"
+                        className="mb-2"
                     >
                         <div>
-                            <p className="text-muted mb-0">Direct Chat WhatApp Number</p>
+                            <p className="text-muted mb-0" style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}>Direct Chat WhatApp Number</p>
                             <Row>
                                 <Colxx
                                     md="3"
                                     lg="3"
                                     xl="3">
-                                    <Dropdown
-                                        isOpen={dropdownBasicOpen}
-                                        toggle={() => setDropdownBasicOpen(!dropdownBasicOpen)}
-                                        className="mb-5 bg-red-1 rounded-sm"
-                                    >
-                                        <DropdownToggle caret color="" outline>
-                                            <IntlMessages id="dropdowns.dropdown" />
-                                        </DropdownToggle>
-                                        <DropdownMenu>
-                                            <DropdownItem header>
-                                                <IntlMessages id="dropdowns.header" />
-                                            </DropdownItem>
-                                            <DropdownItem disabled>
-                                                <IntlMessages id="dropdowns.action" />
-                                            </DropdownItem>
-                                            <DropdownItem>
-                                                UK
-                                                {/* <IntlMessages id="ue" /> */}
-                                            </DropdownItem>
-                                            <DropdownItem divider />
-                                            <DropdownItem>
-                                                <IntlMessages id="dropdowns.another-action" />
-                                            </DropdownItem>
-                                        </DropdownMenu>
-                                    </Dropdown>
+                                    <ReactCountryDropdown
+                                        defaultCountry="US"
+                                        onSelect={(country) => console.log(country.name)}
+                                    />
                                 </Colxx>
                                 <Colxx
                                     md="9"
                                     lg="9"
                                     xl="9"
                                 >
-                                    <Input className='w-100 rounded-sm' placeholder={"make.io"} />
+                                    <Input className='w-100 rounded-sm' placeholder={"5415415214"} />
                                 </Colxx>
                             </Row>
                         </div>
@@ -216,7 +199,7 @@ const ProfileInfo = () => {
                     </Colxx>
 
                 </Row>
-                <h2>Opening Hours</h2>
+                <h2 style={{ color: '#0D0D26', fontWeight: '600', fontSize: '16px' }}>Opening Hours</h2>
                 <Row>
                     <Colxx
                         md="6"
@@ -230,6 +213,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="mb-4"
+                                style={{ color: '#667085', fontSize: '14px', fontWeight: '600' }}
                             >
                                 Day
                             </Colxx>
@@ -239,6 +223,7 @@ const ProfileInfo = () => {
                                 lg="9"
                                 xl="9"
                                 className="mb-4"
+                                style={{ color: '#667085', fontSize: '14px', fontWeight: '600' }}
                             >
                                 Form
                             </Colxx>
@@ -250,6 +235,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
+                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600' }}
                             >
                                 Monday
                             </Colxx>
@@ -260,7 +246,12 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
                         <Row className='mb-2'>
@@ -269,6 +260,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
+                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600' }}
                             >
                                 Tuesday
                             </Colxx>
@@ -279,7 +271,12 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
                         <Row className='mb-2'>
@@ -288,6 +285,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
+                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600' }}
                             >
                                 Wednesday
                             </Colxx>
@@ -298,7 +296,12 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
                         <Row className='mb-2'>
@@ -307,6 +310,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
+                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600' }}
                             >
                                 Thursday
                             </Colxx>
@@ -317,7 +321,12 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
                         <Row className='mb-2'>
@@ -326,6 +335,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
+                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600' }}
                             >
                                 Friday
                             </Colxx>
@@ -336,7 +346,12 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
                         <Row className='mb-2'>
@@ -345,6 +360,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
+                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600' }}
                             >
                                 Saturaday
                             </Colxx>
@@ -355,7 +371,12 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
                         <Row className='mb-2'>
@@ -364,6 +385,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
+                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600', }}
                             >
                                 Sunday
                             </Colxx>
@@ -374,7 +396,12 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
 
@@ -391,6 +418,7 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                                 className="mb-4"
+                                style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}
                             >
                                 Unit
                             </Colxx>
@@ -401,7 +429,12 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
                         <Row className='mb-2'>
@@ -410,7 +443,12 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
                         <Row className='mb-2'>
@@ -419,7 +457,12 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
                         <Row className='mb-2'>
@@ -428,7 +471,12 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
                         <Row className='mb-2'>
@@ -437,7 +485,12 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
                         <Row className='mb-2'>
@@ -446,7 +499,12 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
                         <Row className='mb-2'>
@@ -455,7 +513,12 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <Input className='w-100 rounded-sm' placeholder={"abcd@gmail.com"} />
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                        style={{ border: "none" }}
+                                    />
+                                    <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                                </div>
                             </Colxx>
                         </Row>
                     </Colxx>
