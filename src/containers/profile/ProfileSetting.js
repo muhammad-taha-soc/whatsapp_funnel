@@ -9,8 +9,8 @@ import { Colxx } from 'components/common/CustomBootstrap';
 const ProfileSetting = () => {
 
     return (
-        <CardBody className='bg-white'>
-            <h2>General Information</h2>
+        <CardBody className='bg-white' style={{ borderRadius: "16px" }}>
+            <h2 style={{ fontSize: '24px', fontWeight: '500', color: '#0D0D26' }}>Password</h2>
             <Row>
                 <Colxx
                     md="12"
@@ -19,8 +19,14 @@ const ProfileSetting = () => {
                     className="mb-4"
                 >
                     <div>
-                        <p className="text-muted mb-0">Current Password</p>
-                        <Input type='password' className='w-100 rounded-sm' placeholder={"Current Password"} />
+                        <p className="text-muted mb-0"
+                            style={{ fontSize: '14px', fontWeight: '400', color: '#667085' }}>Current Password</p>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                            <Input type='password' className='w-100 rounded-sm' placeholder={"passwors"}
+                                style={{ border: "none" }}
+                            />
+                            <i className='simple-icon-eye' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                        </div>
                     </div>
 
                 </Colxx>
@@ -33,8 +39,14 @@ const ProfileSetting = () => {
                     className="mb-4"
                 >
                     <div>
-                        <p className="text-muted mb-0">New Password</p>
-                        <Input type='password' className='w-100 rounded-sm' placeholder={"New Password"} />
+                        <p className="text-muted mb-0"
+                            style={{ fontSize: '14px', fontWeight: '400', color: '#667085' }}>New Password</p>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                            <Input type='password' className='w-100 rounded-sm' placeholder={"passwors"}
+                                style={{ border: "none" }}
+                            />
+                            <i className='simple-icon-eye' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                        </div>
                     </div>
 
                 </Colxx>
@@ -47,8 +59,14 @@ const ProfileSetting = () => {
                     className="mb-4"
                 >
                     <div>
-                        <p className="text-muted mb-0">Confirm Password</p>
-                        <Input type='password' className='w-100 rounded-sm' placeholder={"Confirm Password"} />
+                        <p className="text-muted mb-0"
+                            style={{ fontSize: '14px', fontWeight: '400', color: '#667085' }}>Confirm Password</p>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                            <Input type='password' className='w-100 rounded-sm' placeholder={"passwors"}
+                                style={{ border: "none" }}
+                            />
+                            <i className='simple-icon-eye' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
+                        </div>
                     </div>
 
                 </Colxx>

@@ -94,7 +94,11 @@ const DefaultProfile = ({ intl, match }) => {
                         <TabPane tabId="1">
                             <Row>
                                 <Colxx xxs="12" lg="12" md="12" xl="12" className="">
-                                    <div className="bg-theme-1 account-profile-background-layer account-profile-background-layer-btn ">
+                                    <div style={{ backgroundColor: "white", padding: "10px" }}>
+                                        <div className="bg-theme-1 account-profile-background-layer account-profile-background-layer-btn"
+                                            style={{ borderRadius: '10px' }}
+                                        >
+                                        </div>
                                     </div>
                                 </Colxx>
                                 <Colxx xl="12" md="12" lg="12" className="">

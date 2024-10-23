@@ -13,17 +13,38 @@ const AccountProfile = () => {
   return (
     <Card className="mb-4">
       <div className="account-profile-section">
-        <SingleLightbox
-          thumb="/assets/img/profiles/l-1.jpg"
-          large="/assets/img/profiles/1.jpg"
-          className="account-profile-img "
-        />
-        <div>
-          <p className="">Sarah Cortney</p>
-          <CardTitle className="mb-0 font-weight-bold">
-            <p className="">SmartLeadsPRO - Workshop</p>
-            <i className="simple-icon-pencil text-theme-2" />
-          </CardTitle>
+        <div className='profile-img-d' style={{ display: "flex" }}>
+          <div style={{ position: "relative" }}>
+            <SingleLightbox
+              thumb="/assets/img/profiles/l-1.jpg"
+              large="/assets/img/profiles/1.jpg"
+              className="account-profile-img "
+            />
+            <span
+              style={{
+                position: "absolute",
+                bottom: "6px",
+                right: "10px",
+                backgroundColor: "white",
+                padding: "5px",
+                width: "30px",
+                height: "30px",
+                borderRadius: "50%",
+              }}>
+              <i
+                className="simple-icon-camera text-primary"
+                style={{ fontSize: "20px" }}
+              />
+            </span>
+          </div>
+          <div style={{ marginTop: "80px" }}>
+            <div>
+              <p style={{ color: '#86868A', fontWeight: '500', fontSize: '14px' }}>Name</p>
+              <CardTitle className="mb-0 font-weight-bold">
+                <p style={{ color: '#0D0D26', fontWeight: '600', fontSize: '20px' }}>Sam Emili</p>
+              </CardTitle>
+            </div>
+          </div>
         </div>
       </div>
       <Separator className="mb-5" />
