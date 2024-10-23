@@ -70,7 +70,7 @@ const DefaultCoupons = ({ intl, match }) => {
         <>
             <Row>
                 <Colxx xxs="12">
-                    <Breadcrumb heading="dashboards.news-letter" match={match} />
+                    <Breadcrumb heading="Coupon" match={match} />
                     <Separator className="mb-5" />
                 </Colxx>
             </Row>
