@@ -64,13 +64,13 @@ module.exports = {
   'menu.app': 'Home',
   'menu.dashboards': 'Dashboard',
   'menu.contacts': 'Contacts',
-  'menu.coupon': 'Coupon',
+  'menu.customers': 'Customer',
+  'menu.coupons': 'Coupon',
   'menu.default': 'Default',
   'menu.analytics': 'Analytics',
   'menu.ecommerce': 'Ecommerce',
   'menu.content': 'Content',
-  'menu.pages': 'Pages',
-  'menu.data-list': 'Data List',
+  'menu.data-list': 'Customers',
   'menu.thumb-list': 'Thumb List',
   'menu.image-list': 'Image List',
   'menu.details': 'Details',
@@ -212,6 +212,37 @@ module.exports = {
   'dashboards.select-date': 'Select Date',
   'dashboards.filters': 'Filters',
   'dashboards.top-rated-items': 'Top Rated Items',
+
+  /* Contacts */
+  'contacts.filters': 'Filters',
+  'contacts.title': 'Title',
+  'contacts.select-date': 'Select Date',
+  "contacts.customer-name": 'Customer Name',
+  'contacts.status': 'Status',
+  'contacts.satisfied': 'Satisfied',
+  'contacts.review-link': 'Review Link Clicked',
+  'contacts.suggestion': 'Suggestion for improvement',
+  'contacts.action': 'Action',
+  'contacts.edit': 'Edit',
+
+
+  /* Coupons */
+  'coupons.filters': 'Filters',
+  'coupons.id': 'Coupon ID',
+  'coupons.actionName': 'Action Name',
+  'coupons.sourceofOrigin': 'Source of origin',
+  'coupons.issue-date': 'Issue Date',
+  'coupons.redemption-date': 'Redemption Date',
+  "coupons.name": 'Name',
+  "coupons.telephone": 'Telephone No.',
+  'coupons.status': 'Status',
+  'coupons.satisfied': 'Satisfied',
+  'coupons.review-link': 'Review Link Clicked',
+  'coupons.suggestion': 'Suggestion for improvement',
+  'coupons.action': 'Action',
+  'coupons.edit': 'Edit',
+
+  
 
   /* 05.Pages */
   'pages.add-new': 'ADD NEW',
