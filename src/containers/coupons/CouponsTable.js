@@ -10,6 +10,7 @@ import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { FaEllipsisV, FaWhatsapp, FaFileDownload, FaTrash, FaSearch } from 'react-icons/fa';
 import Modal from './Modal';
 
+
 function Table({ columns, data, onRowClick }) {
     const {
         getTableProps,
