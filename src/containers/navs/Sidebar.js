@@ -366,15 +366,15 @@ class Sidebar extends Component {
               <Nav vertical className="list-unstyled">
                 {menuItems &&
                   this.filteredList(menuItems).map((item) => {
-                    
+                    const isActive =
+                      (selectedParentMenu === item.id &&
+                              viewingParentMenu === '') ||
+                            viewingParentMenu === item.id;
                     return (
                       <NavItem
                         key={item.id}
                         className={classnames({
-                          active:
-                            (selectedParentMenu === item.id &&
-                              viewingParentMenu === '') ||
-                            viewingParentMenu === item.id,
+                          active: isActive,
                         })}
                       >
                         {item.newWindow ? (
@@ -382,7 +382,9 @@ class Sidebar extends Component {
                             href={item.to}
                             rel="noopener noreferrer"
                             target="_blank"
-                            // className="text-muted"
+                            className={
+                              isActive ? 'text-theme-primary' : 'text-muted'
+                            }
                             // className={`${
                             //   sub.subs && sub.subs.length > 0
                             //     ? 'has-sub-item'
@@ -398,7 +400,9 @@ class Sidebar extends Component {
                             to={item.to}
                             // onClick={(e) => this.openSubMenu(e, item)}
                             data-flag={item.id}
-                            className="text-muted"
+                            className={
+                              isActive ? 'text-theme-primary' : 'text-muted'
+                            }
                           >
                             {item.icon}
                             {/* <i className={item.icon} />{' '} */}
