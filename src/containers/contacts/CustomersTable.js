@@ -9,6 +9,8 @@ import products from 'data/products';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { FaEllipsisV, FaWhatsapp, FaFileDownload, FaTrash, FaSearch } from 'react-icons/fa';
 import Modal from './Modal';
+import { Separator } from 'components/common/CustomBootstrap';
+
 
 function Table({ columns, data, onRowClick }) {
     const {
@@ -54,7 +56,7 @@ function Table({ columns, data, onRowClick }) {
                     {page.map(row => {
                         prepareRow(row);
                         return (
-                            <tr key={row.id} {...row.getRowProps()} onClick={(event) => onRowClick(event,row.original)}>
+                            <tr key={row.id} {...row.getRowProps()} onClick={(event) => onRowClick(event, row.original)}>
                                 {row.cells.map(cell => (
                                     <td key={cell.column.id} {...cell.getCellProps({ className: cell.column.cellClass })}>
                                         {cell.render('Cell')}
@@ -149,7 +151,17 @@ const CustomersTable = () => {
 
     const cols = useMemo(() => [
         {
-            Header: <IntlMessages id="contacts.title" />,
+
+            Header: () => (
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <input
+                        type="checkbox"
+                        // Remove onChange for no functionality
+                        style={{ marginRight: '8px' }}
+                    />
+                    <IntlMessages id="contacts.title" />
+                </div>  
+            ),
             accessor: 'title',
             cellClass: 'font-weight-bold',
             Cell: ({ row }) => (
@@ -182,7 +194,7 @@ const CustomersTable = () => {
                     justifyContent: 'center',
                     cursor: ' pointer'
                 };
-    
+
                 const stylesProcessed = {
                     width: '100px',
                     height: '28px',
@@ -196,13 +208,13 @@ const CustomersTable = () => {
                     justifyContent: 'center',
                     cursor: ' pointer'
                 };
-    
+
                 if (value === 'ON HOLD') {
                     return <div style={stylesOnHold}>Customer</div>; // Return styled element for ON HOLD
                 } else if (value === 'PROCESSED') {
                     return <div style={stylesProcessed}>Interesting</div>; // Return styled element for PROCESSED
                 }
-    
+
                 return value; // Default case, return the original value
             },
         },
@@ -210,19 +222,19 @@ const CustomersTable = () => {
             Header: <IntlMessages id="contacts.satisfied" />,
             accessor: 'satisfied',
             cellClass: 'text-theme-3',
-            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" style={{width:'20px', height:'20px', color: "#0DAC8A" , cursor:'pointer'}} /> : <AiFillCloseCircle className="text-danger" style={{width:'20px', height:'20px', color: "#F5430B", cursor:'pointer'}} />,
+            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" style={{ width: '20px', height: '20px', color: "#0DAC8A", cursor: 'pointer' }} /> : <AiFillCloseCircle className="text-danger" style={{ width: '20px', height: '20px', color: "#F5430B", cursor: 'pointer' }} />,
         },
         {
             Header: <IntlMessages id="contacts.review-link" />,
             accessor: 'reviewLink',
             cellClass: 'text-theme-2',
-            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" style={{width:'20px', height:'20px', color: "#0DAC8A", cursor:'pointer'}} /> : <AiFillCloseCircle className="text-danger" style={{width:'20px', height:'20px', color: "#F5430B", cursor:'pointer'} }/>,
+            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" style={{ width: '20px', height: '20px', color: "#0DAC8A", cursor: 'pointer' }} /> : <AiFillCloseCircle className="text-danger" style={{ width: '20px', height: '20px', color: "#F5430B", cursor: 'pointer' }} />,
         },
         {
             Header: <IntlMessages id="contacts.suggestion" />,
             accessor: 'suggestion',
             cellClass: 'text-theme-2',
-            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success"style={{width:'20px', height:'20px', color: "#0DAC8A", cursor:'pointer'}} /> : <AiFillCloseCircle className="text-danger" style={{width:'20px', height:'20px', color: "#F5430B", cursor:'pointer'}} />,
+            Cell: ({ value }) => value ? <AiFillCheckCircle className="text-success" style={{ width: '20px', height: '20px', color: "#0DAC8A", cursor: 'pointer' }} /> : <AiFillCloseCircle className="text-danger" style={{ width: '20px', height: '20px', color: "#F5430B", cursor: 'pointer' }} />,
         },
         {
             Header: <IntlMessages id="contacts.action" />,
@@ -235,14 +247,14 @@ const CustomersTable = () => {
                         className="btn btn-link"
                         aria-expanded={expandedRowId === row.id}
                         aria-haspopup="true"
-                        style={{cursor:'pointer'}}
+                        style={{ cursor: 'pointer' }}
                     >
                         <FaEllipsisV />
                     </button>
                     {expandedRowId === row.id && (
                         <div className="dropdown-menu show" style={{ position: 'absolute', zIndex: 1000 }}>
                             <div className="dropdown-item">
-                            <i className='simple-icon-minus mr-2' /> <IntlMessages id="Unsubscribe from Account" />
+                                <i className='simple-icon-minus mr-2' /> <IntlMessages id="Unsubscribe from Account" />
                             </div>
                             <div className="dropdown-item">
                                 <FaWhatsapp className="mr-2" /> <IntlMessages id="Unsubscribe from Whatsapp" />
@@ -268,8 +280,8 @@ const CustomersTable = () => {
 
     return (
         <>
-            <Card className="h-100">
-                <CardBody>
+            <Card className="h-100 rounded-md">
+                <CardBody >
                     <CardTitle className="d-flex flex-row justify-content-between font-weight-bold mb-3">
                         <div className='input-group' style={{ width: '300px', position: 'relative' }}>
                             <Input
@@ -289,7 +301,7 @@ const CustomersTable = () => {
                             }} />
                         </div>
                         <div>
-                            <Badge color="" className="mb-1 border border-theme-4" style={{ cursor: 'pointer', padding: '10px 15px' }}>
+                            <Badge color="" className="mb-1 border border-theme-4" style={{ cursor: 'pointer', padding: '10px 15px' }} onClick={toggleFilterDropdown}>
                                 <i className="iconsminds-calendar-4" />
                                 <IntlMessages id="dashboards.filters" />
                             </Badge>
@@ -306,9 +318,9 @@ const CustomersTable = () => {
                                     right: '0px',
                                 }}>
                                     <div className="d-flex justify-content-between align-items-center mb-3">
-                                        <h6>Filter</h6>
+                                        <h6 style={{ color: '#1A1C21', fontWeight: '600px', fontsize: '20px', lineHeight: '30px' }}>Filter</h6>
                                         <button type="button" className="close" onClick={toggleFilterDropdown}>
-                                            <span>&times;</span>
+                                            <span style={{ color: '#0DAC8A', fontWeight: '700px', fontsize: '14px', lineHeight: '20px' }}>&times; Reset</span>
                                         </button>
                                     </div>
                                     <div className="filter-options">
@@ -433,6 +445,7 @@ const CustomersTable = () => {
                             )}
                         </div>
                     </CardTitle>
+                    <Separator className="mb-3" />
                     <Table columns={cols} data={filteredData} onRowClick={handleRowClick} />
                 </CardBody>
             </Card>

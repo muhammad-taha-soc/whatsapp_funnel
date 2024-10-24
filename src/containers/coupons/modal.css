@@ -52,7 +52,7 @@
 }
 
 .customer-name {
-    padding: 15px; /* Padding for the name section */
+    padding: 5px; /* Padding for the name section */
     border-radius: 5px 5px 0 0; /* Slightly rounded top corners */
     text-align: left !important; /* Left align the text */
 }

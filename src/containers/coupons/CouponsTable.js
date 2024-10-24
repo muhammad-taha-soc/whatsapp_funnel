@@ -62,7 +62,7 @@ function Table({ columns, data, onRowClick }) {
                     {page.map(row => {
                         prepareRow(row);
                         return (
-                            <tr key={row.id} {...row.getRowProps()} onClick={() => onRowClick(row.original)}>
+                            <tr key={row.id} {...row.getRowProps()} onClick={(event) => onRowClick(event, row.original)}>
                                 {row.cells.map(cell => (
                                     <td key={cell.column.id} {...cell.getCellProps({ className: cell.column.cellClass })}>
                                         {cell.render('Cell')}
@@ -90,7 +90,7 @@ const sampleCoupons = [
     {
         id: 'C001',
         actionName: 'Discount',
-        status: 'on',
+        status: 'On',
         sourceOfOrigin: 'Website',
         issueDate: '2024-01-01',
         redemptionDate: '2024-06-01',
@@ -100,7 +100,7 @@ const sampleCoupons = [
     {
         id: 'C002',
         actionName: 'Purchase',
-        status: 'on',
+        status: 'On',
         sourceOfOrigin: 'App',
         issueDate: '2024-02-01',
         redemptionDate: '2024-07-01',
@@ -110,7 +110,7 @@ const sampleCoupons = [
     {
         id: 'C003',
         actionName: 'Referral',
-        status: 'on',
+        status: 'On',
         sourceOfOrigin: 'Email',
         issueDate: '2024-03-01',
         redemptionDate: '2024-08-01',
@@ -120,7 +120,7 @@ const sampleCoupons = [
     {
         id: 'C004',
         actionName: 'Feedback',
-        status: 'on',
+        status: 'On',
         sourceOfOrigin: 'Phone',
         issueDate: '2024-04-01',
         redemptionDate: '2024-09-01',
@@ -162,8 +162,11 @@ const CouponsTable = () => {
         });
         // Reset checkbox states if needed
     };
-    const handleRowClick = (customer) => {
-        setSelectedCustomer(customer); // Set the selected customer
+    const handleRowClick = (event, customer) => {
+        // Check if the clicked element is part of the checkboxes or action button
+        if (!event.target.closest('.action-button1')) {
+            setSelectedCustomer(customer); // Set the selected customer if the conditions are met
+        }
     };
 
     const handleActionToggle = id => {
@@ -202,7 +205,7 @@ const CouponsTable = () => {
             Header: <IntlMessages id="coupons.id" />,
             accessor: 'id',
             cellClass: 'font-weight-bold',
-            Cell: ({value}) => <div style={{
+            Cell: ({ value }) => <div style={{
                 cursor: 'pointer'
             }}>
                 {value}
@@ -213,14 +216,39 @@ const CouponsTable = () => {
             accessor: 'status',
             cellClass: 'text-muted',
             Cell: ({ value }) => (
-                <div className="status-indicator" style={{
-                    backgroundColor: value === 'On' || 'on' ? '#0DAC8A' : 'red',
-                    borderRadius: '15px',
-                    padding: '5px 10px',
-                    color: 'white',
-                    textAlign: 'center'
-                }}>
-                    {value}
+
+                <div
+                    className="status-indicator"
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        backgroundColor: value === 'On' || value === 'on' ? '#0DAC8A' : 'red',
+                        borderRadius: '20px', // More rounded corners
+                        padding: '5px 13px 5px 13px',
+                        color: 'white',
+                        textAlign: 'center',
+                        position: 'relative', // For positioning the dot correctly
+                        width: '50px', // Set a fixed width for consistency
+                        height: '24px', // Set a fixed height for consistency
+                        bottom: '2px'
+                    }}
+                >
+                    <div
+                        style={{
+                            position: 'absolute',
+                            left: '8px', // Position the dot
+                            top: '50%', // Center vertically
+                            transform: 'translateY(-50%)', // Center adjust
+                            borderRadius: '50%',
+                            width: '10px', // Size of the dot
+                            height: '10px', // Size of the dot
+                            backgroundColor: 'white',
+                        }}
+                    ></div>
+                    <div style={{ top: '50%', transform: 'translateY(3%)', marginLeft: '9px', width: '20px', height: '17px', fontWeight: '500px', fontalign: 'center', fontSize: '14px', lineHeight: '16.94px' }}>
+
+                        {value}
+                    </div>
                 </div>
             ),
         },
@@ -228,7 +256,7 @@ const CouponsTable = () => {
             Header: <IntlMessages id="coupons.actionName" />,
             accessor: 'actionName',
             cellClass: 'font-weight-bold',
-            Cell: ({value}) => <div style={{
+            Cell: ({ value }) => <div style={{
                 cursor: 'pointer'
             }}>
                 {value}
@@ -238,7 +266,7 @@ const CouponsTable = () => {
             Header: <IntlMessages id="coupons.sourceofOrigin" />,
             accessor: 'sourceOfOrigin',
             cellClass: 'font-weight-bold',
-            Cell: ({value}) => <div style={{
+            Cell: ({ value }) => <div style={{
                 cursor: 'pointer'
             }}>
                 {value}
@@ -248,7 +276,7 @@ const CouponsTable = () => {
             Header: <IntlMessages id="coupons.issue-date" />,
             accessor: 'issueDate',
             cellClass: 'font-weight-bold',
-            Cell: ({value}) => <div style={{
+            Cell: ({ value }) => <div style={{
                 cursor: 'pointer'
             }}>
                 {value}
@@ -258,7 +286,7 @@ const CouponsTable = () => {
             Header: <IntlMessages id="coupons.redemption-date" />,
             accessor: 'redemptionDate',
             cellClass: 'font-weight-bold',
-            Cell: ({value}) => <div style={{
+            Cell: ({ value }) => <div style={{
                 cursor: 'pointer'
             }}>
                 {value}
@@ -268,7 +296,7 @@ const CouponsTable = () => {
             Header: <IntlMessages id="coupons.name" />,
             accessor: 'name',
             cellClass: 'font-weight-bold',
-            Cell: ({value}) => <div style={{
+            Cell: ({ value }) => <div style={{
                 cursor: 'pointer'
             }}>
                 {value}
@@ -278,7 +306,7 @@ const CouponsTable = () => {
             Header: <IntlMessages id="coupons.telephone" />,
             accessor: 'telephoneNo',
             cellClass: 'font-weight-bold',
-            Cell: ({value}) => <div style={{
+            Cell: ({ value }) => <div style={{
                 cursor: 'pointer'
             }}>
                 {value}
@@ -288,7 +316,7 @@ const CouponsTable = () => {
             Header: <IntlMessages id="coupons.action" />,
             accessor: 'action',
             Cell: ({ row }) => (
-                <div className="position-relative">
+                <div className="position-relative action-button1" style={{ cursor: 'pointer' , bottom:'12px'}}>
                     <button
                         type="button"
                         onClick={() => handleActionToggle(row.id)}
@@ -344,7 +372,7 @@ const CouponsTable = () => {
                                 placeholder="Search Coupon..."
                                 value={searchTerm}
                                 onChange={e => setSearchTerm(e.target.value)}
-                                style={{ paddingLeft: '30px',borderRadius: '7px' }}
+                                style={{ paddingLeft: '30px', borderRadius: '7px' }}
                             />
                             <FaSearch className="search-icon" style={{
                                 position: 'absolute',
@@ -500,6 +528,7 @@ const CouponsTable = () => {
                             )}
                         </div>
                     </CardTitle>
+                    <Separator className="mb-3" />
                     <Table columns={cols} data={sampleCoupons} onRowClick={handleRowClick} />
                 </CardBody>
             </Card>
