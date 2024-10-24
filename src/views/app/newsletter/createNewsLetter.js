@@ -26,11 +26,13 @@ import {
   Input,
   // CardBody,
   CardTitle,
-  Badge,
+  // Badge,
 } from 'reactstrap';
 import Select from 'react-select';
 
 import { NavLink } from 'react-router-dom';
+// import { TbRotateClockwise2 } from 'react-icons/tb';
+
 // import SingleLightbox from 'components/pages/SingleLightbox';
 // import recentPostsData from 'data/recentposts';
 // import RecentPost from 'components/common/RecentPost';
@@ -66,6 +68,8 @@ import IntlMessages from 'helpers/IntlMessages';
 // import History from 'containers/newsletter/History';
 // import TagsInput from 'react-tagsinput';
 import CustomSelectInput from 'components/common/CustomSelectInput';
+import { IoMdCheckmark } from 'react-icons/io';
+import { TbRotateClockwise2 } from 'react-icons/tb';
 // import TagsInputExample from 'containers/forms/TagsInputExample';
 
 const CreateNewsLetter = ({ intl, match }) => {
@@ -89,25 +93,27 @@ const CreateNewsLetter = ({ intl, match }) => {
           <Separator className="mb-5" /> */}
           <div className="d-flex flex-row justify-content-between align-items-center mb-4">
             <IntlMessages id={`${'Dashboard'}`} />
-            <div className="">
-              <Badge
-                className="default btn  text-muted font-weight-bold mr-2"
-                color="light"
+            <div className="d-flex flex-row justify-content-between align-items-center">
+              <p
+                className="text-muted font-weight-bold mr-2 mt-3"
+                // color="light"
               >
-                <i className="iconsminds-yes" />
+                <IoMdCheckmark size={20} className="mr-1" />
                 Saved
-              </Badge>
+              </p>
               <Button
                 color="light"
                 className="default btn btn-primary bg-primary text-white font-weight-bold"
+                style={{ borderRadius: '0.5rem' }}
               >
                 <IntlMessages id={`${'Create Newsletter'}`} />
               </Button>{' '}
               <Button
                 color="light"
                 className="default btn btn-primary bg-primary text-white font-weight-bold"
+                style={{ borderRadius: '0.5rem' }}
               >
-                <i className="iconsminds-arrow-circle" />
+                <TbRotateClockwise2 size={20} className="" />
               </Button>{' '}
             </div>
           </div>

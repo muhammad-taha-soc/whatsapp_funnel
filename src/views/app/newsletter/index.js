@@ -25,16 +25,16 @@ const NewsLetter = ({ match }) => {
             to={`${match.url}/news-letter`}
           />
           <Route
-            path={`${match.url}`}
-            render={(props) => <DashboardNewsLetter {...props} />}
-          />
-          <Route
             path={`${match.url}/create-news-letter`}
             render={(props) => <CreateNewsLetter {...props} />}
           />
           <Route
             path={`${match.url}/create-new-template`}
             render={(props) => <CreateNewTemplate {...props} />}
+          />
+          <Route
+            path={`${match.url}`}
+            render={(props) => <DashboardNewsLetter {...props} />}
           />
           <Redirect to="/error" />
         </Switch>

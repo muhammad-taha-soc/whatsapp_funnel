@@ -114,14 +114,10 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
             <Button
               color="light"
               className="btn-primary bg-theme-1 text-white font-weight-bold d-flex align-items-center"
-              onClick={() =>
-                history.push(
-                  `${
-                    activeSecondTab === '1'
-                      ? '/app/news-letter/create-news-letter'
-                      : '/app/news-letter/create-news-template'
-                  } `
-                )
+              onClick={
+                activeSecondTab === '1'
+                  ? () => history.push('/app/news-letter/create-news-letter')
+                  : () => history.push('/app/news-letter/create-new-template')
               }
               style={{ borderRadius: '0.5rem' }}
             >

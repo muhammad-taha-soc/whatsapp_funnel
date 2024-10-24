@@ -29,9 +29,11 @@ import {
   Badge,
   CardTitle,
 } from 'reactstrap';
-import Select from 'react-select';
+// import Select from 'react-select';
 
 import { NavLink } from 'react-router-dom';
+import { TbRotateClockwise2 } from 'react-icons/tb';
+
 // import SingleLightbox from 'components/pages/SingleLightbox';
 // import recentPostsData from 'data/recentposts';
 // import RecentPost from 'components/common/RecentPost';
@@ -62,26 +64,28 @@ import { Colxx } from 'components/common/CustomBootstrap';
 // import IntlMessages from 'helpers/IntlMessages';
 // import AccountProfile from 'containers/dashboards/AccountProfile';
 import IntlMessages from 'helpers/IntlMessages';
+import ReactCountryDropdown from 'react-country-dropdown';
 // import Schedule from 'containers/newsletter/Schedule';
 // import Draft from 'containers/newsletter/Draft';
 // import History from 'containers/newsletter/History';
 // import TagsInput from 'react-tagsinput';
-import CustomSelectInput from 'components/common/CustomSelectInput';
+// import CustomSelectInput from 'components/common/CustomSelectInput';
 // import ReactQuill from 'react-quill';
 // import TagsInputExample from 'containers/forms/TagsInputExample';
+import { IoMdCheckmark } from 'react-icons/io';
 
 const CreateNewTemplate = ({ intl, match }) => {
   const { messages } = intl;
   console.log(messages);
   console.log(match);
-  const selectData = [
-    { label: 'Cake', value: 'cake', key: 0 },
-    { label: 'Cupcake', value: 'cupcake', key: 1 },
-    { label: 'Dessert', value: 'dessert', key: 2 },
-  ];
+  // const selectData = [
+  //   { label: 'Cake', value: 'cake', key: 0 },
+  //   { label: 'Cupcake', value: 'cupcake', key: 1 },
+  //   { label: 'Dessert', value: 'dessert', key: 2 },
+  // ];
 
   const [activeSecondTab, setActiveSecondTab] = useState('1');
-  const [selectedOptionLT, setSelectedOptionLT] = useState('');
+  // const [selectedOptionLT, setSelectedOptionLT] = useState('');
   //    const [textQuillBubble, setTextQuillBubble] = useState('');
   // const [tagsLT, setTagsLT] = useState([]);
   return (
@@ -90,25 +94,27 @@ const CreateNewTemplate = ({ intl, match }) => {
         <Colxx xxs="12">
           <div className="d-flex flex-row justify-content-between align-items-center mb-4">
             <IntlMessages id={`${'Dashboard'}`} />
-            <div className="">
-              <Badge
-                className="default btn  text-muted font-weight-bold mr-2"
-                color="light"
+            <div className="d-flex flex-row justify-content-between align-items-center">
+              <p
+                className="text-muted font-weight-bold mr-2 mt-3"
+                // color="light"
               >
-                <i className="iconsminds-yes" />
+                <IoMdCheckmark size={20} className="mr-1" />
                 Saved
-              </Badge>
+              </p>
               <Button
                 color="light"
                 className="default btn btn-primary bg-primary text-white font-weight-bold"
+                style={{ borderRadius: '0.5rem' }}
               >
                 <IntlMessages id={`${'Send To Review'}`} />
               </Button>{' '}
               <Button
                 color="light"
                 className="default btn btn-primary bg-primary text-white font-weight-bold"
+                style={{ borderRadius: '0.5rem' }}
               >
-                <i className="iconsminds-arrow-circle" />
+                <TbRotateClockwise2 size={20} className="" />
               </Button>{' '}
             </div>
           </div>
@@ -162,11 +168,11 @@ const CreateNewTemplate = ({ intl, match }) => {
                   </FormGroup>
                 </Colxx>
                 <Colxx lg="3" xl="3" md="3" className="mb-4">
+                  <Label>
+                    <IntlMessages id="Language" />
+                  </Label>
                   <FormGroup className="">
-                    <Label>
-                      <IntlMessages id="Language" />
-                    </Label>
-                    <Select
+                    {/* <Select
                       components={{ Input: CustomSelectInput }}
                       className="react-select"
                       classNamePrefix="react-select"
@@ -175,13 +181,21 @@ const CreateNewTemplate = ({ intl, match }) => {
                       onChange={(val) => setSelectedOptionLT(val)}
                       options={selectData}
                       placeholder="Select existing template"
+                    /> */}
+                    {/* <Colxx md="3" lg="3" xl="3"> */}
+                    <ReactCountryDropdown
+                      defaultCountry="DE"
+                      onSelect={(country) => console.log(country.name)}
                     />
+                    {/* </Colxx> */}
                   </FormGroup>
                 </Colxx>
               </Row>
               <Row>
                 <Colxx lg="6" xl="6" md="6" className="mb-4">
-                  <CardTitle className="mb-2 font-weight-bold">Blah Blah</CardTitle>
+                  <CardTitle className="mb-2 font-weight-bold">
+                    Blah Blah
+                  </CardTitle>
                   <div>
                     <IntlMessages id="Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. " />
                   </div>
