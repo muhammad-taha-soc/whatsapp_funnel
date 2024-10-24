@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
-import { Nav, NavItem, Collapse } from 'reactstrap';
+import { Nav, NavItem } from 'reactstrap';
 import { NavLink, withRouter } from 'react-router-dom';
 import classnames from 'classnames';
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -24,7 +24,7 @@ class Sidebar extends Component {
     this.state = {
       selectedParentMenu: '',
       viewingParentMenu: '',
-      collapsedMenus: [],
+      // collapsedMenus: [],
     };
   }
 
@@ -353,7 +353,7 @@ class Sidebar extends Component {
   
 
   render() {
-    const { selectedParentMenu, viewingParentMenu, collapsedMenus } =
+    const { selectedParentMenu, viewingParentMenu } =
       this.state;
 
     return (
@@ -373,7 +373,7 @@ class Sidebar extends Component {
                     return (
                       <NavItem
                         key={item.id}
-                        className={classnames({
+                        className={classnames('text-primary fill', {
                           active: isActive,
                         })}
                       >
@@ -391,7 +391,14 @@ class Sidebar extends Component {
                             //     : ''
                             // }`}
                           >
-                            {item.icon}
+                            <img
+                              src={`${item.icon}${
+                                isActive ? '-primary' : ''
+                              }.svg`}
+                              alt={item.label}
+                              className="mb-2"
+                            />
+                            {/* {item.icon} */}
                             {/* <i className={item.icon} />{' '} */}
                             <IntlMessages id={item.label} />
                           </a>
@@ -404,7 +411,13 @@ class Sidebar extends Component {
                               isActive ? 'text-theme-primary' : 'text-muted'
                             }
                           >
-                            {item.icon}
+                            <img
+                              src={`${item.icon}${
+                                isActive ? '-primary' : ''
+                              }.svg`}
+                              alt={item.label}
+                              className="mb-2"
+                            />
                             {/* <i className={item.icon} />{' '} */}
                             <IntlMessages id={item.label} />
                           </NavLink>
@@ -417,130 +430,7 @@ class Sidebar extends Component {
           </div>
         </div>
 
-        <div className="sub-menu">
-          <div className="scroll">
-            <PerfectScrollbar
-              options={{ suppressScrollX: true, wheelPropagation: false }}
-            >
-              {menuItems &&
-                this.filteredList(menuItems).map((item) => {
-                  return (
-                    <Nav
-                      key={item.id}
-                      className={classnames({
-                        'd-block':
-                          // eslint-disable-next-line react/destructuring-assignment
-                          (this.state.selectedParentMenu === item.id &&
-                            // eslint-disable-next-line react/destructuring-assignment
-                            this.state.viewingParentMenu === '') ||
-                          // eslint-disable-next-line react/destructuring-assignment
-                          this.state.viewingParentMenu === item.id,
-                      })}
-                      data-parent={item.id}
-                    >
-                      {item.subs &&
-                        this.filteredList(item.subs).map((sub, index) => {
-                          return (
-                            <NavItem
-                              key={`${item.id}_${index}`}
-                              className={`${
-                                sub.subs && sub.subs.length > 0
-                                  ? 'has-sub-item'
-                                  : ''
-                              }`}
-                            >
-                              {/* eslint-disable-next-line no-nested-ternary */}
-                              {sub.newWindow ? (
-                                <a
-                                  href={sub.to}
-                                  rel="noopener noreferrer"
-                                  target="_blank"
-                                >
-                                  <i className={sub.icon} />{' '}
-                                  <IntlMessages id={sub.label} />
-                                </a>
-                              ) : sub.subs && sub.subs.length > 0 ? (
-                                <>
-                                  <NavLink
-                                    className={`rotate-arrow-icon opacity-50 ${
-                                      collapsedMenus.indexOf(
-                                        `${item.id}_${index}`
-                                      ) === -1
-                                        ? ''
-                                        : 'collapsed'
-                                    }`}
-                                    to={sub.to}
-                                    id={`${item.id}_${index}`}
-                                    // onClick={(e) =>
-                                    //   this.toggleMenuCollapse(
-                                    //     e,
-                                    //     `${item.id}_${index}`
-                                    //   )
-                                    // }
-                                  >
-                                    <i className="simple-icon-arrow-down" />{' '}
-                                    <IntlMessages id={sub.label} />
-                                  </NavLink>
-
-                                  <Collapse
-                                    isOpen={
-                                      collapsedMenus.indexOf(
-                                        `${item.id}_${index}`
-                                      ) === -1
-                                    }
-                                  >
-                                    <Nav className="third-level-menu">
-                                      {this.filteredList(sub.subs).map(
-                                        (thirdSub, thirdIndex) => {
-                                          return (
-                                            <NavItem
-                                              key={`${item.id}_${index}_${thirdIndex}`}
-                                            >
-                                              {thirdSub.newWindow ? (
-                                                <a
-                                                  href={thirdSub.to}
-                                                  rel="noopener noreferrer"
-                                                  target="_blank"
-                                                >
-                                                  <i
-                                                    className={thirdSub.icon}
-                                                  />{' '}
-                                                  <IntlMessages
-                                                    id={thirdSub.label}
-                                                  />
-                                                </a>
-                                              ) : (
-                                                <NavLink to={thirdSub.to}>
-                                                  <i
-                                                    className={thirdSub.icon}
-                                                  />{' '}
-                                                  <IntlMessages
-                                                    id={thirdSub.label}
-                                                  />
-                                                </NavLink>
-                                              )}
-                                            </NavItem>
-                                          );
-                                        }
-                                      )}
-                                    </Nav>
-                                  </Collapse>
-                                </>
-                              ) : (
-                                <NavLink to={sub.to}>
-                                  <i className={sub.icon} />{' '}
-                                  <IntlMessages id={sub.label} />
-                                </NavLink>
-                              )}
-                            </NavItem>
-                          );
-                        })}
-                    </Nav>
-                  );
-                })}
-            </PerfectScrollbar>
-          </div>
-        </div>
+       
       </div>
     );
   }

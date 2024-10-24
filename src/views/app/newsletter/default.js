@@ -55,6 +55,7 @@ import IntlMessages from 'helpers/IntlMessages';
 import Schedule from 'containers/newsletter/Schedule';
 import Draft from 'containers/newsletter/Draft';
 import History from 'containers/newsletter/History';
+import { FiPlusCircle } from 'react-icons/fi';
 
 // import CustomersTable from 'containers/contacts/CustomersTable';
 import MessageTemplates from 'containers/newsletter/MessageTemplates';
@@ -112,10 +113,19 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
           <div className="">
             <Button
               color="light"
-              className="default btn btn-primary bg-primary text-white font-weight-bold"
-              onClick={() => history.push('/app/news-letter/create-news-letter')}
+              className="btn-primary bg-theme-1 text-white font-weight-bold d-flex align-items-center"
+              onClick={() =>
+                history.push(
+                  `${
+                    activeSecondTab === '1'
+                      ? '/app/news-letter/create-news-letter'
+                      : '/app/news-letter/create-news-template'
+                  } `
+                )
+              }
+              style={{ borderRadius: '0.5rem' }}
             >
-              <i className="simple-icon-plus mr-2" />
+              <FiPlusCircle size={20} className="mr-1" />
               <IntlMessages
                 id={`${
                   activeSecondTab === '1' ? 'Create Newsletter' : 'New Template'
@@ -127,24 +137,24 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
         <TabContent activeTab={activeSecondTab}>
           <TabPane tabId="1">
             <Row>
-              <Colxx xl="12" md="12" lg="12" className="mb-4">
+              <Colxx xl="12" md="12" lg="12" className="mb-4 rounded">
                 <Schedule />
               </Colxx>
             </Row>
             <Row>
-              <Colxx lg="12" xl="12" md="12" className="mb-4">
+              <Colxx lg="12" xl="12" md="12" className="mb-4 rounded">
                 <Draft />
               </Colxx>
             </Row>
             <Row>
-              <Colxx xl="12" md="12" lg="12" className="mb-4">
+              <Colxx xl="12" md="12" lg="12" className="mb-4 rounded">
                 <History />
               </Colxx>
             </Row>
           </TabPane>
           <TabPane tabId="2">
             <Row>
-              <Colxx xxs="12" lg="12" md="12" xl="12" className="">
+              <Colxx xxs="12" lg="12" md="12" xl="12" className="rounded">
                 <MessageTemplates />
               </Colxx>
             </Row>

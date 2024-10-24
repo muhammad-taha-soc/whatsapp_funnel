@@ -18,9 +18,11 @@ import {
 } from 'reactstrap';
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
+import { IoSearchOutline } from 'react-icons/io5';
+import { BsSliders2 } from 'react-icons/bs';
 
 import products from 'data/products';
-import { FaSearch } from 'react-icons/fa';
+// import { FaSearch } from 'react-icons/fa';
 
 function Table({ columns, data }) {
   const {
@@ -65,9 +67,7 @@ function Table({ columns, data }) {
                   //   }
                   // `}
                 >
-                  {column.render('Header')}{' '}
-                  
-                  <span />
+                  {column.render('Header')} <span />
                 </th>
               ))}
             </tr>
@@ -117,17 +117,17 @@ const MessageTemplates = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRows, setSelectedRows] = useState(new Set());
 
-    const toggleRowSelection = (id) => {
-      setSelectedRows((prevSelected) => {
-        const newSelected = new Set(prevSelected);
-        if (newSelected.has(id)) {
-          newSelected.delete(id);
-        } else {
-          newSelected.add(id);
-        }
-        return newSelected;
-      });
-    };
+  const toggleRowSelection = (id) => {
+    setSelectedRows((prevSelected) => {
+      const newSelected = new Set(prevSelected);
+      if (newSelected.has(id)) {
+        newSelected.delete(id);
+      } else {
+        newSelected.add(id);
+      }
+      return newSelected;
+    });
+  };
 
   const cols = React.useMemo(
     () => [
@@ -135,16 +135,16 @@ const MessageTemplates = () => {
         Header: 'Surname',
         accessor: 'newsLetter',
         cellClass: 'font-weight-bold w-40',
-        Cell: ({row}) => (
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <input
-                type="checkbox"
-                checked={selectedRows.has(row.id)}
-                onChange={() => toggleRowSelection(row.id)}
-                style={{ marginRight: '8px' }}
-              />
-              {row.original.title}
-            </div>
+        Cell: ({ row }) => (
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <input
+              type="checkbox"
+              checked={selectedRows.has(row.id)}
+              onChange={() => toggleRowSelection(row.id)}
+              style={{ marginRight: '8px' }}
+            />
+            {row.original.title}
+          </div>
         ),
         sortType: 'basic',
       },
@@ -205,9 +205,9 @@ const MessageTemplates = () => {
               placeholder="Search Customer..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              style={{ paddingLeft: '30px' }}
+              style={{ paddingLeft: '30px', borderRadius: '5px'}}
             />
-            <FaSearch
+            <IoSearchOutline
               className="search-icon"
               style={{
                 position: 'absolute',
@@ -221,7 +221,7 @@ const MessageTemplates = () => {
           </div>
           <div>
             <Badge color="" className="mb-1 border border-theme-4">
-              <i className="iconsminds-calendar-4" />
+              <BsSliders2 className="mr-2" size={15} />
               <IntlMessages id="dashboards.filters" />
             </Badge>{' '}
           </div>

@@ -3,17 +3,32 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-key */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTable, usePagination, useSortBy } from 'react-table';
 import { Badge, Card, CardBody, CardTitle } from 'reactstrap'; //
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
-import { FaCaretDown,FaCaretUp } from 'react-icons/fa';
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 import products from 'data/products';
 import { BsSliders2 } from 'react-icons/bs';
 import { FaCalendarDays } from 'react-icons/fa6';
 
 function Table({ columns, data }) {
+  const [currentPage, setCurrentPage] = useState(1);
+  // const [totalItemCount] = useState(0);
+  const [selectedPageSize] = useState(8);
+  const [selectedOrderOption] = useState({
+    column: 'title',
+    label: 'Product Name',
+  });
+  const startIndex = (currentPage - 1) * selectedPageSize;
+  const endIndex = currentPage * selectedPageSize;
+  //  const pageSizes = [4, 8, 12, 20];
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedPageSize, selectedOrderOption]);
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -60,9 +75,9 @@ function Table({ columns, data }) {
                   {column.render('Header') !== 'Newsletter' && (
                     <>
                       {column.isSortedDesc ? (
-                        <FaCaretDown className='ml-2' />
+                        <FaCaretDown className="ml-2" />
                       ) : (
-                        <FaCaretUp className='ml-2' />
+                        <FaCaretUp className="ml-2" />
                       )}
                     </>
                   )}
@@ -94,20 +109,27 @@ function Table({ columns, data }) {
           })}
         </tbody>
       </table>
-
-      <DatatablePagination
-        page={pageIndex}
-        pages={pageCount}
-        canPrevious={canPreviousPage}
-        canNext={canNextPage}
-        pageSizeOptions={[4, 10, 20, 30, 40, 50]}
-        showPageSizeOptions={false}
-        showPageJump={false}
-        defaultPageSize={pageSize}
-        onPageChange={(p) => gotoPage(p)}
-        onPageSizeChange={(s) => setPageSize(s)}
-        paginationMaxSize={pageCount}
-      />
+      <div className="d-flex flex-row justify-content-between align-items-center mr-2 ml-2">
+        <span className="text-muted">
+          <IntlMessages id="Showing " />
+          {startIndex + 1} -{data.length >= endIndex ? endIndex : data.length}
+          <IntlMessages id=" from " />
+          {data.length}
+        </span>
+        <DatatablePagination
+          page={pageIndex}
+          pages={pageCount}
+          canPrevious={canPreviousPage}
+          canNext={canNextPage}
+          pageSizeOptions={[4, 10, 20, 30, 40, 50]}
+          showPageSizeOptions={false}
+          showPageJump={false}
+          defaultPageSize={pageSize}
+          onPageChange={(p) => gotoPage(p)}
+          onPageSizeChange={(s) => setPageSize(s)}
+          paginationMaxSize={pageCount}
+        />
+      </div>
     </>
   );
 }
@@ -172,18 +194,30 @@ const NewsLetter = () => {
         <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
           <IntlMessages id="dashboards.news-letter" />
           <div>
-            <Badge color="" className="mb-1 rounder align-content-center border border-theme-4">
+            <Badge
+              color=""
+              className="mb-1 mr-2 rounder align-content-center border border-theme-4"
+            >
               <FaCalendarDays className="mr-2" size={15} />
-              <IntlMessages id="dashboards.select-date"/>
+              <IntlMessages id="dashboards.select-date" />
             </Badge>
             <Badge color="" className="mb-1 border border-theme-4">
-              <BsSliders2 className="mr-2"  size={15}/>
+              <BsSliders2 className="mr-2" size={15} />
               <IntlMessages id="dashboards.filters" />
             </Badge>{' '}
           </div>
         </CardTitle>
         <Table columns={cols} data={products} />
       </CardBody>
+      {/* <div className="">
+        <span className="text-muted">
+          <IntlMessages id="Showing " />
+          {startIndex + 1} -
+          {products.length >= endIndex ? endIndex : products.length}
+          <IntlMessages id=" from " />
+          {products.length}
+        </span>
+      </div> */}
     </Card>
   );
 };

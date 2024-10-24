@@ -1,14 +1,14 @@
-import React from 'react';
-import { RiApps2Fill } from 'react-icons/ri';
-import { BsFillTicketPerforatedFill } from 'react-icons/bs';
-import { BiSolidUserRectangle } from 'react-icons/bi';
-import { HiMiniInboxArrowDown } from 'react-icons/hi2';
+// import React from 'react';
+// import { RiApps2Fill } from 'react-icons/ri';
+// import { BsFillTicketPerforatedFill } from 'react-icons/bs';
+// import { BiSolidUserRectangle } from 'react-icons/bi';
+// import { HiMiniInboxArrowDown } from 'react-icons/hi2';
 import { adminRoot } from './defaultValues';
 
 const data = [
   {
     id: 'dashboards',
-    icon: <RiApps2Fill size={30} className="mb-2" />,
+    icon: '/assets/img/dashboard/dashboard',
     label: 'menu.dashboards',
     to: `${adminRoot}/dashboards/default`,
     // roles: [UserRole.Admin, UserRole.Editor],
@@ -388,7 +388,7 @@ const data = [
   // },
   {
     id: 'contacts',
-    icon: <BiSolidUserRectangle size={30} className="mb-2" />,
+    icon: '/assets/img/dashboard/contact',
     label: 'menu.contacts',
     to: `${adminRoot}/contacts/table`,
     subs: [
@@ -401,7 +401,7 @@ const data = [
   },
   {
     id: 'coupons',
-    icon: <BsFillTicketPerforatedFill size={30} className="mb-2" />,
+    icon: '/assets/img/dashboard/coupon',
     label: 'menu.coupons',
     to: `${adminRoot}/coupons`,
     subs: [
@@ -414,7 +414,7 @@ const data = [
   },
   {
     id: 'newsletter',
-    icon: <HiMiniInboxArrowDown size={30} className="mb-2" />,
+    icon: '/assets/img/dashboard/newsletter',
     label: 'dashboards.news-letter',
     to: `${adminRoot}/news-letter`,
     subs: [

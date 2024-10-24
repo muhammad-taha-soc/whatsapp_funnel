@@ -3,7 +3,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-key */
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useTable, usePagination, useSortBy } from 'react-table';
 import {
   Badge,
@@ -20,8 +20,25 @@ import IntlMessages from 'helpers/IntlMessages';
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 
 import products from 'data/products';
+import { BsSliders2 } from 'react-icons/bs';
 
 function Table({ columns, data }) {
+
+  const [currentPage, setCurrentPage] = useState(1);
+  // const [totalItemCount] = useState(0);
+  const [selectedPageSize] = useState(8);
+  const [selectedOrderOption] = useState({
+    column: 'title',
+    label: 'Product Name',
+  });
+  const startIndex = (currentPage - 1) * selectedPageSize;
+  const endIndex = currentPage * selectedPageSize;
+  //  const pageSizes = [4, 8, 12, 20];
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedPageSize, selectedOrderOption]);
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -105,19 +122,27 @@ function Table({ columns, data }) {
         </tbody>
       </table>
 
-      <DatatablePagination
-        page={pageIndex}
-        pages={pageCount}
-        canPrevious={canPreviousPage}
-        canNext={canNextPage}
-        pageSizeOptions={[4, 10, 20, 30, 40, 50]}
-        showPageSizeOptions={false}
-        showPageJump={false}
-        defaultPageSize={pageSize}
-        onPageChange={(p) => gotoPage(p)}
-        onPageSizeChange={(s) => setPageSize(s)}
-        paginationMaxSize={pageCount}
-      />
+      <div className="d-flex flex-row justify-content-between align-items-center mr-2 ml-2">
+        <span className="text-muted">
+          <IntlMessages id="Showing " />
+          {startIndex + 1} -{data.length >= endIndex ? endIndex : data.length}
+          <IntlMessages id=" from " />
+          {data.length}
+        </span>
+        <DatatablePagination
+          page={pageIndex}
+          pages={pageCount}
+          canPrevious={canPreviousPage}
+          canNext={canNextPage}
+          pageSizeOptions={[4, 10, 20, 30, 40, 50]}
+          showPageSizeOptions={false}
+          showPageJump={false}
+          defaultPageSize={pageSize}
+          onPageChange={(p) => gotoPage(p)}
+          onPageSizeChange={(s) => setPageSize(s)}
+          paginationMaxSize={pageCount}
+        />
+      </div>
     </>
   );
 }
@@ -195,10 +220,10 @@ const History = () => {
     <Card className="h-100">
       <CardBody>
         <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
-          <IntlMessages id='History' />
+          <IntlMessages id="History" />
           <div>
             <Badge color="" className="mb-1 border border-theme-4">
-              <i className="iconsminds-calendar-4" />
+              <BsSliders2 className="mr-2" size={15} />
               <IntlMessages id="dashboards.filters" />
             </Badge>{' '}
           </div>

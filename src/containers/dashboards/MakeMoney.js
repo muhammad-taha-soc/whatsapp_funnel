@@ -9,7 +9,8 @@ import { Badge, Button, Card, CardBody, CardTitle } from 'reactstrap'; //
 // import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 import { GoDotFill } from 'react-icons/go';
-
+import { FaCaretDown } from 'react-icons/fa';
+import { LuCalendar } from 'react-icons/lu';
 
 // import products from 'data/products';
 
@@ -23,11 +24,11 @@ const MakeMoney = () => {
             <Button
               outline
               color="light"
-              className=" border border-theme-4 text-dark font-weight-bold"
+              className=" border border-theme-4 text-dark font-weight-bold  d-flex flex-row justify-content-between"
             >
-              <i className="iconsminds-calendar-4 mr-2" />
+              <LuCalendar className="mr-2" size={15} />
               <IntlMessages id="15/5/24 - 15/6/24" />
-              <i className="simple-icon-arrow-down ml-2" />
+              <FaCaretDown className="ml-2" size={15} />
             </Button>{' '}
           </div>
         </CardTitle>
@@ -35,9 +36,9 @@ const MakeMoney = () => {
         <div className="d-flex flex-row justify-content-between align-items-center mt-1">
           <Badge
             color="primary"
-            className="mb-1 rounder badge-pill border border-theme-4 text-extra-small"
+            className="mb-1 rounder pl-2 pr-2 badge-pill border border-theme-4 text-extra-small d-flex flex-row justify-content-between align-items-center"
           >
-            <GoDotFill  className="" />
+            <GoDotFill className="" size={12} />
             <IntlMessages id="button.active" />
           </Badge>{' '}
           <span className="ml-2 d-inline mb-2 text-primary">
