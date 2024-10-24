@@ -229,7 +229,7 @@ const TopNav = ({
         <span className="logo-mobile d-block d-xs-none" />
       </NavLink>
 
-      <div className="navbar-right">
+      <div className="navbar-right" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
         {isDarkSwitchActive && <TopnavDarkSwitch />}
         <div className="header-icons d-inline-block align-middle">
           {/* <TopnavEasyAccess /> */}
@@ -304,8 +304,12 @@ const TopNav = ({
         </div>
         <div className="user d-inline-block">
           <UncontrolledDropdown className="dropdown-menu-right">
-            <DropdownToggle className="p-0" color="empty">
-              <span className="name mr-1">Sarah Kortney</span>
+            <DropdownToggle className="p-0" color="empty" style={{ display: 'flex', justifyContent: "space-between", alignItems: 'center' }}>
+
+              <span className="name mr-1 text-right">
+                <div style={{ fontWeight: '700', fontSize: '16px' }}>Jay Hargodson</div>
+                <div>Manager</div>
+              </span>
               <span>
                 <img alt="Profile" src="/assets/img/profiles/l-1.jpg" />
               </span>
@@ -323,7 +327,7 @@ const TopNav = ({
           </UncontrolledDropdown>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 };
 
