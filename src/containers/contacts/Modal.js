@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileArrowDown, faTrashCan, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai'; // Import success and failure icons
 import { Colxx } from 'components/common/CustomBootstrap';
+import { FaRegCopy } from "react-icons/fa6";
 
 const Modal = ({ customer, onClose }) => {
     if (!customer) return null;
@@ -23,13 +24,13 @@ const Modal = ({ customer, onClose }) => {
     };
 
     const data = customer || dummyCustomer; // Use dummy data if customer is not available
-    
+
 
     return (
-        <div className="modal-overlay">
+        <div className="card modal-overlay">
             <div className="modal-content">
                 <header className="modal-header" style={{ color: 'black' }}>
-                    <h2 style={{fontWeight:'600px', fontSize:'20px', lineHeight: '23.5px'}}>Customer Details</h2>
+                    <h2 style={{ fontWeight: '600px', fontSize: '20px', lineHeight: '23.5px' }}>Customer Details</h2>
                     <button className="close-button" onClick={onClose}>✖</button>
                 </header>
 
@@ -40,7 +41,7 @@ const Modal = ({ customer, onClose }) => {
                                 <div className="bg-theme-1 account-profile-background-layer account-profile-background-layer-btn p-4">
 
                                     <h3 className='text-left'>{dummyCustomer.title}</h3>
-                                    <div style={{ borderRadius: '25px', backgroundColor: 'white', color: '#FF8E0D', padding: '7px', width: '22%', textAlign: 'center' }}>
+                                    <div style={{ borderRadius: '20px', backgroundColor: 'white', color: '#FF8E0D', padding: '7px', width: '30%', textAlign: 'center' }}>
                                         customer
                                     </div>
                                 </div>
@@ -48,12 +49,19 @@ const Modal = ({ customer, onClose }) => {
                             </Colxx>
 
                             <div className="customer-info">
-                                <p>
-                                    <i className="iconsminds-envelope-2" style={{ marginRight: '8px', width: '20px', height: '20px', color:'#5C5C78' }} />
-                                    Email:<br /><span style={{ marginLeft: '24px', color:'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.email}</span> 
-                                </p>
-                                <p><i className="simple-icon-phone" style={{ marginRight: '8px', width: '20px', height: '20px', color:'#5C5C78' }} />Telephone Number:<br /><span style={{ marginLeft: '24px', color:'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.phone}</span></p>
-                                <p><i className="iconsminds-calendar-4" style={{ marginRight: '8px', width: '20px', height: '20px', color:'#5C5C78' }} />Date:<br /><span style={{ marginLeft: '24px', color:'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.date}</span></p>
+                                <div className='d-flex justify-content-between align-items-center'>
+
+                                    <p>
+                                        <i className="iconsminds-envelope-2" style={{ marginRight: '8px', width: '20px', height: '20px', color: '#5C5C78' }} />
+                                        Email:<br /><span style={{ marginLeft: '24px', color: 'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.email}</span>
+                                    </p>
+                                    <FaRegCopy />
+                                </div>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                <p><i className="simple-icon-phone" style={{ marginRight: '8px', width: '20px', height: '20px', color: '#5C5C78' }} />Telephone Number:<br /><span style={{ marginLeft: '24px', color: 'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.phone}</span></p>
+                                <FaRegCopy />
+                                 </div>
+                                <p><i className="iconsminds-calendar-4" style={{ marginRight: '8px', width: '20px', height: '20px', color: '#5C5C78' }} />Date:<br /><span style={{ marginLeft: '24px', color: 'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.date}</span></p>
                             </div>
 
                             <div className="modal-actions">
@@ -80,11 +88,11 @@ const Modal = ({ customer, onClose }) => {
                                 </div>
                                 <div className="status-item">
                                     <span>Review link clicked</span>
-                                    <AiFillCheckCircle style={{ color: '#0DAC8A', width: '24px', height: '24px',  marginRight: '35px' }} />
+                                    <AiFillCheckCircle style={{ color: '#0DAC8A', width: '24px', height: '24px', marginRight: '35px' }} />
                                 </div>
                                 <div className="status-item dissatisfied">
                                     <span>Suggestion for improvement</span>
-                                    <AiFillCloseCircle style={{ color: '#F5430B', width: '24px', height: '24px',  marginRight: '35px' }} />
+                                    <AiFillCloseCircle style={{ color: '#F5430B', width: '24px', height: '24px', marginRight: '35px' }} />
                                 </div>
                             </div>
 

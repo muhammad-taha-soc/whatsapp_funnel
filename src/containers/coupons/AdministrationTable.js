@@ -80,15 +80,15 @@ function Table({ columns, data, onEditCoupon }) {
                         return (
                             <tr {...row.getRowProps()}
                                 onClick={() => {
-                                 // If the clicked cell is not "Validity", open edit coupon modal
-                                 const isValidityColumnClicked = row.cells.some(
-                                    (cell) => cell.column.id === 'delivered' && cell.getCellProps().onClick
-                                );
+                                    // If the clicked cell is not "Validity", open edit coupon modal
+                                    const isValidityColumnClicked = row.cells.some(
+                                        (cell) => cell.column.id === 'delivered' && cell.getCellProps().onClick
+                                    );
 
-                                if (!isValidityColumnClicked) {
-                                    onEditCoupon(row.original);
-                                }
-                            }}
+                                    if (!isValidityColumnClicked) {
+                                        onEditCoupon(row.original);
+                                    }
+                                }}
                             >
                                 {row.cells.map((cell, cellIndex) => (
                                     <td
@@ -119,35 +119,40 @@ const AdministrationTable = () => {
                 Header: 'Coupon',
                 accessor: 'newsLetter',
                 cellClass: 'font-weight-bold w-25',
-                Cell: (props) => <>{props.value}</>,
+                Cell: (props) => <><div style={{ cursor: 'pointer', border: '1px solid #DDDDDD', borderRadius:'10px' }}>
+                    <img src={'/assets/img/blog/coupon.svg'} style={{ width: '20px', height: '17px' }} alt='Visa' /></div></>,
                 sortType: 'basic',
             },
             {
                 Header: 'Promotion Name',
                 accessor: 'createDate',
                 cellClass: 'text-muted w-20',
-                Cell: (props) => <>{props.value}</>,
+                Cell: (props) => <><div style={{ cursor: 'pointer' }}>
+                    {props.value}</div></>,
                 sortType: 'basic',
             },
             {
                 Header: 'Validity',
                 accessor: 'delivered',
                 cellClass: 'text-theme-3 w-20 ',
-                Cell: (props) => <>{props.value}</>,
+                Cell: (props) => <><div style={{ cursor: 'pointer' }}>
+                    {props.value}</div></>,
                 sortType: 'basic',
             },
             {
                 Header: 'Condition',
                 accessor: 'read',
                 cellClass: 'text-primary w-20',
-                Cell: (props) => <>{props.value}</>,
+                Cell: (props) => <><div style={{ cursor: 'pointer' }}>
+                    {props.value}</div></>,
                 sortType: 'basic',
             },
             {
                 Header: 'Action',
                 accessor: 'clicked',
                 cellClass: 'text-theme-2 w-20',
-                Cell: (props) => <>{props.value}</>,
+                Cell: (props) => <><div style={{ cursor: 'pointer' }}>
+                    {props.value}</div></>,
                 sortType: 'basic',
             },
         ],
@@ -155,7 +160,7 @@ const AdministrationTable = () => {
     );
 
 
-   
+
     const handleEditCoupon = (coupon) => {
         setSelectedCoupon(coupon);
         setIsEditCouponOpen(true); // Open the edit coupon modal
@@ -168,7 +173,7 @@ const AdministrationTable = () => {
                 data={products}
                 onEditCoupon={handleEditCoupon}
             />
-         
+
             {isEditCouponOpen && (
                 <EditCoupon
                     isOpen={isEditCouponOpen}

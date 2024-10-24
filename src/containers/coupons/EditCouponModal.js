@@ -37,6 +37,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
             alignItems: 'center',
             justifyContent: 'space-between',
             marginBottom: '15px',
+
         },
         changeButton: {
             backgroundColor: 'white',
@@ -46,6 +47,10 @@ const EditCoupon = ({ isOpen, onClose }) => {
             cursor: 'pointer',
             transition: 'background 0.3s',
             color: '#0DAC8A',
+            marginRight: '10px',
+            position: 'absolute',
+            left: '100px',
+            transform: 'translateY(-25%)',
         },
         formGroup: {
             marginBottom: '15px',
@@ -83,7 +88,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
             marginRight: '10px',
             position: 'absolute',
             left: '20px',
-            
+
         },
         saveButton: {
             backgroundColor: '#0DAC8A',
@@ -98,6 +103,14 @@ const EditCoupon = ({ isOpen, onClose }) => {
             color: '#0DAC8A',
             cursor: 'pointer', // Indicate that it's clickable
         },
+        imageClass: {
+            position: 'relative',
+            width: '64px',
+            height: '64px',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            marginRight: '10px',
+        },
     };
 
     return (
@@ -105,12 +118,16 @@ const EditCoupon = ({ isOpen, onClose }) => {
             <div style={modalStyles.overlay} onClick={onClose}>
                 <div style={modalStyles.content} onClick={(e) => e.stopPropagation()}>
                     <h2 style={modalStyles.header}>Edit Coupon</h2>
+                    <p>current coupon graphic</p>
                     <div style={modalStyles.couponGraphic}>
-                        <img
-                            src="path/to/your/coupon-image.png"
-                            alt="Coupon"
-                            style={{ width: '100px', height: 'auto' }}
-                        />
+                        <div style={modalStyles.imageClass}>
+
+                            <img
+                                src="../../assets/img/blog/small-1.jpg"
+                                alt="Coupon"
+                                style={{ width: '64px', height: '64' }}
+                            />
+                        </div>
                         <button style={modalStyles.changeButton}>
                             <i className="simple-icon-pencil" style={modalStyles.icon}></i>
                             Change
@@ -134,14 +151,14 @@ const EditCoupon = ({ isOpen, onClose }) => {
                             />
                             <i
                                 className="iconsminds-calendar-4"
-                                style={{ 
-                                    position: 'absolute', 
-                                    right: '10px', 
-                                    top: '50%', 
-                                    transform: 'translateY(-50%)', 
-                                    color: '#0DAC8A', 
-                                    cursor: 'pointer' 
-                                }} 
+                                style={{
+                                    position: 'absolute',
+                                    right: '10px',
+                                    top: '50%',
+                                    transform: 'translateY(-50%)',
+                                    color: '#0DAC8A',
+                                    cursor: 'pointer'
+                                }}
                                 onClick={() => setIsCalendarOpen(true)} // Open Calendar Modal
                             ></i>
                         </div>
@@ -163,8 +180,8 @@ const EditCoupon = ({ isOpen, onClose }) => {
             </div>
 
             {isCalendarOpen && (
-                <Calendar 
-                    isOpen={isCalendarOpen} 
+                <Calendar
+                    isOpen={isCalendarOpen}
                     onClose={() => setIsCalendarOpen(false)} // Close Calendar Modal
                 />
             )}
