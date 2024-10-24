@@ -9381,6 +9381,11 @@
   dependencies:
     "yallist" "^4.0.0"
 
+"lucide-react@^0.453.0":
+  "integrity" "sha512-kL+RGZCcJi9BvJtzg2kshO192Ddy9hv3ij+cPrVPWSRzgCWCVazoQJxOjAwgK53NomL07HB7GPHW120FimjNhQ=="
+  "resolved" "https://registry.npmjs.org/lucide-react/-/lucide-react-0.453.0.tgz"
+  "version" "0.453.0"
+
 "lz-string@^1.4.4":
   "integrity" "sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ=="
   "resolved" "https://registry.npmjs.org/lz-string/-/lz-string-1.5.0.tgz"
