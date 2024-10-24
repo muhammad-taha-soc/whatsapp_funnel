@@ -10,7 +10,7 @@ const data = [
     id: 'dashboards',
     icon: <RiApps2Fill size={30} className="mb-2" />,
     label: 'menu.dashboards',
-    to: `${adminRoot}/dashboards`,
+    to: `${adminRoot}/dashboards/default`,
     // roles: [UserRole.Admin, UserRole.Editor],
     subs: [
       {

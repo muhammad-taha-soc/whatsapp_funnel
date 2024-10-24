@@ -269,75 +269,75 @@ class Sidebar extends Component {
     window.removeEventListener('resize', this.handleWindowResize);
   }
 
-  openSubMenu = (e, menuItem) => {
-    const selectedParent = menuItem.id;
-    const hasSubMenu = menuItem.subs && menuItem.subs.length > 0;
-    // eslint-disable-next-line react/destructuring-assignment
-    this.props.changeSelectedMenuHasSubItems(hasSubMenu);
-    if (!hasSubMenu) {
-      this.setState({
-        viewingParentMenu: selectedParent,
-        selectedParentMenu: selectedParent,
-      });
-      this.toggle();
-    } else {
-      e.preventDefault();
+  // openSubMenu = (e, menuItem) => {
+  //   const selectedParent = menuItem.id;
+  //   const hasSubMenu = menuItem.subs && menuItem.subs.length > 0;
+  //   // eslint-disable-next-line react/destructuring-assignment
+  //   this.props.changeSelectedMenuHasSubItems(hasSubMenu);
+  //   if (!hasSubMenu) {
+  //     this.setState({
+  //       viewingParentMenu: selectedParent,
+  //       selectedParentMenu: selectedParent,
+  //     });
+  //     this.toggle();
+  //   } else {
+  //     e.preventDefault();
 
-      const { containerClassnames, menuClickCount } = this.props;
-      const currentClasses = containerClassnames
-        ? containerClassnames.split(' ').filter((x) => x !== '')
-        : '';
+  //     const { containerClassnames, menuClickCount } = this.props;
+  //     const currentClasses = containerClassnames
+  //       ? containerClassnames.split(' ').filter((x) => x !== '')
+  //       : '';
 
-      if (!currentClasses.includes('menu-mobile')) {
-        if (
-          currentClasses.includes('menu-sub-hidden') &&
-          (menuClickCount === 2 || menuClickCount === 0)
-        ) {
-          // eslint-disable-next-line react/destructuring-assignment
-          this.props.setContainerClassnames(3, containerClassnames, hasSubMenu);
-        } else if (
-          currentClasses.includes('menu-hidden') &&
-          (menuClickCount === 1 || menuClickCount === 3)
-        ) {
-          // eslint-disable-next-line react/destructuring-assignment
-          this.props.setContainerClassnames(2, containerClassnames, hasSubMenu);
-        } else if (
-          currentClasses.includes('menu-default') &&
-          !currentClasses.includes('menu-sub-hidden') &&
-          (menuClickCount === 1 || menuClickCount === 3)
-        ) {
-          // eslint-disable-next-line react/destructuring-assignment
-          this.props.setContainerClassnames(0, containerClassnames, hasSubMenu);
-        }
-      } else {
-        // eslint-disable-next-line react/destructuring-assignment
-        this.props.addContainerClassname(
-          'sub-show-temporary',
-          containerClassnames
-        );
-      }
-      this.setState({
-        viewingParentMenu: selectedParent,
-      });
-    }
-  };
+  //     if (!currentClasses.includes('menu-mobile')) {
+  //       if (
+  //         currentClasses.includes('menu-sub-hidden') &&
+  //         (menuClickCount === 2 || menuClickCount === 0)
+  //       ) {
+  //         // eslint-disable-next-line react/destructuring-assignment
+  //         this.props.setContainerClassnames(3, containerClassnames, hasSubMenu);
+  //       } else if (
+  //         currentClasses.includes('menu-hidden') &&
+  //         (menuClickCount === 1 || menuClickCount === 3)
+  //       ) {
+  //         // eslint-disable-next-line react/destructuring-assignment
+  //         this.props.setContainerClassnames(2, containerClassnames, hasSubMenu);
+  //       } else if (
+  //         currentClasses.includes('menu-default') &&
+  //         !currentClasses.includes('menu-sub-hidden') &&
+  //         (menuClickCount === 1 || menuClickCount === 3)
+  //       ) {
+  //         // eslint-disable-next-line react/destructuring-assignment
+  //         this.props.setContainerClassnames(0, containerClassnames, hasSubMenu);
+  //       }
+  //     } else {
+  //       // eslint-disable-next-line react/destructuring-assignment
+  //       this.props.addContainerClassname(
+  //         'sub-show-temporary',
+  //         containerClassnames
+  //       );
+  //     }
+  //     this.setState({
+  //       viewingParentMenu: selectedParent,
+  //     });
+  //   }
+  // };
 
-  toggleMenuCollapse = (e, menuKey) => {
-    e.preventDefault();
+  // toggleMenuCollapse = (e, menuKey) => {
+  //   e.preventDefault();
 
-    const { collapsedMenus } = this.state;
-    if (collapsedMenus.indexOf(menuKey) > -1) {
-      this.setState({
-        collapsedMenus: collapsedMenus.filter((x) => x !== menuKey),
-      });
-    } else {
-      collapsedMenus.push(menuKey);
-      this.setState({
-        collapsedMenus,
-      });
-    }
-    return false;
-  };
+  //   const { collapsedMenus } = this.state;
+  //   if (collapsedMenus.indexOf(menuKey) > -1) {
+  //     this.setState({
+  //       collapsedMenus: collapsedMenus.filter((x) => x !== menuKey),
+  //     });
+  //   } else {
+  //     collapsedMenus.push(menuKey);
+  //     this.setState({
+  //       collapsedMenus,
+  //     });
+  //   }
+  //   return false;
+  // };
 
   // eslint-disable-next-line no-shadow
   filteredList = (menuItems) => {
@@ -350,9 +350,12 @@ class Sidebar extends Component {
     return menuItems;
   };
 
+  
+
   render() {
     const { selectedParentMenu, viewingParentMenu, collapsedMenus } =
       this.state;
+
     return (
       <div className="sidebar">
         <div className="main-menu">
@@ -363,6 +366,7 @@ class Sidebar extends Component {
               <Nav vertical className="list-unstyled">
                 {menuItems &&
                   this.filteredList(menuItems).map((item) => {
+                    
                     return (
                       <NavItem
                         key={item.id}
@@ -379,6 +383,11 @@ class Sidebar extends Component {
                             rel="noopener noreferrer"
                             target="_blank"
                             // className="text-muted"
+                            // className={`${
+                            //   sub.subs && sub.subs.length > 0
+                            //     ? 'has-sub-item'
+                            //     : ''
+                            // }`}
                           >
                             {item.icon}
                             {/* <i className={item.icon} />{' '} */}
@@ -387,7 +396,7 @@ class Sidebar extends Component {
                         ) : (
                           <NavLink
                             to={item.to}
-                            onClick={(e) => this.openSubMenu(e, item)}
+                            // onClick={(e) => this.openSubMenu(e, item)}
                             data-flag={item.id}
                             className="text-muted"
                           >
@@ -458,12 +467,12 @@ class Sidebar extends Component {
                                     }`}
                                     to={sub.to}
                                     id={`${item.id}_${index}`}
-                                    onClick={(e) =>
-                                      this.toggleMenuCollapse(
-                                        e,
-                                        `${item.id}_${index}`
-                                      )
-                                    }
+                                    // onClick={(e) =>
+                                    //   this.toggleMenuCollapse(
+                                    //     e,
+                                    //     `${item.id}_${index}`
+                                    //   )
+                                    // }
                                   >
                                     <i className="simple-icon-arrow-down" />{' '}
                                     <IntlMessages id={sub.label} />
