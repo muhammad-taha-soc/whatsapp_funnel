@@ -2,7 +2,9 @@
 
 import React, { useState, useMemo } from 'react';
 import { useTable, usePagination, useSortBy } from 'react-table';
-import { Card, CardBody, CardTitle, Input, Badge } from 'reactstrap';
+import {
+    Card, CardBody, CardTitle, Input, Badge
+} from 'reactstrap';
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 import products from 'data/products';
@@ -10,6 +12,7 @@ import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { FaEllipsisV, FaWhatsapp, FaFileDownload, FaTrash, FaSearch } from 'react-icons/fa';
 import Modal from './Modal';
 import { Separator } from 'components/common/CustomBootstrap';
+
 
 
 function Table({ columns, data, onRowClick }) {
@@ -82,6 +85,14 @@ function Table({ columns, data, onRowClick }) {
 }
 
 const CustomersTable = () => {
+    const [open, setOpen] = useState('1');
+    const toggle = (id) => {
+        if (open === id) {
+            setOpen();
+        } else {
+            setOpen(id);
+        }
+    };
     const [searchTerm, setSearchTerm] = useState('');
     const [expandedRowId, setExpandedRowId] = useState(null);
     const [filterDropdownOpen, setFilterDropdownOpen] = useState(false);
@@ -160,7 +171,7 @@ const CustomersTable = () => {
                         style={{ marginRight: '8px' }}
                     />
                     <IntlMessages id="contacts.title" />
-                </div>  
+                </div>
             ),
             accessor: 'title',
             cellClass: 'font-weight-bold',
@@ -316,6 +327,8 @@ const CustomersTable = () => {
                                     zIndex: 10,
                                     top: '40px',
                                     right: '0px',
+                                    maxWidth: '300px',
+                                    minWidth: '300px',
                                 }}>
                                     <div className="d-flex justify-content-between align-items-center mb-3">
                                         <h6 style={{ color: '#1A1C21', fontWeight: '600px', fontsize: '20px', lineHeight: '30px' }}>Filter</h6>
@@ -324,7 +337,7 @@ const CustomersTable = () => {
                                         </button>
                                     </div>
                                     <div className="filter-options">
-                                        <div className="filter-option">
+                                        {/* <div className="filter-option">
                                             <div className="filter-option-title" onClick={() => toggleFilterOption('status')}>
                                                 Status
                                             </div>
@@ -352,7 +365,7 @@ const CustomersTable = () => {
                                                     </div>
                                                 </div>
                                             )}
-                                        </div>
+                                        </div> */}
                                         <div className="filter-option">
                                             <div className="filter-option-title" onClick={() => toggleFilterOption('satisfied')}>
                                                 Satisfied

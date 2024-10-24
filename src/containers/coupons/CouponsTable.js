@@ -14,6 +14,7 @@ import OverviewModal from './OverviewModal';
 
 
 import Calendar from './CalendarModal';
+import { Separator } from 'components/common/CustomBootstrap';
 
 
 
@@ -316,7 +317,7 @@ const CouponsTable = () => {
             Header: <IntlMessages id="coupons.action" />,
             accessor: 'action',
             Cell: ({ row }) => (
-                <div className="position-relative action-button1" style={{ cursor: 'pointer' , bottom:'12px'}}>
+                <div className="position-relative action-button1" style={{ cursor: 'pointer', bottom: '12px' }}>
                     <button
                         type="button"
                         onClick={() => handleActionToggle(row.id)}

@@ -51,7 +51,7 @@ const ProfileInfo = () => {
                         <div>
                             <p style={{ color: '#86868A', fontWeight: '500', fontSize: '14px' }}>Name</p>
                             <CardTitle className="mb-0 font-weight-bold">
-                                <p style={{ color: '#0D0D26', fontWeight: '600', fontSize: '20px' }}>Sam Emili</p>
+                                <p style={{ fontWeight: '600', fontSize: '20px' }}>Sam Emili</p>
                             </CardTitle>
                         </div>
                     </div>
@@ -60,7 +60,7 @@ const ProfileInfo = () => {
 
             <CardBody>
                 <Separator className="mb-5" />
-                <h2 style={{ color: '#0D0D26', fontWeight: '600', fontSize: '16px' }}>General Information</h2>
+                <h2 style={{ fontWeight: '600', fontSize: '16px' }}>General Information</h2>
                 <Row>
                     <Colxx
                         md="6"
@@ -199,7 +199,7 @@ const ProfileInfo = () => {
                     </Colxx>
 
                 </Row>
-                <h2 style={{ color: '#0D0D26', fontWeight: '600', fontSize: '16px' }}>Opening Hours</h2>
+                <h2 style={{ fontWeight: '600', fontSize: '16px' }}>Opening Hours</h2>
                 <Row>
                     <Colxx
                         md="6"
@@ -235,7 +235,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
-                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600' }}
+                                style={{ fontSize: '14px', fontWeight: '600' }}
                             >
                                 Monday
                             </Colxx>
@@ -260,7 +260,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
-                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600' }}
+                                style={{ fontSize: '14px', fontWeight: '600' }}
                             >
                                 Tuesday
                             </Colxx>
@@ -285,7 +285,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
-                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600' }}
+                                style={{ fontSize: '14px', fontWeight: '600' }}
                             >
                                 Wednesday
                             </Colxx>
@@ -310,7 +310,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
-                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600' }}
+                                style={{ fontSize: '14px', fontWeight: '600' }}
                             >
                                 Thursday
                             </Colxx>
@@ -335,7 +335,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
-                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600' }}
+                                style={{ fontSize: '14px', fontWeight: '600' }}
                             >
                                 Friday
                             </Colxx>
@@ -360,7 +360,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
-                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600' }}
+                                style={{ fontSize: '14px', fontWeight: '600' }}
                             >
                                 Saturaday
                             </Colxx>
@@ -385,7 +385,7 @@ const ProfileInfo = () => {
                                 lg="3"
                                 xl="3"
                                 className="d-flex align-items-center"
-                                style={{ color: '#0D0D26', fontSize: '14px', fontWeight: '600', }}
+                                style={{ fontSize: '14px', fontWeight: '600', }}
                             >
                                 Sunday
                             </Colxx>

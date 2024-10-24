@@ -38,7 +38,7 @@ const TopnavNotifications = () => {
           className="header-icon notificationButton"
           color="empty"
         >
-          <i className="simple-icon-bell" />
+          <i className="simple-icon-bell" style={{ fontSize: "20px" }} />
           <span className="count">3</span>
         </DropdownToggle>
         <DropdownMenu

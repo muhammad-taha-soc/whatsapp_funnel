@@ -9,8 +9,8 @@ import { Colxx } from 'components/common/CustomBootstrap';
 const ProfileSetting = () => {
 
     return (
-        <CardBody className='bg-white' style={{ borderRadius: "16px" }}>
-            <h2 style={{ fontSize: '24px', fontWeight: '500', color: '#0D0D26' }}>Password</h2>
+        <CardBody className='card' style={{ borderRadius: "16px" }}>
+            <h2 style={{ fontSize: '24px', fontWeight: '500' }}>Password</h2>
             <Row>
                 <Colxx
                     md="12"

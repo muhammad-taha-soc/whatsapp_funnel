@@ -152,14 +152,14 @@ const NewsLetter = () => {
     );
 
     return (
-        <CardBody className='bg-white rounded-md mt-4'>
+        <CardBody className='card rounded-md mt-4' style={{ borderRadius: "16px" }}>
             <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
                 <IntlMessages id='Billing History' />
-                <div>
+                <div style={{ cursor: "pointer" }}>
                     <Badge color="" className="mb-1 border border-theme-4">
-                        <i className="iconsminds-download-4" />
+                        <i className="iconsminds-download" />
                         <IntlMessages id="Download" />
-                    </Badge>{' '}
+                    </Badge>
                 </div>
             </CardTitle>
             <Table columns={cols} data={products} />

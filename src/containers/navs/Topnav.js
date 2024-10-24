@@ -238,7 +238,7 @@ const TopNav = ({
             <UncontrolledDropdown className="dropdown-menu-right">
               <DropdownToggle className="header-icon" color="empty">
                 {/* <i className="simple-icon-grid" /> */}
-                <i className="simple-icon-envelope" />
+                <i className="simple-icon-envelope" style={{ fontSize: '20px' }} />
               </DropdownToggle>
               {/* <DropdownMenu
                 className="position-absolute mt-3"
