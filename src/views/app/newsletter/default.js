@@ -130,6 +130,10 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
             </Button>{' '}
           </div>
         </div>
+        {activeSecondTab === '2' && (
+        <div className='text-muted mt-2 mb-3' >
+        <IntlMessages id="WhatsApp templates are pre-approved messages that you must use to send a broadcast. Meta usually approves these templates within a few minutes, but approval can take up to 24 hours." />
+        </div>)}
         <TabContent activeTab={activeSecondTab}>
           <TabPane tabId="1">
             <Row>
