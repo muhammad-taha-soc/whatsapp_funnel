@@ -1,13 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { injectIntl } from 'react-intl';
-import {
-  Row,
-  Nav,
-  NavItem,
-  TabContent,
-  TabPane,
-  Button,
-} from 'reactstrap';
+import { Row, Nav, NavItem, TabContent, TabPane, Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 import { Colxx, Separator } from 'components/common/CustomBootstrap';
@@ -18,13 +11,30 @@ import NewsLetter from 'containers/dashboards/NewsLetter';
 import MakeMoney from 'containers/dashboards/MakeMoney';
 import AccountProfile from 'containers/dashboards/AccountProfile';
 import IntlMessages from 'helpers/IntlMessages';
-
+import LandingModal from 'containers/dashboards/LandingModal';
 
 const DefaultDashboard = ({ intl, match }) => {
   const { messages } = intl;
   console.log(messages);
 
   const [activeSecondTab, setActiveSecondTab] = useState('1');
+  const [isLandingModalOpen, setIsLandingModalOpen] = useState(false);
+
+  const hasVisited = localStorage.getItem('hasVisited');
+  console.log('activeSecondTab', activeSecondTab);
+  console.log('hasVisited', hasVisited);
+  useEffect(() => {
+    if (hasVisited) {
+      setIsLandingModalOpen(false);
+      return;
+    }
+    setIsLandingModalOpen(true);
+    localStorage.setItem('hasVisited', 'true');
+  }, []);
+
+  const handleClose = () => {
+    setIsLandingModalOpen(false);
+  };
 
   return (
     <>
@@ -104,7 +114,10 @@ const DefaultDashboard = ({ intl, match }) => {
                       className="default btn btn-primary text-primary font-weight-bold"
                       style={{ borderRadius: '7px' }}
                     >
-                      <i className="iconsminds-repeat-2 mr-2" style={{ fontWeight: 'bold' }} />
+                      <i
+                        className="iconsminds-repeat-2 mr-2"
+                        style={{ fontWeight: 'bold' }}
+                      />
                       <IntlMessages id="Refresh data" />
                     </Button>{' '}
                   </div>
@@ -117,6 +130,7 @@ const DefaultDashboard = ({ intl, match }) => {
           </TabPane>
         </TabContent>
       </Colxx>
+      <LandingModal isOpen={isLandingModalOpen} onClose={handleClose} />
     </>
   );
 };
