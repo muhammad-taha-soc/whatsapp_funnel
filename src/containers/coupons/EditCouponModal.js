@@ -45,15 +45,15 @@ const EditCoupon = ({ isOpen, onClose }) => {
         changeButton: {
             backgroundColor: 'white',
             border: 'none',
-            padding: '8px 12px',
+            padding: '8px 1px',
             borderRadius: '4px',
             cursor: 'pointer',
             transition: 'background 0.3s',
             color: '#0DAC8A',
             marginRight: '10px',
             position: 'absolute',
-            left: '100px',
-            transform: 'translateY(-25%)',
+            left: '80px',
+            transform: 'translateY(-15%)',
         },
         formGroup: {
             marginBottom: '15px',
@@ -105,6 +105,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
         },
         icon: {
             marginLeft: '5px',
+            marginRight: '5px',
             color: '#0DAC8A',
             cursor: 'pointer', // Indicate that it's clickable
         },
@@ -122,13 +123,16 @@ const EditCoupon = ({ isOpen, onClose }) => {
         <>
             <div style={modalStyles.overlay} onClick={onClose}>
                 <div style={modalStyles.content} onClick={(e) => e.stopPropagation()}>
-                    <h2 style={{marginBottom: '15px', fontWeight:'bold'}}>Edit Coupon</h2>
+                    <header className="modal-header" style={{ color: '#1A1C21', height: '30px', fontSize: '20px', fontWeight: '600px', padding: 0 }}>
+                        <h2 style={{ marginBottom: '15px', fontWeight: 'bold' }}>Edit Coupon</h2>
+                        <button className="close-button" onClick={onClose}>✖</button>
+                    </header>
                     <p style={{ color: '#667085' }}>Current coupon graphic</p>
                     <div style={modalStyles.couponGraphic}>
                         <div style={modalStyles.imageClass}>
 
                             <img
-                                src="../../assets/img/blog/small-1.jpg"
+                                src="../../assets/img/blog/coupon.svg"
                                 alt="Coupon"
                                 style={{ width: '64px', height: '64' }}
                             />
@@ -155,13 +159,13 @@ const EditCoupon = ({ isOpen, onClose }) => {
                                 style={modalStyles.input}
                             />
                             <RiCalendar2Line size={22} style={{
-                                    position: 'absolute',
-                                    right: '10px',
-                                    top: '50%',
-                                    color: '#667085',
-                                    transform: 'translateY(-50%)',
-                                    cursor: 'pointer'
-                                }}
+                                position: 'absolute',
+                                right: '10px',
+                                top: '50%',
+                                color: '#667085',
+                                transform: 'translateY(-50%)',
+                                cursor: 'pointer'
+                            }}
                                 onClick={() => setIsCalendarOpen(true)} />
                         </div>
                     </div>
@@ -176,7 +180,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
                         <button style={modalStyles.cancelButton} onClick={onClose}>
                             Cancel
                         </button>
-                        <button style={modalStyles.saveButton}>Save Changes</button>
+                        <button style={modalStyles.saveButton} onClick={onClose}>Save Changes</button>
                     </div>
                 </div>
             </div>
