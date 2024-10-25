@@ -6,39 +6,39 @@
 import { adminRoot } from './defaultValues';
 
 const data = [
-  {
-    id: 'dashboards',
-    icon: '/assets/img/dashboard/dashboard',
-    label: 'menu.dashboards',
-    to: `${adminRoot}/dashboards/default`,
-    // roles: [UserRole.Admin, UserRole.Editor],
-    subs: [
-      {
-        icon: 'simple-icon-briefcase',
-        label: 'menu.dashboards',
-        to: `${adminRoot}/dashboards/default`,
-        // roles: [UserRole.Admin],
-      },
-      // {
-      //   icon: 'simple-icon-pie-chart',
-      //   label: 'menu.analytics',
-      //   to: `${adminRoot}/dashboards/analytics`,
-      //   // roles: [UserRole.Admin],
-      // },
-      // {
-      //   icon: 'simple-icon-basket-loaded',
-      //   label: 'menu.ecommerce',
-      //   to: `${adminRoot}/dashboards/ecommerce`,
-      //   // roles: [UserRole.Editor],
-      // },
-      // {
-      //   icon: 'simple-icon-doc',
-      //   label: 'menu.content',
-      //   to: `${adminRoot}/dashboards/content`,
-      //   // roles: [UserRole.Editor],
-      // },
-    ],
-  },
+  // {
+  //   id: 'dashboards',
+  //   icon: '/assets/img/dashboard/dashboard',
+  //   label: 'menu.dashboards',
+  //   to: `${adminRoot}/dashboards/default`,
+  //   // roles: [UserRole.Admin, UserRole.Editor],
+  //   subs: [
+  //     {
+  //       icon: 'simple-icon-briefcase',
+  //       label: 'menu.dashboards',
+  //       to: `${adminRoot}/dashboards/default`,
+  //       // roles: [UserRole.Admin],
+  //     },
+  //     // {
+  //     //   icon: 'simple-icon-pie-chart',
+  //     //   label: 'menu.analytics',
+  //     //   to: `${adminRoot}/dashboards/analytics`,
+  //     //   // roles: [UserRole.Admin],
+  //     // },
+  //     // {
+  //     //   icon: 'simple-icon-basket-loaded',
+  //     //   label: 'menu.ecommerce',
+  //     //   to: `${adminRoot}/dashboards/ecommerce`,
+  //     //   // roles: [UserRole.Editor],
+  //     // },
+  //     // {
+  //     //   icon: 'simple-icon-doc',
+  //     //   label: 'menu.content',
+  //     //   to: `${adminRoot}/dashboards/content`,
+  //     //   // roles: [UserRole.Editor],
+  //     // },
+  //   ],
+  // },
   // {
   //   id: 'pages',
   //   icon: 'iconsminds-digital-drawing',
@@ -399,32 +399,32 @@ const data = [
       },
     ],
   },
-  {
-    id: 'coupons',
-    icon: '/assets/img/dashboard/coupon',
-    label: 'menu.coupons',
-    to: `${adminRoot}/coupons`,
-    subs: [
-      {
-        icon: 'simple-icon-logout',
-        label: 'menu.coupons',
-        to: `${adminRoot}/coupons`,
-      },
-    ],
-  },
-  {
-    id: 'newsletter',
-    icon: '/assets/img/dashboard/newsletter',
-    label: 'dashboards.news-letter',
-    to: `${adminRoot}/news-letter`,
-    subs: [
-      {
-        icon: 'simple-icon-logout',
-        label: 'dashboards.news-letter',
-        to: `${adminRoot}/news-letter`,
-      },
-    ],
-  },
+  // {
+  //   id: 'coupons',
+  //   icon: '/assets/img/dashboard/coupon',
+  //   label: 'menu.coupons',
+  //   to: `${adminRoot}/coupons`,
+  //   subs: [
+  //     {
+  //       icon: 'simple-icon-logout',
+  //       label: 'menu.coupons',
+  //       to: `${adminRoot}/coupons`,
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 'newsletter',
+  //   icon: '/assets/img/dashboard/newsletter',
+  //   label: 'dashboards.news-letter',
+  //   to: `${adminRoot}/news-letter`,
+  //   subs: [
+  //     {
+  //       icon: 'simple-icon-logout',
+  //       label: 'dashboards.news-letter',
+  //       to: `${adminRoot}/news-letter`,
+  //     },
+  //   ],
+  // },
   // {
   //   id: 'docs',
   //   icon: 'iconsminds-library',

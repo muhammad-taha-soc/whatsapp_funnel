@@ -316,9 +316,9 @@ const TopNav = ({
             </DropdownToggle>
             <DropdownMenu className="mt-3" right>
               <DropdownItem onClick={() => history.push('/app/profile')}> Account</DropdownItem>
-              <DropdownItem>Features</DropdownItem>
+              {/* <DropdownItem>Features</DropdownItem>
               <DropdownItem>History</DropdownItem>
-              <DropdownItem>Support</DropdownItem>
+              <DropdownItem>Support</DropdownItem> */}
               <DropdownItem divider />
               <DropdownItem onClick={() => handleLogout()}>
                 Sign out

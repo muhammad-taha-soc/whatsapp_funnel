@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import { injectIntl } from 'react-intl';
 import { Row, TabPane } from 'reactstrap';
 // import { NavLink } from 'react-router-dom';
@@ -6,11 +6,25 @@ import { Row, TabPane } from 'reactstrap';
 import { Colxx, Separator } from 'components/common/CustomBootstrap';
 import Breadcrumb from 'containers/navs/Breadcrumb';
 import CustomersTable from 'containers/contacts/CustomersTable';
+import LandingModal from 'containers/dashboards/LandingModal';
 
 const DefaultCustomers = ({ match }) => {
+  const [isLandingModalOpen, setIsLandingModalOpen] = useState(false);
 //   const { messages } = intl; 
   // const [activeSecondTab, setActiveSecondTab] = useState('1');
+  const hasVisited = localStorage.getItem('hasVisited');
+  useEffect(() => {
+    if (hasVisited) {
+      setIsLandingModalOpen(false);
+      return;
+    }
+    setIsLandingModalOpen(true);
+    localStorage.setItem('hasVisited', 'true');
+  }, []);
 
+  const handleClose = () => {
+    setIsLandingModalOpen(false);
+  };
   return (
     <>
       <Row>
@@ -50,15 +64,16 @@ const DefaultCustomers = ({ match }) => {
         </Nav> */}
 
         {/* <TabContent activeTab={activeSecondTab}> */}
-          <TabPane tabId="1">
-            <Row>
-              <Colxx xl="12" md="12" lg="12" className="mb-4">
-                <CustomersTable />
-              </Colxx>
-            </Row>
-          </TabPane>
+        <TabPane tabId="1">
+          <Row>
+            <Colxx xl="12" md="12" lg="12" className="mb-4">
+              <CustomersTable />
+            </Colxx>
+          </Row>
+        </TabPane>
         {/* </TabContent> */}
       </Colxx>
+      <LandingModal isOpen={isLandingModalOpen} onClose={handleClose} />
     </>
   );
 };

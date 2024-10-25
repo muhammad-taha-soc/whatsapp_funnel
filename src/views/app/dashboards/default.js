@@ -21,8 +21,6 @@ const DefaultDashboard = ({ intl, match }) => {
   const [isLandingModalOpen, setIsLandingModalOpen] = useState(false);
 
   const hasVisited = localStorage.getItem('hasVisited');
-  console.log('activeSecondTab', activeSecondTab);
-  console.log('hasVisited', hasVisited);
   useEffect(() => {
     if (hasVisited) {
       setIsLandingModalOpen(false);
