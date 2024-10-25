@@ -1,6 +1,9 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 import Calendar from './CalendarModal';
+import { LuPenLine } from "react-icons/lu";
+import { RiCalendar2Line } from "react-icons/ri";
+
 
 const EditCoupon = ({ isOpen, onClose }) => {
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -58,6 +61,8 @@ const EditCoupon = ({ isOpen, onClose }) => {
         },
         label: {
             fontWeight: 'bold',
+            color: '#667085',
+            marginBottom: '1px',
         },
         input: {
             width: '100%',
@@ -83,7 +88,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
             color: '#86868A',
             border: '1px solid #86868A',
             padding: '10px 15px',
-            borderRadius: '4px',
+            borderRadius: '8px',
             cursor: 'pointer',
             marginRight: '10px',
             position: 'absolute',
@@ -95,7 +100,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
             color: 'white',
             border: 'none',
             padding: '10px 15px',
-            borderRadius: '4px',
+            borderRadius: '8px',
             cursor: 'pointer',
         },
         icon: {
@@ -117,8 +122,8 @@ const EditCoupon = ({ isOpen, onClose }) => {
         <>
             <div style={modalStyles.overlay} onClick={onClose}>
                 <div style={modalStyles.content} onClick={(e) => e.stopPropagation()}>
-                    <h2 style={modalStyles.header}>Edit Coupon</h2>
-                    <p>current coupon graphic</p>
+                    <h2 style={{marginBottom: '15px', fontWeight:'bold'}}>Edit Coupon</h2>
+                    <p style={{ color: '#667085' }}>Current coupon graphic</p>
                     <div style={modalStyles.couponGraphic}>
                         <div style={modalStyles.imageClass}>
 
@@ -129,7 +134,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
                             />
                         </div>
                         <button style={modalStyles.changeButton}>
-                            <i className="simple-icon-pencil" style={modalStyles.icon}></i>
+                            <LuPenLine style={modalStyles.icon} />
                             Change
                         </button>
                     </div>
@@ -149,18 +154,15 @@ const EditCoupon = ({ isOpen, onClose }) => {
                                 defaultValue="01.01.2024 - 31.12.2024"
                                 style={modalStyles.input}
                             />
-                            <i
-                                className="iconsminds-calendar-4"
-                                style={{
+                            <RiCalendar2Line size={22} style={{
                                     position: 'absolute',
                                     right: '10px',
                                     top: '50%',
+                                    color: '#667085',
                                     transform: 'translateY(-50%)',
-                                    color: '#0DAC8A',
                                     cursor: 'pointer'
                                 }}
-                                onClick={() => setIsCalendarOpen(true)} // Open Calendar Modal
-                            ></i>
+                                onClick={() => setIsCalendarOpen(true)} />
                         </div>
                     </div>
                     <div style={modalStyles.formGroup}>

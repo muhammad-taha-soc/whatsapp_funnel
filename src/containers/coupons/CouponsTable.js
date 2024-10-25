@@ -7,7 +7,7 @@ import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 import products from 'data/products';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
-import { BsSliders2 } from 'react-icons/bs';
+  import { BsSliders2 } from 'react-icons/bs';
 import {
   FaEllipsisV,
   FaWhatsapp,
