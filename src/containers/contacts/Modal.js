@@ -53,15 +53,21 @@ const Modal = ({ customer, onClose }) => {
 
                                     <p>
                                         <i className="iconsminds-envelope-2" style={{ marginRight: '8px', width: '20px', height: '20px', color: '#5C5C78' }} />
-                                        Email:<br /><span style={{ marginLeft: '24px', color: 'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.email}</span>
+                                        Email:<br /><span style={{ marginLeft: '28px', color: 'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.email}</span>
                                     </p>
-                                    <FaRegCopy />
+                                    <FaRegCopy style={{ width: '16px', height: '20px', color: '#86868A' }} />
                                 </div>
                                 <div className='d-flex justify-content-between align-items-center'>
-                                <p><i className="simple-icon-phone" style={{ marginRight: '8px', width: '20px', height: '20px', color: '#5C5C78' }} />Telephone Number:<br /><span style={{ marginLeft: '24px', color: 'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.phone}</span></p>
-                                <FaRegCopy />
-                                 </div>
-                                <p><i className="iconsminds-calendar-4" style={{ marginRight: '8px', width: '20px', height: '20px', color: '#5C5C78' }} />Date:<br /><span style={{ marginLeft: '24px', color: 'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.date}</span></p>
+                                    <p>
+                                        <i className="simple-icon-phone" style={{ marginRight: '8px', width: '20px', height: '20px', color: '#5C5C78' }} />
+                                        Telephone Number:<br />
+                                        <span style={{ marginLeft: '24px', color: 'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.phone}</span>
+                                    </p>
+                                    <FaRegCopy style={{ width: '16px', height: '20px', color: '#86868A' }} />
+                                </div>
+                                <p>
+                                    <i className="iconsminds-calendar-4" style={{ marginRight: '8px', width: '20px', height: '20px', color: '#5C5C78' }} />Date:<br /><span style={{ marginLeft: '28px', color: 'black', fontWeight: '500px', fontSize: '14px' }}> {dummyCustomer.date}</span>
+                                </p>
                             </div>
 
                             <div className="modal-actions">
@@ -80,19 +86,19 @@ const Modal = ({ customer, onClose }) => {
                             </div>
                         </div>
 
-                        <div className="right-column" style={{ paddingLeft: '10px', paddingTop: '6px' }}>
+                        <div className="right-column" style={{ position: 'relative', paddingLeft: '10px', paddingTop: '6px' }}>
                             <div className="status">
                                 <div className="status-item satisfied">
                                     <span>Satisfied</span>
-                                    <AiFillCheckCircle style={{ color: '#0DAC8A', width: '24px', height: '24px', marginRight: '35px' }} />
+                                    <AiFillCheckCircle style={{ position: 'absolute', right: '15px', color: '#0DAC8A', width: '24px', height: '24px' }} />
                                 </div>
                                 <div className="status-item">
                                     <span>Review link clicked</span>
-                                    <AiFillCheckCircle style={{ color: '#0DAC8A', width: '24px', height: '24px', marginRight: '35px' }} />
+                                    <AiFillCheckCircle style={{ position: 'absolute', right: '15px', color: '#0DAC8A', width: '24px', height: '24px' }} />
                                 </div>
                                 <div className="status-item dissatisfied">
                                     <span>Suggestion for improvement</span>
-                                    <AiFillCloseCircle style={{ color: '#F5430B', width: '24px', height: '24px', marginRight: '35px' }} />
+                                    <AiFillCloseCircle style={{ position: 'absolute', right: '15px', color: '#F5430B', width: '24px', height: '24px' }} />
                                 </div>
                             </div>
 
