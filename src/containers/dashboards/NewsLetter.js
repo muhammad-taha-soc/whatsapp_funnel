@@ -200,16 +200,19 @@ const NewsLetter = () => {
         <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
           <IntlMessages id="Newsletter" />
           <div>
-            <Badge
+            <Badge style={{fontWeight: '400'}}
               color=""
               className="mb-1 mr-2 rounder align-content-center border border-theme-4"
             >
               <img className="mr-2" alt='calendar' src="/assets/img/dashboard/calendar-icon.svg" />
-              <IntlMessages id="dashboards.select-date" />
+              <IntlMessages className='font-weight-light' id="dashboards.select-date" />
             </Badge>
-            <Badge color="" className="mb-1 border border-theme-4">
+            <Badge style={{fontWeight: '400'}}color="" className="mb-1 border border-theme-4">
+              
               <BsSliders2 className="mr-2" size={15} />
+
               <IntlMessages id="dashboards.filters" />
+              
             </Badge>{' '}
           </div>
         </CardTitle>
