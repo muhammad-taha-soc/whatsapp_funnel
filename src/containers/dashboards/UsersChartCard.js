@@ -13,7 +13,7 @@ import {
 
 import IntlMessages from 'helpers/IntlMessages';
 import { AreaChart } from 'components/charts';
-import {FaCaretUp } from 'react-icons/fa';
+import { FaCaretUp } from 'react-icons/fa';
 
 import { usersChartData } from 'data/charts';
 
@@ -53,8 +53,8 @@ const UsersChartCard = () => {
               </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown> */}
-          <Nav className="rounded border border-muted">
-            <NavItem>
+          <Nav className="rounded border border-muted" style={{ backgroundColor: "#F8F9FB", padding: "5px 10px" }}>
+            <NavItem className='card'>
               <NavLink active href="#">
                 <IntlMessages id="dashboards.daily" />
               </NavLink>

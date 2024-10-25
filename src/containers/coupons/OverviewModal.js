@@ -144,7 +144,13 @@ const OverviewModal = ({ customer, onClose }) => {
                 </div>
                 <div>
                     <span>Note</span>
-                    <Input type="textarea" name="text" />
+                    <div style={{ border: '1px solid #E8E8E9', borderRadius: '8px', padding: '10px' }}>
+                        Lorem ipsum dolor sit amet consectetur. Urna sit felis donec adipiscing
+                        vitae mi. Massa mauris ultrices ipsum venenatis consectetur pharetra
+                        vitae turpis nibh. Mattis neque massa in quis eget nisi.
+                        Lorem ipsum dolor sit amet consectetur. Urna sit felis donec adipiscing vitae mi.
+                        Massa mauris ultrices ipsum venenatis consectetur pharetra vitae turpis nibh. Mattis neque
+                    </div>
                 </div>
                 <div className='d-flex justify-content-between align-items-center mt-4'>
                     <button style={{ backgroundColor: 'white', color: 'black', border: "1px solid gray", borderRadius: '8px', padding: "10px 14px" }} onClick={onClose}>Cancel</button>

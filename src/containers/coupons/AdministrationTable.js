@@ -8,11 +8,12 @@ import { useTable, usePagination, useSortBy } from 'react-table';
 import { Badge, Card, CardBody, CardTitle } from 'reactstrap'; //
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
-
-
 import products from 'data/products';
 import Calendar from './CalendarModal';
 import EditCoupon from './EditCouponModal';
+import {
+    FaEllipsisV
+} from 'react-icons/fa';
 
 function Table({ columns, data, onEditCoupon }) {
     const {
@@ -42,7 +43,7 @@ function Table({ columns, data, onEditCoupon }) {
             <table {...getTableProps()} className="r-table table">
                 <thead>
                     {headerGroups.map((headerGroup) => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
+                        <tr style={{ borderBottom: '1px solid #f3f3f3' }} {...headerGroup.getHeaderGroupProps()} >
                             {headerGroup.headers.map((column, columnIndex) => (
                                 <th
                                     key={`th_${columnIndex}`}
@@ -116,43 +117,56 @@ const AdministrationTable = () => {
     const cols = React.useMemo(
         () => [
             {
-                Header: 'Coupon',
+                Header: () => (
+                    <div style={{ cursor: 'pointer', color: "#667085", fontWeight: '600' }}>Coupon</div>
+                ),
                 accessor: 'newsLetter',
-                cellClass: 'font-weight-bold w-25',
-                Cell: (props) => <><div style={{ cursor: 'pointer', border: '1px solid #DDDDDD', borderRadius:'10px' }}>
-                    <img src={'/assets/img/blog/coupon.svg'} style={{ width: '20px', height: '17px' }} alt='Visa' /></div></>,
+                cellClass: 'w-15',
+                Cell: (props) => <>
+                    <div style={{ cursor: 'pointer', border: '1px solid #DDDDDD', borderRadius: '10px', width: '40px', height: '40px' }}>
+                        <img src={'/assets/img/blog/coupon.svg'} style={{ width: '100%', height: '100%' }} alt='Visa' />
+                    </div>
+                </>,
                 sortType: 'basic',
             },
             {
-                Header: 'Promotion Name',
+                Header: () => (
+                    <div style={{ cursor: 'pointer', color: "#667085", fontWeight: '600' }}>Promotion Name</div>
+                ),
                 accessor: 'createDate',
                 cellClass: 'text-muted w-20',
-                Cell: (props) => <><div style={{ cursor: 'pointer' }}>
-                    {props.value}</div></>,
+                Cell: (props) => <><div style={{ cursor: 'pointer', fontWeight: 'bold' }}>
+                    Demo</div></>,
                 sortType: 'basic',
             },
             {
-                Header: 'Validity',
+                Header: () => (
+                    <div style={{ cursor: 'pointer', color: "#667085", fontWeight: '600' }}>Promotion Name</div>
+                ),
                 accessor: 'delivered',
-                cellClass: 'text-theme-3 w-20 ',
-                Cell: (props) => <><div style={{ cursor: 'pointer' }}>
-                    {props.value}</div></>,
+                cellClass: 'w-20',
+                Cell: (props) => <><div style={{ cursor: 'pointer', color: "#667085", fontWeight: '600' }}>
+                    25.05.2025 - 25.08.2025</div></>,
                 sortType: 'basic',
             },
             {
-                Header: 'Condition',
+                Header: () => (
+                    <div style={{ cursor: 'pointer', color: "#667085", fontWeight: '600' }}>Condition</div>
+                ),
                 accessor: 'read',
-                cellClass: 'text-primary w-20',
-                Cell: (props) => <><div style={{ cursor: 'pointer' }}>
-                    {props.value}</div></>,
+                cellClass: 'w-40',
+                Cell: (props) => <><div style={{ cursor: 'pointer', color: "#667085", fontWeight: '500' }}>
+                    Lorem ipsum dolor sit amet consectetur. Urna sit felis donec adipiscing</div></>,
                 sortType: 'basic',
             },
             {
-                Header: 'Action',
+                Header: () => (
+                    <div style={{ cursor: 'pointer', color: "#667085", fontWeight: '600' }}>Action</div>
+                ),
                 accessor: 'clicked',
                 cellClass: 'text-theme-2 w-20',
                 Cell: (props) => <><div style={{ cursor: 'pointer' }}>
-                    {props.value}</div></>,
+                    <FaEllipsisV style={{ color: "gray" }} /></div></>,
                 sortType: 'basic',
             },
         ],
@@ -167,7 +181,7 @@ const AdministrationTable = () => {
     };
 
     return (
-        <CardBody className='bg-white rounded-md mt-4'>
+        <CardBody className='card rounded-md mt-4' style={{ borderRadius: '16px' }}>
             <Table
                 columns={cols}
                 data={products}

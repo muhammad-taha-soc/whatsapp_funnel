@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
     CardBody,
     Input,
@@ -9,27 +9,31 @@ import { Separator } from 'components/common/CustomBootstrap';
 import { all } from 'redux-saga/effects';
 
 const PaymentMethod = () => {
+    const [selectedPayment, setSelectedPayment] = useState('visa'); // Default selected payment method
 
+    // Handler to change selected payment method
+    const handlePaymentSelect = (paymentMethod) => {
+        setSelectedPayment(paymentMethod); // Set the selected payment method
+    };
     return (
         <>
             <CardBody className='card rounded-md' style={{ borderRadius: "16px" }}>
                 <h2 style={{ fontSize: '24px', fontWeight: '500' }}>Payment method</h2>
                 <p style={{ fontSize: '16px', fontWeight: '600' }}>Card details</p>
-                <div className='d-flex justify-content-between align-items-center'>
-                    <div className='w-50 pr-2' >
+                <div className='d-flex justify-content-between align-items-center flex-wrap'>
+                    <div className='w-50 pr-2'>
                         <div
-                            className='d-flex justify-content-between '
+                            className='d-flex justify-content-between'
                             style={{
-                                border: '1px solid #0DAC8A',
+                                border: `1px solid ${selectedPayment === 'visa' ? '#0DAC8A' : '#EAECF0'}`,
                                 borderRadius: '12px',
                                 padding: '16px',
-                            }}>
-                            <div
-                                className='d-flex justify-content-between align-items-center'
-                            >
-                                <div
-                                    className='d-flex '
-                                >
+                                cursor: 'pointer', // Change cursor to pointer on hover
+                            }}
+                            onClick={() => handlePaymentSelect('visa')} // Handle card click
+                        >
+                            <div className='d-flex justify-content-between align-items-center'>
+                                <div className='d-flex'>
                                     <div className='mr-3'>
                                         <img src={'/assets/img/payment/visa-image.png'} style={{ width: '30px', height: '30px' }} alt='Visa' />
                                     </div>
@@ -40,48 +44,51 @@ const PaymentMethod = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                className='d-flex'
-                            >
-
-                                <label class="checkbox_r">
-                                    <input type="checkbox" class="checkbox__input_r" checked />
-                                    <span class="checkbox__inner_r"></span>
+                            <div className='d-flex'>
+                                <label className="checkbox_r">
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox__input_r"
+                                        checked={selectedPayment === 'visa'}
+                                        readOnly // Prevent manual checkbox toggling
+                                    />
+                                    <span className="checkbox__inner_r"></span>
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div className='w-50 pl-2' >
+                    <div className='w-50 pl-2'>
                         <div
-                            className='d-flex justify-content-between '
+                            className='d-flex justify-content-between'
                             style={{
-                                border: '1px solid #0DAC8A',
+                                border: `1px solid ${selectedPayment === 'master' ? '#0DAC8A' : '#EAECF0'}`,
                                 borderRadius: '12px',
                                 padding: '16px',
-                            }}>
-                            <div
-                                className='d-flex justify-content-between align-items-center'
-                            >
-                                <div
-                                    className='d-flex '
-                                >
+                                cursor: 'pointer', // Change cursor to pointer on hover
+                            }}
+                            onClick={() => handlePaymentSelect('master')} // Handle card click
+                        >
+                            <div className='d-flex justify-content-between align-items-center'>
+                                <div className='d-flex'>
                                     <div className='mr-3'>
-                                        <img src={'/assets/img/payment/master-image.png'} style={{ width: '30px', height: '30px' }} alt='Visa' />
+                                        <img src={'/assets/img/payment/master-image.png'} style={{ width: '30px', height: '30px' }} alt='MasterCard' />
                                     </div>
                                     <div>
-                                        <p className='mb-0' style={{ fontSize: '14px', fontWeight: '500' }}> Visa Ending in 2424</p>
-                                        <p className='mb-2' style={{ fontSize: '14px', fontWeight: '400' }}> Expiry 06/2024</p>
-                                        <p className='mb-0 ' style={{ fontSize: '14px', fontWeight: '600' }}> Set as default <span style={{ color: '#0DAC8A', fontWeight: '800', marginLeft: '10px' }}>Edit</span></p>
+                                        <p className='mb-0' style={{ fontSize: '14px', fontWeight: '500' }}> MasterCard Ending in 1234</p>
+                                        <p className='mb-2' style={{ fontSize: '14px', fontWeight: '400' }}> Expiry 07/2024</p>
+                                        <p className='mb-0' style={{ fontSize: '14px', fontWeight: '600' }}> Set as default <span style={{ color: '#0DAC8A', fontWeight: '800', marginLeft: '10px' }}>Edit</span></p>
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                className='d-flex'
-                            >
-
-                                <label class="checkbox_r">
-                                    <input type="checkbox" class="checkbox__input_r" />
-                                    <span class="checkbox__inner_r"></span>
+                            <div className='d-flex'>
+                                <label className="checkbox_r">
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox__input_r"
+                                        checked={selectedPayment === 'master'}
+                                        readOnly // Prevent manual checkbox toggling
+                                    />
+                                    <span className="checkbox__inner_r"></span>
                                 </label>
                             </div>
                         </div>
