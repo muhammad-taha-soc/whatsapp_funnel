@@ -32,7 +32,7 @@ import {
 // import Select from 'react-select';
 
 import { NavLink } from 'react-router-dom';
-import { TbRotateClockwise2 } from 'react-icons/tb';
+// import { TbRotateClockwise2 } from 'react-icons/tb';
 
 // import SingleLightbox from 'components/pages/SingleLightbox';
 // import recentPostsData from 'data/recentposts';
@@ -73,6 +73,7 @@ import ReactCountryDropdown from 'react-country-dropdown';
 // import ReactQuill from 'react-quill';
 // import TagsInputExample from 'containers/forms/TagsInputExample';
 import { IoMdCheckmark } from 'react-icons/io';
+import { GoTriangleRight } from "react-icons/go";
 
 const CreateNewTemplate = ({ intl, match }) => {
   const { messages } = intl;
@@ -92,8 +93,48 @@ const CreateNewTemplate = ({ intl, match }) => {
     <>
       <Row>
         <Colxx xxs="12">
-          <div className="d-flex flex-row justify-content-between align-items-center mb-4">
-            <IntlMessages id={`${'Dashboard'}`} />
+          <div className="d-flex flex-row justify-content-between align-items-center mb-1">
+            {/* <Nav tabs className=" mb-3 ml-0 mr-0">
+              <NavItem className="w-14 text-center">
+                <NavLink
+                  to="#"
+                  location={{}}
+                  className={classnames({
+                    active: activeSecondTab === '1',
+                    'nav-link': true,
+                  })}
+                  onClick={() => {
+                    setActiveSecondTab('1');
+                  }}
+                >
+                  Dashboard
+                </NavLink>
+              </NavItem>
+              <NavItem className="w-14 text-center">
+                <NavLink
+                  to="#"
+                  location={{}}
+                  className={classnames({
+                    active: activeSecondTab === '2',
+                    'nav-link': true,
+                  })}
+                  onClick={() => {
+                    setActiveSecondTab('2');
+                  }}
+                >
+                  Newsletter
+                </NavLink>
+              </NavItem>
+            </Nav> */}
+            <div className="d-flex flex-row justify-content-around align-items-center font-weight-bold">
+              <IntlMessages id={`${'Dashboard'}`} />
+              <GoTriangleRight className="ml-2 mr-2" />
+              <IntlMessages id={`${'Newsletter'}`} />
+              <GoTriangleRight className="ml-2 mr-2" />
+              <div className="text-muted">
+                <IntlMessages id={`${'Create Newsletter'}`} />
+              </div>
+            </div>
             <div className="d-flex flex-row justify-content-between align-items-center">
               <p
                 className="text-muted font-weight-bold mr-2 mt-3"
@@ -104,17 +145,24 @@ const CreateNewTemplate = ({ intl, match }) => {
               </p>
               <Button
                 color="light"
-                className="default btn btn-primary bg-primary text-white font-weight-bold"
+                className="default  btn-primary bg-theme-1 mr-1 text-white font-weight-bold"
                 style={{ borderRadius: '0.5rem' }}
               >
                 <IntlMessages id={`${'Send To Review'}`} />
               </Button>{' '}
               <Button
                 color="light"
-                className="default btn btn-primary bg-primary text-white font-weight-bold"
+                className="w-10 bg-theme-1 text-white font-weight-bold"
                 style={{ borderRadius: '0.5rem' }}
               >
-                <TbRotateClockwise2 size={20} className="" />
+                <img
+                  className=""
+                  style={{ margin: 'auto -10px' }}
+                  alt="calendar"
+                  src="/assets/img/newsletter/clock-small-icon.svg"
+                  // width="20px"
+                  height="20px"
+                />
               </Button>{' '}
             </div>
           </div>
@@ -159,20 +207,22 @@ const CreateNewTemplate = ({ intl, match }) => {
           <TabContent activeTab={activeSecondTab}>
             <TabPane tabId="1">
               <Row>
-                <Colxx lg="3" xl="3" md="3" className="mb-4">
-                  <FormGroup className="mb-2">
-                    <Label>
-                      <IntlMessages id="Template Name" />
-                    </Label>
-                    <Input type="name" placeholder="Enter name" />
-                  </FormGroup>
-                </Colxx>
-                <Colxx lg="3" xl="3" md="3" className="mb-4">
-                  <Label>
-                    <IntlMessages id="Language" />
-                  </Label>
-                  <FormGroup className="">
-                    {/* <Select
+                <Colxx lg="6" xl="6" md="6">
+                  <Row>
+                    <Colxx lg="6" xl="6" md="6" className="mb-4">
+                      <FormGroup className="mb-2">
+                        <Label>
+                          <IntlMessages id="Template Name" />
+                        </Label>
+                        <Input type="name" placeholder="Enter name" />
+                      </FormGroup>
+                    </Colxx>
+                    <Colxx lg="6" xl="6" md="6" className="mb-4">
+                      <Label>
+                        <IntlMessages id="Language" />
+                      </Label>
+                      <FormGroup className="">
+                        {/* <Select
                       components={{ Input: CustomSelectInput }}
                       className="react-select"
                       classNamePrefix="react-select"
@@ -182,109 +232,136 @@ const CreateNewTemplate = ({ intl, match }) => {
                       options={selectData}
                       placeholder="Select existing template"
                     /> */}
-                    {/* <Colxx md="3" lg="3" xl="3"> */}
-                    <ReactCountryDropdown
-                      defaultCountry="DE"
-                      onSelect={(country) => console.log(country.name)}
-                    />
-                    {/* </Colxx> */}
-                  </FormGroup>
-                </Colxx>
-              </Row>
-              <Row>
-                <Colxx lg="6" xl="6" md="6" className="mb-4">
-                  <CardTitle className="mb-2 font-weight-bold">
-                    Blah Blah
-                  </CardTitle>
-                  <div>
-                    <IntlMessages id="Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. " />
-                  </div>
-                </Colxx>
-              </Row>
-              <Row>
-                <Colxx lg="6" xl="6" md="6" className="mb-4">
-                  <FormGroup className="mb-2">
-                    <Label>
-                      <IntlMessages id="Headers (Optional)" />
-                    </Label>
-                    <div className="d-flex flex-row justify-content-between">
-                      <Badge color="outline-primary" className="mb-1 mr-1 w-25">
-                        <i className="iconsminds-file-clipboard-file---text" />
+                        {/* <Colxx md="3" lg="3" xl="3"> */}
+                        <ReactCountryDropdown
+                          defaultCountry="DE"
+                          onSelect={(country) => console.log(country.name)}
+                        />
+                        {/* </Colxx> */}
+                      </FormGroup>
+                    </Colxx>
+                  </Row>
+                  <Row>
+                    <Colxx lg="12" xl="12" md="12" className="mb-4">
+                      <CardTitle className="mb-2 font-weight-bold">
+                        Blah Blah
+                      </CardTitle>
+                      <div>
+                        <IntlMessages id="Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. " />
+                      </div>
+                    </Colxx>
+                  </Row>
+                  <Row>
+                    <Colxx lg="12" xl="12" md="12" className="mb-4">
+                      <FormGroup className="mb-2">
+                        <Label>
+                          <IntlMessages id="Headers (Optional)" />
+                        </Label>
+                        <div className="d-flex flex-row justify-content-between">
+                          <Badge
+                            color="outline-primary"
+                            className="mb-1 mr-1 w-25"
+                          >
+                            <i className="iconsminds-file-clipboard-file---text" />
 
-                        <IntlMessages id="Text" />
-                      </Badge>
-                      <Badge color="outline-primary" className="mb-1 mr-1 w-25">
-                        <i className="iconsminds-photo" />
+                            <IntlMessages id="Text" />
+                          </Badge>
+                          <Badge
+                            color="outline-primary"
+                            className="mb-1 mr-1 w-25"
+                          >
+                            <i className="iconsminds-photo" />
 
-                        <IntlMessages id="Image" />
-                      </Badge>
-                      <Badge color="outline-primary" className="mb-1 mr-1 w-25">
-                        <i className="iconsminds-video-5" />
+                            <IntlMessages id="Image" />
+                          </Badge>
+                          <Badge
+                            color="outline-primary"
+                            className="mb-1 mr-1 w-25"
+                          >
+                            <i className="iconsminds-video-5" />
 
-                        <IntlMessages id="Video" />
-                      </Badge>
-                      <Badge color="outline-primary" className="mb-1 mr-1 w-25">
-                        <i className="iconsminds-file" />
+                            <IntlMessages id="Video" />
+                          </Badge>
+                          <Badge
+                            color="outline-primary"
+                            className="mb-1 mr-1 w-25"
+                          >
+                            <i className="iconsminds-file" />
 
-                        <IntlMessages id="File" />
-                      </Badge>
-                    </div>
-                  </FormGroup>
-                </Colxx>
-              </Row>
-              <Row>
-                <Colxx lg="6" xl="6" md="6" className="mb-4">
-                  <FormGroup className="mb-2">
-                    <Label>
-                      <IntlMessages id="Message" />
-                    </Label>
-                    {/* <ReactQuill
+                            <IntlMessages id="File" />
+                          </Badge>
+                        </div>
+                      </FormGroup>
+                    </Colxx>
+                  </Row>
+                  <Row>
+                    <Colxx lg="12" xl="12" md="12" className="mb-4">
+                      <FormGroup className="mb-2">
+                        <Label>
+                          <IntlMessages id="Message" />
+                        </Label>
+                        {/* <ReactQuill
                       theme="bubble"
                       value={textQuillBubble}
                       onChange={(val) => setTextQuillBubble(val)}
                     /> */}
-                    <Input type="textarea" placeholder="Write text message" />
-                  </FormGroup>
-                  <IntlMessages id="* Make sure the message you write is in the same language that you chose above." />
+                        <Input
+                          type="textarea"
+                          placeholder="Write text message"
+                        />
+                      </FormGroup>
+                      <IntlMessages id="* Make sure the message you write is in the same language that you chose above." />
+                    </Colxx>
+                  </Row>
+                  <Row>
+                    <Colxx lg="12" xl="12" md="12" className="mb-4">
+                      <FormGroup className="mb-2">
+                        <Label>
+                          <IntlMessages id="Footer (Optional)" />
+                        </Label>
+                        <Input type="name" placeholder="Enter Footer text" />
+                      </FormGroup>
+                    </Colxx>
+                  </Row>
+                  <Row>
+                    <Colxx lg="6" xl="6" md="6" className="mb-2">
+                      <Label>
+                        <IntlMessages id="Button text" />
+                      </Label>
+                      <Input type="name" placeholder="Enter button text" />
+                    </Colxx>
+                    <Colxx lg="6" xl="6" md="6" className="mb-2">
+                      <Label>
+                        <IntlMessages id="Website URL" />
+                      </Label>
+                      <Input type="name" placeholder="Enter website URL" />
+                    </Colxx>
+                  </Row>
+                  <Row>
+                    <Colxx lg="12" xl="12" md="12" className="mb-4">
+                      <IntlMessages id="* You can add up to three regular buttons or one URL button. You can only pick one type of button, not both." />
+                    </Colxx>
+                  </Row>
+                  <Row>
+                    <Colxx lg="12" xl="12" md="12" className="mb-4">
+                      <FormGroup className="mb-2">
+                        <Label>
+                          <IntlMessages id="Variable" />
+                        </Label>
+                        <Input type="name" placeholder="" />
+                      </FormGroup>
+                    </Colxx>
+                  </Row>
                 </Colxx>
-              </Row>
-              <Row>
-                <Colxx lg="6" xl="6" md="6" className="mb-4">
-                  <FormGroup className="mb-2">
-                    <Label>
-                      <IntlMessages id="Footer (Optional)" />
-                    </Label>
-                    <Input type="name" placeholder="Enter Footer text" />
-                  </FormGroup>
-                </Colxx>
-              </Row>
-              <Row>
-                <Colxx lg="3" xl="3" md="3" className="mb-2">
-                  <Label>
-                    <IntlMessages id="Button text" />
-                  </Label>
-                  <Input type="name" placeholder="Enter button text" />
-                </Colxx>
-                <Colxx lg="3" xl="3" md="3" className="mb-2">
-                  <Label>
-                    <IntlMessages id="Website URL" />
-                  </Label>
-                  <Input type="name" placeholder="Enter website URL" />
-                </Colxx>
-              </Row>
-              <Row>
-                <Colxx lg="6" xl="6" md="6" className="mb-4">
-                  <IntlMessages id="* You can add up to three regular buttons or one URL button. You can only pick one type of button, not both." />
-                </Colxx>
-              </Row>
-              <Row>
-                <Colxx lg="6" xl="6" md="6" className="mb-4">
-                  <FormGroup className="mb-2">
-                    <Label>
-                      <IntlMessages id="Variable" />
-                    </Label>
-                    <Input type="name" placeholder="" />
-                  </FormGroup>
+                <Colxx lg="6" xl="6" md="6" className="text-center">
+                  <img
+                    className=""
+                    // style={{ margin: 'auto -10px' }}
+                    alt="whatsapp"
+                    src="/assets/img/newsletter/whatsapp.svg"
+                    // width="20px"
+                    // height="20px"
+                  />
                 </Colxx>
               </Row>
             </TabPane>

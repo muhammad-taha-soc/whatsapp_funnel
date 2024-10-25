@@ -69,6 +69,7 @@ function Table({ columns, data }) {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column, columnIndex) => (
                 <th
+                  className="text-muted"
                   key={`th_${columnIndex}`}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                   // className={`
@@ -87,9 +88,9 @@ function Table({ columns, data }) {
                   ) && (
                     <>
                       {column.isSortedDesc ? (
-                        <FaCaretDown className="ml-2" />
-                      ) : (
                         <FaCaretUp className="ml-2" />
+                      ) : (
+                        <FaCaretDown className="ml-2" />
                       )}
                     </>
                   )}
@@ -174,33 +175,38 @@ const History = () => {
       {
         Header: 'Delivered (%)',
         accessor: 'delivered',
-        cellClass: 'text-center w-20',
+        cellClass: ' w-20',
         Cell: (props) => (
-          <div className=" text-theme-3 bg-theme-3-opacity font-weight-bold">
-            {props.value}
-          </div>
+          // <div className=" text-theme-3 bg-theme-3-opacity">
+          //   {props.value}
+          // </div>
+          <Badge color="" className="text-theme-3 bg-theme-3-opacity rounded">
+            <IntlMessages id={props.value} />
+          </Badge>
         ),
         sortType: 'basic',
       },
       {
         Header: 'Read (%)',
         accessor: 'read',
-        cellClass: 'text-center w-20',
+        cellClass: 'w-20',
         Cell: (props) => (
-          <div className="text-primary bg-primary-opacity font-weight-bold">
-            {props.value}
-          </div>
+          // <div className="text-primary bg-primary-opacity">{props.value}</div>
+          <Badge color="" className="text-primary bg-primary-opacity rounded">
+            <IntlMessages id={props.value} />
+          </Badge>
         ),
         sortType: 'basic',
       },
       {
         Header: 'Clicked (%)',
         accessor: 'clicked',
-        cellClass: 'text-center w-20',
+        cellClass: 'w-20',
         Cell: (props) => (
-          <div className="text-theme-2 bg-theme-2-opacity font-weight-bold">
-            {props.value}
-          </div>
+          // <div className="text-theme-2 bg-theme-2-opacity">{props.value}</div>
+          <Badge color="" className="text-theme-2 bg-theme-2-opacity rounded">
+            <IntlMessages id={props.value} />
+          </Badge>
         ),
         sortType: 'basic',
       },

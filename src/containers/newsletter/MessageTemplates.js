@@ -55,6 +55,7 @@ function Table({ columns, data }) {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column, columnIndex) => (
                 <th
+                className='text-muted'
                   key={`th_${columnIndex}`}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                   // className={`
@@ -159,7 +160,17 @@ const MessageTemplates = () => {
         Header: 'Language',
         accessor: 'stock',
         cellClass: 'text-muted w-20',
-        Cell: () => <>German</>,
+        Cell: () => (
+          <div>
+            <img
+              className="mr-1"
+              alt="approved"
+              src="/assets/img/newsletter/german-icon.svg"
+              size={0.1}
+            />
+            <IntlMessages id="German" />
+          </div>
+        ),
         sortType: 'basic',
       },
       {
@@ -169,11 +180,17 @@ const MessageTemplates = () => {
         Cell: () => (
           <>
             <Badge
-              color="outline-primary"
-              className="mb-1  text-primary rounder badge-pill border border-theme-1 text-extra-small"
-              pill
+              // color="outline-primary"
+              className="mb-1 text-primary bg-primary-opacity rounded pl-2 pr-2"
+              // style={{fontSize:"12px"}}
             >
               {/* <i className="iconsminds-record-2" /> */}
+              <img
+                className="mr-1"
+                alt="approved"
+                src="/assets/img/newsletter/check-approved-icon.svg"
+                size={0.1}
+              />
               <IntlMessages id="Approved" />
             </Badge>{' '}
           </>

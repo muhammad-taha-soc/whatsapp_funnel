@@ -8,9 +8,11 @@ import React from 'react';
 import { Badge, Button, Card, CardBody, CardTitle } from 'reactstrap'; //
 // import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
-import { GoDotFill } from 'react-icons/go';
+import { GoDotFill, GoArrowRight } from 'react-icons/go';
 import { FaCaretDown } from 'react-icons/fa';
 import { LuCalendar } from 'react-icons/lu';
+// import { GoArrowRight } from 'react-icons/go';
+// import { GoArrowRight } from 'react-icons/fa6';
 
 // import products from 'data/products';
 
@@ -18,8 +20,8 @@ const MakeMoney = () => {
   return (
     <Card className="h-100">
       <CardBody>
-        <CardTitle className="d-flex flex-row justify-content-between mb-0 font-weight-bold">
-          <IntlMessages id="dashboards.make-money" />
+        <CardTitle className="d-flex flex-row justify-content-between align-items-center mb-0 font-weight-bold">
+          <IntlMessages id="MakeMoney" />
           <div className="">
             <Button
               outline
@@ -32,7 +34,7 @@ const MakeMoney = () => {
             </Button>{' '}
           </div>
         </CardTitle>
-        <span className="text-muted">525 689 656</span>
+        <span className="text-muted font-weight-bold">525 689 656</span>
         <div className="d-flex flex-row justify-content-between align-items-center mt-1">
           <Badge
             color="primary"
@@ -43,7 +45,7 @@ const MakeMoney = () => {
           </Badge>{' '}
           <span className="ml-2 d-inline mb-2 text-primary">
             <IntlMessages id="dashboards.view-profiles" />{' '}
-            <i className="iconsminds-right text-extra-small" />
+            <GoArrowRight className="text-extra-small" size={15} />
           </span>
         </div>
       </CardBody>

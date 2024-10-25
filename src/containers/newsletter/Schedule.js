@@ -70,6 +70,7 @@ function Table({ columns, data }) {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column, columnIndex) => (
                 <th
+                  className="text-muted"
                   key={`th_${columnIndex}`}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                   // className={`

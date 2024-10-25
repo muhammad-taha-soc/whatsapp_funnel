@@ -69,7 +69,8 @@ import IntlMessages from 'helpers/IntlMessages';
 // import TagsInput from 'react-tagsinput';
 import CustomSelectInput from 'components/common/CustomSelectInput';
 import { IoMdCheckmark } from 'react-icons/io';
-import { TbRotateClockwise2 } from 'react-icons/tb';
+import { GoTriangleRight } from 'react-icons/go';
+// import { TbRotateClockwise2 } from 'react-icons/tb';
 // import TagsInputExample from 'containers/forms/TagsInputExample';
 
 const CreateNewsLetter = ({ intl, match }) => {
@@ -92,7 +93,15 @@ const CreateNewsLetter = ({ intl, match }) => {
           {/* <Breadcrumb heading="dashboards.news-letter" match={match} />
           <Separator className="mb-5" /> */}
           <div className="d-flex flex-row justify-content-between align-items-center mb-4">
-            <IntlMessages id={`${'Dashboard'}`} />
+            <div className="d-flex flex-row justify-content-around align-items-center font-weight-bold">
+              <IntlMessages id={`${'Dashboard'}`} />
+              <GoTriangleRight className="ml-2 mr-2" />
+              <IntlMessages id={`${'Newsletter'}`} />
+              <GoTriangleRight className="ml-2 mr-2" />
+              <div className="text-muted">
+                <IntlMessages id={`${'Create Newsletter'}`} />
+              </div>
+            </div>
             <div className="d-flex flex-row justify-content-between align-items-center">
               <p
                 className="text-muted font-weight-bold mr-2 mt-3"
@@ -103,17 +112,24 @@ const CreateNewsLetter = ({ intl, match }) => {
               </p>
               <Button
                 color="light"
-                className="default btn btn-primary bg-primary text-white font-weight-bold"
+                className="default btn-primary bg-theme-1 mr-1 text-white font-weight-bold"
                 style={{ borderRadius: '0.5rem' }}
               >
                 <IntlMessages id={`${'Create Newsletter'}`} />
               </Button>{' '}
               <Button
                 color="light"
-                className="default btn btn-primary bg-primary text-white font-weight-bold"
+                className="w-10 bg-theme-1 text-white font-weight-bold"
                 style={{ borderRadius: '0.5rem' }}
               >
-                <TbRotateClockwise2 size={20} className="" />
+                <img
+                  className=""
+                  style={{ margin: 'auto -10px' }}
+                  alt="calendar"
+                  src="/assets/img/newsletter/clock-small-icon.svg"
+                  // width="20px"
+                  height="20px"
+                />
               </Button>{' '}
             </div>
           </div>
@@ -285,17 +301,24 @@ const CreateNewsLetter = ({ intl, match }) => {
                     </FormGroup> */}
                   </Form>
                 </Colxx>
+              {/* </Row> */}
+              {/* <Row> */}
+                <Colxx lg="6" xl="6" md="6" className="text-center">
+                  <img
+                    className=""
+                    // style={{ margin: 'auto -10px' }}
+                    alt="whatsapp"
+                    src="/assets/img/newsletter/whatsapp.svg"
+                    // width="20px"
+                    // height="20px"
+                  />
+                </Colxx>
               </Row>
-              <Row>
-                {/* <Colxx lg="12" xl="12" md="12" className="mb-4">
-                  <Draft />
-                </Colxx> */}
-              </Row>
-              <Row>
-                {/* <Colxx xl="12" md="12" lg="12" className="mb-4">
+              {/* <Row> */}
+              {/* <Colxx xl="12" md="12" lg="12" className="mb-4">
                   <History />
                 </Colxx> */}
-              </Row>
+              {/* </Row> */}
             </TabPane>
           </TabContent>
         </Colxx>
