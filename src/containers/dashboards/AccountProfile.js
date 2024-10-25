@@ -134,7 +134,8 @@ const AccountProfile = () => {
               <p className="text-muted">Number Status</p>
               <Badge
                 color="outline-primary"
-                className="mb-1  text-primary rounder badge-pill border border-theme-1 text-extra-small"
+                className="mb-1  text-primary rounder badge-pill border text-extra-small"
+                style={{backgroundColor:' #0DAC8A1A', borderColor: 'transparent'}}
                 pill
               >
                 {/* <i className="iconsminds-record-2" /> */}
@@ -164,7 +165,8 @@ const AccountProfile = () => {
               <p className="text-muted">Business Verification</p>
               <Badge
                 color="outline-primary"
-                className="mb-1  text-primary rounder badge-pill border border-theme-1 text-extra-small"
+                className="mb-1  text-primary rounder badge-pill border text-extra-small"
+                style={{backgroundColor:' #0DAC8A1A', borderColor: 'transparent'}}
                 pill
               >
                 {/* <i className="iconsminds-record-2" /> */}
@@ -196,7 +198,8 @@ const AccountProfile = () => {
               <p className="text-muted">Account Status</p>
               <Badge
                 color="outline-primary"
-                className="mb-1  text-primary rounder badge-pill border border-theme-1 text-extra-small"
+                className="mb-1  text-primary rounder badge-pill border text-extra-small"
+                style={{backgroundColor:' #0DAC8A1A', borderColor: 'transparent'}}
                 pill
               >
                 {/* <i className="iconsminds-record-2" /> */}
@@ -226,7 +229,8 @@ const AccountProfile = () => {
               <p className="text-muted">Credit Line</p>
               <Badge
                 color="outline-primary"
-                className="mb-1  text-primary rounder badge-pill border border-theme-1 text-extra-small"
+                className="mb-1  text-primary rounder badge-pill border  text-extra-small"
+                style={{backgroundColor:' #0DAC8A1A', borderColor: 'transparent'}}
                 pill
               >
                 {/* <i className="iconsminds-record-2" /> */}
