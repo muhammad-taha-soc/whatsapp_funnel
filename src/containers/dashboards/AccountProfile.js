@@ -8,6 +8,10 @@ import { Badge, Card, CardBody, CardTitle, Row } from 'reactstrap'; //
 import IntlMessages from 'helpers/IntlMessages';
 import { Colxx, Separator } from 'components/common/CustomBootstrap';
 import SingleLightbox from 'components/pages/SingleLightbox';
+import { FaRegCopy } from "react-icons/fa";
+import { LuPenLine } from "react-icons/lu";
+
+
 
 const AccountProfile = () => {
   return (
@@ -41,7 +45,12 @@ const AccountProfile = () => {
             <div>
               <p style={{ color: '#86868A', fontWeight: '500', fontSize: '14px' }}>Name</p>
               <CardTitle className="mb-0 font-weight-bold">
+                <div className='d-flex'>
+
                 <p style={{ color: '#0D0D26', fontWeight: '600', fontSize: '20px' }}>Sam Emili</p>
+                <LuPenLine style={{marginLeft: '3px',color: '#3482FF'}} />
+
+                </div>
               </CardTitle>
             </div>
           </div>
@@ -57,10 +66,10 @@ const AccountProfile = () => {
             className="mb-4 d-flex flex-row justify-content-between align-items-center"
           >
             <div>
-              <p className="text-muted">Connected Number</p>
+              <p className="text-muted" style={{marginBottom: '2px'}}>Connected Number</p>
               <p className="font-weight-bold">+4919384434403</p>
             </div>
-            <i className="iconsminds-files" />
+            <FaRegCopy />
           </Colxx>
           <Colxx
             md="4"
@@ -69,10 +78,10 @@ const AccountProfile = () => {
             className="mb-4 d-flex flex-row justify-content-between align-items-center"
           >
             <div>
-              <p className="text-muted">Connected Number</p>
+              <p className="text-muted" style={{marginBottom: '2px'}}>Connected Number</p>
               <p className="font-weight-bold">+4919384434403</p>
             </div>
-            <i className="iconsminds-files" />
+            <FaRegCopy />
           </Colxx>
 
           <Colxx
@@ -81,10 +90,10 @@ const AccountProfile = () => {
             className="mb-4 d-flex flex-row justify-content-between align-items-center"
           >
             <div>
-              <p className="text-muted">Connected Number</p>
+              <p className="text-muted" style={{marginBottom: '2px'}}>Connected Number</p>
               <p className="font-weight-bold">+4919384434403</p>
             </div>
-            <i className="iconsminds-files" />
+            <FaRegCopy />
           </Colxx>
         </Row>
         <Row>

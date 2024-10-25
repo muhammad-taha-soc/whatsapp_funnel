@@ -56,14 +56,19 @@ const Calendar = ({ customer, onClose }) => {
 
     return (
         <div className="calendar-modal modal-overlay" onClick={onClose}>
-            <div className="modal-content" style={{ color: 'black' }} onClick={(e) => e.stopPropagation()} >
+            <div className="modal-content " style={{ color: 'black' }} onClick={(e) => e.stopPropagation()} >
                 <h2 style={{ width: '440px', height: '30px', fontWeight: '600px', lineHeight: '30px', fontSize: '20px' }}>Select Date</h2>
-                <h3 style={{ width: '99px', height: '17px', fontWeight: '500px', lineHeight: '16.94px', fontSize: '14px' }}>{`${monthName} ${year}`}</h3>
 
                 <div className="calendar-header" style={{ marginRight: '2px', marginLeft: '2px',gap:4 }}>
+                  <div>
+                  <h3 style={{ width: '99px', height: '17px', fontWeight: '500px', lineHeight: '16.94px', fontSize: '14px' }}>{`${monthName} ${year}`}</h3>
+                  </div>
+                    <div style={{ display: 'flex', gap: '5px' }}>
+
                     <button onClick={handleTodayClick} className="today-button" style={{ border: '1px solid #0DAC8A', color: '#0DAC8A', backgroundColor: 'white' }}>Today</button>
                     <button onClick={handlePrevMonth} className="arrow-button" style={{ backgroundColor: '#0DAC8A',color:'white' }}><i className="simple-icon-arrow-left"></i></button>
                     <button onClick={handleNextMonth} className="arrow-button" style={{color:'white', backgroundColor: '#0DAC8A' }}><i className="simple-icon-arrow-right"></i></button>
+                    </div>
                 </div>
 
                 <div className="day-names">
@@ -76,7 +81,7 @@ const Calendar = ({ customer, onClose }) => {
                     {daysArray.map((day, index) => (
                         <div
                             key={index}
-                            className={`day ${day === selectedDate ? 'selected' : ''}`}
+                            className={`day ${day === null ? 'blank' : (day === selectedDate ? 'selected' : '')}`}
                             onClick={() => day && handleDateClick(day)}
                         >
                             {day}

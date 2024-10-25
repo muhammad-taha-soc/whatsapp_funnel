@@ -1,7 +1,8 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, X } from 'lucide-react';
-import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
+import { AiFillCheckCircle } from 'react-icons/ai';
+import { Separator } from './common/CustomBootstrap';
 
 export default function FilterDropdown() {
     const [expanded, setExpanded] = useState({
@@ -10,13 +11,13 @@ export default function FilterDropdown() {
         reviewLinkClicked: true,
         suggestionForImprovement: false
     });
-
     const [filters, setFilters] = useState({
         status: { lead: false, customer: true },
         satisfied: { yes: false, no: false },
         reviewLinkClicked: { done: true, close: false },
         suggestionForImprovement: { option1: false, option2: false, option3: false }
     });
+    const [visible, setVisible] = useState(true); // New state to control visibility
 
     const toggleExpand = (section) => {
         setExpanded(prev => ({ ...prev, [section]: !prev[section] }));
@@ -40,23 +41,33 @@ export default function FilterDropdown() {
 
     const renderCheckboxes = (section) => {
         return Object.entries(filters[section]).map(([key, value]) => (
-            <div key={key} style={{ display: 'flex', alignItems: 'center', marginBottom: '12px', gap:4 }}>
-                <label class="checkbox_r" >
-                    <input type="checkbox" class="checkbox__input_r" />
-                    <span class="checkbox__inner_r" style={{ cursor: 'pointer', borderRadius: '6px', width:'20px', height: '20px' }}></span>
+            <div key={key} style={{ display: 'flex', alignItems: 'center', marginBottom: '12px', gap: 4 }}>
+                <label className="checkbox_r">
+                    <input
+                        type="checkbox"
+                        className="checkbox__input_r"
+                        checked={value}
+                        onChange={() => handleCheckboxChange(section, key)}
+                    />
+                    <span
+                        className="checkbox__inner_r"
+                        style={{
+                            cursor: 'pointer',
+                            borderRadius: '6px',
+                            width: '20px',
+                            height: '20px'
+                        }}
+                    ></span>
                 </label>
-                <div
-                    // style={{
-                    //     position: 'absolute',
-                    //     width: '10px',
-                    //     height: '10px',
-                    //     backgroundColor: value ? '#00A3FF' : 'transparent',
-                    //     marginLeft: '3px',
-                    //     marginTop: '3px',
-                    //     pointerEvents: 'none',
-                    // }}
-                />
-                <label htmlFor={`${section}-${key}`} style={{ marginBottom:'18px', fontSize: '14px', cursor: 'pointer', color: '#333' }}>
+                <label
+                    htmlFor={`${section}-${key}`}
+                    style={{
+                        marginBottom: '18px',
+                        fontSize: '14px',
+                        cursor: 'pointer',
+                        color: '#333'
+                    }}
+                >
                     {section === 'reviewLinkClicked' && (
                         <AiFillCheckCircle
                             className="text-success"
@@ -73,6 +84,8 @@ export default function FilterDropdown() {
             </div>
         ));
     };
+
+    if (!visible) return null; // Hide dropdown if visible state is false
 
     return (
         <div style={{
@@ -104,7 +117,7 @@ export default function FilterDropdown() {
                         alignItems: 'center'
                     }}
                 >
-                    <X size={14} style={{ marginRight: '4px' }} />
+                    <X size={14} style={{ marginRight: '4px', fontWeight: '900', lineHeight: '20px' }} />
                     Reset
                 </button>
             </div>
@@ -112,8 +125,9 @@ export default function FilterDropdown() {
                 {['status', 'satisfied', 'reviewLinkClicked', 'suggestionForImprovement'].map((section, index, array) => (
                     <div key={section} style={{
                         marginBottom: index === array.length - 1 ? '0' : '16px',
-                        borderBottom: index === array.length - 1 ? 'none' : '1px solid #E8E8E9',
-                        paddingBottom: '12px'
+                        border: '1px solid #E8E8E9',
+                        borderRadius: '8px',
+                        overflow: 'hidden'
                     }}>
                         <div
                             onClick={() => toggleExpand(section)}
@@ -123,8 +137,9 @@ export default function FilterDropdown() {
                                 alignItems: 'center',
                                 cursor: 'pointer',
                                 userSelect: 'none',
-                                paddingBottom: '8px',
-                                borderBottom: expanded[section] ? '1px solid #E8E8E9' : 'none'
+                                padding: '12px',
+                                backgroundColor: '#F9F9FC',
+                                borderBottom: '0.2px solid #E8E8E9'
                             }}
                         >
                             <span style={{ fontSize: '12px', fontWeight: '500', color: '#6B7280' }}>
@@ -134,7 +149,7 @@ export default function FilterDropdown() {
                             {expanded[section] ? <ChevronUp size={16} color="#6B7280" /> : <ChevronDown size={16} color="#6B7280" />}
                         </div>
                         {expanded[section] && (
-                            <div style={{ marginTop: '8px', paddingTop: '8px' }}>
+                            <div style={{ padding: '12px' }}>
                                 {renderCheckboxes(section)}
                             </div>
                         )}
@@ -147,31 +162,38 @@ export default function FilterDropdown() {
                 padding: '12px 16px',
                 borderTop: '1px solid #E5E7EB'
             }}>
-                <button style={{
-                    padding: '6px 12px',
-                    border: '1px solid #E5E7EB',
-                    borderRadius: '6px',
-                    background: 'white',
-                    cursor: 'pointer',
-                    fontSize: '12px',
-                    fontWeight: '500',
-                    color: '#374151'
-                }}>
+                <button
+                    onClick={() => setVisible(false)} // Hide on Cancel
+                    style={{
+                        padding: '6px 12px',
+                        border: '1px solid #E5E7EB',
+                        borderRadius: '6px',
+                        background: 'white',
+                        cursor: 'pointer',
+                        fontSize: '12px',
+                        fontWeight: '500',
+                        color: '#374151'
+                    }}
+                >
                     Cancel
                 </button>
-                <button style={{
-                    padding: '6px 12px',
-                    border: 'none',
-                    borderRadius: '6px',
-                    background: '#0DAC8A',
-                    color: 'white',
-                    cursor: 'pointer',
-                    fontSize: '12px',
-                    fontWeight: '500'
-                }}>
+                <button
+                    onClick={() => setVisible(false)} // Hide on Apply Filter
+                    style={{
+                        padding: '6px 12px',
+                        border: 'none',
+                        borderRadius: '6px',
+                        background: '#0DAC8A',
+                        color: 'white',
+                        cursor: 'pointer',
+                        fontSize: '12px',
+                        fontWeight: '500'
+                    }}
+                >
                     Apply Filter
                 </button>
             </div>
         </div>
     );
 }
+    

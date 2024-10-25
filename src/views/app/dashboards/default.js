@@ -102,8 +102,9 @@ const DefaultDashboard = ({ intl, match }) => {
                     <Button
                       color="light"
                       className="default btn btn-primary text-primary font-weight-bold"
+                      style={{ borderRadius: '7px' }}
                     >
-                      <i className="iconsminds-repeat-2 mr-2" />
+                      <i className="iconsminds-repeat-2 mr-2" style={{ fontWeight: 'bold' }} />
                       <IntlMessages id="Refresh data" />
                     </Button>{' '}
                   </div>

@@ -7,6 +7,7 @@ import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 import products from 'data/products';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
+import { BsSliders2 } from 'react-icons/bs';
 import {
     FaEllipsisV,
     FaWhatsapp,
@@ -46,7 +47,9 @@ function Table({ columns, data, onRowClick }) {
             <table {...getTableProps()} className="r-table table">
                 <thead>
                     {headerGroups.map((headerGroup) => (
-                        <tr key={headerGroup.id} {...headerGroup.getHeaderGroupProps()}>
+                        <tr key={headerGroup.id} {...headerGroup.getHeaderGroupProps()}
+                            style={{ borderBottom: '1px solid #f3f3f3 ' }} // Border for header
+                        >
                             {headerGroup.headers.map((column) => (
                                 <th
                                     key={column.id}
@@ -56,8 +59,8 @@ function Table({ columns, data, onRowClick }) {
                                     {column.isSorted && (
                                         <i
                                             className={`ml-2 mt-1 ${column.isSortedDesc
-                                                    ? 'simple-icon-arrow-up'
-                                                    : 'simple-icon-arrow-down'
+                                                ? 'simple-icon-arrow-up'
+                                                : 'simple-icon-arrow-down'
                                                 }`}
                                         />
                                     )}
@@ -116,6 +119,7 @@ const CustomersTable = () => {
     const [filterDropdownOpen, setFilterDropdownOpen] = useState(false);
     const [selectedRows, setSelectedRows] = useState(new Set());
     const [selectedCustomer, setSelectedCustomer] = useState(null); // State for selected customer
+    
 
     const [filterStates, setFilterStates] = useState({
         status: false,
@@ -184,7 +188,7 @@ const CustomersTable = () => {
         () => [
             {
                 Header: () => (
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', color: '#667085' }}>
                         <input
                             type="checkbox"
                             // Remove onChange for no functionality
@@ -211,7 +215,15 @@ const CustomersTable = () => {
                 ),
             },
             {
-                Header: <IntlMessages id="contacts.status" />,
+                Header: () => (
+                    <div style={{
+                        color: '#667085',
+                        // fontWeight: 'bold', // Optional: make it bold
+                        // fontSize: '16px', // Adjust font size if needed
+                    }}>
+                        <IntlMessages id="contacts.status" />
+                    </div>
+                ),
                 accessor: 'status',
                 cellClass: 'text-muted',
                 Cell: ({ value }) => {
@@ -253,7 +265,15 @@ const CustomersTable = () => {
                 },
             },
             {
-                Header: <IntlMessages id="contacts.satisfied" />,
+                Header: () => (
+                    <div style={{
+                        color: '#667085',
+                        // fontWeight: 'bold', // Optional: make it bold
+                        // fontSize: '16px', // Adjust font size if needed
+                    }}>
+                        <IntlMessages id="contacts.satisfied" />
+                    </div>
+                ),
                 accessor: 'satisfied',
                 cellClass: 'text-theme-3',
                 Cell: ({ value }) =>
@@ -280,7 +300,15 @@ const CustomersTable = () => {
                     ),
             },
             {
-                Header: <IntlMessages id="contacts.review-link" />,
+                Header: () => (
+                    <div style={{
+                        color: '#667085',
+                        // fontWeight: 'bold', // Optional: make it bold
+                        // fontSize: '16px', // Adjust font size if needed
+                    }}>
+                        <IntlMessages id="contacts.review-link" />
+                    </div>
+                ),
                 accessor: 'reviewLink',
                 cellClass: 'text-theme-2',
                 Cell: ({ value }) =>
@@ -307,7 +335,15 @@ const CustomersTable = () => {
                     ),
             },
             {
-                Header: <IntlMessages id="contacts.suggestion" />,
+                Header: () => (
+                    <div style={{
+                        color: '#667085',
+                        // fontWeight: 'bold', // Optional: make it bold
+                        // fontSize: '16px', // Adjust font size if needed
+                    }}>
+                        <IntlMessages id="contacts.suggestion" />
+                    </div>
+                ),
                 accessor: 'suggestion',
                 cellClass: 'text-theme-2',
                 Cell: ({ value }) =>
@@ -334,7 +370,15 @@ const CustomersTable = () => {
                     ),
             },
             {
-                Header: <IntlMessages id="contacts.action" />,
+                Header: () => (
+                    <div style={{
+                        color: '#667085',
+                        // fontWeight: 'bold', // Optional: make it bold
+                        // fontSize: '16px', // Adjust font size if needed
+                    }}>
+                        <IntlMessages id="contacts.action" />
+                    </div>
+                ),
                 accessor: 'action',
                 Cell: ({ row }) => (
                     <div className="position-relative action-button1">
@@ -344,36 +388,36 @@ const CustomersTable = () => {
                             className="btn btn-link"
                             aria-expanded={expandedRowId === row.id}
                             aria-haspopup="true"
-                            style={{ cursor: 'pointer' }}
+                            style={{ cursor: 'pointer', color: '#858D9D' }}
                         >
                             <FaEllipsisV />
                         </button>
-                        <div style={{position: 'absolute', right:'140px'}}>
+                        <div style={{ position: 'absolute', right: '140px' }}>
 
-                        {expandedRowId === row.id && (
-                            <div
-                            className="dropdown-menu show"
-                            style={{ position: 'absolute', zIndex: 1000 }}
-                            >
-                                <div className="dropdown-item">
-                                    <i className="simple-icon-minus mr-2" />{' '}
-                                    <IntlMessages id="Unsubscribe from Account" />
+                            {expandedRowId === row.id && (
+                                <div
+                                    className="dropdown-menu show"
+                                    style={{ position: 'absolute', zIndex: 1000 }}
+                                >
+                                    <div className="dropdown-item">
+                                        <i className="simple-icon-minus mr-2" />{' '}
+                                        <IntlMessages id="Unsubscribe from Account" />
+                                    </div>
+                                    <div className="dropdown-item">
+                                        <FaWhatsapp className="mr-2" />{' '}
+                                        <IntlMessages id="Unsubscribe from Whatsapp" />
+                                    </div>
+                                    <div className="dropdown-item">
+                                        <FaFileDownload className="mr-2" />{' '}
+                                        <IntlMessages id="Download Contact Data" />
+                                    </div>
+                                    <div className="dropdown-divider" />
+                                    <div className="dropdown-item text-danger">
+                                        <FaTrash className="mr-2" />{' '}
+                                        <IntlMessages id="Delete Contact" />
+                                    </div>
                                 </div>
-                                <div className="dropdown-item">
-                                    <FaWhatsapp className="mr-2" />{' '}
-                                    <IntlMessages id="Unsubscribe from Whatsapp" />
-                                </div>
-                                <div className="dropdown-item">
-                                    <FaFileDownload className="mr-2" />{' '}
-                                    <IntlMessages id="Download Contact Data" />
-                                </div>
-                                <div className="dropdown-divider" />
-                                <div className="dropdown-item text-danger">
-                                    <FaTrash className="mr-2" />{' '}
-                                    <IntlMessages id="Delete Contact" />
-                                </div>
-                            </div>
-                        )}
+                            )}
                         </div>
                     </div>
                 ),
@@ -417,20 +461,20 @@ const CustomersTable = () => {
                                 }}
                             />
                         </div>
-                        <div style={{ position: 'relative'}}>
+                        <div style={{ position: 'relative' }}>
                             <Badge
                                 color=""
                                 className="mb-1 border border-theme-4"
                                 style={{ cursor: 'pointer', padding: '10px 15px' }}
                                 onClick={toggleFilterDropdown}
                             >
-                                <i className="iconsminds-calendar-4" />
+                                <BsSliders2 className="mr-2" size={15} />
                                 <IntlMessages id="dashboards.filters" />
                             </Badge>
                             {filterDropdownOpen && (
-                                <div style={{ position: 'absolute',zIndex: 1000, right: '50px' }}>
+                                <div style={{ position: 'absolute', zIndex: 1000, right: '50px' }}>
 
-                                <FilterDropdown  />
+                                    <FilterDropdown />
                                 </div>
                                 // <div
                                 //   className="filter-dropdown"

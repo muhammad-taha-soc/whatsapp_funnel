@@ -7,6 +7,7 @@ import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 import products from 'data/products';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
+import { BsSliders2 } from 'react-icons/bs';
 import {
   FaEllipsisV,
   FaWhatsapp,
@@ -49,7 +50,9 @@ function Table({ columns, data, onRowClick }) {
       <table {...getTableProps()} className="r-table table">
         <thead>
           {headerGroups.map((headerGroup) => (
-            <tr key={headerGroup.id} {...headerGroup.getHeaderGroupProps()}>
+            <tr key={headerGroup.id} {...headerGroup.getHeaderGroupProps()}
+              style={{ borderBottom: '1px solid #f3f3f3' }} // Border for header
+            >
               {headerGroup.headers.map((column) => (
                 <th
                   key={column.id}
@@ -58,11 +61,10 @@ function Table({ columns, data, onRowClick }) {
                   {column.render('Header')}
                   {column.isSorted && (
                     <i
-                      className={`ml-2 mt-1 ${
-                        column.isSortedDesc
-                          ? 'simple-icon-arrow-up'
-                          : 'simple-icon-arrow-down'
-                      }`}
+                      className={`ml-2 mt-1 ${column.isSortedDesc
+                        ? 'simple-icon-arrow-up'
+                        : 'simple-icon-arrow-down'
+                        }`}
                     />
                   )}
                 </th>
@@ -218,7 +220,15 @@ const CouponsTable = () => {
   const cols = useMemo(
     () => [
       {
-        Header: <IntlMessages id="coupons.id" />,
+        Header: () => (
+          <div style={{
+            color: '#667085',
+            // fontWeight: 'bold', // Optional: make it bold
+            // fontSize: '16px', // Adjust font size if needed
+          }}>
+            <IntlMessages id="coupons.id" />
+          </div>
+        ),
         accessor: 'id',
         cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
@@ -232,8 +242,15 @@ const CouponsTable = () => {
         ),
       },
       {
-        Header: <IntlMessages id="coupons.status" />,
-        accessor: 'status',
+        Header: () => (
+          <div style={{
+            color: '#667085',
+            // fontWeight: 'bold', // Optional: make it bold
+            // fontSize: '16px', // Adjust font size if needed
+          }}>
+            <IntlMessages id="coupons.status" />
+          </div>
+        ), accessor: 'status',
         cellClass: 'text-muted',
         Cell: ({ value }) => (
           <div
@@ -284,13 +301,21 @@ const CouponsTable = () => {
         ),
       },
       {
-        Header: <IntlMessages id="coupons.actionName" />,
-        accessor: 'actionName',
+        Header: () => (
+          <div style={{
+            color: '#667085',
+            // fontWeight: 'bold', // Optional: make it bold
+            // fontSize: '16px', // Adjust font size if needed
+          }}>
+            <IntlMessages id="coupons.actionName" />
+          </div>
+        ), accessor: 'actionName',
         cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
+              color: '#667085'
             }}
           >
             {value}
@@ -298,13 +323,21 @@ const CouponsTable = () => {
         ),
       },
       {
-        Header: <IntlMessages id="coupons.sourceofOrigin" />,
-        accessor: 'sourceOfOrigin',
+        Header: () => (
+          <div style={{
+            color: '#667085',
+            // fontWeight: 'bold', // Optional: make it bold
+            // fontSize: '16px', // Adjust font size if needed
+          }}>
+            <IntlMessages id="coupons.sourceofOrigin" />
+          </div>
+        ), accessor: 'sourceOfOrigin',
         cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
+              color: '#667085'
             }}
           >
             {value}
@@ -312,13 +345,21 @@ const CouponsTable = () => {
         ),
       },
       {
-        Header: <IntlMessages id="coupons.issue-date" />,
-        accessor: 'issueDate',
+        Header: () => (
+          <div style={{
+            color: '#667085',
+            // fontWeight: 'bold', // Optional: make it bold
+            // fontSize: '16px', // Adjust font size if needed
+          }}>
+            <IntlMessages id="coupons.issue-date" />
+          </div>
+        ), accessor: 'issueDate',
         cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
+              color: '#667085'
             }}
           >
             {value}
@@ -326,13 +367,21 @@ const CouponsTable = () => {
         ),
       },
       {
-        Header: <IntlMessages id="coupons.redemption-date" />,
-        accessor: 'redemptionDate',
+        Header: () => (
+          <div style={{
+            color: '#667085',
+            // fontWeight: 'bold', // Optional: make it bold
+            // fontSize: '16px', // Adjust font size if needed
+          }}>
+            <IntlMessages id="coupons.redemption-date" />
+          </div>
+        ), accessor: 'redemptionDate',
         cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
+              color: '#667085'
             }}
           >
             {value}
@@ -340,13 +389,21 @@ const CouponsTable = () => {
         ),
       },
       {
-        Header: <IntlMessages id="coupons.name" />,
-        accessor: 'name',
+        Header: () => (
+          <div style={{
+            color: '#667085',
+            // fontWeight: 'bold', // Optional: make it bold
+            // fontSize: '16px', // Adjust font size if needed
+          }}>
+            <IntlMessages id="coupons.name" />
+          </div>
+        ), accessor: 'name',
         cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
+              color: '#667085'
             }}
           >
             {value}
@@ -354,13 +411,21 @@ const CouponsTable = () => {
         ),
       },
       {
-        Header: <IntlMessages id="coupons.telephone" />,
-        accessor: 'telephoneNo',
+        Header: () => (
+          <div style={{
+            color: '#667085',
+            // fontWeight: 'bold', // Optional: make it bold
+            // fontSize: '16px', // Adjust font size if needed
+          }}>
+            <IntlMessages id="coupons.telephone" />
+          </div>
+        ), accessor: 'telephoneNo',
         cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
+              color: '#667085'
             }}
           >
             {value}
@@ -368,8 +433,15 @@ const CouponsTable = () => {
         ),
       },
       {
-        Header: <IntlMessages id="coupons.action" />,
-        accessor: 'action',
+        Header: () => (
+          <div style={{
+            color: '#667085',
+            // fontWeight: 'bold', // Optional: make it bold
+            // fontSize: '16px', // Adjust font size if needed
+          }}>
+            <IntlMessages id="coupons.action" />
+          </div>
+        ), accessor: 'action',
         Cell: ({ row }) => (
           <div
             className="position-relative action-button1"
@@ -381,6 +453,7 @@ const CouponsTable = () => {
               className="btn btn-link"
               aria-expanded={expandedRowId === row.id}
               aria-haspopup="true"
+              style={{ cursor: 'pointer', color: "#858D9D" }}
             >
               <FaEllipsisV />
             </button>
@@ -465,7 +538,7 @@ const CouponsTable = () => {
                 className="mb-1 border border-theme-4"
                 style={{ cursor: 'pointer', padding: '10px 15px' }}
               >
-                <i className="iconsminds-calendar-4" />
+                <BsSliders2 className="mr-2" size={15} />
                 <IntlMessages id="dashboards.filters" />
               </Badge>
               {filterDropdownOpen && (
