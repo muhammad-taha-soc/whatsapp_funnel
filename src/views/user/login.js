@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Card, CardTitle, Label, FormGroup, Button } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Formik, Form, Field } from 'formik';
@@ -56,7 +56,7 @@ const Login = ({ history, loading, error, loginUserAction }) => {
       <Colxx xxs="12" md="10" className="mx-auto my-auto">
         <Card className="auth-card">
           <div className="position-relative image-side ">
-            <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
+            {/* <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
             <p className="white mb-0">
               Please use your credentials to login.
               <br />
@@ -65,7 +65,7 @@ const Login = ({ history, loading, error, loginUserAction }) => {
                 register
               </NavLink>
               .
-            </p>
+            </p> */}
           </div>
           <div className="form-side">
             <div className="text-center">
