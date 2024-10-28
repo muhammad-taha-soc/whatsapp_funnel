@@ -44,6 +44,7 @@ const Login = ({ history, loading, error, loginUserAction }) => {
     if (!loading) {
       if (values.email !== '' && values.password !== '') {
         loginUserAction(values, history);
+        history.push('/app/contacts/table');
       }
     }
   };
