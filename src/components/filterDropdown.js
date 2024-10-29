@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, X } from 'lucide-react';
-import { AiFillCheckCircle } from 'react-icons/ai';
+import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { Separator } from './common/CustomBootstrap';
 
 export default function FilterDropdown() {
@@ -24,6 +24,10 @@ export default function FilterDropdown() {
     };
 
     const handleCheckboxChange = (section, option) => {
+        console.log('====================================');
+        console.log({section});
+        console.log({option});
+        console.log('====================================');
         setFilters(prev => ({
             ...prev,
             [section]: { ...prev[section], [option]: !prev[section][option] }
@@ -41,47 +45,70 @@ export default function FilterDropdown() {
 
     const renderCheckboxes = (section) => {
         return Object.entries(filters[section]).map(([key, value]) => (
-            <div key={key} style={{ display: 'flex', alignItems: 'center', marginBottom: '12px', gap: 4 }}>
-                <label className="checkbox_r">
-                    <input
-                        type="checkbox"
-                        className="checkbox__input_r"
-                        checked={value}
-                        onChange={() => handleCheckboxChange(section, key)}
-                    />
-                    <span
-                        className="checkbox__inner_r"
-                        style={{
-                            cursor: 'pointer',
-                            borderRadius: '6px',
-                            width: '20px',
-                            height: '20px'
-                        }}
-                    ></span>
-                </label>
-                <label
-                    htmlFor={`${section}-${key}`}
-                    style={{
-                        marginBottom: '18px',
-                        fontSize: '14px',
+          <div
+            key={key}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: '12px',
+              gap: 4,
+            }}
+          >
+            <label className="checkbox_r">
+              <input
+                type="checkbox"
+                className="checkbox__input_r"
+                checked={value}
+                onChange={() => handleCheckboxChange(section, key)}
+              />
+              <span
+                className="checkbox__inner_r"
+                style={{
+                  cursor: 'pointer',
+                  borderRadius: '6px',
+                  width: '20px',
+                  height: '20px',
+                }}
+              ></span>
+            </label>
+            <label
+              htmlFor={`${section}-${key}`}
+              style={{
+                marginBottom: '18px',
+                fontSize: '14px',
+                cursor: 'pointer',
+                color: '#333',
+                fontWeight: '500',
+              }}
+            >
+              {section === 'reviewLinkClicked' && (
+                <>
+                  {key == 'done' ? (
+                    <AiFillCheckCircle
+                      className="text-success"
+                      style={{
+                        width: '20px',
+                        height: '20px',
+                        //   color: 'red',
                         cursor: 'pointer',
-                        color: '#333'
-                    }}
-                >
-                    {section === 'reviewLinkClicked' && (
-                        <AiFillCheckCircle
-                            className="text-success"
-                            style={{
-                                width: '20px',
-                                height: '20px',
-                                color: '#0DAC8A',
-                                cursor: 'pointer',
-                            }}
-                        />
-                    )}
-                    {key.charAt(0).toUpperCase() + key.slice(1)}
-                </label>
-            </div>
+                      }}
+                    />
+                  ) : (
+                    <AiFillCloseCircle
+                    //   className="text-error"
+                      style={{
+                        width: '20px',
+                        height: '20px',
+                        color: '#F5430B',
+                        cursor: 'pointer',
+                      }}
+                    />
+                  )}
+                </>
+              )}
+              {key.charAt(0).toUpperCase() + key.slice(1)}
+            </label>
+          </div>
         ));
     };
 
@@ -123,7 +150,7 @@ export default function FilterDropdown() {
             </div>
             <div style={{ padding: '12px 16px' }}>
                 {['status', 'satisfied', 'reviewLinkClicked', 'suggestionForImprovement'].map((section, index, array) => (
-                    <div key={section} style={{
+                    <div key={section} className='' style={{
                         marginBottom: index === array.length - 1 ? '0' : '16px',
                         border: '1px solid #E8E8E9',
                         borderRadius: '8px',
@@ -142,7 +169,7 @@ export default function FilterDropdown() {
                                 borderBottom: '0.2px solid #E8E8E9'
                             }}
                         >
-                            <span style={{ fontSize: '12px', fontWeight: '500', color: '#6B7280' }}>
+                            <span style={{ fontSize: '12px', fontWeight: '500'}} className='text-black'>
                                 {section === 'suggestionForImprovement' ? 'Suggestion for improvement' :
                                     section.charAt(0).toUpperCase() + section.slice(1).replace(/([A-Z])/g, ' $1')}
                             </span>

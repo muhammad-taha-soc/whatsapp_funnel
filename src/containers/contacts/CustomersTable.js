@@ -472,7 +472,7 @@ const CustomersTable = () => {
                                 <IntlMessages id="dashboards.filters" />
                             </Badge>
                             {filterDropdownOpen && (
-                                <div style={{ position: 'absolute', zIndex: 1000, right: '50px' }}>
+                                <div style={{ position: 'absolute', zIndex: 1000, right: '-10px',top:'-15px' }}>
 
                                     <FilterDropdown />
                                 </div>
