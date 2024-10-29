@@ -45,16 +45,23 @@
     }
 
     &.next {
-      background: $theme-color-1;
-      color: $foreground-color;
-      border: 1px solid $theme-color-1;
+      // background: $theme-color-1;
+      // color: $foreground-color;
+      // border: 1px solid $theme-color-1;
+
+        background-color: transparent;
+  border-color: $theme-color-1;
+  color: $theme-color-1;
     }
 
     &.prev,
     &.prev {
-      background: $theme-color-1;
-      border: 1px solid $theme-color-1;
-      color: $foreground-color;
+      // background: $theme-color-1;
+      // border: 1px solid $theme-color-1;
+      // color: $foreground-color;
+      background-color: transparent;
+  border-color: $theme-color-1;
+  color: $theme-color-1;
     }
 
     &.first,
@@ -79,21 +86,24 @@
   }
 
   &.active .page-link {
-    background: transparent;
+    background: $theme-color-1;
     border: 1px solid $theme-color-1;
-    color: $theme-color-1;
+    color: white;
   }
 
   &.disabled .page-link {
-    border-color: $separator-color;
-    color: $separator-color;
-    background: transparent;
+    // border-color: $separator-color;
+    // color: $separator-color;
+    // background: transparent;
+    background-color: transparent;
+  border-color: $theme-color-1;
+  color: $theme-color-1;
   }
 }
 
 .page-link {
   background-color: transparent;
-  border-color: transparent;
+  // border-color: transparent;
   color: $primary-color;
 }
 
@@ -152,13 +162,13 @@
   .pagination {
     .page-link.prev {
       i::before {
-        content: '\e606';
+        content: '\2BC7';
       }
     }
 
     .page-link.next {
       i::before {
-        content: '\e605';
+        content: '\2BC8';
       }
     }
 
@@ -193,3 +203,6 @@
   padding: 0 !important;
 }
 
+.pag-btn-margin{
+  margin-top: -3px;
+}

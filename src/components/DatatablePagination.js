@@ -11,6 +11,10 @@ import {
   DropdownItem,
 } from 'reactstrap';
 
+import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
+// import {  } from 'react-icons/io';
+
+
 const DataTablePagination = ({
   page,
   pages,
@@ -131,7 +135,7 @@ const DataTablePagination = ({
               }}
               disabled={!canPrevious}
             >
-              <i className="simple-icon-arrow-left" />
+              <IoMdArrowDropleft className="pag-btn-margin" size={18} />
             </PaginationLink>
           </PaginationItem>
 
@@ -145,7 +149,7 @@ const DataTablePagination = ({
               }}
               disabled={!canNext}
             >
-              <i className="simple-icon-arrow-right" />
+              <IoMdArrowDropright className="pag-btn-margin" size={18} />
             </PaginationLink>
           </PaginationItem>
         </Pagination>
