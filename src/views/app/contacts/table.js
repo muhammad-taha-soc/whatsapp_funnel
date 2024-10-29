@@ -6,6 +6,8 @@ import { Row, TabPane } from 'reactstrap';
 import { Colxx } from 'components/common/CustomBootstrap';
 import Breadcrumb from 'containers/navs/Breadcrumb';
 import CustomersTable from 'containers/contacts/CustomersTable';
+import { GoTriangleRight } from 'react-icons/go';
+import IntlMessages from 'helpers/IntlMessages';
 
 const DefaultCustomers = ({ match }) => {
 //   const { messages } = intl; 
@@ -13,6 +15,16 @@ const DefaultCustomers = ({ match }) => {
 
   return (
     <>
+      <div className="d-flex align-items-center font-weight-bold mb-3">
+        <div className="text-primary">
+          <IntlMessages id={`${'Dashboard'}`} />
+        </div>
+        <div className="text-muted">
+          <GoTriangleRight className="ml-2 mr-2 " size={15} />
+          <IntlMessages id={`${'Customer'}`} />
+          {/* <GoTriangleRight className="ml-2 mr-2" /> */}
+        </div>
+      </div>
       <Row>
         <Colxx xxs="12">
           <Breadcrumb heading="menu.customers" match={match} />
@@ -50,13 +62,13 @@ const DefaultCustomers = ({ match }) => {
         </Nav> */}
 
         {/* <TabContent activeTab={activeSecondTab}> */}
-          <TabPane tabId="1">
-            <Row>
-              <Colxx xl="12" md="12" lg="12" className="mb-4">
-                <CustomersTable />
-              </Colxx>
-            </Row>
-          </TabPane>
+        <TabPane tabId="1">
+          <Row>
+            <Colxx xl="12" md="12" lg="12" className="mb-4">
+              <CustomersTable />
+            </Colxx>
+          </Row>
+        </TabPane>
         {/* </TabContent> */}
       </Colxx>
     </>

@@ -59,6 +59,7 @@ import { FiPlusCircle } from 'react-icons/fi';
 
 // import CustomersTable from 'containers/contacts/CustomersTable';
 import MessageTemplates from 'containers/newsletter/MessageTemplates';
+import { GoTriangleRight } from 'react-icons/go';
 
 const DefaultNewsLetter = ({ intl, match, history }) => {
   const { messages } = intl;
@@ -70,6 +71,17 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
 
   return (
     <>
+      <div className="d-flex align-items-center font-weight-bold mb-3">
+        <div className="text-primary">
+          <IntlMessages id={`${'Dashboard'}`} />
+        </div>
+        <div className="text-muted">
+          <GoTriangleRight className="ml-2 mr-2 " size={15} />
+          <IntlMessages id={`${'Newsletter'}`} />
+          {/* <GoTriangleRight className="ml-2 mr-2" /> */}
+        </div>
+      </div>
+
       <Row>
         <Colxx xxs="12">
           <Breadcrumb heading="dashboards.news-letter" match={match} />
@@ -131,9 +143,10 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
           </div>
         </div>
         {activeSecondTab === '2' && (
-        <div className='text-muted mt-2 mb-3' >
-        <IntlMessages id="WhatsApp templates are pre-approved messages that you must use to send a broadcast. Meta usually approves these templates within a few minutes, but approval can take up to 24 hours." />
-        </div>)}
+          <div className="text-muted mt-2 mb-3">
+            <IntlMessages id="WhatsApp templates are pre-approved messages that you must use to send a broadcast. Meta usually approves these templates within a few minutes, but approval can take up to 24 hours." />
+          </div>
+        )}
         <TabContent activeTab={activeSecondTab}>
           <TabPane tabId="1">
             <Row>

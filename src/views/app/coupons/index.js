@@ -63,6 +63,7 @@ import CreateModal from 'containers/coupons/CreateModal';
 
 // Add this import for the icon
 import AdministrationTable from 'containers/coupons/AdministrationTable';
+import { GoTriangleRight } from 'react-icons/go';
 
  const DefaultCoupons = ({ intl, match }) => {
     const [selectedCustomer, setSelectedCustomer] = useState(null);
@@ -81,67 +82,99 @@ import AdministrationTable from 'containers/coupons/AdministrationTable';
         }
     };
     return (
-        <>
-            <Row>
-                <Colxx xxs="12">
-                    <Breadcrumb heading="Coupon" match={match} />
-                    {/* <Separator className="mb-5" />   */}
+      <>
+        <div className="d-flex align-items-center font-weight-bold mb-3">
+          <div className="text-primary">
+            <IntlMessages id={`${'Dashboard'}`} />
+          </div>
+          <div className="text-muted">
+            <GoTriangleRight className="ml-2 mr-2 " size={15} />
+            <IntlMessages id={`${'Coupon'}`} />
+            {/* <GoTriangleRight className="ml-2 mr-2" /> */}
+          </div>
+        </div>
+        <Row>
+          <Colxx xxs="12">
+            <Breadcrumb heading="Coupon" match={match} />
+            {/* <Separator className="mb-5" />   */}
+          </Colxx>
+        </Row>
+        {isModalOpen && (
+          <CreateModal
+            customer={selectedCustomer}
+            onClose={() => setIsModalOpen(false)}
+          />
+        )}
+
+        <Colxx xxs="12">
+          <Nav tabs className="mb-3 ml-0 mr-0">
+            <NavItem className="w-14 text-center">
+              <NavLink
+                to="#"
+                location={{}}
+                className={classnames({
+                  active: activeSecondTab === '1',
+                  'nav-link': true,
+                })}
+                onClick={() => {
+                  setActiveSecondTab('1');
+                }}
+              >
+                Overview
+              </NavLink>
+            </NavItem>
+
+            <NavItem className="w-14 text-center">
+              <NavLink
+                to="#"
+                location={{}}
+                className={classnames({
+                  active: activeSecondTab === '2',
+                  'nav-link': true,
+                })}
+                onClick={() => {
+                  setActiveSecondTab('2');
+                }}
+              >
+                Administration
+              </NavLink>
+            </NavItem>
+
+            {/* New Button for Creating Coupon */}
+            <div className="ml-auto">
+              <Button
+                className=" text-white d-flex align-items-center justify-content-center p-2"
+                onClick={handleClick}
+                style={{
+                  borderColor: '#0DAC8A',
+                  backgroundColor: '#0DAC8A',
+                  borderRadius: '8px',
+                }}
+              >
+                <i className="simple-icon-plus mr-2" /> {/* Plus icon */}
+                Create New Coupon
+              </Button>
+            </div>
+          </Nav>
+          <TabContent activeTab={activeSecondTab}>
+            <TabPane tabId="1">
+              <Row>
+                <Colxx xl="12" md="12" lg="12" className="mb-4">
+                  <CouponsTable />
                 </Colxx>
-            </Row>
-            {isModalOpen &&   < CreateModal   customer={selectedCustomer} onClose={() => setIsModalOpen(false)} /> } 
+              </Row>
+            </TabPane>
 
-            <Colxx xxs="12">
-                <Nav tabs className="mb-3 ml-0 mr-0">
-                    <NavItem className="w-14 text-center">
-                        <NavLink to="#" location={{}} className={classnames({
-                            active: activeSecondTab === '1',
-                            'nav-link': true,
-                        })} onClick={() => { setActiveSecondTab('1'); }}>
-                            Overview
-                        </NavLink>
-                    </NavItem>
-
-                    <NavItem className="w-14 text-center">
-                        <NavLink to="#" location={{}} className={classnames({
-                            active: activeSecondTab === '2',
-                            'nav-link': true,
-                        })} onClick={() => { setActiveSecondTab('2'); }}>
-                            Administration
-                        </NavLink>
-                    </NavItem>
-
-                    {/* New Button for Creating Coupon */}
-                    <div className="ml-auto">
-                        <Button
-                            className=" text-white d-flex align-items-center justify-content-center p-2"
-                            onClick={handleClick}
-                            style={{borderColor: '#0DAC8A',backgroundColor: '#0DAC8A', borderRadius: '8px'}}
-
-                        >
-                            <i className="simple-icon-plus mr-2" /> {/* Plus icon */}
-                            Create New Coupon
-                        </Button>
-                    </div>
-                </Nav>
-                <TabContent activeTab={activeSecondTab}>
-                    <TabPane tabId="1">
-                        <Row>
-                            <Colxx xl="12" md="12" lg="12" className="mb-4">
-                                <CouponsTable />
-                            </Colxx>
-                        </Row>
-                    </TabPane>
-
-                    <TabPane tabId="2">
-                        <Row>
-                            <Colxx xxs="12" lg="12" md="12" xl="12">
-                                <AdministrationTable />
-                            </Colxx>
-                        </Row>
-                    </TabPane>
-                </TabContent>
-            </Colxx>
-        </>
+            <TabPane tabId="2">
+              <Row>
+                <Colxx xxs="12" lg="12" md="12" xl="12">
+                  <AdministrationTable />
+                </Colxx>
+              </Row>
+            </TabPane>
+          </TabContent>
+        </Colxx>
+      </>
     );
 };
 
