@@ -50,7 +50,7 @@ export default function FilterDropdown() {
             style={{
               display: 'flex',
               alignItems: 'center',
-              marginBottom: '12px',
+            //   marginBottom: '12px',
               gap: 4,
             }}
           >
@@ -74,11 +74,11 @@ export default function FilterDropdown() {
             <label
               htmlFor={`${section}-${key}`}
               style={{
-                marginBottom: '18px',
+                marginBottom: '15px',
                 fontSize: '14px',
                 cursor: 'pointer',
                 color: '#333',
-                fontWeight: '500',
+                fontWeight: '400',
               }}
             >
               {section === 'reviewLinkClicked' && (
@@ -91,16 +91,20 @@ export default function FilterDropdown() {
                         height: '20px',
                         //   color: 'red',
                         cursor: 'pointer',
+                        marginLeft: '2px',
+                        marginRight: '2px',
                       }}
                     />
                   ) : (
                     <AiFillCloseCircle
-                    //   className="text-error"
+                      //   className="text-error"
                       style={{
                         width: '20px',
                         height: '20px',
                         color: '#F5430B',
                         cursor: 'pointer',
+                        marginLeft: '2px',
+                        marginRight: '2px',
                       }}
                     />
                   )}
