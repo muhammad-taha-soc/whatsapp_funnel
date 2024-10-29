@@ -85,7 +85,7 @@ import AdministrationTable from 'containers/coupons/AdministrationTable';
             <Row>
                 <Colxx xxs="12">
                     <Breadcrumb heading="Coupon" match={match} />
-                    <Separator className="mb-5" />  
+                    {/* <Separator className="mb-5" />   */}
                 </Colxx>
             </Row>
             {isModalOpen &&   < CreateModal   customer={selectedCustomer} onClose={() => setIsModalOpen(false)} /> } 

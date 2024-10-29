@@ -7,15 +7,15 @@ const IconCard = ({ className = 'mb-4', icon,title, value }) => {
   // const imgURL = icon
   return (
     <div className={`icon-row-item ${className}`}>
-      <Card>
+      <Card className=''>
         <CardBody className="text-center">
           {/* <img src={icon} alt={title} width={20} height={20} /> */}
           <div className="text-primary">
             {/* <i className={`${icon} `} /> */}
             {icon}
           </div>
-          <p className="lead text-center mt-3">{value}</p>
-          <p className="card-text mt-3 font-weight-semibold mb-0">
+          <p className="lead text-center text-dark mt-1 font-weight-medium">{value}</p>
+          <p className="card-text mt-2">
             <IntlMessages id={title} />
           </p>
         </CardBody>
