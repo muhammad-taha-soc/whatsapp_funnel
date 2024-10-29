@@ -36,6 +36,7 @@ import {
 // import TopnavEasyAccess from './Topnav.EasyAccess';
 import TopnavNotifications from './Topnav.Notifications';
 import TopnavDarkSwitch from './Topnav.DarkSwitch';
+import { GoDotFill } from 'react-icons/go';
 
 const TopNav = ({
   intl,
@@ -229,7 +230,14 @@ const TopNav = ({
         <span className="logo-mobile d-block d-xs-none" />
       </NavLink>
 
-      <div className="navbar-right" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+      <div
+        className="navbar-right"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+        }}
+      >
         {isDarkSwitchActive && <TopnavDarkSwitch />}
         <div className="header-icons d-inline-block align-middle">
           {/* <TopnavEasyAccess /> */}
@@ -238,7 +246,10 @@ const TopNav = ({
             <UncontrolledDropdown className="dropdown-menu-right">
               <DropdownToggle className="header-icon" color="empty">
                 {/* <i className="simple-icon-grid" /> */}
-                <i className="simple-icon-envelope" style={{ fontSize: '20px' }} />
+                <i
+                  className="simple-icon-envelope"
+                  style={{ fontSize: '20px' }}
+                />
               </DropdownToggle>
               {/* <DropdownMenu
                 className="position-absolute mt-3"
@@ -304,18 +315,61 @@ const TopNav = ({
         </div>
         <div className="user d-inline-block">
           <UncontrolledDropdown className="dropdown-menu-right">
-            <DropdownToggle className="p-0" color="empty" style={{ display: 'flex', justifyContent: "space-between", alignItems: 'center' }}>
-
+            <DropdownToggle
+              className="p-0"
+              color="empty"
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
               <span className="name mr-1 text-right">
-                <div style={{ fontWeight: '700', fontSize: '16px' }}>Jay Hargodson</div>
+                <div style={{ fontWeight: '700', fontSize: '16px' }}>
+                  Jay Hargodson
+                </div>
                 <div>Manager</div>
               </span>
-              <span>
+              <span className="" style={{ position: 'relative' }}>
                 <img alt="Profile" src="/assets/img/profiles/l-1.jpg" />
+                <span
+                  style={{
+                    position: 'absolute',
+                    bottom: '-5px',
+                    right: '-5px',
+                    backgroundColor: 'white',
+                    padding: '5px',
+                    width: '15px',
+                    height: '15px',
+                    borderRadius: '50%',
+                  }}
+                >
+                  {/* <i
+                    className="simple-icon-camera text-primary"
+                    style={{ fontSize: '10px' }}
+                  /> */}
+                  <GoDotFill
+                    className="text-primary"
+                    size={18}
+                    style={{
+                      position: 'absolute',
+                      bottom: '-1px',
+                      right: '-1px',
+                      // backgroundColor: 'white',
+                      // padding: '5px',
+                      // width: '15px',
+                      // height: '15px',
+                      // borderRadius: '50%',
+                    }}
+                  />
+                </span>
               </span>
             </DropdownToggle>
             <DropdownMenu className="mt-3" right>
-              <DropdownItem onClick={() => history.push('/app/profile')}> Account</DropdownItem>
+              <DropdownItem onClick={() => history.push('/app/profile')}>
+                {' '}
+                Account
+              </DropdownItem>
               <DropdownItem>Features</DropdownItem>
               <DropdownItem>History</DropdownItem>
               <DropdownItem>Support</DropdownItem>
@@ -327,7 +381,7 @@ const TopNav = ({
           </UncontrolledDropdown>
         </div>
       </div>
-    </nav >
+    </nav>
   );
 };
 
