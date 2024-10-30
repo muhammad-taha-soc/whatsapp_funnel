@@ -20,13 +20,49 @@ import {
     CustomInput,
     UncontrolledDropdown,
 } from 'reactstrap';
-const CreateModal = ({ customer, onClose }) => {
-    const [selectedReview, setSelectedReview] = useState(''); // State to track the selected radio button
+import { RiCalendar2Line } from "react-icons/ri";
+import Calendar from './CalendarModal';
 
-    // Handler to update the selected radio button
-    const handleRadioChange = (event) => {
-        setSelectedReview(event.target.id);
+const CreateModal = ({ customer, onClose }) => {
+    const [selectedOption, setSelectedOption] = useState('Newsletters');
+    const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
+    const handleChange = (event) => {
+      setSelectedOption(event.target.value);
+    };  
+    // if (!isOpen) return null;
+
+
+
+    const modalStyles = {
+           input: {
+            width: '100%',
+            padding: '10px',
+            border: '1px solid #ccc',
+            borderRadius: '4px',
+        },
+        label: {
+            fontWeight: 'bold',
+            color: '#667085',
+            marginBottom: '1px',
+        },
+        input: {
+            width: '100%',
+            padding: '10px',
+            border: '1px solid #ccc',
+            borderRadius: '4px',
+        },
+        textarea: {
+            width: '100%',
+            padding: '10px',
+            border: '1px solid #ccc',
+            borderRadius: '4px',
+            resize: 'none',
+            height: '80px',
+        },
+
     };
+
 
     // Dummy data for testing
     const dummyCustomer = {
@@ -67,10 +103,11 @@ const CreateModal = ({ customer, onClose }) => {
                                 </div>
 
                                 <div style={{ color: "#667085", fontWeight: '500', fontSize: '14px', marginBottom: '10px' }}>Choose one of the Following </div>
-                                <Colxx style={{ padding: 0 }}>
+                                {/* <Colxx style={{ padding: 0 }}>
                                     <div className="flex-container">
                                         <Input
                                             addon
+                                           
                                             type="radio"
                                             name="reviews"
                                             id="googleReviews"
@@ -87,8 +124,8 @@ const CreateModal = ({ customer, onClose }) => {
                                             Google Reviews
                                         </label>
                                     </div>
-                                </Colxx>
-                                <Colxx style={{ padding: 0 }}>
+                                </Colxx> */}
+                                {/* <Colxx style={{ padding: 0 }}>
                                     <div className="flex-container">
                                         <Input
                                             addon
@@ -97,6 +134,7 @@ const CreateModal = ({ customer, onClose }) => {
                                             id="newsletter"
                                             aria-label="Radio for Newsletter"
                                             onChange={handleRadioChange}
+                                            checked={selectedReview === 'newsletter'} 
                                             color='green'
                                         />
                                         <label
@@ -130,19 +168,80 @@ const CreateModal = ({ customer, onClose }) => {
                                             Promotions
                                         </label>
                                     </div>
-                                </Colxx>
+                                </Colxx> */}
+        <div className="radio-group">
+          <label className="radio-label">
+            <input
+              type="radio"
+              name="marketing-preference"
+              value="google-reviews"
+              className="radio-input"
+            />
+            <span className="radio-custom"></span>
+            Google Reviews
+          </label>
 
-                                <Colxx>
+          <label className="radio-label">
+            <input
+              type="radio"
+              name="marketing-preference"
+              value="newsletters"
+              className="radio-input newsletter"
+              defaultChecked
+            />
+            <span className="radio-custom"></span>
+            Newsletters
+          </label>
 
-                                </Colxx>
+          <label className="radio-label">
+            <input
+              type="radio"
+              name="marketing-preference"
+              value="promotions"
+              className="radio-input"
+            />
+            <span className="radio-custom"></span>
+            Promotions
+          </label>
+        </div>
 
-                                <div style={{ color: "#667085", fontSize: "14px", fontWeight: "500", marginLeft: "2px" }}>Action name </div>
-                                <Input className="custom-input" placeholder="Enter Name" />
-                                <div style={{ color: "#667085", fontSize: "14px", fontWeight: "500", marginLeft: "2px" }}>Effective Date </div>
-                                <Input type='date' className="custom-input" />
+  
+                       <label style={modalStyles.label}>Action name</label>
+                        <input
+                            type="text"
+                            placeholder="Enter Name"
+                            style={modalStyles.input}
+                        />
+                     <label style={modalStyles.label}>Effective Date</label>
 
-                                <div style={{ color: "#667085", fontSize: "14px", fontWeight: "500", marginLeft: "2px" }}>Condition </div>
-                                <Input className="custom-input" type="textarea" name="text" />
+                                {/* <Input type='date' placeholder="Enter Name" className="custom-input" /> */}
+                                <div style={{ position: 'relative' }}>
+                            <input
+                                type="text"
+                                defaultValue="01.01.2024 - 31.12.2024"
+                                style={modalStyles.input}
+                            />
+                            <RiCalendar2Line size={22} style={{
+                                position: 'absolute',
+                                right: '10px',
+                                top: '50%',
+                                color: '#667085',
+                                transform: 'translateY(-50%)',
+                                cursor: 'pointer'
+                            }}
+                                onClick={() => setIsCalendarOpen(true)} />
+                        </div>
+                        {isCalendarOpen && (
+                <Calendar
+                    // isOpen={isCalendarOpen}
+                    onClose={() => setIsCalendarOpen(false)} // Close Calendar Modal
+                />
+            )}
+                        <label style={modalStyles.label}>Condition</label>
+                        <textarea
+                            defaultValue="Write Condition..."
+                            style={modalStyles.textarea}
+                        />
                                 <div className="button-container">
                                     <button className="cancel-button" onClick={onClose}>
                                         Cancel
