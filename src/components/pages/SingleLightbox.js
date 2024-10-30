@@ -7,13 +7,16 @@ const SingleLightbox = ({ thumb, className, large }) => {
 
   return (
     <>
-      <NavLink to="#" location={{}} onClick={() => setIsOpen(true)}>
-        <img src={thumb} alt="thumbnail" className={className} />
-      </NavLink>
+      <div style={{minHeight: '110px'}}>
 
-      {isOpen && (
-        <Lightbox mainSrc={large} onCloseRequest={() => setIsOpen(false)} />
-      )}
+        <NavLink to="#" location={{}} onClick={() => setIsOpen(true)}>
+          <img src={thumb} alt="thumbnail" className={className} />
+        </NavLink>
+
+        {isOpen && (
+          <Lightbox mainSrc={large} onCloseRequest={() => setIsOpen(false)} />
+        )}
+      </div>
     </>
   );
 };

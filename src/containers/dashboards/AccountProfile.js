@@ -22,7 +22,9 @@ const AccountProfile = () => {
             <SingleLightbox
               thumb="/assets/img/profiles/l-1.jpg"
               large="/assets/img/profiles/1.jpg"
-              className="account-profile-img "
+              className="account-profile-img"
+            // Set height here
+
             />
             <span
               style={{
@@ -43,12 +45,13 @@ const AccountProfile = () => {
             </span>
           </div>
           <div style={{ marginTop: '80px' }}>
-            <div>
+            <div style={{marginTop: '8px'}}>
               <p
                 style={{
                   color: '#86868A',
                   fontWeight: '500',
                   fontSize: '14px',
+                  marginBottom: '10px'
                 }}
               >
                 Display Name
@@ -71,7 +74,7 @@ const AccountProfile = () => {
           </div>
         </div>
       </div>
-      <Separator className="mb-2 mt-4 ml-4 mr-4" />
+      <Separator className="mb-2 mt-5 ml-4 mr-4" />
       <CardBody>
         <Row>
           <Colxx
@@ -81,14 +84,14 @@ const AccountProfile = () => {
             className="mb-4 d-flex flex-row justify-content-between align-items-center"
           >
             <div>
-              <p className="text-muted" style={{ marginBottom: '5px' }}>
+              <p className="text-muted" style={{ marginBottom: '6px' }}>
                 Connected Number
               </p>
               <p className="font-weight-bold">+4919384434403</p>
             </div>
             <div
               className="d-flex align-items-center justify-content-center "
-              style={{ gap: 20 }}
+              style={{ gap: 10 }}
             >
               <FaRegCopy
                 style={{ color: '#86868A', width: '16px', height: '20px' }}
@@ -96,11 +99,13 @@ const AccountProfile = () => {
               <div
                 style={{
                   width: '1px' /* Narrow width for vertical separator */,
-                  height: '36px' /* Height of the separator */,
+                  height: '60px' /* Height of the separator */,
                   backgroundColor: '#E5E5E5' /* Separator color */,
                   opacity: 1 /* Ensure it's visible, change to less than 1 for semi-transparent */,
-                  transform:
-                    'rotate(0deg)' /* Keep vertical; no need for -90deg rotation */,
+                  transform:'rotate(0deg)' /* Keep vertical; no need for -90deg rotation */,
+                  position: 'relative', // Allow positioning
+                  left: '14px', // Move it to the right
+                  bottom: '4px'
                 }}
               ></div>
             </div>
@@ -113,14 +118,14 @@ const AccountProfile = () => {
             className="mb-4 d-flex flex-row justify-content-between align-items-center"
           >
             <div>
-              <p className="text-muted" style={{ marginBottom: '5px' }}>
+              <p className="text-muted" style={{ marginBottom: '6px' }}>
                 Messaging Limits{' '}
               </p>
               <p className="font-weight-bold">1000 BICs/24 hours</p>
             </div>
             <div
               className="d-flex align-items-center justify-content-center "
-              style={{ gap: 20 }}
+              style={{ gap: 10 }}
             >
               <GoInfo
                 style={{ color: '#86868A', width: '20px', height: '20px' }}
@@ -128,11 +133,14 @@ const AccountProfile = () => {
               <div
                 style={{
                   width: '1px' /* Narrow width for vertical separator */,
-                  height: '36px' /* Height of the separator */,
+                  height: '60px' /* Height of the separator */,
                   backgroundColor: '#E5E5E5' /* Separator color */,
                   opacity: 1 /* Ensure it's visible, change to less than 1 for semi-transparent */,
                   transform:
                     'rotate(0deg)' /* Keep vertical; no need for -90deg rotation */,
+                    position: 'relative', // Allow positioning
+                    left: '14px',
+                    bottom:'4px' // Move it to the right
                 }}
               ></div>
             </div>
@@ -144,7 +152,7 @@ const AccountProfile = () => {
             className="mb-4 d-flex flex-row justify-content-between align-items-center"
           >
             <div>
-              <p className="text-muted" style={{ marginBottom: '5px' }}>
+              <p className="text-muted" style={{ marginBottom: '6px' }}>
                 WhatsApp Business Account ID{' '}
               </p>
               <p className="font-weight-bold">95503459309309039</p>
@@ -180,11 +188,14 @@ const AccountProfile = () => {
               <div
                 style={{
                   width: '1px' /* Narrow width for vertical separator */,
-                  height: '36px' /* Height of the separator */,
+                  height: '60px' /* Height of the separator */,
                   backgroundColor: '#E5E5E5' /* Separator color */,
                   opacity: 1 /* Ensure it's visible, change to less than 1 for semi-transparent */,
                   transform:
                     'rotate(0deg)' /* Keep vertical; no need for -90deg rotation */,
+                    position: 'relative', // Allow positioning
+                    left: '14px', // Move it to the right
+                    bottom: '4px'
                 }}
               ></div>
             </div>
@@ -213,7 +224,7 @@ const AccountProfile = () => {
             </div>
             <div
               className="d-flex align-items-center justify-content-center "
-              style={{ gap: 20 }}
+              style={{ gap: 10 }}
             >
               <GoInfo
                 style={{ color: '#86868A', width: '20px', height: '20px' }}
@@ -221,11 +232,14 @@ const AccountProfile = () => {
               <div
                 style={{
                   width: '1px' /* Narrow width for vertical separator */,
-                  height: '36px' /* Height of the separator */,
+                  height: '60px' /* Height of the separator */,
                   backgroundColor: '#E5E5E5' /* Separator color */,
                   opacity: 1 /* Ensure it's visible, change to less than 1 for semi-transparent */,
                   transform:
                     'rotate(0deg)' /* Keep vertical; no need for -90deg rotation */,
+                    position: 'relative', // Allow positioning
+                    left: '14px', // Move it to the right
+                    bottom: '4px'
                 }}
               ></div>
             </div>
@@ -256,11 +270,14 @@ const AccountProfile = () => {
               <div
                 style={{
                   width: '1px' /* Narrow width for vertical separator */,
-                  height: '36px' /* Height of the separator */,
+                  height: '60px' /* Height of the separator */,
                   backgroundColor: '#E5E5E5' /* Separator color */,
                   opacity: 1 /* Ensure it's visible, change to less than 1 for semi-transparent */,
                   transform:
                     'rotate(0deg)' /* Keep vertical; no need for -90deg rotation */,
+                    position: 'relative', // Allow positioning
+                    left: '14px', // Move it to the right
+                    bottom: '4px'
                 }}
               ></div>
             </div>
