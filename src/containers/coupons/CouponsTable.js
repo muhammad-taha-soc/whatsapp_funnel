@@ -8,6 +8,7 @@ import IntlMessages from 'helpers/IntlMessages';
 import products from 'data/products';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
   import { BsSliders2 } from 'react-icons/bs';
+
 import {
   FaEllipsisV,
   FaWhatsapp,
@@ -109,44 +110,104 @@ function Table({ columns, data, onRowClick }) {
 }
 const sampleCoupons = [
   {
-    id: 'C001',
-    actionName: 'Discount',
+    id: '112366',
+    actionName: 'List',
     status: 'On',
-    sourceOfOrigin: 'Website',
-    issueDate: '2024-01-01',
-    redemptionDate: '2024-06-01',
-    name: 'Customer A',
-    telephoneNo: '123-456-7890',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
   },
   {
-    id: 'C002',
-    actionName: 'Purchase',
+    id: '112366',
+    actionName: 'List',
     status: 'On',
-    sourceOfOrigin: 'App',
-    issueDate: '2024-02-01',
-    redemptionDate: '2024-07-01',
-    name: 'Customer B',
-    telephoneNo: '098-765-4321',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
   },
   {
-    id: 'C003',
-    actionName: 'Referral',
+    id: '112366',
+    actionName: 'List',
     status: 'On',
-    sourceOfOrigin: 'Email',
-    issueDate: '2024-03-01',
-    redemptionDate: '2024-08-01',
-    name: 'Customer C',
-    telephoneNo: '555-555-5555',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
   },
   {
-    id: 'C004',
-    actionName: 'Feedback',
+    id: '112366',
+    actionName: 'List',
     status: 'On',
-    sourceOfOrigin: 'Phone',
-    issueDate: '2024-04-01',
-    redemptionDate: '2024-09-01',
-    name: 'Customer D',
-    telephoneNo: '444-444-4444',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
+  },
+  {
+    id: '112366',
+    actionName: 'List',
+    status: 'On',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
+  },
+  {
+    id: '112366',
+    actionName: 'List',
+    status: 'On',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
+  },
+  {
+    id: '112366',
+    actionName: 'List',
+    status: 'On',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
+  },
+  {
+    id: '112366',
+    actionName: 'List',
+    status: 'On',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
+  },
+  {
+    id: '112366',
+    actionName: 'List',
+    status: 'On',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
+  },
+  {
+    id: '112366',
+    actionName: 'List',
+    status: 'On',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
   },
 ];
 
@@ -538,8 +599,9 @@ const CouponsTable = () => {
                 className="mb-1 border border-theme-4"
                 style={{ cursor: 'pointer', padding: '10px 15px' }}
               >
-                <BsSliders2 className="mr-2" size={15} />
-                <IntlMessages id="dashboards.filters" />
+                <BsSliders2 className="mr-2" size={17} />
+               
+                <IntlMessages id="dashboards.filters"/>
               </Badge>
               {filterDropdownOpen && (
                 <div
