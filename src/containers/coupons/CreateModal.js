@@ -61,7 +61,7 @@ const CreateModal = ({ customer, onClose }) => {
             width: '100%',
             padding: '10px',
             border: '1px solid #ccc',
-            borderRadius: '4px',
+            borderRadius: '8px',
             resize: 'none',
             height: '80px',
             marginBottom: '20px'
