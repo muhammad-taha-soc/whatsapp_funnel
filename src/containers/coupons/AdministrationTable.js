@@ -123,8 +123,8 @@ const AdministrationTable = () => {
                 accessor: 'newsLetter',
                 cellClass: 'w-15',
                 Cell: (props) => <>
-                    <div style={{ cursor: 'pointer', border: '1px solid #DDDDDD', borderRadius: '10px', width: '40px', height: '40px' }}>
-                        <img src={'/assets/img/blog/coupon.svg'} style={{ width: '100%', height: '100%' }} alt='Visa' />
+                    <div style={{ cursor: 'pointer', border: '1px solid #DDDDDD', borderRadius: '10px', width: '48px', height: '48px' }}>
+                        <img src={'/assets/img/blog/coupon.svg'} width={48} height={48} alt='Visa' />
                     </div>
                 </>,
                 sortType: 'basic',
