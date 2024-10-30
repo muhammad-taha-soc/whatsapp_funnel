@@ -222,7 +222,7 @@ const History = () => {
       {
         Header: 'Action',
         accessor: '',
-        cellClass: 'w-10 text-14px',
+        cellClass: 'w-10 text-14px text-center',
         Cell: (props) => <ActionDropdown props={props} />,
         // sortType: 'basic',
         disableSortBy: true,

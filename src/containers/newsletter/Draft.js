@@ -163,7 +163,7 @@ const Draft = () => {
       {
         Header: 'Action',
         accessor: '',
-        cellClass: 'w-20 text-14px',
+        cellClass: 'w-20 text-14px text-center',
         Cell: (props) => <ActionDropdown props={props} />, // Replaced with ActionDropdown component
         disableSortBy: true,
       },
