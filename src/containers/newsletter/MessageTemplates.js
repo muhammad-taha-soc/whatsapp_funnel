@@ -133,11 +133,22 @@ const MessageTemplates = () => {
   const cols = React.useMemo(
     () => [
       {
-        Header: 'Surname',
+        Header: () => (
+          <div
+            style={{ display: 'flex', alignItems: 'center', color: '#667085' }}
+          >
+            <input
+              type="checkbox"
+              // Remove onChange for no functionality
+              style={{ marginRight: '8px' }}
+            />
+            <IntlMessages id="Surname" />
+          </div>
+        ),
         accessor: 'newsLetter',
         cellClass: 'font-weight-bold w-40',
         Cell: ({ row }) => (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center',fontSize:'14px' }}>
             <input
               type="checkbox"
               checked={selectedRows.has(row.id)}

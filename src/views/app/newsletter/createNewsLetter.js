@@ -28,7 +28,7 @@ import {
   CardTitle,
   // Badge,
 } from 'reactstrap';
-import Select from 'react-select';
+import Select, { components } from 'react-select';
 
 import { NavLink } from 'react-router-dom';
 // import { TbRotateClockwise2 } from 'react-icons/tb';
@@ -70,6 +70,7 @@ import IntlMessages from 'helpers/IntlMessages';
 import CustomSelectInput from 'components/common/CustomSelectInput';
 import { IoMdCheckmark } from 'react-icons/io';
 import { GoTriangleRight } from 'react-icons/go';
+import { FaCaretDown } from 'react-icons/fa';
 // import { TbRotateClockwise2 } from 'react-icons/tb';
 // import TagsInputExample from 'containers/forms/TagsInputExample';
 
@@ -86,6 +87,15 @@ const CreateNewsLetter = ({ intl, match }) => {
   const [activeSecondTab, setActiveSecondTab] = useState('1');
   const [selectedOptionLT, setSelectedOptionLT] = useState('');
   // const [tagsLT, setTagsLT] = useState([]);
+
+
+  const DropdownIndicator = props => {
+  return (
+    <components.DropdownIndicator {...props}>
+      <FaCaretDown className="" />
+    </components.DropdownIndicator>
+  );
+};
   return (
     <>
       <Row>
@@ -93,11 +103,16 @@ const CreateNewsLetter = ({ intl, match }) => {
           {/* <Breadcrumb heading="dashboards.news-letter" match={match} />
           <Separator className="mb-5" /> */}
           <div className="d-flex flex-row justify-content-between align-items-center mb-4">
-            <div className="d-flex flex-row justify-content-around align-items-center font-weight-bold">
-              <IntlMessages id={`${'Dashboard'}`} />
+            <div
+              className="d-flex flex-row justify-content-around align-items-center font-weight-bold"
+              style={{ fontSize: '16px' }}
+            >
+              <span className="text-primary">
+                <IntlMessages id={`${'Dashboard'}`} />
+              </span>
               <GoTriangleRight className="ml-2 mr-2" />
               <IntlMessages id={`${'Newsletter'}`} />
-              <GoTriangleRight className="ml-2 mr-2" />
+              <GoTriangleRight className="ml-2 mr-2 text-muted" />
               <div className="text-muted">
                 <IntlMessages id={`${'Create Newsletter'}`} />
               </div>
@@ -113,7 +128,7 @@ const CreateNewsLetter = ({ intl, match }) => {
               <Button
                 color="light"
                 className="default btn-primary bg-theme-1 mr-1 text-white font-weight-bold"
-                style={{ borderRadius: '0.5rem' }}
+                style={{ borderRadius: '0.5rem', fontSize: '14px' }}
               >
                 <IntlMessages id={`${'Create Newsletter'}`} />
               </Button>{' '}
@@ -172,7 +187,7 @@ const CreateNewsLetter = ({ intl, match }) => {
             </div> */}
           </div>
           <TabContent activeTab={activeSecondTab}>
-            <TabPane tabId="1">
+            <TabPane tabId="1" style={{ fontSize: '14px' }}>
               <Row>
                 <Colxx lg="6" xl="6" md="6" className="mb-4">
                   <Form>
@@ -181,7 +196,10 @@ const CreateNewsLetter = ({ intl, match }) => {
                         <IntlMessages id="Select existing template" />
                       </Label> */}
                       <Select
-                        components={{ Input: CustomSelectInput }}
+                        components={{
+                          Input: CustomSelectInput,
+                          DropdownIndicator,
+                        }}
                         className="react-select"
                         classNamePrefix="react-select"
                         name="form-field-name"
@@ -191,21 +209,24 @@ const CreateNewsLetter = ({ intl, match }) => {
                         placeholder="Select existing template"
                       />
                     </FormGroup>
-                    <CardTitle>
+                    <CardTitle style={{ fontSize: '16px', fontWeight: '600' }}>
                       <IntlMessages id="Target group & dispatch" />
                     </CardTitle>
                     <FormGroup className="mb-2">
-                      <Label>
+                      <Label style={{ fontSize: '14px', fontWeight: '500' }}>
                         <IntlMessages id="Name of the newsletter" />
                       </Label>
                       <Input type="name" placeholder="Enter name" />
                     </FormGroup>
                     <FormGroup className="mb-2 mt-4">
-                      <Label>
+                      <Label style={{ fontSize: '14px', fontWeight: '500' }}>
                         <IntlMessages id="Target group" />
                       </Label>
                       <Select
-                        components={{ Input: CustomSelectInput }}
+                        components={{
+                          Input: CustomSelectInput,
+                          DropdownIndicator,
+                        }}
                         className="react-select"
                         classNamePrefix="react-select"
                         name="form-field-name"
@@ -217,11 +238,14 @@ const CreateNewsLetter = ({ intl, match }) => {
                       />
                     </FormGroup>
                     <FormGroup className="mb-4 mt-4">
-                      <Label>
+                      <Label style={{ fontSize: '14px', fontWeight: '500' }}>
                         <IntlMessages id="Select an option" />
                       </Label>
                       <Select
-                        components={{ Input: CustomSelectInput }}
+                        components={{
+                          Input: CustomSelectInput,
+                          DropdownIndicator,
+                        }}
                         className="react-select"
                         classNamePrefix="react-select"
                         name="form-field-name"
@@ -231,21 +255,24 @@ const CreateNewsLetter = ({ intl, match }) => {
                         placeholder="Send now"
                       />
                     </FormGroup>
-                    <CardTitle>
+                    <CardTitle style={{ fontSize: '16px', fontWeight: '600' }}>
                       <IntlMessages id="Target group & dispatch" />
                     </CardTitle>
                     <FormGroup className="mb-2">
-                      <Label>
+                      <Label style={{ fontSize: '14px', fontWeight: '500' }}>
                         <IntlMessages id="Name of the newsletter" />
                       </Label>
                       <Input type="name" placeholder="Enter name" />
                     </FormGroup>
                     <FormGroup className="mb-2 mt-4">
-                      <Label>
+                      <Label style={{ fontSize: '14px', fontWeight: '500' }}>
                         <IntlMessages id="Target group" />
                       </Label>
                       <Select
-                        components={{ Input: CustomSelectInput }}
+                        components={{
+                          Input: CustomSelectInput,
+                          DropdownIndicator,
+                        }}
                         className="react-select"
                         classNamePrefix="react-select"
                         name="form-field-name"
@@ -257,11 +284,14 @@ const CreateNewsLetter = ({ intl, match }) => {
                       />
                     </FormGroup>
                     <FormGroup className="mb-4 mt-4">
-                      <Label>
+                      <Label style={{ fontSize: '14px', fontWeight: '500' }}>
                         <IntlMessages id="Select an option" />
                       </Label>
                       <Select
-                        components={{ Input: CustomSelectInput }}
+                        components={{
+                          Input: CustomSelectInput,
+                          DropdownIndicator,
+                        }}
                         className="react-select"
                         classNamePrefix="react-select"
                         name="form-field-name"
@@ -301,8 +331,8 @@ const CreateNewsLetter = ({ intl, match }) => {
                     </FormGroup> */}
                   </Form>
                 </Colxx>
-              {/* </Row> */}
-              {/* <Row> */}
+                {/* </Row> */}
+                {/* <Row> */}
                 <Colxx lg="6" xl="6" md="6" className="text-center">
                   <img
                     className=""

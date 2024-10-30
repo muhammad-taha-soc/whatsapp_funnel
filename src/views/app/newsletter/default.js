@@ -31,7 +31,7 @@ import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 // import IntlMessages from 'helpers/IntlMessages';
 import { Colxx } from 'components/common/CustomBootstrap';
-import Breadcrumb from 'containers/navs/Breadcrumb';
+import BreadcrumbContainer from 'containers/navs/Breadcrumb';
 // import RecentOrders from 'containers/dashboards/RecentOrders';
 // import Logs from 'containers/dashboards/Logs';
 // import Tickets from 'containers/dashboards/Tickets';
@@ -73,13 +73,17 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
     <>
       <div
         className="d-flex flex-row align-items-center font-weight-bold mb-3"
-        style={{ marginLeft: '27px',fontSize:'14px' }}
+        style={{ marginLeft: '27px', fontSize: '14px' }}
       >
         <div className="text-primary">
           <IntlMessages id={`${'Dashboard'}`} />
         </div>
         <div className="text-muted">
-          <GoTriangleRight className="ml-2 mr-2 " style={{color:'#D1D1D4'}} size={15} />
+          <GoTriangleRight
+            className="ml-2 mr-2 "
+            style={{ color: '#D1D1D4' }}
+            size={15}
+          />
           <IntlMessages id={`${'Newsletter'}`} />
           {/* <GoTriangleRight className="ml-2 mr-2" /> */}
         </div>
@@ -88,7 +92,10 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
       <Row>
         <Colxx xxs="12">
           <div className="" style={{ marginLeft: '21px' }}>
-            <Breadcrumb heading="dashboards.news-letter" match={match} />
+            <BreadcrumbContainer
+              heading="dashboards.news-letter"
+              match={match}
+            />
           </div>
           {/* <Separator className="mb-5" /> */}
         </Colxx>
@@ -130,7 +137,7 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
           <div className="">
             <Button
               color="light"
-              className="btn-primary bg-theme-1 text-white font-weight-bold d-flex align-items-center"
+              className="btn-primary bg-theme-1 text-white font-weight-bold d-flex flex-row align-items-center"
               onClick={
                 activeSecondTab === '1'
                   ? () => history.push('/app/news-letter/create-news-letter')
@@ -138,7 +145,7 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
               }
               style={{ borderRadius: '0.5rem' }}
             >
-              <FiPlusCircle size={20} className="mr-1" />
+              <FiPlusCircle size={22} className="mr-1" />
               <IntlMessages
                 id={`${
                   activeSecondTab === '1' ? 'Create Newsletter' : 'New Template'
@@ -148,7 +155,7 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
           </div>
         </div>
         {activeSecondTab === '2' && (
-          <div className="text-muted mt-2 mb-3">
+          <div className="text-muted mt-2 mb-3 ml-2" style={{fontWeight:'400'}}>
             <IntlMessages id="WhatsApp templates are pre-approved messages that you must use to send a broadcast. Meta usually approves these templates within a few minutes, but approval can take up to 24 hours." />
           </div>
         )}

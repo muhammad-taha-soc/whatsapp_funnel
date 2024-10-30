@@ -21,9 +21,12 @@ const MakeMoney = () => {
     <Card className="h-100">
       <CardBody>
         <CardTitle className="d-flex flex-row justify-content-between align-items-center mb-0 font-weight-bold">
-          <IntlMessages id="MakeMoney" />
+          <span style={{ fontSize: '28px' }}>
+            <IntlMessages id="MakeMoney" />
+          </span>
           <div className="">
             <Button
+              style={{ backgroundColor: '#f0f0f0' }}
               outline
               color="light"
               className=" border border-theme-4 text-dark font-weight-bold  d-flex flex-row justify-content-between"
@@ -43,7 +46,10 @@ const MakeMoney = () => {
             <GoDotFill className="" size={12} />
             <IntlMessages id="button.active" />
           </Badge>{' '}
-          <span className="ml-2 d-inline mb-2 text-primary">
+          <span
+            className="ml-2 d-inline mb-2 text-primary"
+            style={{ fontSize: '14px' }}
+          >
             <IntlMessages id="dashboards.view-profiles" />{' '}
             <GoArrowRight className="text-extra-small" size={15} />
           </span>

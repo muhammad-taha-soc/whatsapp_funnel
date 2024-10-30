@@ -4,7 +4,7 @@ import { Row, Nav, NavItem, TabContent, TabPane, Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 import { Colxx } from 'components/common/CustomBootstrap';
-import Breadcrumb from 'containers/navs/Breadcrumb';
+import BreadcrumbContainer from 'containers/navs/Breadcrumb';
 import IconCardsCarousel from 'containers/dashboards/IconCardsCarousel';
 import UsersChartCard from 'containers/dashboards/UsersChartCard';
 import NewsLetter from 'containers/dashboards/NewsLetter';
@@ -38,12 +38,14 @@ const DefaultDashboard = ({ intl, match }) => {
 
   return (
     <>
-      <Row >
+      <Row>
         <Colxx xxs="12">
-        <div className='font-weight-bold mb-0 pb-0' style={{marginLeft:'22px'}}>
-
-          <Breadcrumb heading="menu.dashboards" match={match}  />
-        </div>
+          <div
+            className="font-weight-bold mb-0 pb-0"
+            style={{ marginLeft: '22px' }}
+          >
+            <BreadcrumbContainer heading="menu.dashboards" match={match} />
+          </div>
           {/* <Separator className="mb-5" /> */}
         </Colxx>
       </Row>
@@ -89,7 +91,7 @@ const DefaultDashboard = ({ intl, match }) => {
               </Colxx>
             </Row>
             <Row>
-              <Colxx lg="12" xl="12" md="12" className="mb-4">
+              <Colxx lg="12" xl="12" md="12" className="mb-2">
                 <IconCardsCarousel />
               </Colxx>
             </Row>

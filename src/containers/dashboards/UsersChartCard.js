@@ -23,17 +23,27 @@ const UsersChartCard = () => {
       <CardBody>
         <div className="float-left float-none-xs">
           <div className="d-inline-block">
-            <h5 className="d-inline font-weight-bold">
+            <h5
+              className="d-inline font-weight-bold"
+              style={{ fontSize: '24px' }}
+            >
               <IntlMessages id="dashboards.users" />
             </h5>
-            <span className="text-muted text-small d-block mt-2">
+            <span className="text-muted text-small d-block mt-3">
               <IntlMessages id="dashboards.in-total" />
             </span>
             <div className=" d-flex flex-row align-items-center">
-              <h2 className="d-inline-block mt-1 font-weight-bold">26,201</h2>
-              <span className="ml-2 d-inline mb-2 text-primary">
-                10%{' '}
-                <FaCaretUp className="text-extra-small" />
+              <h2
+                className="d-inline-block mt-1 font-weight-bold"
+                style={{ fontSize: '28px' }}
+              >
+                26,201
+              </h2>
+              <span
+                className="ml-2 d-inline mb-2 text-primary font-weight-bold"
+                style={{ fontSize: '14px' }}
+              >
+                10% <FaCaretUp className="" />
               </span>
             </div>
           </div>
@@ -53,8 +63,11 @@ const UsersChartCard = () => {
               </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown> */}
-          <Nav className="rounded border border-muted" style={{ backgroundColor: "#F8F9FB", padding: "5px 10px" }}>
-            <NavItem className='card'>
+          <Nav
+            className="rounded border border-muted"
+            style={{ backgroundColor: '#F8F9FB', padding: '5px 10px' }}
+          >
+            <NavItem className="card">
               <NavLink active href="#">
                 <IntlMessages id="dashboards.daily" />
               </NavLink>

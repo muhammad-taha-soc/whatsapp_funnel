@@ -142,7 +142,7 @@ const NewsLetter = () => {
         Header: 'Newsletter',
         accessor: 'newsLetter',
         cellClass: 'font-weight-bold w-25',
-        Cell: (props) => <>{props.value}</>,
+        Cell: (props) => <span style={{fontSize:'14px'}}>{props.value}</span>,
         sortType: 'basic',
       },
       {
@@ -198,21 +198,33 @@ const NewsLetter = () => {
     <Card className="h-100">
       <CardBody>
         <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
-          <IntlMessages id="Newsletter" />
+          <span style={{ fontSize: '24px' }}>
+            <IntlMessages id="Newsletter" />
+          </span>
           <div>
-            <Badge style={{fontWeight: '400'}}
+            <Badge
+              style={{ fontWeight: '400', fontSize: '14px' }}
               color=""
               className="mb-1 mr-2 rounder align-content-center border border-theme-4"
             >
-              <img className="mr-2" alt='calendar' src="/assets/img/dashboard/calendar-icon.svg" />
-              <IntlMessages className='font-weight-light' id="dashboards.select-date" />
+              <img
+                className="mr-2"
+                alt="calendar"
+                src="/assets/img/dashboard/calendar-icon.svg"
+              />
+              <IntlMessages
+                className="font-weight-light"
+                id="dashboards.select-date"
+              />
             </Badge>
-            <Badge style={{fontWeight: '400'}}color="" className="mb-1 border border-theme-4">
-              
+            <Badge
+              style={{ fontWeight: '400', fontSize: '14px' }}
+              color=""
+              className="mb-1 border border-theme-4"
+            >
               <BsSliders2 className="mr-2" size={15} />
 
               <IntlMessages id="dashboards.filters" />
-              
             </Badge>{' '}
           </div>
         </CardTitle>

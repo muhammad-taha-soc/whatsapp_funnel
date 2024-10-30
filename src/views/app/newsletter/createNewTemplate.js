@@ -126,11 +126,16 @@ const CreateNewTemplate = ({ intl, match }) => {
                 </NavLink>
               </NavItem>
             </Nav> */}
-            <div className="d-flex flex-row justify-content-around align-items-center font-weight-bold">
-              <IntlMessages id={`${'Dashboard'}`} />
+            <div
+              className="d-flex flex-row justify-content-around align-items-center font-weight-bold"
+              style={{ fontSize: '16px' }}
+            >
+              <span className="text-primary">
+                <IntlMessages id={`${'Dashboard'}`} />
+              </span>
               <GoTriangleRight className="ml-2 mr-2" />
               <IntlMessages id={`${'Newsletter'}`} />
-              <GoTriangleRight className="ml-2 mr-2" />
+              <GoTriangleRight className="ml-2 mr-2 text-muted" />
               <div className="text-muted">
                 <IntlMessages id={`${'Create Newsletter'}`} />
               </div>
@@ -146,7 +151,7 @@ const CreateNewTemplate = ({ intl, match }) => {
               <Button
                 color="light"
                 className="default  btn-primary bg-theme-1 mr-1 text-white font-weight-bold"
-                style={{ borderRadius: '0.5rem' }}
+                style={{ borderRadius: '0.5rem', fontSize: '14px' }}
               >
                 <IntlMessages id={`${'Send To Review'}`} />
               </Button>{' '}
@@ -205,20 +210,26 @@ const CreateNewTemplate = ({ intl, match }) => {
             </div> */}
           </div>
           <TabContent activeTab={activeSecondTab}>
-            <TabPane tabId="1">
+            <TabPane tabId="1" style={{ fontSize: '14px' }}>
               <Row>
                 <Colxx lg="6" xl="6" md="6">
                   <Row>
                     <Colxx lg="6" xl="6" md="6" className="mb-4">
                       <FormGroup className="mb-2">
-                        <Label>
+                        <Label
+                          className="text-muted"
+                          style={{ fontSize: '14px', fontWeight: '500' }}
+                        >
                           <IntlMessages id="Template Name" />
                         </Label>
                         <Input type="name" placeholder="Enter name" />
                       </FormGroup>
                     </Colxx>
                     <Colxx lg="6" xl="6" md="6" className="mb-4">
-                      <Label>
+                      <Label
+                        className="text-muted"
+                        style={{ fontSize: '14px', fontWeight: '500' }}
+                      >
                         <IntlMessages id="Language" />
                       </Label>
                       <FormGroup className="">
@@ -246,7 +257,7 @@ const CreateNewTemplate = ({ intl, match }) => {
                       <CardTitle className="mb-2 font-weight-bold">
                         Blah Blah
                       </CardTitle>
-                      <div>
+                      <div className='text-muted' style={{fontSize:'14px'}}>
                         <IntlMessages id="Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. " />
                       </div>
                     </Colxx>
@@ -254,7 +265,10 @@ const CreateNewTemplate = ({ intl, match }) => {
                   <Row>
                     <Colxx lg="12" xl="12" md="12" className="mb-4">
                       <FormGroup className="mb-2">
-                        <Label>
+                        <Label
+                          className="text-muted"
+                          style={{ fontSize: '14px', fontWeight: '500' }}
+                        >
                           <IntlMessages id="Headers (Optional)" />
                         </Label>
                         <div className="d-flex flex-row justify-content-between">
@@ -297,7 +311,10 @@ const CreateNewTemplate = ({ intl, match }) => {
                   <Row>
                     <Colxx lg="12" xl="12" md="12" className="mb-4">
                       <FormGroup className="mb-2">
-                        <Label>
+                        <Label
+                          className="text-muted"
+                          style={{ fontSize: '14px', fontWeight: '500' }}
+                        >
                           <IntlMessages id="Message" />
                         </Label>
                         {/* <ReactQuill
@@ -316,7 +333,10 @@ const CreateNewTemplate = ({ intl, match }) => {
                   <Row>
                     <Colxx lg="12" xl="12" md="12" className="mb-4">
                       <FormGroup className="mb-2">
-                        <Label>
+                        <Label
+                          className="text-muted"
+                          style={{ fontSize: '14px', fontWeight: '500' }}
+                        >
                           <IntlMessages id="Footer (Optional)" />
                         </Label>
                         <Input type="name" placeholder="Enter Footer text" />
@@ -325,13 +345,19 @@ const CreateNewTemplate = ({ intl, match }) => {
                   </Row>
                   <Row>
                     <Colxx lg="6" xl="6" md="6" className="mb-2">
-                      <Label>
+                      <Label
+                        className="text-muted"
+                        style={{ fontSize: '14px', fontWeight: '500' }}
+                      >
                         <IntlMessages id="Button text" />
                       </Label>
                       <Input type="name" placeholder="Enter button text" />
                     </Colxx>
                     <Colxx lg="6" xl="6" md="6" className="mb-2">
-                      <Label>
+                      <Label
+                        className="text-muted"
+                        style={{ fontSize: '14px', fontWeight: '500' }}
+                      >
                         <IntlMessages id="Website URL" />
                       </Label>
                       <Input type="name" placeholder="Enter website URL" />
@@ -345,7 +371,10 @@ const CreateNewTemplate = ({ intl, match }) => {
                   <Row>
                     <Colxx lg="12" xl="12" md="12" className="mb-4">
                       <FormGroup className="mb-2">
-                        <Label>
+                        <Label
+                          className="text-muted"
+                          style={{ fontSize: '14px', fontWeight: '500' }}
+                        >
                           <IntlMessages id="Variable" />
                         </Label>
                         <Input type="name" placeholder="" />

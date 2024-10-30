@@ -155,7 +155,7 @@ const History = () => {
         Header: 'Surname',
         accessor: 'newsLetter',
         cellClass: 'font-weight-bold w-20',
-        Cell: (props) => <>{props.value}</>,
+        Cell: (props) => <span style={{fontSize:'14px'}}>{props.value}</span>,
         sortType: 'basic',
       },
       {
@@ -226,9 +226,15 @@ const History = () => {
     <Card className="h-100">
       <CardBody>
         <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
-          <IntlMessages id="History" />
+          <span style={{ fontSize: '24px' }}>
+            <IntlMessages id="History" />
+          </span>
           <div>
-            <Badge color="" className="mb-1 border border-theme-4">
+            <Badge
+              color=""
+              className="mb-1 border border-theme-4"
+              style={{ fontWeight: '400', fontSize: '14px' }}
+            >
               <BsSliders2 className="mr-2" size={15} />
               <IntlMessages id="dashboards.filters" />
             </Badge>{' '}

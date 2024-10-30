@@ -10,7 +10,12 @@ const data = [
       <img
         src="/assets/img/cards/coupon-primary.svg"
         alt="coupon"
-        className="mb-2 bg-primary-opacity-icons rounded"
+        className="mb-3 bg-primary-opacity-icons rounded"
+  //       style={{
+  // maxWidth: '66px !important',
+  // maxHeight: '66px'
+
+  //       }}
       />
     ),
     title: 'Redeemed coupons',

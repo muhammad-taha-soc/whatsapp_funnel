@@ -14,7 +14,6 @@ import {
 import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io';
 // import {  } from 'react-icons/io';
 
-
 const DataTablePagination = ({
   page,
   pages,
@@ -105,12 +104,7 @@ const DataTablePagination = ({
 
   return (
     <>
-    <div className="d-flex justify-content-between align-items-center">
-           <div className='font-inter text-[14px] font-medium leading-[20px] tracking-[0.005em] text-left text-[#858D9D]'>
-        Showing 1-10 from 25
-       </div>
       <div className="text-right">
-
         {showPageJump && (
           <div className="float-left pt-2">
             <span>Page </span>
@@ -180,7 +174,6 @@ const DataTablePagination = ({
             </UncontrolledDropdown>
           </div>
         )}
-      </div>
       </div>
     </>
   );

@@ -6,6 +6,8 @@
   border: initial;
   padding-top: 1rem;
   cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .nav-tabs .nav-link.active,
@@ -58,6 +60,9 @@
   border: initial;
   position: relative;
   color: $theme-color-1;
+    font-size: 16px;
+    font-weight: 400;
+
 }
 
 .nav-tabs .nav-link:hover,

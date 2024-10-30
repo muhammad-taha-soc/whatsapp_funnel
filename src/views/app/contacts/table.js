@@ -4,7 +4,7 @@ import { Row, TabPane } from 'reactstrap';
 // import { NavLink } from 'react-router-dom';
 // import classnames from 'classnames';
 import { Colxx } from 'components/common/CustomBootstrap';
-import Breadcrumb from 'containers/navs/Breadcrumb';
+import BreadcrumbContainer from 'containers/navs/Breadcrumb';
 import CustomersTable from 'containers/contacts/CustomersTable';
 import { GoTriangleRight } from 'react-icons/go';
 import IntlMessages from 'helpers/IntlMessages';
@@ -35,7 +35,7 @@ const DefaultCustomers = ({ match }) => {
       <Row>
         <Colxx xxs="12">
           <div className="" style={{ marginLeft: '21px' }}>
-            <Breadcrumb heading="menu.customers" match={match} />
+            <BreadcrumbContainer heading="menu.customers" match={match} />
           </div>
           {/* <Separator className="mb-5" /> */}
         </Colxx>
