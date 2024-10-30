@@ -47,7 +47,7 @@ const OverviewModal = ({ customer, onClose }) => {
                 <div >
                     <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                            <img src={'/assets/img/modals/wifi-box.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
+                            <img src={'/assets/img/modals/flag-alt.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
                             <span style={{ fontSize: '14px', fontWeight: "500" }}> Coupon ID </span>
                         </div>
                         <div style={{ fontWeight: '800' }}>111221254</div>
@@ -55,7 +55,7 @@ const OverviewModal = ({ customer, onClose }) => {
                     <Separator className="mb-2" />
                     <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                            <img src={'/assets/img/modals/flag-alt.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
+                            <img src={'/assets/img/modals/user.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
                             <span style={{ fontSize: '14px', fontWeight: "500" }}> Action Name</span>
                         </div>
                         <div style={stylesOnHold}>list</div>
@@ -63,7 +63,7 @@ const OverviewModal = ({ customer, onClose }) => {
                     <Separator className="mb-2" />
                     <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                            <img src={'/assets/img/modals/user.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
+                            <img src={'/assets/img/modals/laptop.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
                             <span style={{ fontSize: '14px', fontWeight: "500" }}> Source of origin</span>
                         </div>
                         <div style={{ fontWeight: '800' }}>Demo</div>
@@ -71,7 +71,7 @@ const OverviewModal = ({ customer, onClose }) => {
                     <Separator className="mb-2" />
                     <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                            <img src={'/assets/img/modals/laptop.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
+                            <img src={'/assets/img/modals/wifi-box.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
                             <span style={{ fontSize: '14px', fontWeight: "500" }}> Status</span>
                         </div>
                         <div
@@ -111,7 +111,7 @@ const OverviewModal = ({ customer, onClose }) => {
                     <Separator className="mb-2" />
                     <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                            <img src={'/assets/img/modals/wifi-box.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
+                            <img src={'/assets/img/modals/calendar.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
                             <span style={{ fontSize: '14px', fontWeight: "500" }}> Issue date</span>
                         </div>
                         <div style={{ fontWeight: '800' }}>10/12/2024</div>
