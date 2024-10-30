@@ -47,6 +47,7 @@
     color: $secondary-color;
     text-align: center;
     margin-left: $main-margin-xs;
+
     svg {
       height: 12px;
       fill: $primary-color;
@@ -217,6 +218,7 @@
 
     @include respond-below(lg) {
       width: $sub-menu-width * 0.7;
+
       input {
         width: 85%;
       }
@@ -224,6 +226,7 @@
 
     @include respond-below(md) {
       width: $sub-menu-width/2;
+
       input {
         width: 85%;
       }
@@ -469,6 +472,7 @@
       .header-icons {
         margin-right: initial;
         margin-left: 0.5rem;
+
         @include respond-below(xs) {
           margin-left: 0;
         }

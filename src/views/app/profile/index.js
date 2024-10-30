@@ -40,61 +40,67 @@ const DefaultProfile = ({ intl, match }) => {
             <Row>
                 <Colxx xxs="12">
                     <Breadcrumb heading="Profile Setting" match={match} />
-                    <Separator className="mb-5" />
                 </Colxx>
                 <Colxx xxs="12" xs="12" sm="12" lg="12" md="12" xxl="12" xl="12">
-                    <Nav tabs className=" mb-3 ml-0 mr-0">
-                        <NavItem className="w-14 text-center">
-                            <NavLink
-                                to="#"
-                                location={{}}
-                                className={classnames({
-                                    active: activeTab === '1',
-                                    'nav-link': true,
-                                })}
-                                onClick={() => {
-                                    setActiveTab('1');
-                                }}
-                            >
-                                Profile Info
-                            </NavLink>
-                        </NavItem>
-                        <NavItem className="w-14 text-center">
-                            <NavLink
-                                to="#"
-                                location={{}}
-                                className={classnames({
-                                    active: activeTab === '2',
-                                    'nav-link': true,
-                                })}
-                                onClick={() => {
-                                    setActiveTab('2');
-                                }}
-                            >
-                                Account Setting
-                            </NavLink>
-                        </NavItem>
-                        <NavItem className="w-14 text-center">
-                            <NavLink
-                                to="#"
-                                location={{}}
-                                className={classnames({
-                                    active: activeTab === '3',
-                                    'nav-link': true,
-                                })}
-                                onClick={() => {
-                                    setActiveTab('3');
-                                }}
-                            >
-                                Payments
-                            </NavLink>
-                        </NavItem>
-                    </Nav>
-                    <TabContent activeTab={activeTab}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+                        <div style={{ width: '90%' }}>
+                            <Nav tabs className="ml-0 mr-0">
+                                <NavItem className="w-14 text-center">
+                                    <NavLink
+                                        to="#"
+                                        location={{}}
+                                        className={classnames({
+                                            active: activeTab === '1',
+                                            'nav-link': true,
+                                        })}
+                                        onClick={() => {
+                                            setActiveTab('1');
+                                        }}
+                                    >
+                                        Profile Info
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem className="w-14 text-center">
+                                    <NavLink
+                                        to="#"
+                                        location={{}}
+                                        className={classnames({
+                                            active: activeTab === '2',
+                                            'nav-link': true,
+                                        })}
+                                        onClick={() => {
+                                            setActiveTab('2');
+                                        }}
+                                    >
+                                        Account Setting
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem className="w-14 text-center">
+                                    <NavLink
+                                        to="#"
+                                        location={{}}
+                                        className={classnames({
+                                            active: activeTab === '3',
+                                            'nav-link': true,
+                                        })}
+                                        onClick={() => {
+                                            setActiveTab('3');
+                                        }}
+                                    >
+                                        Payments
+                                    </NavLink>
+                                </NavItem>
+                            </Nav>
+                        </div>
+                        <div className="b-btn" style={{ border: '1px solid #0DAC8A', color: "#0DAC8A", minWidth: "120px", textAlign: "center" }}>
+                            Save Change
+                        </div>
+                    </div>
+                    <TabContent activeTab={activeTab} >
                         <TabPane tabId="1">
-                            <Row>
-                                <Colxx xxs="12" lg="12" md="12" xl="12" className="">
-                                    <div className='card' style={{ padding: "10px" }}>
+                            <Row >
+                                <Colxx xxs="12" lg="12" md="12" xl="12" className="" >
+                                    <div className='card' style={{ padding: "10px", borderTopLeftRadius: "16px", borderTopRightRadius: "16px" }}>
                                         <div className="bg-theme-1 account-profile-background-layer account-profile-background-layer-btn"
                                             style={{ borderRadius: '10px' }}
                                         >
