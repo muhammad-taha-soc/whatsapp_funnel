@@ -50,9 +50,9 @@ const EditCoupon = ({ isOpen, onClose }) => {
             cursor: 'pointer',
             transition: 'background 0.3s',
             color: '#0DAC8A',
-            marginRight: '10px',
+            marginRight: '15px',
             position: 'absolute',
-            left: '80px',
+            left: '85px',
             transform: 'translateY(-15%)',
         },
         formGroup: {
@@ -116,6 +116,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
             borderRadius: '8px',
             overflow: 'hidden',
             marginRight: '10px',
+            border: '1.33px solid #EEEEEE',
         },
     };
 
