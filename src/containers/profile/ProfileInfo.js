@@ -61,7 +61,7 @@ const ProfileInfo = () => {
 
             <CardBody>
                 <Separator className="mb-3" />
-                <h2 style={{ fontWeight: '600', fontSize: '16px' }}>General Information</h2>
+                <h2 style={{ fontWeight: '600', fontSize: '16px', marginLeft: "8px" }}>General Information</h2>
                 <Row>
                     <Colxx
                         md="6"
@@ -186,7 +186,7 @@ const ProfileInfo = () => {
                     </Colxx>
 
                 </Row>
-                <h2 style={{ fontWeight: '600', fontSize: '16px', color: "#0D0D26" }}>Opening Hours</h2>
+                <h2 style={{ fontWeight: '600', fontSize: '16px', color: "#0D0D26", marginLeft: "8px" }}>Opening Hours</h2>
                 <Row>
                     <Colxx
                         md="6"
@@ -194,7 +194,7 @@ const ProfileInfo = () => {
                         xl="6"
                         className="mb-4"
                     >
-                        <Row>
+                        <Row style={{ marginLeft: "-22px" }}>
                             <Colxx
                                 md="3"
                                 lg="3"
@@ -234,8 +234,8 @@ const ProfileInfo = () => {
 
                             >
                                 <div className='form-inp-box'>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
-                                        style={{ border: "none" }}
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
+                                        style={{ border: "none", fontSize: "14px" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
                                 </div>
@@ -259,7 +259,7 @@ const ProfileInfo = () => {
 
                             >
                                 <div className='form-inp-box'>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
                                         style={{ border: "none" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
@@ -284,7 +284,7 @@ const ProfileInfo = () => {
 
                             >
                                 <div className='form-inp-box'>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
                                         style={{ border: "none" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
@@ -309,7 +309,7 @@ const ProfileInfo = () => {
 
                             >
                                 <div className='form-inp-box'>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
                                         style={{ border: "none" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
@@ -334,7 +334,7 @@ const ProfileInfo = () => {
 
                             >
                                 <div className='form-inp-box'>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
                                         style={{ border: "none" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
@@ -359,7 +359,7 @@ const ProfileInfo = () => {
 
                             >
                                 <div className='form-inp-box'>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
                                         style={{ border: "none" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
@@ -384,7 +384,7 @@ const ProfileInfo = () => {
 
                             >
                                 <div className='form-inp-box'>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
                                         style={{ border: "none" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
