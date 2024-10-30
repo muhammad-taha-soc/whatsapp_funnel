@@ -288,7 +288,7 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
-            fontWeight:'500', fontSize: '14px'
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.id" />
           </div>
@@ -299,8 +299,8 @@ const CouponsTable = () => {
           <div
             style={{
               cursor: 'pointer',
-                fontWeight:'500', fontSize: '14px',
-                color: '#1A1C21'
+              fontWeight: '500', fontSize: '14px',
+              color: '#1A1C21'
             }}
           >
             {value}
@@ -313,7 +313,7 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
-              fontWeight:'500', fontSize: '14px'
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.status" />
           </div>
@@ -373,7 +373,7 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
-              fontWeight:'500', fontSize: '14px'
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.actionName" />
           </div>
@@ -384,7 +384,7 @@ const CouponsTable = () => {
             style={{
               cursor: 'pointer',
               color: '#667085',
-                fontWeight:'500', fontSize: '14px'
+              fontWeight: '500', fontSize: '14px'
             }}
           >
             {value}
@@ -397,7 +397,7 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
-              fontWeight:'500', fontSize: '14px'
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.sourceofOrigin" />
           </div>
@@ -408,7 +408,7 @@ const CouponsTable = () => {
             style={{
               cursor: 'pointer',
               color: '#667085',
-                fontWeight:'500', fontSize: '14px'
+              fontWeight: '500', fontSize: '14px'
             }}
           >
             {value}
@@ -421,7 +421,7 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
-              fontWeight:'500', fontSize: '14px'
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.issue-date" />
           </div>
@@ -432,7 +432,7 @@ const CouponsTable = () => {
             style={{
               cursor: 'pointer',
               color: '#667085',
-                fontWeight:'500', fontSize: '14px'
+              fontWeight: '500', fontSize: '14px'
             }}
           >
             {value}
@@ -445,7 +445,7 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
-              fontWeight:'500', fontSize: '14px'
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.redemption-date" />
           </div>
@@ -456,7 +456,7 @@ const CouponsTable = () => {
             style={{
               cursor: 'pointer',
               color: '#667085',
-                fontWeight:'500', fontSize: '14px'
+              fontWeight: '500', fontSize: '14px'
             }}
           >
             {value}
@@ -469,7 +469,7 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
-              fontWeight:'500', fontSize: '14px'
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.name" />
           </div>
@@ -480,7 +480,7 @@ const CouponsTable = () => {
             style={{
               cursor: 'pointer',
               color: '#667085',
-                fontWeight:'500', fontSize: '14px'
+              fontWeight: '500', fontSize: '14px'
             }}
           >
             {value}
@@ -493,7 +493,7 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
-              fontWeight:'500', fontSize: '14px'
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.telephone" />
           </div>
@@ -504,7 +504,7 @@ const CouponsTable = () => {
             style={{
               cursor: 'pointer',
               color: '#667085',
-                fontWeight:'500', fontSize: '14px'
+              fontWeight: '500', fontSize: '14px'
             }}
           >
             {value}
@@ -517,7 +517,7 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
-              fontWeight:'500', fontSize: '14px'
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.action" />
           </div>
@@ -529,7 +529,7 @@ const CouponsTable = () => {
           >
             <button
               type="button"
-              onClick={() => handleActionToggle(row.id)}
+              // onClick={() => handleActionToggle(row.id)}
               className="btn btn-link"
               aria-expanded={expandedRowId === row.id}
               aria-haspopup="true"
@@ -587,33 +587,33 @@ const CouponsTable = () => {
   return (
     <>
       <Card className="h-100" style={{ borderRadius: '16px' }}>
-      <CardBody style={{ padding: '0px' }}>
-                    <CardTitle className="d-flex flex-row justify-content-between font-weight-bold mb-0"
-                        style={{ padding: '20px 22px' }}
-                    >
-                           <div
-            className="input-group"
-            style={{ width: '300px', position: 'relative' }}
+        <CardBody style={{ padding: '0px' }}>
+          <CardTitle className="d-flex flex-row justify-content-between font-weight-bold mb-0"
+            style={{ padding: '20px 22px' }}
           >
-            <Input
-              type="text"
-              placeholder="Search Customer..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              style={{ paddingLeft: '30px', borderRadius: '5px'}}
-            />
-            <IoSearchOutline
-              className="search-icon"
-              style={{
-                position: 'absolute',
-                left: '10px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 1,
-                color: '#888',
-              }}
-            />
-          </div>
+            <div
+              className="input-group"
+              style={{ width: '300px', position: 'relative' }}
+            >
+              <Input
+                type="text"
+                placeholder="Search Customer..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                style={{ paddingLeft: '30px', borderRadius: '5px' }}
+              />
+              <IoSearchOutline
+                className="search-icon"
+                style={{
+                  position: 'absolute',
+                  left: '10px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  zIndex: 1,
+                  color: '#888',
+                }}
+              />
+            </div>
             <div>
               <Badge
                 color=""
@@ -621,8 +621,8 @@ const CouponsTable = () => {
                 style={{ cursor: 'pointer', padding: '10px 15px' }}
               >
                 <BsSliders2 className="mr-2" size={17} />
-               
-                <IntlMessages id="dashboards.filters"/>
+
+                <IntlMessages id="dashboards.filters" />
               </Badge>
               {filterDropdownOpen && (
                 <div
@@ -837,7 +837,7 @@ const CouponsTable = () => {
               )}
             </div>
           </CardTitle>
-          <Separator className=" separator-class"  />
+          <Separator className=" separator-class" />
           <Table
             columns={cols}
             data={sampleCoupons}

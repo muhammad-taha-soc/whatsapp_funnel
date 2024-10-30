@@ -28,14 +28,14 @@ const CreateModal = ({ customer, onClose }) => {
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
     const handleChange = (event) => {
-      setSelectedOption(event.target.value);
-    };  
+        setSelectedOption(event.target.value);
+    };
     // if (!isOpen) return null;
 
 
 
     const modalStyles = {
-           input: {
+        input: {
             width: '100%',
             padding: '10px',
             border: '1px solid #ccc',
@@ -45,15 +45,17 @@ const CreateModal = ({ customer, onClose }) => {
             fontWeight: 'bold',
             color: '#667085',
             marginBottom: '4px',
-            marginTop: '4px',
+            marginTop: '20px',
+            fontSize: "14px",
+            fontWeight: "500"
 
         },
         input: {
             width: '100%',
             padding: '10px',
             border: '1px solid #ccc',
-            borderRadius: '4px',
-            marginBottom:'4px'
+            borderRadius: '8px',
+            // marginBottom: '4px'
         },
         textarea: {
             width: '100%',
@@ -62,7 +64,7 @@ const CreateModal = ({ customer, onClose }) => {
             borderRadius: '4px',
             resize: 'none',
             height: '80px',
-            marginBottom:'4px'
+            marginBottom: '20px'
         },
 
     };
@@ -86,27 +88,27 @@ const CreateModal = ({ customer, onClose }) => {
         <div className="modal-overlay">
             <div className="modal-content">
                 <header className="modal-header" style={{ color: '#1A1C21', height: '30px', fontSize: '20px', fontWeight: '600px', padding: 0 }}>
-                    <h2 style={{ fontWeight: '600px', fontSize: '20px' }}>Create Coupon</h2>
-                    <button className="close-button" onClick={onClose}>✖</button>
+                    <h2 style={{ fontWeight: '600px', fontSize: '20px', margin: 0 }}>Create Coupon</h2>
+                    <img src={'/assets/img/modals/cross.svg'} style={{ width: '16px', height: '16px' }} alt='Visa' onClick={onClose} />
                 </header>
 
                 <div className="modal-body" style={{ padding: 0 }}>
                     <div className="">
                         <div className="left-column">
                             <Colxx className='customer-name' xxs='12' lg='12' md='12' xl='12' style={{ color: 'black', padding: 0 }}>
-                                <div style={{ color: "#667085",    marginTop: '16px' }}>Coupon Image </div>
+                                <div style={{ color: "#667085", marginTop: '20px', fontSize: "14px", fontWeight: "500", marginBottom: "4px" }}>Coupon Image </div>
                                 <div className="avatar-container">
                                     <div className="avatar-box"></div>
-                                    <div className="upload-icon" style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 0 }}>
+                                    <div className="upload-icon" style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 0, marginLeft: "10px" }}>
                                         <img src={'/assets/img/modals/upload.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
-                                        <div style={{ color: "#0DAC8A" }}>
+                                        <div style={{ color: "#0DAC8A", fontSize: "14px", fontWeight: "600" }}>
                                             upload image
                                         </div>
                                     </div>
 
                                 </div>
 
-                                <div style={{ color: "#667085", fontWeight: '500', fontSize: '14px', marginBottom: '8px',marginBottom: '20px' }}>Choose one of the Following </div>
+                                <div style={{ color: "#667085", fontWeight: '500', fontSize: '14px', marginBottom: '12px' }}>Choose one of the Following </div>
                                 {/* <Colxx style={{ padding: 0 }}>
                                     <div className="flex-container">
                                         <Input
@@ -173,79 +175,79 @@ const CreateModal = ({ customer, onClose }) => {
                                         </label>
                                     </div>
                                 </Colxx> */}
-        <div className="radio-group">
-          <label className="radio-label">
-            <input
-              type="radio"
-              name="marketing-preference"
-              value="google-reviews"
-              className="radio-input"
-            />
-            <span className="radio-custom"></span>
-            Google Reviews
-          </label>
+                                <div className="radio-group">
+                                    <label className="radio-label">
+                                        <input
+                                            type="radio"
+                                            name="marketing-preference"
+                                            value="google-reviews"
+                                            className="radio-input newsletter"
+                                        />
+                                        <span className="radio-custom"></span>
+                                        <span>Google Reviews</span>
+                                    </label>
 
-          <label className="radio-label">
-            <input
-              type="radio"
-              name="marketing-preference"
-              value="newsletters"
-              className="radio-input newsletter"
-              defaultChecked
-            />
-            <span className="radio-custom"></span>
-            Newsletters
-          </label>
+                                    <label className="radio-label">
+                                        <input
+                                            type="radio"
+                                            name="marketing-preference"
+                                            value="newsletters"
+                                            className="radio-input newsletter"
+                                            defaultChecked
+                                        />
+                                        <span className="radio-custom"></span>
+                                        Newsletters
+                                    </label>
 
-          <label className="radio-label">
-            <input
-              type="radio"
-              name="marketing-preference"
-              value="promotions"
-              className="radio-input"
-            />
-            <span className="radio-custom"></span>
-            Promotions
-          </label>
-        </div>
+                                    <label className="radio-label">
+                                        <input
+                                            type="radio"
+                                            name="marketing-preference"
+                                            value="promotions"
+                                            className="radio-input newsletter"
+                                        />
+                                        <span className="radio-custom"></span>
+                                        Promotions
+                                    </label>
+                                </div>
 
-  
-                       <label style={modalStyles.label}>Action name</label>
-                        <input
-                            type="text"
-                            placeholder="Enter Name"
-                            style={modalStyles.input}
-                        />
-                     <label style={modalStyles.label}>Effective Date</label>
+
+                                <label style={modalStyles.label}>Action name</label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Name"
+                                    style={modalStyles.input}
+                                />
+                                <label style={modalStyles.label}>Effective Date</label>
 
                                 {/* <Input type='date' placeholder="Enter Name" className="custom-input" /> */}
                                 <div style={{ position: 'relative' }}>
-                            <input
-                                type="text"
-                                defaultValue="01.01.2024 - 31.12.2024"
-                                style={modalStyles.input}
-                            />
-                            <RiCalendar2Line size={22} style={{
-                                position: 'absolute',
-                                right: '10px',
-                                top: '50%',
-                                color: '#667085',
-                                transform: 'translateY(-50%)',
-                                cursor: 'pointer'
-                            }}
-                                onClick={() => setIsCalendarOpen(true)} />
-                        </div>
-                        {isCalendarOpen && (
-                <Calendar
-                    // isOpen={isCalendarOpen}
-                    onClose={() => setIsCalendarOpen(false)} // Close Calendar Modal
-                />
-            )}
-                        <label style={modalStyles.label}>Condition</label>
-                        <textarea
-                            defaultValue="Write Condition..."
-                            style={modalStyles.textarea}
-                        />
+                                    <input
+                                        type="text"
+                                        defaultValue="01.01.2024 - 31.12.2024"
+                                        style={modalStyles.input}
+                                    />
+                                    <RiCalendar2Line size={22} style={{
+                                        position: 'absolute',
+                                        right: '10px',
+                                        top: '50%',
+                                        color: '#667085',
+                                        transform: 'translateY(-50%)',
+                                        cursor: 'pointer'
+                                    }}
+                                        onClick={() => setIsCalendarOpen(true)} />
+                                </div>
+                                {isCalendarOpen && (
+                                    <Calendar
+                                        // isOpen={isCalendarOpen}
+                                        onClose={() => setIsCalendarOpen(false)} // Close Calendar Modal
+                                    />
+                                )}
+                                <label style={modalStyles.label}>Condition</label>
+                                <textarea
+                                    defaultValue="Write Condition..."
+                                    style={modalStyles.textarea}
+                                />
                                 <div className="button-container">
                                     <button className="cancel-button" onClick={onClose}>
                                         Cancel
