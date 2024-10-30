@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Card, CardTitle, Label, FormGroup, Button } from 'reactstrap';
+import {  Card, CardTitle, Label, FormGroup, Button } from 'reactstrap';
 // import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Formik, Form, Field } from 'formik';
 import { NotificationManager } from 'components/common/react-notifications';
 
-import { Colxx } from 'components/common/CustomBootstrap';
+// import { Colxx } from 'components/common/CustomBootstrap';
 import IntlMessages from 'helpers/IntlMessages';
 import { loginUser } from 'redux/actions';
 
@@ -52,9 +52,9 @@ const Login = ({ history, loading, error, loginUserAction }) => {
   const initialValues = { email, password };
 
   return (
-    <Row className="h-100">
-      <Colxx xxs="12" md="10" className="mx-auto my-auto">
-        <Card className="auth-card">
+    // <Row className="">
+      // <Colxx xxs="12"  className="">
+        <Card className="auth-card" style={{height: '99vH',padding:'24PX'}}>
           <div className="position-relative image-side ">
             {/* <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
             <p className="white mb-0">
@@ -148,8 +148,8 @@ const Login = ({ history, loading, error, loginUserAction }) => {
             </Formik>
           </div>
         </Card>
-      </Colxx>
-    </Row>
+      // </Colxx>
+    // </Row>
   );
 };
 const mapStateToProps = ({ authUser }) => {
