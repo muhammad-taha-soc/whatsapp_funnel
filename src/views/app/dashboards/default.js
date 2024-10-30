@@ -40,15 +40,15 @@ const DefaultDashboard = ({ intl, match }) => {
     <>
       <Row >
         <Colxx xxs="12">
-        <div className='ml-3'>
+        <div className='font-weight-bold mb-0 pb-0' style={{marginLeft:'22px'}}>
 
-          <Breadcrumb heading="menu.dashboards" match={match} />
+          <Breadcrumb heading="menu.dashboards" match={match}  />
         </div>
           {/* <Separator className="mb-5" /> */}
         </Colxx>
       </Row>
       <Colxx xxs="12" xs="12" sm="12" lg="12" md="12" xxl="12" xl="12">
-        <Nav tabs className=" mb-3 ml-0 mr-0">
+        <Nav tabs className=" mb-3 ml-2 mr-0">
           <NavItem className="w-14 text-center">
             <NavLink
               to="#"

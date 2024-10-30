@@ -18,9 +18,12 @@ const BreadcrumbContainer = ({ heading }) => {
   return (
     <>
       {heading && (
-        <h1>
-          <IntlMessages id={heading} />
-        </h1>
+
+        <div className="coupon-heading pb-0">
+          {heading}
+          {/* <IntlMessages style={{color:"red"}} id={heading} /> */}
+        </div>
+
       )}
       {/* <BreadcrumbItems match={match} /> */}
     </>

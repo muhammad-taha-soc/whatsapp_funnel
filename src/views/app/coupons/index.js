@@ -83,19 +83,26 @@ import { GoTriangleRight } from 'react-icons/go';
     };
     return (
       <>
-        <div className="d-flex align-items-center font-weight-bold mb-3 ml-3">
+        <div
+          className="d-flex flex-row align-items-center font-weight-bold mb-3"
+          style={{ marginLeft: '27px', fontSize: '14px' }}
+        >
           <div className="text-primary">
             <IntlMessages id={`${'Dashboard'}`} />
           </div>
           <div className="text-muted">
-            <GoTriangleRight className="ml-2 mr-2 " size={15} />
+            <GoTriangleRight
+              className="ml-2 mr-2 "
+              style={{ color: '#D1D1D4' }}
+              size={15}
+            />
             <IntlMessages id={`${'Coupon'}`} />
             {/* <GoTriangleRight className="ml-2 mr-2" /> */}
           </div>
         </div>
         <Row>
           <Colxx xxs="12">
-            <div className="ml-3">
+            <div className="" style={{ marginLeft: '21px' }}>
               <Breadcrumb heading="Coupon" match={match} />
             </div>
             {/* <Separator className="mb-5" />   */}
@@ -109,7 +116,7 @@ import { GoTriangleRight } from 'react-icons/go';
         )}
 
         <Colxx xxs="12">
-          <Nav tabs className="mb-3 ml-0 mr-0">
+          <Nav tabs className="mb-3 ml-2 mr-0">
             <NavItem className="w-14 text-center">
               <NavLink
                 to="#"

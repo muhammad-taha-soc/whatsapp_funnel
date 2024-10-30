@@ -71,12 +71,15 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
 
   return (
     <>
-      <div className="d-flex align-items-center font-weight-bold mb-3 ml-3">
+      <div
+        className="d-flex flex-row align-items-center font-weight-bold mb-3"
+        style={{ marginLeft: '27px',fontSize:'14px' }}
+      >
         <div className="text-primary">
           <IntlMessages id={`${'Dashboard'}`} />
         </div>
         <div className="text-muted">
-          <GoTriangleRight className="ml-2 mr-2 " size={15} />
+          <GoTriangleRight className="ml-2 mr-2 " style={{color:'#D1D1D4'}} size={15} />
           <IntlMessages id={`${'Newsletter'}`} />
           {/* <GoTriangleRight className="ml-2 mr-2" /> */}
         </div>
@@ -84,7 +87,7 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
 
       <Row>
         <Colxx xxs="12">
-          <div className="ml-3">
+          <div className="" style={{ marginLeft: '21px' }}>
             <Breadcrumb heading="dashboards.news-letter" match={match} />
           </div>
           {/* <Separator className="mb-5" /> */}
@@ -92,7 +95,7 @@ const DefaultNewsLetter = ({ intl, match, history }) => {
       </Row>
       <Colxx xxs="12" xs="12" sm="12" lg="12" md="12" xxl="12" xl="12">
         <div className="d-flex flex-row justify-content-between">
-          <Nav tabs className=" mb-3 ml-0 mr-0">
+          <Nav tabs className=" mb-3 ml-2 mr-0">
             <NavItem className="w-14 text-center">
               <NavLink
                 to="#"
