@@ -66,8 +66,9 @@
 
 
 .selected {
-    background-color: #0DAC8A; /* Selected color */
-    color: white; /* White text for readability */
+  
+    background-color: #0DAC8A1A;
+    color:  #0DAC8A;
 }
 
 .calendar-footer {
@@ -148,4 +149,10 @@
         height: 35px;
         padding: 8px;
     }
+}
+
+
+.default-selected {
+    background-color: #0DAC8A; /* Selected color */
+    color: white; /* White text for readability */
 }
