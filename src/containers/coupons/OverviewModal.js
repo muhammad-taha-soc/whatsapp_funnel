@@ -38,7 +38,7 @@ const OverviewModal = ({ customer, onClose }) => {
 
     return (
         <div className="modal-overlay">
-            <div className="modal-content">
+            <div className="overviewmodal-content">
                 <div className="d-flex justify-content-between align-items-center mb-4" style={{ color: 'black' }}>
                     <h2 style={{ fontSize: '20px', fontWeight: '700' }}>Overview</h2>
                     <button className="close-button" onClick={onClose}>✖</button>
@@ -144,7 +144,7 @@ const OverviewModal = ({ customer, onClose }) => {
                 </div>
                 <div>
                     <span>Note</span>
-                    <div style={{ border: '1px solid #E8E8E9', borderRadius: '8px', padding: '10px' }}>
+                    <div style={{ border: '1px solid #E8E8E9', borderRadius: '8px', padding: '10px',overflow:'auto', maxHeight:'50px' }}>
                         Lorem ipsum dolor sit amet consectetur. Urna sit felis donec adipiscing
                         vitae mi. Massa mauris ultrices ipsum venenatis consectetur pharetra
                         vitae turpis nibh. Mattis neque massa in quis eget nisi.
