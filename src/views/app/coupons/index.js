@@ -116,6 +116,8 @@ import { GoTriangleRight } from 'react-icons/go';
         )}
 
         <Colxx xxs="12">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+        <div style={{ width: '90%' }}>
           <Nav tabs className="mb-3 ml-2 mr-0">
             <NavItem className="w-14 text-center">
               <NavLink
@@ -149,8 +151,10 @@ import { GoTriangleRight } from 'react-icons/go';
               </NavLink>
             </NavItem>
 
+          </Nav>
+          </div>
             {/* New Button for Creating Coupon */}
-            <div className="ml-auto">
+            <div className="ml-auto" >
               <Button
                 className=" text-white d-flex align-items-center justify-content-center p-2"
                 onClick={handleClick}
@@ -158,13 +162,14 @@ import { GoTriangleRight } from 'react-icons/go';
                   borderColor: '#0DAC8A',
                   backgroundColor: '#0DAC8A',
                   borderRadius: '8px',
+                  minWidth: '170px'
                 }}
               >
                 <i className="simple-icon-plus mr-2" /> {/* Plus icon */}
                 Create New Coupon
               </Button>
             </div>
-          </Nav>
+            </div>
           <TabContent activeTab={activeSecondTab}>
             <TabPane tabId="1">
               <Row>

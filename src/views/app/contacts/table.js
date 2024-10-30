@@ -34,7 +34,7 @@ const DefaultCustomers = ({ match }) => {
       </div>
       <Row>
         <Colxx xxs="12">
-          <div className="" style={{ marginLeft: '21px' }}>
+          <div className="" style={{ marginLeft: '21px'}} >
             <Breadcrumb heading="menu.customers" match={match} />
           </div>
           {/* <Separator className="mb-5" /> */}

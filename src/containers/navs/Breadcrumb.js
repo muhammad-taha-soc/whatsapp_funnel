@@ -20,7 +20,7 @@ const BreadcrumbContainer = ({ heading }) => {
     <>
       {heading && (
 
-        <h1 className='pb-0'>
+        <h1 className='pb-0' style={{ fontWeight: '500' }}>
 
           <IntlMessages id={heading} />
         </h1>
@@ -28,7 +28,7 @@ const BreadcrumbContainer = ({ heading }) => {
       {/* <BreadcrumbItems match={match} /> */}
     </>
   );
-  }
+}
 
 
 // const BreadcrumbItems = ({ match }) => {

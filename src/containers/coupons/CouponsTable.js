@@ -288,16 +288,19 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+            fontWeight:'500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.id" />
           </div>
         ),
         accessor: 'id',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
+                fontWeight:'500', fontSize: '14px',
+                color: '#1A1C21'
             }}
           >
             {value}
@@ -310,6 +313,7 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+              fontWeight:'500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.status" />
           </div>
@@ -328,8 +332,8 @@ const CouponsTable = () => {
               color: 'white',
               textAlign: 'center',
               position: 'relative', // For positioning the dot correctly
-              width: '50px', // Set a fixed width for consistency
-              height: '24px', // Set a fixed height for consistency
+              width: '55px', // Set a fixed width for consistency
+              height: '26px', // Set a fixed height for consistency
               bottom: '2px',
             }}
           >
@@ -369,16 +373,18 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+              fontWeight:'500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.actionName" />
           </div>
         ), accessor: 'actionName',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
-              color: '#667085'
+              color: '#667085',
+                fontWeight:'500', fontSize: '14px'
             }}
           >
             {value}
@@ -391,16 +397,18 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+              fontWeight:'500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.sourceofOrigin" />
           </div>
         ), accessor: 'sourceOfOrigin',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
-              color: '#667085'
+              color: '#667085',
+                fontWeight:'500', fontSize: '14px'
             }}
           >
             {value}
@@ -413,16 +421,18 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+              fontWeight:'500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.issue-date" />
           </div>
         ), accessor: 'issueDate',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
-              color: '#667085'
+              color: '#667085',
+                fontWeight:'500', fontSize: '14px'
             }}
           >
             {value}
@@ -435,16 +445,18 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+              fontWeight:'500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.redemption-date" />
           </div>
         ), accessor: 'redemptionDate',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
-              color: '#667085'
+              color: '#667085',
+                fontWeight:'500', fontSize: '14px'
             }}
           >
             {value}
@@ -457,16 +469,18 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+              fontWeight:'500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.name" />
           </div>
         ), accessor: 'name',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
-              color: '#667085'
+              color: '#667085',
+                fontWeight:'500', fontSize: '14px'
             }}
           >
             {value}
@@ -479,16 +493,18 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+              fontWeight:'500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.telephone" />
           </div>
         ), accessor: 'telephoneNo',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
-              color: '#667085'
+              color: '#667085',
+                fontWeight:'500', fontSize: '14px'
             }}
           >
             {value}
@@ -501,6 +517,7 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+              fontWeight:'500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.action" />
           </div>
@@ -516,7 +533,7 @@ const CouponsTable = () => {
               className="btn btn-link"
               aria-expanded={expandedRowId === row.id}
               aria-haspopup="true"
-              style={{ cursor: 'pointer', color: "#858D9D" }}
+              style={{ cursor: 'pointer', color: "#858D9D", width: '24px', height: '24px' }}
             >
               <FaEllipsisV />
             </button>
@@ -820,7 +837,7 @@ const CouponsTable = () => {
               )}
             </div>
           </CardTitle>
-          <Separator className="mb-3" />
+          <Separator className=" separator-class"  />
           <Table
             columns={cols}
             data={sampleCoupons}
