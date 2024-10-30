@@ -15,19 +15,26 @@ const DefaultCustomers = ({ match }) => {
 
   return (
     <>
-      <div className="d-flex align-items-center font-weight-bold mb-3 ml-3">
+      <div
+        className="d-flex flex-row align-items-center font-weight-bold mb-3"
+        style={{ marginLeft: '27px', fontSize: '14px' }}
+      >
         <div className="text-primary">
           <IntlMessages id={`${'Dashboard'}`} />
         </div>
         <div className="text-muted">
-          <GoTriangleRight className="ml-2 mr-2 " size={15} />
+          <GoTriangleRight
+            className="ml-2 mr-2 "
+            style={{ color: '#D1D1D4' }}
+            size={15}
+          />
           <IntlMessages id={`${'Customer'}`} />
           {/* <GoTriangleRight className="ml-2 mr-2" /> */}
         </div>
       </div>
       <Row>
         <Colxx xxs="12">
-          <div className="ml-3">
+          <div className="" style={{ marginLeft: '21px' }}>
             <Breadcrumb heading="menu.customers" match={match} />
           </div>
           {/* <Separator className="mb-5" /> */}
