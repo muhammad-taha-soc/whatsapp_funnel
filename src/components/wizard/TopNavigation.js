@@ -5,6 +5,7 @@ import React from 'react';
 import { WithWizard } from 'react-albus';
 import { NavLink } from 'react-router-dom';
 
+
 const TopNavigation = ({ className, disableNav, topNavClick }) => {
   const getClassName = (steps, step, index, stepItem) => {
     if (steps.indexOf(step) === index) {

@@ -192,38 +192,57 @@ const CustomersTable = () => {
         () => [
             {
                 Header: () => (
-                    <div style={{ display: 'flex', alignItems: 'center', color: '#667085' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', color: '#667085', fontWeight: '500', fontSize: '14px' }}>
                         <input
                             type="checkbox"
                             // Remove onChange for no functionality
-                            style={{ marginRight: '8px' }}
+                            style={{
+                                marginRight: '8px',
+                                appearance: 'none', // Remove default styling
+                                width: '20px', // Custom width
+                                height: '20px', // Custom height
+                                border: '2px solid #A3A9B6', // Custom border color and thickness
+                                borderRadius: '6px', // Optional: Add some rounding
+                                outline: 'none', // Remove default focus outline
+                                cursor: 'pointer', // Change cursor to pointer
+                            }}
                         />
                         <IntlMessages id="contacts.title" />
                     </div>
                 ),
                 accessor: 'title',
-                cellClass: 'font-weight-bold',
                 Cell: ({ row }) => (
                     <div
                         className="checkbox-container"
-                        style={{ display: 'flex', alignItems: 'center' }}
+                        style={{ display: 'flex', alignItems: 'center', color: '#1A1C21', fontWeight: '500', fontSize: '14px' }}
                     >
                         <input
                             type="checkbox"
                             checked={selectedRows.has(row.id)}
                             onChange={() => toggleRowSelection(row.id)}
-                            style={{ marginRight: '8px' }}
+                            style={{
+                                marginRight: '8px',
+                                appearance: 'none', // Remove default styling
+                                width: '20px', // Custom width
+                                height: '20px', // Custom height
+                                border: '2px solid #A3A9B6', // Custom border color and thickness
+                                borderRadius: '6px', // Optional: Add some rounding
+                                outline: 'none', // Remove default focus outline
+                                cursor: 'pointer', // Change cursor to pointer
+                            }}
                         />
                         {row.original.title}
                     </div>
                 ),
             },
+            
             {
                 Header: () => (
                     <div style={{
                         color: '#667085',
                         // fontWeight: 'bold', // Optional: make it bold
                         // fontSize: '16px', // Adjust font size if needed
+                        fontWeight: '500', fontSize: '14px'
                     }}>
                         <IntlMessages id="contacts.status" />
                     </div>
@@ -243,6 +262,7 @@ const CustomersTable = () => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         cursor: ' pointer',
+                        fontWeight: '500', fontSize: '14px'
                     };
 
                     const stylesProcessed = {
@@ -257,6 +277,7 @@ const CustomersTable = () => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         cursor: ' pointer',
+                        fontWeight: '500', fontSize: '14px'
                     };
 
                     if (value === 'ON HOLD') {
@@ -274,6 +295,7 @@ const CustomersTable = () => {
                         color: '#667085',
                         // fontWeight: 'bold', // Optional: make it bold
                         // fontSize: '16px', // Adjust font size if needed
+                        fontWeight: '500', fontSize: '14px'
                     }}>
                         <IntlMessages id="contacts.satisfied" />
                     </div>
@@ -283,7 +305,7 @@ const CustomersTable = () => {
                 Cell: ({ value }) =>
                     value ? (
                         <AiFillCheckCircle
-                            className="text-success"
+                            // className="text-success"
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -293,7 +315,7 @@ const CustomersTable = () => {
                         />
                     ) : (
                         <AiFillCloseCircle
-                            className="text-danger"
+                            // className="text-danger"
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -309,6 +331,7 @@ const CustomersTable = () => {
                         color: '#667085',
                         // fontWeight: 'bold', // Optional: make it bold
                         // fontSize: '16px', // Adjust font size if needed
+                        fontWeight: '500', fontSize: '14px'
                     }}>
                         <IntlMessages id="contacts.review-link" />
                     </div>
@@ -318,7 +341,7 @@ const CustomersTable = () => {
                 Cell: ({ value }) =>
                     value ? (
                         <AiFillCheckCircle
-                            className="text-success"
+                            // className="text-success"
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -328,7 +351,7 @@ const CustomersTable = () => {
                         />
                     ) : (
                         <AiFillCloseCircle
-                            className="text-danger"
+                            // className="text-danger"
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -344,6 +367,7 @@ const CustomersTable = () => {
                         color: '#667085',
                         // fontWeight: 'bold', // Optional: make it bold
                         // fontSize: '16px', // Adjust font size if needed
+                        fontWeight: '500', fontSize: '14px'
                     }}>
                         <IntlMessages id="contacts.suggestion" />
                     </div>
@@ -353,7 +377,7 @@ const CustomersTable = () => {
                 Cell: ({ value }) =>
                     value ? (
                         <AiFillCheckCircle
-                            className="text-success"
+                            // className="text-success"
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -363,7 +387,7 @@ const CustomersTable = () => {
                         />
                     ) : (
                         <AiFillCloseCircle
-                            className="text-danger"
+                            // className="text-danger"
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -379,6 +403,7 @@ const CustomersTable = () => {
                         color: '#667085',
                         // fontWeight: 'bold', // Optional: make it bold
                         // fontSize: '16px', // Adjust font size if needed
+                        fontWeight: '500', fontSize: '14px'
                     }}>
                         <IntlMessages id="contacts.action" />
                     </div>
@@ -392,7 +417,7 @@ const CustomersTable = () => {
                             className="btn btn-link"
                             aria-expanded={expandedRowId === row.id}
                             aria-haspopup="true"
-                            style={{ cursor: 'pointer', color: '#858D9D' }}
+                            style={{ cursor: 'pointer', color: '#858D9D', width:'24px', height:'24px' }}
                         >
                             <FaEllipsisV />
                         </button>
@@ -441,7 +466,7 @@ const CustomersTable = () => {
         <>
             <Card className="h-100" style={{ borderRadius: '16px' }}>
                 <CardBody style={{ padding: '0px' }}>
-                    <CardTitle className="d-flex flex-row justify-content-between font-weight-bold mb-0"
+                    <CardTitle className="d-flex flex-row justify-content-between mb-0"
                         style={{ padding: '20px 22px' }}
                     >
                            <div
@@ -699,7 +724,7 @@ const CustomersTable = () => {
                             )}
                         </div>
                     </CardTitle>
-                    <Separator className="mb-3" />
+                    <Separator className=" separator-class" />
                     <Table
                         columns={cols}
                         data={filteredData}

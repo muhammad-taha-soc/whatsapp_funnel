@@ -42,9 +42,10 @@ const Modal = ({ customer, onClose }) => {
           >
             <h2
               style={{
-                fontWeight: '800px',
+                fontWeight: '600',
                 fontSize: '20px',
                 lineHeight: '23.5px',
+                color: '#1A1C21'
               }}
             >
               Customer Details
@@ -66,9 +67,11 @@ const Modal = ({ customer, onClose }) => {
                   style={{ color: 'black' }}
                 >
                   <div className="bg-theme-1  account-profile-background-layer-btn p-4">
-                    <h3 className="text-left">{dummyCustomer.title}</h3>
+                    <h3 className="text-left" style={{ fontWeight: '600', fontSize: '20px' }}>{dummyCustomer.title}</h3>
                     <div
                       style={{
+                        fontWeight: '500',
+                        fontSize: '14px',
                         borderRadius: '20px',
                         backgroundColor: 'white',
                         color: '#FF8E0D',
@@ -88,6 +91,8 @@ const Modal = ({ customer, onClose }) => {
                       <i
                         className="iconsminds-envelope-2"
                         style={{
+                          fontWeight: '500',
+                          fontSize: '14px',
                           marginRight: '8px',
                           width: '20px',
                           height: '20px',
@@ -100,7 +105,7 @@ const Modal = ({ customer, onClose }) => {
                         style={{
                           marginLeft: '28px',
                           color: 'black',
-                          fontWeight: '600px',
+                          fontWeight: '500px',
                           fontSize: '14px',
                         }}
                         // className="font-weight-bold"
@@ -126,6 +131,8 @@ const Modal = ({ customer, onClose }) => {
                           width: '20px',
                           height: '20px',
                           color: '#5C5C78',
+                          fontWeight: '500',
+                          fontSize: '14px',
                         }}
                       />
                       Telephone Number:
@@ -134,7 +141,7 @@ const Modal = ({ customer, onClose }) => {
                         style={{
                           marginLeft: '24px',
                           color: 'black',
-                          fontWeight: '600px',
+                          fontWeight: '500px',
                           fontSize: '14px',
                         }}
                         // className="font-weight-semibold"
@@ -159,6 +166,8 @@ const Modal = ({ customer, onClose }) => {
                         width: '20px',
                         height: '20px',
                         color: '#5C5C78',
+                        fontWeight: '500',
+                        fontSize: '14px',
                       }}
                     />
                     Date:
@@ -184,14 +193,16 @@ const Modal = ({ customer, onClose }) => {
                       style={{ marginRight: '2px' }}
                       size={25}
                     />{' '}
-                    <span style={{ fontSize: '16px' }}>
+                    <span style={{ fontSize: '16px', fontWeight: '500',
+                          fontSize: '14px', }}>
                       {' '}
                       Unsubscribe from Account
                     </span>
                   </button>
                   <button className="action-button">
                     <FaWhatsapp style={{ marginRight: '2px' }} size={25} />{' '}
-                    <span style={{ fontSize: '16px' }}>
+                    <span style={{ fontSize: '16px', fontWeight: '500',
+                          fontSize: '14px', }}>
                       {' '}
                       Unsubscribe from WhatsApp
                     </span>
@@ -202,13 +213,14 @@ const Modal = ({ customer, onClose }) => {
                       style={{ marginRight: '8px' }}
                       size={25}
                     />{' '}
-                    <span style={{ fontSize: '16px' }}>
+                    <span style={{ fontSize: '16px', fontWeight: '500',
+                          fontSize: '14px', }}>
                       {' '}
                       Download Contact Data
                     </span>
                   </button>
                   <button
-                    style={{ fontSize: '16px' }}
+           
                     className="delete-button"
                   >
                     <FaRegTrashCan
@@ -216,7 +228,7 @@ const Modal = ({ customer, onClose }) => {
                       style={{ marginRight: '8px' }}
                       size={20}
                     />{' '}
-                    <span> Delete Contact</span>
+                    <span style={{fontWeight: '500', fontSize: '14px' }}> Delete Contact</span>
                   </button>
                 </div>
               </div>
@@ -231,7 +243,7 @@ const Modal = ({ customer, onClose }) => {
               >
                 <div className="status">
                   <div className="status-item satisfied">
-                    <span style={{ fontSize: '16px' }}>Satisfied</span>
+                    <span style={{   fontWeight: '500', fontSize: '16px', color: '#0D0D26' }}>Satisfied</span>
                     <AiFillCheckCircle
                       style={{
                         position: 'absolute',
@@ -243,7 +255,7 @@ const Modal = ({ customer, onClose }) => {
                     />
                   </div>
                   <div className="status-item">
-                    <span style={{ fontSize: '16px' }}>
+                    <span style={{ fontWeight: '500', fontSize: '16px', color: '#0D0D26' }}>
                       Review link clicked
                     </span>
                     <AiFillCheckCircle
@@ -257,7 +269,7 @@ const Modal = ({ customer, onClose }) => {
                     />
                   </div>
                   <div className="status-item dissatisfied">
-                    <span style={{ fontSize: '16px' }}>
+                    <span style={{ fontWeight: '500', fontSize: '16px', color: '#0D0D26' }}>
                       Suggestion for improvement
                     </span>
                     <AiFillCloseCircle
@@ -274,8 +286,8 @@ const Modal = ({ customer, onClose }) => {
                 <Separator className="ml-2 mr-2 mt-4" />
                 <div className="customer-details mt-4">
                   <div className="coupons">
-                    <h4 className="font-weight-bold">Coupons</h4>
-                    <p style={{ color: '#5C5C78' }}>
+                    <h4 style={{fontWeight: '500', fontSize: '16px', color: '#0D0D26'}}>Coupons</h4>
+                    <p style={{ color: '#5C5C78', fontWeight:'400', fontSize: '14px' }}>
                       {Array.isArray(dummyCustomer.coupons)
                         ? dummyCustomer.coupons.join(', ')
                         : 'No coupons available'}
@@ -283,26 +295,26 @@ const Modal = ({ customer, onClose }) => {
                   </div>
                   <Separator className="ml-2 mr-2 mt-5" />
                   <div className="suggestions mt-4">
-                    <h4 className="font-weight-bold">
+                    <h4 style={{fontWeight: '500', fontSize: '16px', color: '#0D0D26'}}>
                       Suggestion for Improvement Submitted
                     </h4>
-                    <p style={{ color: '#5C5C78' }}>
+                    <p style={{ color: '#5C5C78', fontWeight:'400', fontSize: '14px' }}>
                       {dummyCustomer.suggestionSubmitted}
                     </p>
                   </div>
                   <Separator className="ml-2 mr-2 mt-4" />
                   <div className="reason mt-4">
-                    <h4 className="font-weight-bold">
+                    <h4 style={{fontWeight: '500', fontSize: '16px', color: '#0D0D26'}}>
                       Reason for Dissatisfaction
                     </h4>
-                    <p style={{ color: '#5C5C78' }}>
+                    <p style={{ color: '#5C5C78', fontWeight:'400', fontSize: '14px' }}>
                       {dummyCustomer.reasonDissatisfaction}
                     </p>
                   </div>
 
                   <div className="notes mt-5">
-                    <h4 className="font-weight-bold">Note Field</h4>
-                    <p>{dummyCustomer.notes}</p>
+                    <h4 style={{fontWeight: '500', fontSize: '16px', color: '#0D0D26'}}>Note Field</h4>
+                    <p style={{ color: '#5C5C78', fontWeight:'400', fontSize: '14px' }}>{dummyCustomer.notes}</p>
                   </div>
                 </div>
               </div>

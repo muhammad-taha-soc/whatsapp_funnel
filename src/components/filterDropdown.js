@@ -1,4 +1,5 @@
 /* eslint-disable */
+/* eslint-disable */
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, X } from 'lucide-react';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
@@ -50,7 +51,6 @@ export default function FilterDropdown() {
             style={{
               display: 'flex',
               alignItems: 'center',
-            //   marginBottom: '12px',
               gap: 4,
             }}
           >
@@ -68,6 +68,8 @@ export default function FilterDropdown() {
                   borderRadius: '6px',
                   width: '20px',
                   height: '20px',
+                  border: `2px solid ${value ? '#0DAC8A' : '#A3A9B6'}`, // Conditional border color based on checkbox state
+                  display: 'inline-block',
                 }}
               ></span>
             </label>
@@ -77,27 +79,27 @@ export default function FilterDropdown() {
                 marginBottom: '15px',
                 fontSize: '14px',
                 cursor: 'pointer',
-                color: '#333',
-                fontWeight: '400',
+                color: value ? '#0D0D26' : '#667085', // Conditional color based on checkbox state
+                fontWeight: '500',
+                marginLeft: '3px'
               }}
             >
               {section === 'reviewLinkClicked' && (
                 <>
-                  {key == 'done' ? (
+                  {key === 'done' ? (
                     <AiFillCheckCircle
-                      className="text-success"
+                      // className="text-success"
                       style={{
                         width: '20px',
                         height: '20px',
-                        //   color: 'red',
                         cursor: 'pointer',
                         marginLeft: '2px',
                         marginRight: '2px',
+                        color: '#0DAC8A'
                       }}
                     />
                   ) : (
                     <AiFillCloseCircle
-                      //   className="text-error"
                       style={{
                         width: '20px',
                         height: '20px',
@@ -134,7 +136,7 @@ export default function FilterDropdown() {
                 padding: '12px 16px',
                 borderBottom: '1px solid #E5E7EB'
             }}>
-                <h2 style={{ margin: 0, fontSize: '14px', fontWeight: '600', color: '#111827' }}>Filter</h2>
+                <h2 style={{ margin: 0, fontSize: '20px', fontWeight: '600', color: '#1A1C21' }}>Filter</h2>
                 <button
                     onClick={handleReset}
                     style={{
@@ -148,8 +150,8 @@ export default function FilterDropdown() {
                         alignItems: 'center'
                     }}
                 >
-                    <X size={14} style={{ marginRight: '4px', fontWeight: '900', lineHeight: '20px' }} />
-                    Reset
+                    <X  style={{width:'14px', height:'14px', marginRight: '4px' }} />
+                    <span style={{ fontWeight: '700', fontSize:'14px'}}>Reset</span>
                 </button>
             </div>
             <div style={{ padding: '12px 16px' }}>
@@ -173,7 +175,7 @@ export default function FilterDropdown() {
                                 borderBottom: '0.2px solid #E8E8E9'
                             }}
                         >
-                            <span style={{ fontSize: '12px', fontWeight: '500'}} className='text-black'>
+                            <span style={{ fontSize: '14px', fontWeight: '500'}} className='text-black'>
                                 {section === 'suggestionForImprovement' ? 'Suggestion for improvement' :
                                     section.charAt(0).toUpperCase() + section.slice(1).replace(/([A-Z])/g, ' $1')}
                             </span>
@@ -227,4 +229,3 @@ export default function FilterDropdown() {
         </div>
     );
 }
-    
