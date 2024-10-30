@@ -15,7 +15,7 @@ const DefaultCustomers = ({ match }) => {
 
   return (
     <>
-      <div className="d-flex align-items-center font-weight-bold mb-3">
+      <div className="d-flex align-items-center font-weight-bold mb-3 ml-3">
         <div className="text-primary">
           <IntlMessages id={`${'Dashboard'}`} />
         </div>
@@ -27,7 +27,9 @@ const DefaultCustomers = ({ match }) => {
       </div>
       <Row>
         <Colxx xxs="12">
-          <Breadcrumb heading="menu.customers" match={match} />
+          <div className="ml-3">
+            <Breadcrumb heading="menu.customers" match={match} />
+          </div>
           {/* <Separator className="mb-5" /> */}
         </Colxx>
       </Row>

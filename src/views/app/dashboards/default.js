@@ -40,7 +40,10 @@ const DefaultDashboard = ({ intl, match }) => {
     <>
       <Row >
         <Colxx xxs="12">
+        <div className='ml-3'>
+
           <Breadcrumb heading="menu.dashboards" match={match} />
+        </div>
           {/* <Separator className="mb-5" /> */}
         </Colxx>
       </Row>
