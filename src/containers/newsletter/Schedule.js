@@ -21,6 +21,7 @@ import IntlMessages from 'helpers/IntlMessages';
 import products from 'data/products';
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 import { BsSliders2 } from 'react-icons/bs';
+import { Separator } from 'components/common/CustomBootstrap';
 
 function Table({ columns, data }) {
 
@@ -67,7 +68,10 @@ function Table({ columns, data }) {
       <table {...getTableProps()} className="r-table table">
         <thead>
           {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr
+              {...headerGroup.getHeaderGroupProps()}
+              style={{ borderBottom: '1px solid #E8E8E9' }}
+            >
               {headerGroup.headers.map((column, columnIndex) => (
                 <th
                   className="text-muted"
@@ -125,7 +129,7 @@ function Table({ columns, data }) {
       <div className="d-flex flex-row justify-content-between align-items-center mr-2 ml-2">
         <span className="text-muted">
           <IntlMessages id="Showing " />
-          {startIndex + 1} -{data.length >= endIndex ? endIndex : data.length}
+          {startIndex + 1} - {data.length >= endIndex ? endIndex : data.length}
           <IntlMessages id=" from " />
           {data.length}
         </span>
@@ -153,21 +157,23 @@ const Schedule = () => {
       {
         Header: 'Surname',
         accessor: 'newsLetter',
-        cellClass: 'font-weight-bold w-75',
-        Cell: (props) => <span style={{fontSize:'14px'}}>{props.value}</span>,
+        cellClass: 'font-weight-medium text-14px table-heading-row-color w-75',
+        Cell: (props) => (
+          <span style={{ fontSize: '14px' }}>{props.value}</span>
+        ),
         sortType: 'basic',
       },
       {
         Header: 'Last edit',
         accessor: 'createDate',
-        cellClass: 'text-muted w-20',
+        cellClass: 'text-muted w-20 text-14px',
         Cell: (props) => <>{props.value}</>,
         sortType: 'basic',
       },
       {
         Header: 'Action',
         accessor: '',
-        cellClass: 'w-20',
+        cellClass: 'w-20 text-14px',
         Cell: (props) => <ActionDropdown props={props} />,
         // sortType: 'basic',
         disableSortBy: true,
@@ -178,7 +184,7 @@ const Schedule = () => {
 
   return (
     <Card className="h-100">
-      <CardBody>
+      <CardBody className="p-4">
         <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
           <span style={{ fontSize: '24px' }}>
             <IntlMessages id="Schedule" />
@@ -194,6 +200,7 @@ const Schedule = () => {
             </Badge>{' '}
           </div>
         </CardTitle>
+        <Separator className="separator-class" />
         <Table columns={cols} data={products} />
       </CardBody>
     </Card>

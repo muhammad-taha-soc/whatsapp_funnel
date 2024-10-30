@@ -11,6 +11,7 @@ import IntlMessages from 'helpers/IntlMessages';
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 import products from 'data/products';
 import { BsSliders2 } from 'react-icons/bs';
+import { Separator } from 'components/common/CustomBootstrap';
 // import { FaCalendarDays } from 'react-icons/fa6';
 
 function Table({ columns, data }) {
@@ -56,10 +57,14 @@ function Table({ columns, data }) {
       <table {...getTableProps()} className="r-table table">
         <thead>
           {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr
+              {...headerGroup.getHeaderGroupProps()}
+              style={{ borderBottom: '1px solid #E8E8E9' }}
+            >
               {headerGroup.headers.map((column, columnIndex) => (
+                <>
                 <th
-                  className="text-muted"
+                  className="text-muted font-weight-medium text-14px "
                   key={`th_${columnIndex}`}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                   // className={`
@@ -76,18 +81,26 @@ function Table({ columns, data }) {
                   {column.render('Header') !== 'Newsletter' && (
                     <>
                       {column.isSortedDesc ? (
-                        <FaCaretUp className="ml-2" />
+                        <FaCaretUp className="" 
+                        // style={{ marginLeft: '50%' }} 
+                        />
                       ) : (
-                        <FaCaretDown className="ml-2" />
+                        <FaCaretDown
+                          className=""
+                          // style={{ marginLeft: '50%' }}
+                        />
                       )}
                     </>
                   )}
-                  <span />
+                  {/* <span /> */}
                 </th>
+                
+                </>
               ))}
             </tr>
           ))}
         </thead>
+
         <tbody {...getTableBodyProps()}>
           {page.map((row) => {
             prepareRow(row);
@@ -113,7 +126,7 @@ function Table({ columns, data }) {
       <div className="d-flex flex-row justify-content-between align-items-center mr-2 ml-2">
         <span className="text-muted">
           <IntlMessages id="Showing " />
-          {startIndex + 1} -{data.length >= endIndex ? endIndex : data.length}
+          {startIndex + 1} - {data.length >= endIndex ? endIndex : data.length}
           <IntlMessages id=" from " />
           {data.length}
         </span>
@@ -141,21 +154,23 @@ const NewsLetter = () => {
       {
         Header: 'Newsletter',
         accessor: 'newsLetter',
-        cellClass: 'font-weight-bold w-25',
-        Cell: (props) => <span style={{fontSize:'14px'}}>{props.value}</span>,
+        cellClass: 'font-weight-medium w-25 text-14px table-heading-row-color',
+        Cell: (props) => (
+          <span style={{ fontSize: '14px' }}>{props.value}</span>
+        ),
         sortType: 'basic',
       },
       {
         Header: 'Date',
         accessor: 'createDate',
-        cellClass: 'text-muted w-20',
+        cellClass: 'text-muted w-20 text-14px',
         Cell: (props) => <>{props.value}</>,
         sortType: 'basic',
       },
       {
         Header: 'Delivered (%)',
         accessor: 'delivered',
-        cellClass: ' w-20',
+        cellClass: ' w-20 text-14px',
         Cell: (props) => (
           // <div className=" text-theme-3 bg-theme-3-opacity" >
           //   {props.value}
@@ -169,7 +184,7 @@ const NewsLetter = () => {
       {
         Header: 'Read (%)',
         accessor: 'read',
-        cellClass: ' w-20',
+        cellClass: ' w-20 text-14px',
         Cell: (props) => (
           // <div className="text-primary bg-primary-opacity ">{props.value}</div>
           <Badge color="" className="text-primary bg-primary-opacity rounded">
@@ -181,7 +196,7 @@ const NewsLetter = () => {
       {
         Header: 'Clicked (%)',
         accessor: 'clicked',
-        cellClass: ' w-20',
+        cellClass: ' w-20 text-14px',
         Cell: (props) => (
           // <div className="text-theme-2 bg-theme-2-opacity">{props.value}</div>
           <Badge color="" className="text-theme-2 bg-theme-2-opacity rounded">
@@ -196,9 +211,9 @@ const NewsLetter = () => {
 
   return (
     <Card className="h-100">
-      <CardBody>
-        <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
-          <span style={{ fontSize: '24px' }}>
+      <CardBody className='p-4'>
+        <CardTitle className="d-flex flex-row justify-content-between ">
+          <span style={{ fontSize: '24px', fontWeight: '500' }}>
             <IntlMessages id="Newsletter" />
           </span>
           <div>
@@ -228,6 +243,7 @@ const NewsLetter = () => {
             </Badge>{' '}
           </div>
         </CardTitle>
+        <Separator className="separator-class" />
         <Table columns={cols} data={products} />
       </CardBody>
       {/* <div className="">

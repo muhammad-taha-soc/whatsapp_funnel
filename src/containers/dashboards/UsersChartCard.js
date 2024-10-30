@@ -24,8 +24,8 @@ const UsersChartCard = () => {
         <div className="float-left float-none-xs">
           <div className="d-inline-block">
             <h5
-              className="d-inline font-weight-bold"
-              style={{ fontSize: '24px' }}
+              className="d-inline"
+              style={{ fontSize: '24px', fontWeight: '500' }}
             >
               <IntlMessages id="dashboards.users" />
             </h5>
@@ -68,7 +68,11 @@ const UsersChartCard = () => {
             style={{ backgroundColor: '#F8F9FB', padding: '5px 10px' }}
           >
             <NavItem className="card">
-              <NavLink active href="#">
+              <NavLink
+                active
+                href="#"
+                style={{ padding: '6px 16px' }}
+              >
                 <IntlMessages id="dashboards.daily" />
               </NavLink>
             </NavItem>

@@ -122,7 +122,7 @@ const DataTablePagination = ({
         <Pagination
           className="d-inline-block"
           size="sm"
-          listClassName="justify-content-end"
+          listClassName="justify-content-end mb-0 mt-0"
           aria-label="Page navigation example"
         >
           <PaginationItem className={`${!canPrevious && 'disabled'}`}>

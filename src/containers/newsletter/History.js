@@ -21,6 +21,7 @@ import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 
 import products from 'data/products';
 import { BsSliders2 } from 'react-icons/bs';
+import { Separator } from 'components/common/CustomBootstrap';
 
 function Table({ columns, data }) {
 
@@ -66,7 +67,10 @@ function Table({ columns, data }) {
       <table {...getTableProps()} className="r-table table">
         <thead>
           {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr
+              {...headerGroup.getHeaderGroupProps()}
+              style={{ borderBottom: '1px solid #E8E8E9' }}
+            >
               {headerGroup.headers.map((column, columnIndex) => (
                 <th
                   className="text-muted"
@@ -126,7 +130,7 @@ function Table({ columns, data }) {
       <div className="d-flex flex-row justify-content-between align-items-center mr-2 ml-2">
         <span className="text-muted">
           <IntlMessages id="Showing " />
-          {startIndex + 1} -{data.length >= endIndex ? endIndex : data.length}
+          {startIndex + 1} - {data.length >= endIndex ? endIndex : data.length}
           <IntlMessages id=" from " />
           {data.length}
         </span>
@@ -154,33 +158,38 @@ const History = () => {
       {
         Header: 'Surname',
         accessor: 'newsLetter',
-        cellClass: 'font-weight-bold w-20',
-        Cell: (props) => <span style={{fontSize:'14px'}}>{props.value}</span>,
+        cellClass: 'w-20 font-weight-medium text-14px table-heading-row-color',
+        Cell: (props) => (
+          <span style={{ fontSize: '14px' }}>{props.value}</span>
+        ),
         sortType: 'basic',
       },
       {
         Header: 'Begin',
         accessor: 'createDate',
-        cellClass: 'text-muted w-15',
+        cellClass: 'text-muted w-15 text-14px',
         Cell: (props) => <>{props.value}</>,
         sortType: 'basic',
       },
       {
         Header: 'Sent',
         accessor: 'stock',
-        cellClass: 'text-muted w-10',
+        cellClass: 'text-muted w-10 text-14px',
         Cell: (props) => <>{props.value}</>,
         sortType: 'basic',
       },
       {
         Header: 'Delivered (%)',
         accessor: 'delivered',
-        cellClass: ' w-20',
+        cellClass: ' w-20 text-14px',
         Cell: (props) => (
           // <div className=" text-theme-3 bg-theme-3-opacity">
           //   {props.value}
           // </div>
-          <Badge color="" className="text-theme-3 bg-theme-3-opacity rounded">
+          <Badge
+            color=""
+            className="text-theme-3 bg-theme-3-opacity rounded text-14px"
+          >
             <IntlMessages id={props.value} />
           </Badge>
         ),
@@ -201,7 +210,7 @@ const History = () => {
       {
         Header: 'Clicked (%)',
         accessor: 'clicked',
-        cellClass: 'w-20',
+        cellClass: 'w-20 text-14px',
         Cell: (props) => (
           // <div className="text-theme-2 bg-theme-2-opacity">{props.value}</div>
           <Badge color="" className="text-theme-2 bg-theme-2-opacity rounded">
@@ -213,7 +222,7 @@ const History = () => {
       {
         Header: 'Action',
         accessor: '',
-        cellClass: 'w-10',
+        cellClass: 'w-10 text-14px',
         Cell: (props) => <ActionDropdown props={props} />,
         // sortType: 'basic',
         disableSortBy: true,
@@ -224,7 +233,7 @@ const History = () => {
 
   return (
     <Card className="h-100">
-      <CardBody>
+      <CardBody className="p-4">
         <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
           <span style={{ fontSize: '24px' }}>
             <IntlMessages id="History" />
@@ -240,6 +249,7 @@ const History = () => {
             </Badge>{' '}
           </div>
         </CardTitle>
+        <Separator className="separator-class" />
         <Table columns={cols} data={products} />
       </CardBody>
     </Card>
