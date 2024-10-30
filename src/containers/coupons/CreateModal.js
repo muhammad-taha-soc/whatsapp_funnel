@@ -44,13 +44,16 @@ const CreateModal = ({ customer, onClose }) => {
         label: {
             fontWeight: 'bold',
             color: '#667085',
-            marginBottom: '1px',
+            marginBottom: '4px',
+            marginTop: '4px',
+
         },
         input: {
             width: '100%',
             padding: '10px',
             border: '1px solid #ccc',
             borderRadius: '4px',
+            marginBottom:'4px'
         },
         textarea: {
             width: '100%',
@@ -59,6 +62,7 @@ const CreateModal = ({ customer, onClose }) => {
             borderRadius: '4px',
             resize: 'none',
             height: '80px',
+            marginBottom:'4px'
         },
 
     };
@@ -87,10 +91,10 @@ const CreateModal = ({ customer, onClose }) => {
                 </header>
 
                 <div className="modal-body" style={{ padding: 0 }}>
-                    <div className="bordered-container">
+                    <div className="">
                         <div className="left-column">
                             <Colxx className='customer-name' xxs='12' lg='12' md='12' xl='12' style={{ color: 'black', padding: 0 }}>
-                                <div style={{ color: "#667085" }}>Coupon Image </div>
+                                <div style={{ color: "#667085",    marginTop: '16px' }}>Coupon Image </div>
                                 <div className="avatar-container">
                                     <div className="avatar-box"></div>
                                     <div className="upload-icon" style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 0 }}>
@@ -102,7 +106,7 @@ const CreateModal = ({ customer, onClose }) => {
 
                                 </div>
 
-                                <div style={{ color: "#667085", fontWeight: '500', fontSize: '14px', marginBottom: '10px' }}>Choose one of the Following </div>
+                                <div style={{ color: "#667085", fontWeight: '500', fontSize: '14px', marginBottom: '8px',marginBottom: '20px' }}>Choose one of the Following </div>
                                 {/* <Colxx style={{ padding: 0 }}>
                                     <div className="flex-container">
                                         <Input
