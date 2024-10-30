@@ -7,8 +7,8 @@ import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 import products from 'data/products';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
-  import { BsSliders2 } from 'react-icons/bs';
-
+import { IoSearchOutline } from 'react-icons/io5';
+import { BsSliders2 } from 'react-icons/bs';
 import {
   FaEllipsisV,
   FaWhatsapp,
@@ -48,16 +48,17 @@ function Table({ columns, data, onRowClick }) {
 
   return (
     <>
-      <table {...getTableProps()} className="r-table table">
+      <table {...getTableProps()} className="r-table r1-table table">
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr key={headerGroup.id} {...headerGroup.getHeaderGroupProps()}
-              style={{ borderBottom: '1px solid #f3f3f3' }} // Border for header
+              style={{ borderBottom: '1px solid #E8E8E9' }} // Border for header
             >
               {headerGroup.headers.map((column) => (
                 <th
                   key={column.id}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
+                  style={{ padding: '12px 22px 18px 22px' }}
                 >
                   {column.render('Header')}
                   {column.isSorted && (
@@ -86,6 +87,7 @@ function Table({ columns, data, onRowClick }) {
                   <td
                     key={cell.column.id}
                     {...cell.getCellProps({ className: cell.column.cellClass })}
+                    style={{ verticalAlign: "middle" }}
                   >
                     {cell.render('Cell')}
                   </td>
@@ -568,31 +570,33 @@ const CouponsTable = () => {
   return (
     <>
       <Card className="h-100" style={{ borderRadius: '16px' }}>
-        <CardBody>
-          <CardTitle className="d-flex flex-row justify-content-between font-weight-bold mb-3">
-            <div
-              className="input-group"
-              style={{ width: '300px', position: 'relative' }}
-            >
-              <Input
-                type="text"
-                placeholder="Search Coupon..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                style={{ paddingLeft: '30px', borderRadius: '7px' }}
-              />
-              <FaSearch
-                className="search-icon"
-                style={{
-                  position: 'absolute',
-                  left: '10px',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  zIndex: 1,
-                  color: '#888',
-                }}
-              />
-            </div>
+      <CardBody style={{ padding: '0px' }}>
+                    <CardTitle className="d-flex flex-row justify-content-between font-weight-bold mb-0"
+                        style={{ padding: '20px 22px' }}
+                    >
+                           <div
+            className="input-group"
+            style={{ width: '300px', position: 'relative' }}
+          >
+            <Input
+              type="text"
+              placeholder="Search Customer..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{ paddingLeft: '30px', borderRadius: '5px'}}
+            />
+            <IoSearchOutline
+              className="search-icon"
+              style={{
+                position: 'absolute',
+                left: '10px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 1,
+                color: '#888',
+              }}
+            />
+          </div>
             <div>
               <Badge
                 color=""

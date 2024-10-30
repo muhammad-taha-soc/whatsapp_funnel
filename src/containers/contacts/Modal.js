@@ -35,9 +35,9 @@ const Modal = ({ customer, onClose }) => {
 
     return (
       <div className="card modal-overlay">
-        <div className="modal-content" style={{ maxWidth: '850px' }}>
+        <div className="c-modal-content" style={{ maxWidth: '850px' }}>
           <header
-            className="modal-header"
+            className="c-modal-header"
             style={{ color: 'black', borderBottom: 'none' }}
           >
             <h2
@@ -54,7 +54,7 @@ const Modal = ({ customer, onClose }) => {
             </button>
           </header>
 
-          <div className="modal-body mt-0 p-0">
+          <div className="c-modal-body mt-0 p-0">
             <div className="bordered-container">
               <div className="left-column">
                 <Colxx
