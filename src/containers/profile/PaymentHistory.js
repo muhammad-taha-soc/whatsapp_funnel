@@ -10,6 +10,7 @@ import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 
 import products from 'data/products';
+import "./profile.css"
 
 function Table({ columns, data }) {
     const {
@@ -116,28 +117,28 @@ const NewsLetter = () => {
                 Header: 'Invoice',
                 accessor: 'newsLetter',
                 cellClass: 'font-weight-bold w-25',
-                Cell: (props) => <>Basic Plan - Dec 2022</>,
+                Cell: (props) => <div style={{ fontSize: "14px", fontWeight: "500", color: "#1A1C21" }}>Basic Plan - Dec 2022</div>,
                 sortType: 'basic',
             },
             {
                 Header: 'Amount',
                 accessor: 'createDate',
                 cellClass: 'text-muted w-20',
-                Cell: (props) => <>USD $10.00</>,
+                Cell: (props) => <div style={{ fontSize: "14px", fontWeight: "500", color: "#667085" }}>USD $10.00</div>,
                 sortType: 'basic',
             },
             {
                 Header: 'Date',
                 accessor: 'delivered',
                 cellClass: ' w-20 ',
-                Cell: (props) => <>Dec 1, 2022</>,
+                Cell: (props) => <div style={{ fontSize: "14px", fontWeight: "500", color: "#667085" }}>Dec 1, 2022</div>,
                 sortType: 'basic',
             },
             {
                 Header: 'Status',
                 accessor: 'read',
                 cellClass: ' w-20',
-                Cell: (props) => <div><span style={{ backgroundColor: "#0DAC8A1A", color: "#0DAC8A", padding: "4px 10px", borderRadius: "50px" }}>Paid</span> </div>,
+                Cell: (props) => <div><span style={{ backgroundColor: "#0DAC8A1A", color: "#0DAC8A", padding: "4px 10px", borderRadius: "50px", fontSize: "14px", fontWeight: "500" }}>Paid</span> </div>,
                 sortType: 'basic',
             },
             {
@@ -154,12 +155,12 @@ const NewsLetter = () => {
     return (
         <CardBody className='card rounded-md mt-4' style={{ borderRadius: "16px" }}>
             <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
-                <IntlMessages id='Billing History' />
+                <h2 className='billing-heading'>Billing History</h2>
                 <div style={{ cursor: "pointer" }}>
-                    <Badge color="" className="mb-1 border border-theme-4">
-                        <i className="iconsminds-download" />
+                    <div className="b-btn">
+                        <img src={'/assets/img/modals/download.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
                         <IntlMessages id="Download" />
-                    </Badge>
+                    </div>
                 </div>
             </CardTitle>
             <Table columns={cols} data={products} />

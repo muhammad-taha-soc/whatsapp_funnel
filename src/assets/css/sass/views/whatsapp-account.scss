@@ -1,7 +1,8 @@
 .account-profile-img {
-  height: 120px;
+  height: 140px !important;
+  width: 140px !important;
   border-radius: 50% !important;
-  border: 3px solid $foreground-color;
+  // border: 3px solid $foreground-color;
 }
 
 .account-profile-background-layer {
