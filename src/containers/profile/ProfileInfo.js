@@ -148,24 +148,17 @@ const ProfileInfo = () => {
                     >
                         <div>
                             <p className="text-muted mb-0" style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}>Telephone Number</p>
-                            <Row>
-                                <Colxx
-                                    md="3"
-                                    lg="3"
-                                    xl="3">
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px" }}>
+                                <div>
                                     <ReactCountryDropdown
                                         defaultCountry="US"
                                         onSelect={(country) => console.log(country.name)}
                                     />
-                                </Colxx>
-                                <Colxx
-                                    md="9"
-                                    lg="9"
-                                    xl="9"
-                                >
+                                </div>
+                                <div style={{ width: "80%" }}>
                                     <Input className='w-100 rounded-sm' placeholder={"5415415214"} />
-                                </Colxx>
-                            </Row>
+                                </div>
+                            </div>
                         </div>
 
                     </Colxx>
@@ -177,24 +170,17 @@ const ProfileInfo = () => {
                     >
                         <div>
                             <p className="text-muted mb-0" style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}>Direct Chat WhatApp Number</p>
-                            <Row>
-                                <Colxx
-                                    md="3"
-                                    lg="3"
-                                    xl="3">
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px" }}>
+                                <div>
                                     <ReactCountryDropdown
                                         defaultCountry="US"
                                         onSelect={(country) => console.log(country.name)}
                                     />
-                                </Colxx>
-                                <Colxx
-                                    md="9"
-                                    lg="9"
-                                    xl="9"
-                                >
+                                </div>
+                                <div style={{ width: "80%" }}>
                                     <Input className='w-100 rounded-sm' placeholder={"5415415214"} />
-                                </Colxx>
-                            </Row>
+                                </div>
+                            </div>
                         </div>
 
                     </Colxx>
