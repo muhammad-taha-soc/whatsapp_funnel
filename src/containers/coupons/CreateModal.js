@@ -245,7 +245,7 @@ const CreateModal = ({ customer, onClose }) => {
                                 )}
                                 <label style={modalStyles.label}>Condition</label>
                                 <textarea
-                                    defaultValue="Write Condition..."
+                                    placeholder='Write Condition...'
                                     style={modalStyles.textarea}
                                 />
                                 <div className="button-container">
