@@ -69,6 +69,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
             padding: '10px',
             border: '1px solid #ccc',
             borderRadius: '4px',
+            color: '#667085' 
         },
         textarea: {
             width: '100%',
@@ -77,6 +78,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
             borderRadius: '4px',
             resize: 'none',
             height: '80px',
+            color: '#667085' 
         },
         modalFooter: {
             display: 'flex',
@@ -119,16 +121,26 @@ const EditCoupon = ({ isOpen, onClose }) => {
             border: '1.33px solid #EEEEEE',
         },
     };
+    
+    const style = {
+        fontFamily: 'Inter, sans-serif', 
+        fontSize: '14px',
+        fontWeight: 500,
+        lineHeight: '20px',
+        letterSpacing: '0.005em',
+        textAlign: 'left',
+        color: '#667085'
 
+    };
     return (
         <>
             <div style={modalStyles.overlay} onClick={onClose}>
                 <div style={modalStyles.content} onClick={(e) => e.stopPropagation()}>
                     <header className="modal-header" style={{ color: '#1A1C21', height: '30px', fontSize: '20px', fontWeight: '600px', padding: 0 }}>
-                        <h2 style={{ marginBottom: '15px', fontWeight: 'bold' }}>Edit Coupon</h2>
+                        <h2 style={{ marginBottom: '16px', fontWeight: 'bold' }}>Edit Coupon</h2>
                         <button className="close-button" onClick={onClose}>✖</button>
                     </header>
-                    <p style={{ color: '#667085' }}>Current coupon graphic</p>
+                    <p style={style}>Current coupon graphic</p>
                     <div style={modalStyles.couponGraphic}>
                         <div style={modalStyles.imageClass}>
 
@@ -144,7 +156,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
                         </button>
                     </div>
                     <div style={modalStyles.formGroup}>
-                        <label style={modalStyles.label}>Action name</label>
+                        <label style={style}>Action name</label>
                         <input
                             type="text"
                             defaultValue="20% on my products"
@@ -152,7 +164,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
                         />
                     </div>
                     <div style={modalStyles.formGroup}>
-                        <label style={modalStyles.label}>Effective date</label>
+                        <label style={style}>Effective date</label>
                         <div style={{ position: 'relative' }}>
                             <input
                                 type="text"
@@ -171,7 +183,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
                         </div>
                     </div>
                     <div style={modalStyles.formGroup}>
-                        <label style={modalStyles.label}>Condition</label>
+                        <label style={style}>Condition</label>
                         <textarea
                             defaultValue="Lorem ipsum dolor sit amet, consectetur..."
                             style={modalStyles.textarea}

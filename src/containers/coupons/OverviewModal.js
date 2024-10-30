@@ -33,14 +33,26 @@ const OverviewModal = ({ customer, onClose }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        cursor: ' pointer'
+        cursor: ' pointer',
+        width:"49px",
+        height:"26px"
+    };
+   const style = {
+        fontFamily: 'Inter, sans-serif', 
+        fontSize: '14px',
+        fontWeight: 500,
+        lineHeight: '20px',
+        letterSpacing: '0.005em',
+        textAlign: 'left'
     };
 
     return (
         <div className="modal-overlay">
             <div className="overviewmodal-content">
                 <div className="d-flex justify-content-between align-items-center mb-4" style={{ color: 'black' }}>
-                    <h2 style={{ fontSize: '20px', fontWeight: '700' }}>Overview</h2>
+                    <h2 style={{ fontSize: '20px', fontWeight: '600',  lineHeight: '30px',
+                letterSpacing: '0.005em',
+                textAlign: 'left' }}>Overview</h2>
                     <button className="close-button" onClick={onClose}>✖</button>
                 </div>
 
@@ -48,15 +60,15 @@ const OverviewModal = ({ customer, onClose }) => {
                     <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
                             <img src={'/assets/img/modals/flag-alt.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Coupon ID </span>
+                            <span style={style}> Coupon ID </span>
                         </div>
-                        <div style={{ fontWeight: '800' }}>111221254</div>
+                        <div style={style}>111221254</div>
                     </div>
                     <Separator className="mb-2" />
                     <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
                             <img src={'/assets/img/modals/user.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Action Name</span>
+                            <span style={style}> Action Name</span>
                         </div>
                         <div style={stylesOnHold}>list</div>
                     </div>
@@ -64,15 +76,15 @@ const OverviewModal = ({ customer, onClose }) => {
                     <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
                             <img src={'/assets/img/modals/laptop.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Source of origin</span>
+                            <span style={style}> Source of origin</span>
                         </div>
-                        <div style={{ fontWeight: '800' }}>Demo</div>
+                        <div style={style}>Demo</div>
                     </div>
                     <Separator className="mb-2" />
                     <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
                             <img src={'/assets/img/modals/wifi-box.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Status</span>
+                            <span style={style}> Status</span>
                         </div>
                         <div
                             className="status-indicator"
@@ -85,8 +97,8 @@ const OverviewModal = ({ customer, onClose }) => {
                                 color: 'white',
                                 textAlign: 'center',
                                 position: 'relative', // For positioning the dot correctly
-                                width: '50px', // Set a fixed width for consistency
-                                height: '24px', // Set a fixed height for consistency
+                                width: '55.8px', // Set a fixed width for consistency
+                                height: '26px', // Set a fixed height for consistency
                                 bottom: '2px'
                             }}
                         >
@@ -102,7 +114,10 @@ const OverviewModal = ({ customer, onClose }) => {
                                     backgroundColor: 'white',
                                 }}
                             ></div>
-                            <div style={{ top: '50%', transform: 'translateY(3%)', marginLeft: '9px', width: '20px', height: '17px', fontWeight: '500px', fontalign: 'center', fontSize: '14px', lineHeight: '16.94px' }}>
+                            <div style={{ top: '50%', transform: 'translateY(3%)',
+                             marginLeft: '9px', width: '20px', height: '17px', 
+                             fontWeight: '500px', fontalign: 'center', 
+                                fontSize: '14px', lineHeight: '16.94px' }}>
 
                                 {value}
                             </div>
@@ -112,39 +127,51 @@ const OverviewModal = ({ customer, onClose }) => {
                     <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
                             <img src={'/assets/img/modals/calendar.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Issue date</span>
+                            <span style={style}> Issue date</span>
                         </div>
-                        <div style={{ fontWeight: '800' }}>10/12/2024</div>
+                        <div style={   {fontFamily: 'Inter, sans-serif',
+                            fontSize: '14px',
+                            fontWeight: 500,
+                            lineHeight: '20px',
+                            letterSpacing: '0.005em',
+                            textAlign: 'left'
+                        }}>10/12/2024</div>
                     </div>
                     <Separator className="mb-2" />
                     <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
                             <img src={'/assets/img/modals/calendar.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Redemption date</span>
+                            <span style={style}> Redemption date</span>
                         </div>
-                        <div style={{ fontWeight: '800' }}>10/12/2024</div>
+                        <div style={   {fontFamily: 'Inter, sans-serif',
+                            fontSize: '14px',
+                            fontWeight: 500,
+                            lineHeight: '20px',
+                            letterSpacing: '0.005em',
+                            textAlign: 'left'
+                        }}>10/12/2024</div>
                     </div>
                     <Separator className="mb-2" />
                     <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
                             <img src={'/assets/img/modals/user.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Surname</span>
+                            <span style={style}> Surname</span>
                         </div>
-                        <div style={{ fontWeight: '800' }}>Linda Blair</div>
+                        <div style={style}>Linda Blair</div>
                     </div>
                     <Separator className="mb-2" />
                     <div className='d-flex justify-content-between align-items-center mb-2'>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
                             <img src={'/assets/img/modals/phone-flip.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Telephone number</span>
+                            <span style={style}> Telephone number</span>
                         </div>
-                        <div style={{ fontWeight: '800' }}>+419123456789</div>
+                        <div style={style}>+419123456789</div>
                     </div>
                     <Separator className="mb-3" />
                 </div>
                 <div>
-                    <span>Note</span>
-                    <div style={{ border: '1px solid #E8E8E9', borderRadius: '8px', padding: '10px',overflow:'auto', maxHeight:'50px' }}>
+                    <span style={{marginTop:"20px"}}>Note</span>
+                    <div style={{ border: '1px solid #E8E8E9', borderRadius: '8px', padding: '10px',overflow:'auto', maxHeight:'50px',marginTop:"20px" }}>
                         Lorem ipsum dolor sit amet consectetur. Urna sit felis donec adipiscing
                         vitae mi. Massa mauris ultrices ipsum venenatis consectetur pharetra
                         vitae turpis nibh. Mattis neque massa in quis eget nisi.
