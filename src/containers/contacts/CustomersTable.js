@@ -235,7 +235,7 @@ const CustomersTable = () => {
                     </div>
                 ),
             },
-            
+
             {
                 Header: () => (
                     <div style={{
@@ -417,11 +417,11 @@ const CustomersTable = () => {
                             className="btn btn-link"
                             aria-expanded={expandedRowId === row.id}
                             aria-haspopup="true"
-                            style={{ cursor: 'pointer', color: '#858D9D', width:'24px', height:'24px' }}
+                            style={{ cursor: 'pointer', color: '#858D9D', width: '24px', height: '24px' }}
                         >
                             <FaEllipsisV />
                         </button>
-                        <div style={{ position: 'absolute', right: '280px' }}>
+                        <div style={{ position: 'absolute', right: '280px', bottom: '20px' }}>
 
                             {expandedRowId === row.id && (
                                 <div
@@ -464,34 +464,34 @@ const CustomersTable = () => {
 
     return (
         <>
-            <Card className="h-100" style={{ borderRadius: '16px' }}>
+            <Card className="h-100" style={{ borderRadius: '16px', margin: '24px 24px 24px 0' }}>
                 <CardBody style={{ padding: '0px' }}>
                     <CardTitle className="d-flex flex-row justify-content-between mb-0"
                         style={{ padding: '20px 22px' }}
                     >
-                           <div
-            className="input-group"
-            style={{ width: '300px', position: 'relative' }}
-          >
-            <Input
-              type="text"
-              placeholder="Search Customer..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              style={{ paddingLeft: '30px', borderRadius: '5px'}}
-            />
-            <IoSearchOutline
-              className="search-icon"
-              style={{
-                position: 'absolute',
-                left: '10px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 1,
-                color: '#888',
-              }}
-            />
-          </div>
+                        <div
+                            className="input-group"
+                            style={{ width: '300px', position: 'relative' }}
+                        >
+                            <Input
+                                type="text"
+                                placeholder="Search Customer..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                style={{ paddingLeft: '30px', borderRadius: '5px' }}
+                            />
+                            <IoSearchOutline
+                                className="search-icon"
+                                style={{
+                                    position: 'absolute',
+                                    left: '10px',
+                                    top: '50%',
+                                    transform: 'translateY(-50%)',
+                                    zIndex: 1,
+                                    color: '#888',
+                                }}
+                            />
+                        </div>
                         <div style={{ position: 'relative' }}>
                             <Badge
                                 color=""

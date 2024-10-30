@@ -96,7 +96,7 @@
     /* Green border */
     color: #0DAC8A;
     /* Button text color */
-    border-radius: 6px;
+    border-radius: 12px;
     padding: 10px;
     margin: 5px 0;
     /* Vertical spacing between buttons */
@@ -119,7 +119,7 @@
     background-color: white;
     /* Light red background */
     border: 1px solid #F5430B;
-    border-radius: 5px;
+    border-radius: 12px;
     /* Red border */
     color: #F5430B;
     /* Button text color */
