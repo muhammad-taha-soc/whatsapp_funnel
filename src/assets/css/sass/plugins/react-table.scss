@@ -38,7 +38,7 @@
     tbody {
         tr {
             td {
-                border-bottom: 1px solid $separator-color-light;
+                border-bottom: 1px solid #E8E8E9 !important;
             }
         }
 
@@ -48,6 +48,22 @@
             }
         }
     }
+}
+.r1-table {
+    tbody {
+        tr {
+            td {
+                padding: 18px 22px 18px 22px !important;
+            }
+        }
+
+        tr:last-of-type {
+            td {
+                border-bottom: initial; 
+            }
+        }
+    }
+
 }
 
 .table-divided {

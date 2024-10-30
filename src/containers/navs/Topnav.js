@@ -325,7 +325,7 @@ const TopNav = ({
               }}
             >
               <span className="name mr-1 text-right">
-                <div style={{ fontWeight: '700', fontSize: '16px' }}>
+                <div style={{ fontWeight: '500', fontSize: '14px', color: "#1A1C21", fontFamily: "Inter" }}>
                   Jay Hargodson
                 </div>
                 <div>Manager</div>
