@@ -76,7 +76,7 @@ const Calendar = ({ customer, onClose }) => {
                         <h3 style={{ width: '99px', height: '17px', fontWeight: '500', lineHeight: '16.94px', fontSize: '14px' }}>{`${monthName} ${year}`}</h3>
                     </div>
                     <div style={{ display: 'flex', gap: '5px' }}>
-                        <button onClick={handleTodayClick} className="today-button" style={{ border: '1px solid #0DAC8A', color: '#0DAC8A', backgroundColor: 'white' }}>Today</button>
+                        <button onClick={handleTodayClick} className="today-button" style={{ border: '1px solid #0DAC8A', color: '#0DAC8A', backgroundColor: 'white', fontWeight: '400', fontSize: '14px' }}>Today</button>
                         <button onClick={handlePrevMonth} className="arrow-button" style={{ backgroundColor: '#0DAC8A', color: 'white' }}><i className="simple-icon-arrow-left"></i></button>
                         <button onClick={handleNextMonth} className="arrow-button" style={{ color: 'white', backgroundColor: '#0DAC8A' }}><i className="simple-icon-arrow-right"></i></button>
                     </div>
@@ -118,8 +118,8 @@ const Calendar = ({ customer, onClose }) => {
                 </div>
 
                 <div className="calendar-footer">
-                    <button className="cancel-button" onClick={onClose}>Cancel</button>
-                    <button className="apply-button" onClick={handleApplyClick}>Apply</button>
+                    <button className="cancel-button" style={{ fontWeight: '600', fontSize: '14px' }} onClick={onClose}>Cancel</button>
+                    <button className="apply-button" style={{ fontWeight: '600', fontSize: '14px' }} onClick={handleApplyClick}>Apply</button>
                 </div>
             </div>
         </div>

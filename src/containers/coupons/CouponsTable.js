@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import React, { useState, useMemo } from 'react';
-import { useTable, usePagination, useSortBy } from 'react-table';
+import { useTable, usePagination } from 'react-table';
 import { Card, CardBody, CardTitle, Input, Badge } from 'reactstrap';
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
@@ -42,7 +42,6 @@ function Table({ columns, data, onRowClick }) {
       data,
       initialState: { pageIndex: 0, pageSize: 6 },
     },
-    useSortBy,
     usePagination
   );
 
@@ -57,7 +56,7 @@ function Table({ columns, data, onRowClick }) {
               {headerGroup.headers.map((column) => (
                 <th
                   key={column.id}
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                  // {...column.getHeaderProps(column.getSortByToggleProps())}
                   style={{ padding: '12px 22px 18px 22px' }}
                 >
                   {column.render('Header')}

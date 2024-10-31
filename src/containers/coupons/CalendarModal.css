@@ -69,6 +69,9 @@
     width: 40px;
     height: 40px;
     user-select: none;
+    font-weight: 400;
+    font-size: 14px;
+    color: #344054;
     /* Add a semicolon */
 }
 
@@ -81,7 +84,9 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     margin-bottom: 10px;
-    /* Space between day names and calendar body */
+    font-weight: 400;
+    font-size: 12px
+        /* Space between day names and calendar body */
 }
 
 
