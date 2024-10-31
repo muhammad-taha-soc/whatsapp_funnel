@@ -84,7 +84,7 @@ const DefaultCoupons = ({ intl, match }) => {
   return (
     <>
       <div
-        className="d-flex flex-row align-items-center font-weight-bold mb-3"
+        className="d-flex flex-row align-items-center font-weight-medium mb-3"
         style={{ marginLeft: '27px', fontSize: '14px' }}
       >
         <div className="text-primary">

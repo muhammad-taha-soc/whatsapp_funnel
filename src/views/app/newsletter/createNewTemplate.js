@@ -131,8 +131,8 @@ const CreateNewTemplate = ({ intl, match }) => {
               </NavItem>
             </Nav> */}
             <div
-              className="d-flex flex-row justify-content-around align-items-center font-weight-bold"
-              style={{ fontSize: '16px' }}
+              className="d-flex flex-row justify-content-around align-items-center font-weight-medium"
+              style={{ fontSize: '16px',fontWeight:'500' }}
             >
               <span className="text-primary">
                 <IntlMessages id={`${'Dashboard'}`} />

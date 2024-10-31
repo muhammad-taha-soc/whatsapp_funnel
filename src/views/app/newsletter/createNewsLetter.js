@@ -103,7 +103,7 @@ const CreateNewsLetter = ({ intl, match }) => {
           <Separator className="mb-5" /> */}
           <div className="d-flex flex-row justify-content-between align-items-center mb-4">
             <div
-              className="d-flex flex-row justify-content-around align-items-center font-weight-bold"
+              className="d-flex flex-row justify-content-around align-items-center font-weight-medium"
               style={{ fontSize: '16px' }}
             >
               <span className="text-primary">
