@@ -4,7 +4,7 @@ import './CalendarModal.css'; // Ensure you have appropriate styles
 
 const Calendar = ({ customer, onClose }) => {
     const [currentDate, setCurrentDate] = useState(new Date());
-    const [selectedDates, setSelectedDates] = useState([3,4,5,6]); // Start with dates 3 and 6 selected
+    const [selectedDates, setSelectedDates] = useState([3, 4, 5, 6]); // Start with dates 3 and 6 selected
     console.log(selectedDates);
 
     const daysInMonth = (month, year) => new Date(year, month + 1, 0).getDate();
@@ -68,7 +68,7 @@ const Calendar = ({ customer, onClose }) => {
 
     return (
         <div className="calendar-modal modal-overlay" onClick={onClose}>
-            <div className="modal-content" style={{ color: 'black' }} onClick={(e) => e.stopPropagation()} >
+            <div className="overviewmodal-content" style={{ color: 'black' }} onClick={(e) => e.stopPropagation()} >
                 <h2 style={{ width: '440px', height: '30px', fontWeight: '600', lineHeight: '30px', fontSize: '20px' }}>Select Dates</h2>
 
                 <div className="calendar-header" style={{ marginRight: '2px', marginLeft: '2px', gap: 4 }}>
@@ -101,7 +101,7 @@ const Calendar = ({ customer, onClose }) => {
                         // </div>
                         
                     // ))} */}
-                     {daysArray.map((day, index) => {
+                    {daysArray.map((day, index) => {
                         const isSelected = selectedDates.includes(day);
                         const isDefaultSelected = [3, 6].includes(day) && isSelected; // Check if it's 3 or 6
 

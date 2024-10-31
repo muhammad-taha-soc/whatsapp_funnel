@@ -86,7 +86,7 @@ const CreateModal = ({ customer, onClose }) => {
 
     return (
         <div className="modal-overlay">
-            <div className="modal-content">
+            <div className="overviewmodal-content">
                 <header className="modal-header" style={{ color: '#1A1C21', height: '30px', fontSize: '20px', fontWeight: '600px', padding: 0 }}>
                     <h2 style={{ fontWeight: '600px', fontSize: '20px', margin: 0 }}>Create Coupon</h2>
                     <img src={'/assets/img/modals/cross.svg'} style={{ width: '16px', height: '16px' }} alt='Visa' onClick={onClose} />
