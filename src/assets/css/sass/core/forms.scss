@@ -261,16 +261,12 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .form-control {
-  border-radius: $border-radius;
-  outline: initial !important;
-  box-shadow: initial !important;
-  font-size: 0.8rem;
-  border: 1px solid $separator-color;
-  background: $input-background;
-  color: $primary-color;
-  height: initial;
-  padding: 0.5rem 0.75rem;
-  line-height: 1;
+  // width: 400px;
+  height: 40px;
+  padding: 8px 12px 8px 12px;
+  margin-top: 4px;
+  border-radius: 8px;
+  border: 1px solid #E8E8E9
 }
 
 textarea.form-control {

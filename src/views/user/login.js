@@ -54,7 +54,7 @@ const Login = ({ history, loading, error, loginUserAction }) => {
   return (
     // <Row className="">
       // <Colxx xxs="12"  className="">
-        <Card className="auth-card" style={{height: '99vH',padding:'24PX'}}>
+        <Card className="auth-card" style={{height: '100vH',padding:'32px 24px' }}>
           <div className="position-relative image-side ">
             {/* <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
             <p className="white mb-0">
@@ -67,18 +67,19 @@ const Login = ({ history, loading, error, loginUserAction }) => {
               .
             </p> */}
           </div>
+          <div className='form-flex'>
           <div className="form-side">
             <div className="text-center">
               {/* <NavLink to="/" className="white"> */}
               <span className="logo-single-login" />
               {/* </NavLink> */}
             </div>
-            <div className="text-center mb-4">
-              <CardTitle className="mb-0 font-weight-bold">
+            <div className="text-center" style={{ marginBottom: '32px'}}>
+              <CardTitle className="signup-title">
                 <IntlMessages id="Sign Up" />
               </CardTitle>
 
-              <IntlMessages id="Create your account to start your journey with us!" />
+              <div className="signup-heading"> Create your account to start your journey with us!</div> 
             </div>
 
             <Formik initialValues={initialValues} onSubmit={onUserLogin}>
@@ -86,7 +87,7 @@ const Login = ({ history, loading, error, loginUserAction }) => {
                 <Form className="av-tooltip tooltip-label-bottom">
                   <FormGroup className="form-group ">
                     <Label>
-                      <IntlMessages id="Username/email" />
+                      <div className="form-text-field" >Username/email  </div>
                     </Label>
                     <Field
                       className="form-control"
@@ -101,7 +102,7 @@ const Login = ({ history, loading, error, loginUserAction }) => {
                   </FormGroup>
                   <FormGroup className="form-group">
                     <Label className="d-flex justify-content-between align-items-center">
-                      <IntlMessages id="user.password" />
+                      <div className='form-text-field'> Password</div>
                       <div className="text-theme-1  font-weight-bold">
                         {/* <NavLink to="/user/forgot-password"> */}
                         <IntlMessages id="user.forgot-password" />
@@ -138,15 +139,16 @@ const Login = ({ history, loading, error, loginUserAction }) => {
                       </span>
                     </Button>
                   </div>
-                  <div className="mt-2 text-center">
-                    {/* <NavLink to="/user/forgot-password"> */}
-                    <IntlMessages id="Already have an account?" />
-                    {/* </NavLink> */}
-                  </div>
+                  <div className="d-flex justify-content-center align-items-center">
+                  <div className="already-account"> Already have an account? </div>
+                  <div className="text-theme-1 already-account font-weight-bold"> Login </div>
+                </div>
                 </Form>
               )}
             </Formik>
           </div>
+          </div>
+   
         </Card>
       // </Colxx>
     // </Row>
