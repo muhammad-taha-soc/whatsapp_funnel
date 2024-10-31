@@ -290,8 +290,13 @@ const CouponsTable = () => {
             // fontSize: '16px', // Adjust font size if needed
             fontWeight: '500', fontSize: '14px'
           }}>
-            <IntlMessages id="coupons.id" />
-          </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontWeight: '500', fontSize: '14px' }}>
+              <IntlMessages id="coupons.id" />
+              <img src='/assets/img/svg/chevron.svg'
+                alt='chevron'
+              />
+            </div>
+          </div >
         ),
         accessor: 'id',
         // cellClass: 'font-weight-bold',
@@ -600,7 +605,7 @@ const CouponsTable = () => {
                 placeholder="Search Customer..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                style={{ paddingLeft: '30px', borderRadius: '5px' }}
+                style={{ paddingLeft: '30px', borderRadius: '8px' }}
               />
               <IoSearchOutline
                 className="search-icon"

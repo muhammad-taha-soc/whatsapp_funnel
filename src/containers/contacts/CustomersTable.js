@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import React, { useState, useMemo } from 'react';
-import { useTable, usePagination, useSortBy } from 'react-table';
+import { useTable, usePagination } from 'react-table';
 import { Card, CardBody, CardTitle, Input, Badge } from 'reactstrap';
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
@@ -39,7 +39,6 @@ function Table({ columns, data, onRowClick }) {
             data,
             initialState: { pageIndex: 0, pageSize: 6 },
         },
-        useSortBy,
         usePagination
     );
 
@@ -54,8 +53,8 @@ function Table({ columns, data, onRowClick }) {
                             {headerGroup.headers.map((column) => (
                                 <th
                                     key={column.id}
-                                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                                    style={{ padding: '12px 22px 18px 22px' }}
+                                    // {...column.getHeaderProps(column.getSortByToggleProps())}
+                                    style={{ paddingLeft: '22px', paddingRight: '0px' }}
 
                                 >
                                     {column.render('Header')}
@@ -192,22 +191,31 @@ const CustomersTable = () => {
         () => [
             {
                 Header: () => (
-                    <div style={{ display: 'flex', alignItems: 'center', color: '#667085', fontWeight: '500', fontSize: '14px' }}>
-                        <input
-                            type="checkbox"
-                            // Remove onChange for no functionality
-                            style={{
-                                marginRight: '8px',
-                                appearance: 'none', // Remove default styling
-                                width: '20px', // Custom width
-                                height: '20px', // Custom height
-                                border: '2px solid #A3A9B6', // Custom border color and thickness
-                                borderRadius: '6px', // Optional: Add some rounding
-                                outline: 'none', // Remove default focus outline
-                                cursor: 'pointer', // Change cursor to pointer
-                            }}
-                        />
-                        <IntlMessages id="contacts.title" />
+                    <div style={{ display: 'flex', alignItems: 'center', color: '#667085', fontWeight: '500', fontSize: '14px', justifyContent: 'space-between' }}>
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+
+                            <input
+                                type="checkbox"
+                                // Remove onChange for no functionality
+                                style={{
+                                    marginRight: '8px',
+                                    appearance: 'none', // Remove default styling
+                                    width: '20px', // Custom width
+                                    height: '20px', // Custom height
+                                    border: '2px solid #A3A9B6', // Custom border color and thickness
+                                    borderRadius: '6px', // Optional: Add some rounding
+                                    outline: 'none', // Remove default focus outline
+                                    cursor: 'pointer', // Change cursor to pointer
+                                }}
+                            />
+                            <IntlMessages id="contacts.title" />
+                        </div>
+                        <div>
+                            <img
+                                src='/assets/img/svg/chevron.svg'
+                                alt='chevron'
+                            />
+                        </div>
                     </div>
                 ),
                 accessor: 'title',
@@ -297,7 +305,14 @@ const CustomersTable = () => {
                         // fontSize: '16px', // Adjust font size if needed
                         fontWeight: '500', fontSize: '14px'
                     }}>
-                        <IntlMessages id="contacts.satisfied" />
+
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontWeight: '500', fontSize: '14px' }}>
+                            <IntlMessages id="contacts.satisfied" />
+                            <img
+                                src='/assets/img/svg/chevron.svg'
+                                alt='chevron'
+                            />
+                        </div>
                     </div>
                 ),
                 accessor: 'satisfied',
@@ -331,9 +346,15 @@ const CustomersTable = () => {
                         color: '#667085',
                         // fontWeight: 'bold', // Optional: make it bold
                         // fontSize: '16px', // Adjust font size if needed
-                        fontWeight: '500', fontSize: '14px'
+                        fontWeight: '500', fontSize: '14px',
                     }}>
-                        <IntlMessages id="contacts.review-link" />
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontWeight: '500', fontSize: '14px' }}>
+
+                            <IntlMessages id="contacts.review-link" />
+                            <img src='/assets/img/svg/chevron.svg'
+                                alt='chevron'
+                            />
+                        </div>
                     </div>
                 ),
                 accessor: 'reviewLink',
@@ -369,7 +390,12 @@ const CustomersTable = () => {
                         // fontSize: '16px', // Adjust font size if needed
                         fontWeight: '500', fontSize: '14px'
                     }}>
-                        <IntlMessages id="contacts.suggestion" />
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontWeight: '500', fontSize: '14px' }}>
+                            <IntlMessages id="contacts.suggestion" />
+                            <img src='/assets/img/svg/chevron.svg'
+                                alt='chevron'
+                            />
+                        </div>
                     </div>
                 ),
                 accessor: 'suggestion',
@@ -478,7 +504,7 @@ const CustomersTable = () => {
                                 placeholder="Search Customer..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                style={{ paddingLeft: '30px', borderRadius: '5px' }}
+                                style={{ paddingLeft: '30px', borderRadius: '8px' }}
                             />
                             <IoSearchOutline
                                 className="search-icon"
