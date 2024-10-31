@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import { injectIntl } from 'react-intl';
 import { Row, Nav, NavItem, TabContent, TabPane, Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
@@ -18,23 +18,23 @@ const DefaultDashboard = ({ intl, match }) => {
   console.log(messages);
 
   const [activeSecondTab, setActiveSecondTab] = useState('1');
-  const [isLandingModalOpen, setIsLandingModalOpen] = useState(false);
+  // const [isLandingModalOpen, setIsLandingModalOpen] = useState(false);
 
-  const hasVisited = localStorage.getItem('hasVisited');
-  console.log('activeSecondTab', activeSecondTab);
-  console.log('hasVisited', hasVisited);
-  useEffect(() => {
-    if (hasVisited) {
-      setIsLandingModalOpen(false);
-      return;
-    }
-    setIsLandingModalOpen(true);
-    localStorage.setItem('hasVisited', 'true');
-  }, []);
+  // const hasVisited = localStorage.getItem('hasVisited');
+  // console.log('activeSecondTab', activeSecondTab);
+  // console.log('hasVisited', hasVisited);
+  // useEffect(() => {
+  //   if (hasVisited) {
+  //     setIsLandingModalOpen(false);
+  //     return;
+  //   }
+  //   setIsLandingModalOpen(true);
+  //   localStorage.setItem('hasVisited', 'true');
+  // }, []);
 
-  const handleClose = () => {
-    setIsLandingModalOpen(false);
-  };
+  // const handleClose = () => {
+  //   setIsLandingModalOpen(false);
+  // };
 
   return (
     <>
