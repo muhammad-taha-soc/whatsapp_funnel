@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import { NotificationManager } from 'components/common/react-notifications';
 
-// import { Colxx } from 'components/common/CustomBootstrap';
+import { Colxx } from 'components/common/CustomBootstrap';
 import IntlMessages from 'helpers/IntlMessages';
 import { loginUser } from 'redux/actions';
 
@@ -55,7 +55,7 @@ const Login = ({ history, loading, error, loginUserAction }) => {
     // <Row className="">
       // <Colxx xxs="12"  className="">
         <Card className="auth-card" style={{height: '100vH',padding:'32px 24px' }}>
-          <div className="position-relative image-side ">
+          <Colxx xxs="6" md="6" lg="6" xxl="6" className="position-relative image-side">
             {/* <p className="text-white h2">MAGIC IS IN THE DETAILS</p>
             <p className="white mb-0">
               Please use your credentials to login.
@@ -66,8 +66,8 @@ const Login = ({ history, loading, error, loginUserAction }) => {
               </NavLink>
               .
             </p> */}
-          </div>
-          <div className='form-flex'>
+          </Colxx>
+          <Colxx xxs="6" md="6" lg="6" xxl="6" className='form-flex'>
           <div className="form-side">
             <div className="text-center">
               {/* <NavLink to="/" className="white"> */}
@@ -147,7 +147,7 @@ const Login = ({ history, loading, error, loginUserAction }) => {
               )}
             </Formik>
           </div>
-          </div>
+          </Colxx>
    
         </Card>
       // </Colxx>
