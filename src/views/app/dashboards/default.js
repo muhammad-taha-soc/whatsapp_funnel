@@ -11,7 +11,7 @@ import NewsLetter from 'containers/dashboards/NewsLetter';
 import MakeMoney from 'containers/dashboards/MakeMoney';
 import AccountProfile from 'containers/dashboards/AccountProfile';
 import IntlMessages from 'helpers/IntlMessages';
-import LandingModal from 'containers/dashboards/LandingModal';
+// import LandingModal from 'containers/dashboards/LandingModal';
 
 const DefaultDashboard = ({ intl, match }) => {
   const { messages } = intl;
@@ -135,7 +135,7 @@ const DefaultDashboard = ({ intl, match }) => {
           </TabPane>
         </TabContent>
       </Colxx>
-      <LandingModal isOpen={isLandingModalOpen} onClose={handleClose} />
+      {/* <LandingModal isOpen={isLandingModalOpen} onClose={handleClose} /> */}
     </>
   );
 };
