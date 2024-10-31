@@ -64,7 +64,7 @@ import { Colxx } from 'components/common/CustomBootstrap';
 // import IntlMessages from 'helpers/IntlMessages';
 // import AccountProfile from 'containers/dashboards/AccountProfile';
 import IntlMessages from 'helpers/IntlMessages';
-import ReactCountryDropdown from 'react-country-dropdown';
+// import ReactCountryDropdown from 'react-country-dropdown';
 // import Schedule from 'containers/newsletter/Schedule';
 // import Draft from 'containers/newsletter/Draft';
 // import History from 'containers/newsletter/History';
@@ -77,7 +77,7 @@ import { GoTriangleRight, GoImage } from 'react-icons/go';
 import { LuFileUp } from 'react-icons/lu';
 import { BsFileText } from 'react-icons/bs';
 import { AiOutlinePlayCircle } from 'react-icons/ai';
-// import CountrySelect from 'containers/newsletter/CountrySelect';
+import CountrySelect from 'containers/newsletter/CountrySelect';
 
 const CreateNewTemplate = ({ intl, match }) => {
   const { messages } = intl;
@@ -245,13 +245,13 @@ const CreateNewTemplate = ({ intl, match }) => {
                         </FormGroup>
                       </Colxx>
                       <Colxx lg="6" xl="6" md="6" className="mb-4">
+                      <FormGroup className="mb-2 mt-1">
                         <Label
                           className="text-muted"
                           style={{ fontSize: '14px', fontWeight: '500' }}
                         >
                           <IntlMessages id="Language" />
                         </Label>
-                        <FormGroup className="">
                           {/* <Select
                       components={{ Input: CustomSelectInput }}
                       className="react-select"
@@ -263,12 +263,12 @@ const CreateNewTemplate = ({ intl, match }) => {
                       placeholder="Select existing template"
                     /> */}
                           {/* <Colxx md="3" lg="3" xl="3"> */}
-                          <ReactCountryDropdown
+                          {/* <ReactCountryDropdown
                             defaultCountry="DE"
                             onSelect={(country) => console.log(country.name)}
                             // className="ml-10" 
-                          />
-                          {/* <CountrySelect /> */}
+                          /> */}
+                          <CountrySelect />
                           {/* </Colxx> */}
                         </FormGroup>
                       </Colxx>
