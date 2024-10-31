@@ -77,6 +77,7 @@ import { GoTriangleRight, GoImage } from 'react-icons/go';
 import { LuFileUp } from 'react-icons/lu';
 import { BsFileText } from 'react-icons/bs';
 import { AiOutlinePlayCircle } from 'react-icons/ai';
+// import CountrySelect from 'containers/newsletter/CountrySelect';
 
 const CreateNewTemplate = ({ intl, match }) => {
   const { messages } = intl;
@@ -184,7 +185,7 @@ const CreateNewTemplate = ({ intl, match }) => {
         md="12"
         xxl="12"
         xl="12"
-        className="rounded"
+        className="rounded p-0"
       >
         <Card>
           <Colxx xxs="12" xs="12" sm="12" lg="12" md="12" xxl="12" xl="12">
@@ -265,7 +266,9 @@ const CreateNewTemplate = ({ intl, match }) => {
                           <ReactCountryDropdown
                             defaultCountry="DE"
                             onSelect={(country) => console.log(country.name)}
+                            // className="ml-10" 
                           />
+                          {/* <CountrySelect /> */}
                           {/* </Colxx> */}
                         </FormGroup>
                       </Colxx>
@@ -409,7 +412,13 @@ const CreateNewTemplate = ({ intl, match }) => {
                     </Row>
                     <Row>
                       <Colxx lg="12" xl="12" md="12" className="mb-4">
-                        <span style={{ fontSize: '12px', color: '#667085',lineHeight:'20px' }}>
+                        <span
+                          style={{
+                            fontSize: '12px',
+                            color: '#667085',
+                            lineHeight: '20px',
+                          }}
+                        >
                           <IntlMessages id="* You can add up to three regular buttons or one URL button. You can only pick one type of button, not both." />
                         </span>
                       </Colxx>

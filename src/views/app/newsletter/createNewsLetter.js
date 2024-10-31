@@ -157,7 +157,7 @@ const CreateNewsLetter = ({ intl, match }) => {
         md="12"
         xxl="12"
         xl="12"
-        className="rounded"
+        className="rounded p-0"
       >
         <Card>
           <Colxx xxs="12" xs="12" sm="12" lg="12" md="12" xxl="12" xl="12">
