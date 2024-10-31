@@ -151,8 +151,8 @@ const Modal = ({ customer, onClose }) => {
               </div>
             </div>
 
-            <div className="right-column" style={{ position: 'relative', paddingLeft: '10px', paddingTop: '6px' }}>
-              <div className="status" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <div className="right-column" style={{ position: 'relative', paddingLeft: '10px', paddingTop: '12px' }}>
+              <div className="status" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div className="status-item satisfied">
                   <span style={{ fontWeight: '500', fontSize: '16px', color: '#0D0D26' }}>Satisfied</span>
                   <AiFillCheckCircle style={{ position: 'absolute', right: '15px', color: '#0DAC8A', width: '24px', height: '24px' }} />
@@ -174,17 +174,17 @@ const Modal = ({ customer, onClose }) => {
                     {Array.isArray(dummyCustomer.coupons) ? dummyCustomer.coupons.join(', ') : 'No coupons available'}
                   </p>
                 </div>
-                <Separator className="ml-2 mr-2 mt-5" />
+                <Separator className="ml-2 mr-2 mt-4" />
                 <div className="suggestions mt-4">
                   <h4 style={{ fontWeight: '500', fontSize: '16px', color: '#0D0D26' }}>Suggestion for Improvement Submitted</h4>
                   <p style={{ color: '#5C5C78', fontWeight: '400', fontSize: '14px' }}>{dummyCustomer.suggestionSubmitted}</p>
                 </div>
-                <Separator className="ml-2 mr-2 mt-2" />
+                <Separator className="ml-2 mr-2 mt-4" />
                 <div className="reason mt-4">
                   <h4 style={{ fontWeight: '500', fontSize: '16px', color: '#0D0D26' }}>Reason for Dissatisfaction</h4>
                   <p style={{ color: '#5C5C78', fontWeight: '400', fontSize: '14px' }}>{dummyCustomer.reasonDissatisfaction}</p>
                 </div>
-                <div className="notes mt-2">
+                <div className="notes mt-3">
                   <h4 style={{ fontWeight: '500', fontSize: '16px', color: '#0D0D26' }}>Note Field</h4>
                   <p style={{ color: '#5C5C78', fontWeight: '400', fontSize: '14px' }}>{dummyCustomer.notes}</p>
                 </div>

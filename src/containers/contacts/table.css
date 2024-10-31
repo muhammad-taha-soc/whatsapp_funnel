@@ -13,6 +13,11 @@
     /* Shadow effect */
 }
 
+.dropdowns {
+    font-weight: 400 !important;
+    font-size: 14px !important
+}
+
 .option-group {
     border: 1px solid #ddd;
     /* Individual option group border */

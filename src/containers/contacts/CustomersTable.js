@@ -9,6 +9,12 @@ import products from 'data/products';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { IoSearchOutline } from 'react-icons/io5';
 import { BsSliders2 } from 'react-icons/bs';
+import { CiCircleMinus } from "react-icons/ci";
+// import { FaWhatsapp } from "react-icons/fa";
+import { TbFileDownload } from "react-icons/tb";
+
+
+
 import {
     FaEllipsisV,
     FaWhatsapp,
@@ -447,28 +453,39 @@ const CustomersTable = () => {
                         >
                             <FaEllipsisV />
                         </button>
-                        <div style={{ position: 'absolute', right: '280px', bottom: '20px' }}>
+                        <div style={{ position: 'absolute', right: '310px', bottom: '18px' }}>
 
                             {expandedRowId === row.id && (
                                 <div
                                     className="dropdown-menu show"
-                                    style={{ position: 'absolute', zIndex: 1000 }}
+                                    style={{ position: 'absolute', zIndex: 1000, borderRadius: '14px' }}
                                 >
-                                    <div className="dropdown-item">
-                                        <i className="simple-icon-minus mr-2" />{' '}
+                                    <div className="dropdown-item dropdowns">
+                                        {/* <i className="simple-icon-minus mr-2" /> */}
+                                        {/* <CiCircleMinus className='mr-2' /> */}
+                                        <img src='/assets/img/svg/minus-circle 1.svg' className='mr-1' style={{ width: '17px', height: '17px' }} />{' '}
                                         <IntlMessages id="Unsubscribe from Account" />
                                     </div>
-                                    <div className="dropdown-item">
-                                        <FaWhatsapp className="mr-2" />{' '}
+                                    <Separator className='separator-class-1' />
+                                    {/* <div className="dropdown-divider" /> */}
+                                    <div className="dropdown-item dropdowns">
+                                        {/* <FaWhatsapp className="mr-2" />{' '} */}
+                                        <img src='/assets/img/svg/whatsapp 1.svg' className='mr-1' style={{ width: '17px', height: '17px' }} />{' '}
                                         <IntlMessages id="Unsubscribe from Whatsapp" />
                                     </div>
-                                    <div className="dropdown-item">
-                                        <FaFileDownload className="mr-2" />{' '}
+                                    <Separator className='separator-class-1' />
+                                    {/* <div className="dropdown-divider" /> */}
+                                    <div className="dropdown-item dropdowns">
+                                        {/* <TbFileDownload className="mr-2" />{' '} */}
+                                        <img src='/assets/img/svg/file-download 1.svg' className='mr-1' style={{ width: '17px', height: '17px' }} />{' '}
                                         <IntlMessages id="Download Contact Data" />
                                     </div>
-                                    <div className="dropdown-divider" />
-                                    <div className="dropdown-item text-danger">
-                                        <FaTrash className="mr-2" />{' '}
+                                    <Separator className='separator-class-1' />
+                                    {/* <div className="dropdown-divider" /> */}
+                                    <div className="dropdown-item text-danger dropdowns">
+                                        {/* <FaTrash className="mr-2" />{' '} */}
+                                        <img src='/assets/img/svg/trash 1.svg' className='mr-1' style={{ width: '17px', height: '17px' }} />{' '}
+
                                         <IntlMessages id="Delete Contact" />
                                     </div>
                                 </div>
