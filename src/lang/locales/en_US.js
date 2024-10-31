@@ -164,7 +164,7 @@ module.exports = {
   'dashboards.tickets': 'Tickets',
   'dashboards.calendar': 'Calendar',
   'dashboards.best-sellers': 'Best Sellers',
-  'dashboards.news-letter': 'News Letter',
+  'dashboards.news-letter': 'Newsletter',
   'dashboards.make-money': 'Make Money',
   'dashboards.view-profiles': 'View Profiles',
   'dashboards.website-visits': 'Website Visits',

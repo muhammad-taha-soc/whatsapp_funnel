@@ -63,38 +63,49 @@ function Table({ columns, data }) {
             >
               {headerGroup.headers.map((column, columnIndex) => (
                 <>
-                <th
-                  className="text-muted font-weight-medium text-14px "
-                  key={`th_${columnIndex}`}
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                  // className={`
-                  //   ${
-                  //     column.isSorted
-                  //       ? column.isSortedDesc
-                  //         ? 'sorted-desc'
-                  //         : 'sorted-asc'
-                  //       : ''
-                  //   }
-                  // `}
-                >
-                  {column.render('Header')}{' '}
-                  {column.render('Header') !== 'Newsletter' && (
-                    <>
-                      {column.isSortedDesc ? (
-                        <FaCaretUp className="" 
-                        // style={{ marginLeft: '50%' }} 
-                        />
-                      ) : (
-                        <FaCaretDown
-                          className=""
-                          // style={{ marginLeft: '50%' }}
-                        />
-                      )}
-                    </>
-                  )}
-                  {/* <span /> */}
-                </th>
-                
+                  <th
+                    className="text-muted font-weight-medium text-14px "
+                    key={`th_${columnIndex}`}
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                    // className={`
+                    //   ${
+                    //     column.isSorted
+                    //       ? column.isSortedDesc
+                    //         ? 'sorted-desc'
+                    //         : 'sorted-asc'
+                    //       : ''
+                    //   }
+                    // `}
+                  >
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                      }}
+                    >
+                      <span>{column.render('Header')} </span>
+                      <span>
+                        {column.render('Header') !== 'Newsletter' && (
+                          <>
+                            {column.isSortedDesc ? (
+                              <FaCaretUp
+                                className="mr-1"
+                                // style={{ marginLeft: '70%' }}
+                              />
+                            ) : (
+                              <FaCaretDown
+                                className="mr-1"
+                                // style={{ marginLeft: '70%' }}
+                              />
+                            )}
+                          </>
+                        )}
+                      </span>
+                    </div>
+                    {/* <span /> */}
+                  </th>
                 </>
               ))}
             </tr>
@@ -124,7 +135,7 @@ function Table({ columns, data }) {
         </tbody>
       </table>
       <div className="d-flex flex-row justify-content-between align-items-center mr-2 ml-2">
-        <span className="text-muted">
+        <span className="text-muted text-14px">
           <IntlMessages id="Showing " />
           {startIndex + 1} - {data.length >= endIndex ? endIndex : data.length}
           <IntlMessages id=" from " />
@@ -163,7 +174,7 @@ const NewsLetter = () => {
       {
         Header: 'Date',
         accessor: 'createDate',
-        cellClass: 'text-muted w-20 text-14px',
+        cellClass: 'text-muted w-20 text-14px ',
         Cell: (props) => <>{props.value}</>,
         sortType: 'basic',
       },
@@ -211,14 +222,14 @@ const NewsLetter = () => {
 
   return (
     <Card className="h-100">
-      <CardBody className='p-4'>
+      <CardBody className="p-4">
         <CardTitle className="d-flex flex-row justify-content-between ">
           <span style={{ fontSize: '24px', fontWeight: '500' }}>
             <IntlMessages id="Newsletter" />
           </span>
           <div>
             <Badge
-              style={{ fontWeight: '400', fontSize: '14px' }}
+              style={{ fontWeight: '400', fontSize: '14px', color: '#0D0D26' }}
               color=""
               className="mb-1 mr-2 rounder align-content-center border border-theme-4"
             >
@@ -233,7 +244,7 @@ const NewsLetter = () => {
               />
             </Badge>
             <Badge
-              style={{ fontWeight: '400', fontSize: '14px' }}
+              style={{ fontWeight: '500', fontSize: '14px', color: '#0D0D26' }}
               color=""
               className="mb-1 border border-theme-4"
             >

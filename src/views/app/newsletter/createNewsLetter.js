@@ -88,14 +88,13 @@ const CreateNewsLetter = ({ intl, match }) => {
   const [selectedOptionLT, setSelectedOptionLT] = useState('');
   // const [tagsLT, setTagsLT] = useState([]);
 
-
-  const DropdownIndicator = props => {
-  return (
-    <components.DropdownIndicator {...props}>
-      <FaCaretDown className="" />
-    </components.DropdownIndicator>
-  );
-};
+  const DropdownIndicator = (props) => {
+    return (
+      <components.DropdownIndicator {...props}>
+        <FaCaretDown className="" />
+      </components.DropdownIndicator>
+    );
+  };
   return (
     <>
       <Row>
@@ -150,27 +149,37 @@ const CreateNewsLetter = ({ intl, match }) => {
           </div>
         </Colxx>
       </Row>
-      <Card>
-        <Colxx xxs="12" xs="12" sm="12" lg="12" md="12" xxl="12" xl="12">
-          <div className="d-flex flex-row justify-content-between">
-            <Nav tabs className=" mb-3 ml-0 mr-0">
-              <NavItem className="w-14 text-center">
-                <NavLink
-                  to="#"
-                  location={{}}
-                  className={classnames({
-                    active: activeSecondTab === '1',
-                    'nav-link': true,
-                  })}
-                  onClick={() => {
-                    setActiveSecondTab('1');
-                  }}
-                >
-                  Create NewsLetter
-                </NavLink>
-              </NavItem>
-            </Nav>
-            {/* <div className="">
+      <Colxx
+        xxs="12"
+        xs="12"
+        sm="12"
+        lg="12"
+        md="12"
+        xxl="12"
+        xl="12"
+        className="rounded"
+      >
+        <Card>
+          <Colxx xxs="12" xs="12" sm="12" lg="12" md="12" xxl="12" xl="12">
+            <div className="d-flex flex-row justify-content-between">
+              <Nav tabs className=" mb-3 ml-0 mr-0">
+                <NavItem className="w-14 text-center">
+                  <NavLink
+                    to="#"
+                    location={{}}
+                    className={classnames({
+                      active: activeSecondTab === '1',
+                      'nav-link': true,
+                    })}
+                    onClick={() => {
+                      setActiveSecondTab('1');
+                    }}
+                  >
+                    Create NewsLetter
+                  </NavLink>
+                </NavItem>
+              </Nav>
+              {/* <div className="">
               <Button
                 color="light"
                 className="default btn btn-primary bg-primary text-white font-weight-bold"
@@ -185,124 +194,147 @@ const CreateNewsLetter = ({ intl, match }) => {
                 />
               </Button>{' '}
             </div> */}
-          </div>
-          <TabContent activeTab={activeSecondTab}>
-            <TabPane tabId="1" style={{ fontSize: '14px' }}>
-              <Row>
-                <Colxx lg="6" xl="6" md="6" className="mb-4">
-                  <Form>
-                    <FormGroup className="">
-                      {/* <Label>
+            </div>
+            <TabContent activeTab={activeSecondTab}>
+              <TabPane tabId="1" style={{ fontSize: '14px' }}>
+                <Row>
+                  <Colxx lg="6" xl="6" md="6" className="mb-4">
+                    <Form>
+                      <FormGroup className="">
+                        {/* <Label>
                         <IntlMessages id="Select existing template" />
                       </Label> */}
-                      <Select
-                        components={{
-                          Input: CustomSelectInput,
-                          DropdownIndicator,
-                        }}
-                        className="react-select"
-                        classNamePrefix="react-select"
-                        name="form-field-name"
-                        value={selectedOptionLT}
-                        onChange={(val) => setSelectedOptionLT(val)}
-                        options={selectData}
-                        placeholder="Select existing template"
-                      />
-                    </FormGroup>
-                    <CardTitle style={{ fontSize: '16px', fontWeight: '600' }}>
-                      <IntlMessages id="Target group & dispatch" />
-                    </CardTitle>
-                    <FormGroup className="mb-2">
-                      <Label style={{ fontSize: '14px', fontWeight: '500' }}>
-                        <IntlMessages id="Name of the newsletter" />
-                      </Label>
-                      <Input type="name" placeholder="Enter name" />
-                    </FormGroup>
-                    <FormGroup className="mb-2 mt-4">
-                      <Label style={{ fontSize: '14px', fontWeight: '500' }}>
-                        <IntlMessages id="Target group" />
-                      </Label>
-                      <Select
-                        components={{
-                          Input: CustomSelectInput,
-                          DropdownIndicator,
-                        }}
-                        className="react-select"
-                        classNamePrefix="react-select"
-                        name="form-field-name"
-                        value={selectedOptionLT}
-                        onChange={(val) => setSelectedOptionLT(val)}
-                        options={selectData}
-                        placeholder=""
-                        isMulti
-                      />
-                    </FormGroup>
-                    <FormGroup className="mb-4 mt-4">
-                      <Label style={{ fontSize: '14px', fontWeight: '500' }}>
-                        <IntlMessages id="Select an option" />
-                      </Label>
-                      <Select
-                        components={{
-                          Input: CustomSelectInput,
-                          DropdownIndicator,
-                        }}
-                        className="react-select"
-                        classNamePrefix="react-select"
-                        name="form-field-name"
-                        value={selectedOptionLT}
-                        onChange={(val) => setSelectedOptionLT(val)}
-                        options={selectData}
-                        placeholder="Send now"
-                      />
-                    </FormGroup>
-                    <CardTitle style={{ fontSize: '16px', fontWeight: '600' }}>
-                      <IntlMessages id="Target group & dispatch" />
-                    </CardTitle>
-                    <FormGroup className="mb-2">
-                      <Label style={{ fontSize: '14px', fontWeight: '500' }}>
-                        <IntlMessages id="Name of the newsletter" />
-                      </Label>
-                      <Input type="name" placeholder="Enter name" />
-                    </FormGroup>
-                    <FormGroup className="mb-2 mt-4">
-                      <Label style={{ fontSize: '14px', fontWeight: '500' }}>
-                        <IntlMessages id="Target group" />
-                      </Label>
-                      <Select
-                        components={{
-                          Input: CustomSelectInput,
-                          DropdownIndicator,
-                        }}
-                        className="react-select"
-                        classNamePrefix="react-select"
-                        name="form-field-name"
-                        value={selectedOptionLT}
-                        onChange={(val) => setSelectedOptionLT(val)}
-                        options={selectData}
-                        placeholder=""
-                        isMulti
-                      />
-                    </FormGroup>
-                    <FormGroup className="mb-4 mt-4">
-                      <Label style={{ fontSize: '14px', fontWeight: '500' }}>
-                        <IntlMessages id="Select an option" />
-                      </Label>
-                      <Select
-                        components={{
-                          Input: CustomSelectInput,
-                          DropdownIndicator,
-                        }}
-                        className="react-select"
-                        classNamePrefix="react-select"
-                        name="form-field-name"
-                        value={selectedOptionLT}
-                        onChange={(val) => setSelectedOptionLT(val)}
-                        options={selectData}
-                        placeholder="Send now"
-                      />
-                    </FormGroup>
-                    {/* </FormGroup> */}
-                    {/* <FormGroup className="form-group has-top-label mb-2">
+                        <Select
+                          components={{
+                            Input: CustomSelectInput,
+                            DropdownIndicator,
+                          }}
+                          className="react-select rounded-inputs"
+                          classNamePrefix="react-select rounded-inputs"
+                          name="form-field-name"
+                          value={selectedOptionLT}
+                          onChange={(val) => setSelectedOptionLT(val)}
+                          options={selectData}
+                          placeholder="Select existing template"
+                        />
+                      </FormGroup>
+                      <CardTitle
+                        style={{ fontSize: '16px', fontWeight: '600' }}
+                      >
+                        <IntlMessages id="Target group & dispatch" />
+                      </CardTitle>
+                      <FormGroup className="mb-2">
+                        <Label style={{ fontSize: '14px', fontWeight: '500' }}>
+                          <IntlMessages id="Name of the newsletter" />
+                        </Label>
+                        <Input
+                          type="name"
+                          placeholder="Enter name"
+                          style={{ borderRadius: '8px' }}
+                        />
+                      </FormGroup>
+                      <FormGroup className="mb-2 mt-4">
+                        <Label style={{ fontSize: '14px', fontWeight: '500' }}>
+                          <IntlMessages id="Target group" />
+                        </Label>
+                        <Select
+                          components={{
+                            Input: CustomSelectInput,
+                            DropdownIndicator,
+                          }}
+                          className="react-select rounded-inputs"
+                          classNamePrefix="react-select rounded-inputs"
+                          name="form-field-name"
+                          value={selectedOptionLT}
+                          onChange={(val) => setSelectedOptionLT(val)}
+                          options={selectData}
+                          placeholder=""
+                          isMulti
+                          // style={{
+                          //   control: (provided) => ({
+                          //     ...provided,
+                          //     borderRadius: '8px', // Change this value to your desired border radius
+                          //     borderColor: '#ccc', // Optional: Change border color
+                          //     boxShadow: 'none', // Optional: Remove box shadow
+                          //     '&:hover': {
+                          //       borderColor: '#aaa', // Optional: Change border color on hover
+                          //     },
+                          //   }),
+                          // }}
+                        />
+                      </FormGroup>
+                      <FormGroup className="mb-4 mt-4">
+                        <Label style={{ fontSize: '14px', fontWeight: '500' }}>
+                          <IntlMessages id="Select an option" />
+                        </Label>
+                        <Select
+                          components={{
+                            Input: CustomSelectInput,
+                            DropdownIndicator,
+                          }}
+                          className="react-select rounded-inputs"
+                          classNamePrefix="react-select rounded-inputs"
+                          name="form-field-name"
+                          value={selectedOptionLT}
+                          onChange={(val) => setSelectedOptionLT(val)}
+                          options={selectData}
+                          placeholder="Send now"
+                        />
+                      </FormGroup>
+                      <CardTitle
+                        style={{ fontSize: '16px', fontWeight: '600' }}
+                      >
+                        <IntlMessages id="Target group & dispatch" />
+                      </CardTitle>
+                      <FormGroup className="mb-2">
+                        <Label style={{ fontSize: '14px', fontWeight: '500' }}>
+                          <IntlMessages id="Name of the newsletter" />
+                        </Label>
+                        <Input
+                          type="name"
+                          placeholder="Enter name"
+                          style={{ borderRadius: '8px' }}
+                        />
+                      </FormGroup>
+                      <FormGroup className="mb-2 mt-4">
+                        <Label style={{ fontSize: '14px', fontWeight: '500' }}>
+                          <IntlMessages id="Target group" />
+                        </Label>
+                        <Select
+                          components={{
+                            Input: CustomSelectInput,
+                            DropdownIndicator,
+                          }}
+                          className="react-select rounded-inputs"
+                          classNamePrefix="react-select rounded-inputs"
+                          name="form-field-name"
+                          value={selectedOptionLT}
+                          onChange={(val) => setSelectedOptionLT(val)}
+                          options={selectData}
+                          placeholder=""
+                          isMulti
+                        />
+                      </FormGroup>
+                      <FormGroup className="mb-4 mt-4">
+                        <Label style={{ fontSize: '14px', fontWeight: '500' }}>
+                          <IntlMessages id="Select an option" />
+                        </Label>
+                        <Select
+                          components={{
+                            Input: CustomSelectInput,
+                            DropdownIndicator,
+                          }}
+                          className="react-select rounded-inputs"
+                          classNamePrefix="react-select rounded-inputs"
+                          name="form-field-name"
+                          value={selectedOptionLT}
+                          onChange={(val) => setSelectedOptionLT(val)}
+                          options={selectData}
+                          placeholder="Send now"
+                        />
+                      </FormGroup>
+                      {/* </FormGroup> */}
+                      {/* <FormGroup className="form-group has-top-label mb-2">
                       <Label>
                         <IntlMessages id="Enter name" />
                       </Label>
@@ -329,30 +361,31 @@ const CreateNewsLetter = ({ intl, match }) => {
                         placeholder=""
                       />
                     </FormGroup> */}
-                  </Form>
-                </Colxx>
-                {/* </Row> */}
+                    </Form>
+                  </Colxx>
+                  {/* </Row> */}
+                  {/* <Row> */}
+                  <Colxx lg="6" xl="6" md="6" className="text-center">
+                    <img
+                      className=""
+                      // style={{ margin: 'auto -10px' }}
+                      alt="whatsapp"
+                      src="/assets/img/newsletter/whatsapp.svg"
+                      // width="20px"
+                      // height="20px"
+                    />
+                  </Colxx>
+                </Row>
                 {/* <Row> */}
-                <Colxx lg="6" xl="6" md="6" className="text-center">
-                  <img
-                    className=""
-                    // style={{ margin: 'auto -10px' }}
-                    alt="whatsapp"
-                    src="/assets/img/newsletter/whatsapp.svg"
-                    // width="20px"
-                    // height="20px"
-                  />
-                </Colxx>
-              </Row>
-              {/* <Row> */}
-              {/* <Colxx xl="12" md="12" lg="12" className="mb-4">
+                {/* <Colxx xl="12" md="12" lg="12" className="mb-4">
                   <History />
                 </Colxx> */}
-              {/* </Row> */}
-            </TabPane>
-          </TabContent>
-        </Colxx>
-      </Card>
+                {/* </Row> */}
+              </TabPane>
+            </TabContent>
+          </Colxx>
+        </Card>
+      </Colxx>
     </>
   );
 };

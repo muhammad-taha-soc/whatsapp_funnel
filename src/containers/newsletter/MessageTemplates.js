@@ -20,6 +20,8 @@ import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 import { IoSearchOutline } from 'react-icons/io5';
 import { BsSliders2 } from 'react-icons/bs';
+import { LuTrash2 } from 'react-icons/lu';
+import { FiEdit3 } from 'react-icons/fi';
 
 import products from 'data/products';
 // import { FaSearch } from 'react-icons/fa';
@@ -55,7 +57,7 @@ function Table({ columns, data }) {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column, columnIndex) => (
                 <th
-                className='text-muted'
+                  className="text-muted"
                   key={`th_${columnIndex}`}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                   // className={`
@@ -146,9 +148,11 @@ const MessageTemplates = () => {
           </div>
         ),
         accessor: 'newsLetter',
-        cellClass: 'font-weight-bold w-40',
+        cellClass: 'w-40 font-weight-medium text-14px table-heading-row-color',
         Cell: ({ row }) => (
-          <div style={{ display: 'flex', alignItems: 'center',fontSize:'14px' }}>
+          <div
+            style={{ display: 'flex', alignItems: 'center', fontSize: '14px' }}
+          >
             <input
               type="checkbox"
               checked={selectedRows.has(row.id)}
@@ -163,14 +167,14 @@ const MessageTemplates = () => {
       {
         Header: 'Category',
         accessor: 'createDate',
-        cellClass: 'text-muted w-20',
+        cellClass: 'text-muted w-20 text-14px ',
         Cell: () => <>Marketing</>,
         sortType: 'basic',
       },
       {
         Header: 'Language',
         accessor: 'stock',
-        cellClass: 'text-muted w-20',
+        cellClass: 'text-muted w-20 text-14px ',
         Cell: () => (
           <div>
             <img
@@ -187,12 +191,12 @@ const MessageTemplates = () => {
       {
         Header: 'Status',
         accessor: 'read',
-        cellClass: 'text-primary w-20',
+        cellClass: 'text-primary text-14px  w-20',
         Cell: () => (
           <>
             <Badge
               // color="outline-primary"
-              className="mb-1 text-primary bg-primary-opacity rounded pl-2 pr-2"
+              className="mb-1 text-primary bg-primary-opacity rounded pl-2 pr-2 text-14px "
               // style={{fontSize:"12px"}}
             >
               {/* <i className="iconsminds-record-2" /> */}
@@ -211,7 +215,7 @@ const MessageTemplates = () => {
       {
         Header: 'Action',
         accessor: '',
-        cellClass: 'w-10',
+        cellClass: 'w-10 text-14px text-center',
         Cell: (props) => <ActionDropdown props={props} />,
         // sortType: 'basic',
         disableSortBy: true,
@@ -233,7 +237,7 @@ const MessageTemplates = () => {
               placeholder="Search Customer..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              style={{ paddingLeft: '30px', borderRadius: '5px'}}
+              style={{ paddingLeft: '30px', borderRadius: '5px' }}
             />
             <IoSearchOutline
               className="search-icon"
@@ -248,7 +252,11 @@ const MessageTemplates = () => {
             />
           </div>
           <div>
-            <Badge color="" className="mb-1 border border-theme-4">
+            <Badge
+              color=""
+              className="mb-1 border border-theme-4"
+              style={{ fontWeight: '500', fontSize: '14px', color: '#0D0D26' }}
+            >
               <BsSliders2 className="mr-2" size={15} />
               <IntlMessages id="dashboards.filters" />
             </Badge>{' '}
@@ -279,13 +287,16 @@ const ActionDropdown = ({ props }) => {
         data-toggle="dropdown"
       />
       <DropdownMenu right className="">
-        <DropdownItem className="">
-          <i className="simple-icon-minus mr-2" />
-          Duplicate{' '}
+        <DropdownItem
+          className="text-dark"
+          style={{ fontSize: '14px', color: '#0D0D26' }}
+        >
+          <FiEdit3 className=" mr-2" size={18} />
+          Edit{' '}
         </DropdownItem>
         <DropdownItem divider />
-        <DropdownItem className="text-theme-5 ">
-          <i className="simple-icon-trash mr-2" /> Delete
+        <DropdownItem className="text-theme-5 " style={{ fontSize: '14px' }}>
+          <LuTrash2 className=" mr-2" size={18} /> Delete
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

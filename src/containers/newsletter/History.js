@@ -22,6 +22,8 @@ import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 import products from 'data/products';
 import { BsSliders2 } from 'react-icons/bs';
 import { Separator } from 'components/common/CustomBootstrap';
+import { FiMinusCircle } from 'react-icons/fi';
+import { LuTrash2 } from 'react-icons/lu';
 
 function Table({ columns, data }) {
 
@@ -86,19 +88,35 @@ function Table({ columns, data }) {
                   //   }
                   // `}
                 >
-                  {column.render('Header')}{' '}
-                  {!['Action', 'Sent', 'Surname'].includes(
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <span>{column.render('Header')} </span>
+                    <span>
+                      {!['Action', 'Sent', 'Surname'].includes(
                     column.render('Header')
                   ) && (
-                    <>
-                      {column.isSortedDesc ? (
-                        <FaCaretUp className="ml-2" />
-                      ) : (
-                        <FaCaretDown className="ml-2" />
+                        <>
+                          {column.isSortedDesc ? (
+                            <FaCaretUp
+                              className="mr-1"
+                              // style={{ marginLeft: '70%' }}
+                            />
+                          ) : (
+                            <FaCaretDown
+                              className="mr-1"
+                              // style={{ marginLeft: '70%' }}
+                            />
+                          )}
+                        </>
                       )}
-                    </>
-                  )}
-                  <span />
+                    </span>
+                  </div>
                 </th>
               ))}
             </tr>
@@ -128,7 +146,7 @@ function Table({ columns, data }) {
       </table>
 
       <div className="d-flex flex-row justify-content-between align-items-center mr-2 ml-2">
-        <span className="text-muted">
+        <span className="text-muted text-14px">
           <IntlMessages id="Showing " />
           {startIndex + 1} - {data.length >= endIndex ? endIndex : data.length}
           <IntlMessages id=" from " />
@@ -235,14 +253,14 @@ const History = () => {
     <Card className="h-100">
       <CardBody className="p-4">
         <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
-          <span style={{ fontSize: '24px' }}>
+          <span style={{ fontSize: '24px', fontWeight: '500' }}>
             <IntlMessages id="History" />
           </span>
           <div>
             <Badge
               color=""
               className="mb-1 border border-theme-4"
-              style={{ fontWeight: '400', fontSize: '14px' }}
+              style={{ fontWeight: '500', fontSize: '14px', color: '#0D0D26' }}
             >
               <BsSliders2 className="mr-2" size={15} />
               <IntlMessages id="dashboards.filters" />
@@ -275,14 +293,18 @@ const ActionDropdown = ({ props }) => {
         tag="span"
         data-toggle="dropdown"
       />
+
       <DropdownMenu right className="">
-        <DropdownItem className="">
-          <i className="simple-icon-minus mr-2" />
+        <DropdownItem
+          className="text-dark"
+          style={{ fontSize: '14px', color: '#0D0D26' }}
+        >
+          <FiMinusCircle className=" mr-2" size={18} />
           Duplicate{' '}
         </DropdownItem>
         <DropdownItem divider />
-        <DropdownItem className="text-theme-5 ">
-          <i className="simple-icon-trash mr-2" /> Delete
+        <DropdownItem className="text-theme-5 " style={{ fontSize: '14px' }}>
+          <LuTrash2 className=" mr-2" size={18} /> Delete
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

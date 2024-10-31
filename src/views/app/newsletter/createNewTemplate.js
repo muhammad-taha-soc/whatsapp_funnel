@@ -73,7 +73,10 @@ import ReactCountryDropdown from 'react-country-dropdown';
 // import ReactQuill from 'react-quill';
 // import TagsInputExample from 'containers/forms/TagsInputExample';
 import { IoMdCheckmark } from 'react-icons/io';
-import { GoTriangleRight } from "react-icons/go";
+import { GoTriangleRight, GoImage } from 'react-icons/go';
+import { LuFileUp } from 'react-icons/lu';
+import { BsFileText } from 'react-icons/bs';
+import { AiOutlinePlayCircle } from 'react-icons/ai';
 
 const CreateNewTemplate = ({ intl, match }) => {
   const { messages } = intl;
@@ -173,27 +176,37 @@ const CreateNewTemplate = ({ intl, match }) => {
           </div>
         </Colxx>
       </Row>
-      <Card>
-        <Colxx xxs="12" xs="12" sm="12" lg="12" md="12" xxl="12" xl="12">
-          <div className="d-flex flex-row justify-content-between">
-            <Nav tabs className=" mb-3 ml-0 mr-0">
-              <NavItem className="w-14 text-center">
-                <NavLink
-                  to="#"
-                  location={{}}
-                  className={classnames({
-                    active: activeSecondTab === '1',
-                    'nav-link': true,
-                  })}
-                  onClick={() => {
-                    setActiveSecondTab('1');
-                  }}
-                >
-                  Create New Templates
-                </NavLink>
-              </NavItem>
-            </Nav>
-            {/* <div className="">
+      <Colxx
+        xxs="12"
+        xs="12"
+        sm="12"
+        lg="12"
+        md="12"
+        xxl="12"
+        xl="12"
+        className="rounded"
+      >
+        <Card>
+          <Colxx xxs="12" xs="12" sm="12" lg="12" md="12" xxl="12" xl="12">
+            <div className="d-flex flex-row justify-content-between">
+              <Nav tabs className=" mb-3 ml-0 mr-0">
+                <NavItem className="w-14 text-center">
+                  <NavLink
+                    to="#"
+                    location={{}}
+                    className={classnames({
+                      active: activeSecondTab === '1',
+                      'nav-link': true,
+                    })}
+                    onClick={() => {
+                      setActiveSecondTab('1');
+                    }}
+                  >
+                    Create New Templates
+                  </NavLink>
+                </NavItem>
+              </Nav>
+              {/* <div className="">
               <Button
                 color="light"
                 className="default btn btn-primary bg-primary text-white font-weight-bold"
@@ -208,32 +221,37 @@ const CreateNewTemplate = ({ intl, match }) => {
                 />
               </Button>{' '}
             </div> */}
-          </div>
-          <TabContent activeTab={activeSecondTab}>
-            <TabPane tabId="1" style={{ fontSize: '14px' }}>
-              <Row>
-                <Colxx lg="6" xl="6" md="6">
-                  <Row>
-                    <Colxx lg="6" xl="6" md="6" className="mb-4">
-                      <FormGroup className="mb-2">
+            </div>
+            <TabContent activeTab={activeSecondTab}>
+              <TabPane tabId="1" style={{ fontSize: '14px' }}>
+                <Row>
+                  <Colxx lg="6" xl="6" md="6">
+                    <Row>
+                      <Colxx lg="6" xl="6" md="6" className="mb-4">
+                        <FormGroup className="mb-2">
+                          <Label
+                            className="text-muted"
+                            style={{ fontSize: '14px', fontWeight: '500' }}
+                          >
+                            <IntlMessages id="Template Name" />
+                          </Label>
+                          <Input
+                            type="name"
+                            placeholder="Enter name"
+                            style={{ borderRadius: '8px' }}
+                            className=""
+                          />
+                        </FormGroup>
+                      </Colxx>
+                      <Colxx lg="6" xl="6" md="6" className="mb-4">
                         <Label
                           className="text-muted"
                           style={{ fontSize: '14px', fontWeight: '500' }}
                         >
-                          <IntlMessages id="Template Name" />
+                          <IntlMessages id="Language" />
                         </Label>
-                        <Input type="name" placeholder="Enter name" />
-                      </FormGroup>
-                    </Colxx>
-                    <Colxx lg="6" xl="6" md="6" className="mb-4">
-                      <Label
-                        className="text-muted"
-                        style={{ fontSize: '14px', fontWeight: '500' }}
-                      >
-                        <IntlMessages id="Language" />
-                      </Label>
-                      <FormGroup className="">
-                        {/* <Select
+                        <FormGroup className="">
+                          {/* <Select
                       components={{ Input: CustomSelectInput }}
                       className="react-select"
                       classNamePrefix="react-select"
@@ -243,160 +261,193 @@ const CreateNewTemplate = ({ intl, match }) => {
                       options={selectData}
                       placeholder="Select existing template"
                     /> */}
-                        {/* <Colxx md="3" lg="3" xl="3"> */}
-                        <ReactCountryDropdown
-                          defaultCountry="DE"
-                          onSelect={(country) => console.log(country.name)}
-                        />
-                        {/* </Colxx> */}
-                      </FormGroup>
-                    </Colxx>
-                  </Row>
-                  <Row>
-                    <Colxx lg="12" xl="12" md="12" className="mb-4">
-                      <CardTitle className="mb-2 font-weight-bold">
-                        Blah Blah
-                      </CardTitle>
-                      <div className='text-muted' style={{fontSize:'14px'}}>
-                        <IntlMessages id="Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. " />
-                      </div>
-                    </Colxx>
-                  </Row>
-                  <Row>
-                    <Colxx lg="12" xl="12" md="12" className="mb-4">
-                      <FormGroup className="mb-2">
-                        <Label
+                          {/* <Colxx md="3" lg="3" xl="3"> */}
+                          <ReactCountryDropdown
+                            defaultCountry="DE"
+                            onSelect={(country) => console.log(country.name)}
+                          />
+                          {/* </Colxx> */}
+                        </FormGroup>
+                      </Colxx>
+                    </Row>
+                    <Row>
+                      <Colxx lg="12" xl="12" md="12" className="mb-4">
+                        <CardTitle className="mb-2 font-weight-bold">
+                          Blah Blah
+                        </CardTitle>
+                        <div
                           className="text-muted"
-                          style={{ fontSize: '14px', fontWeight: '500' }}
+                          style={{ fontSize: '14px' }}
                         >
-                          <IntlMessages id="Headers (Optional)" />
-                        </Label>
-                        <div className="d-flex flex-row justify-content-between">
-                          <Badge
-                            color="outline-primary"
-                            className="mb-1 mr-1 w-25"
-                          >
-                            <i className="iconsminds-file-clipboard-file---text" />
-
-                            <IntlMessages id="Text" />
-                          </Badge>
-                          <Badge
-                            color="outline-primary"
-                            className="mb-1 mr-1 w-25"
-                          >
-                            <i className="iconsminds-photo" />
-
-                            <IntlMessages id="Image" />
-                          </Badge>
-                          <Badge
-                            color="outline-primary"
-                            className="mb-1 mr-1 w-25"
-                          >
-                            <i className="iconsminds-video-5" />
-
-                            <IntlMessages id="Video" />
-                          </Badge>
-                          <Badge
-                            color="outline-primary"
-                            className="mb-1 mr-1 w-25"
-                          >
-                            <i className="iconsminds-file" />
-
-                            <IntlMessages id="File" />
-                          </Badge>
+                          <IntlMessages id="Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem. " />
                         </div>
-                      </FormGroup>
-                    </Colxx>
-                  </Row>
-                  <Row>
-                    <Colxx lg="12" xl="12" md="12" className="mb-4">
-                      <FormGroup className="mb-2">
-                        <Label
-                          className="text-muted"
-                          style={{ fontSize: '14px', fontWeight: '500' }}
-                        >
-                          <IntlMessages id="Message" />
-                        </Label>
-                        {/* <ReactQuill
+                      </Colxx>
+                    </Row>
+                    <Row>
+                      <Colxx lg="12" xl="12" md="12" className="mb-2">
+                        <FormGroup className="mb-2">
+                          <Label
+                            className="text-muted"
+                            style={{ fontSize: '14px', fontWeight: '500' }}
+                          >
+                            <IntlMessages id="Headers (Optional)" />
+                          </Label>
+                          <div className="d-flex flex-row justify-content-between ">
+                            <Badge
+                              color="outline-light"
+                              className="mb-1 mr-3 w-25 text-primary text-center d-flex flex-row justify-content-center align-items-center"
+                              style={{ fontWeight: '400' }}
+                            >
+                              <BsFileText className="mr-1" size={17} />
+
+                              <IntlMessages id="Text" />
+                            </Badge>
+                            <Badge
+                              color="outline-light"
+                              className="mb-1 mr-3 w-25 text-primary text-center d-flex flex-row justify-content-center align-items-center"
+                              style={{ fontWeight: '400' }}
+                            >
+                              <GoImage
+                                className="mr-1"
+                                // style={{ transform: 'scalex(-1)' }}
+                                size={17}
+                              />
+
+                              <IntlMessages id="Image" />
+                            </Badge>
+                            <Badge
+                              color="outline-light"
+                              className="mb-1 mr-3 w-25 text-primary text-center d-flex flex-row justify-content-center align-items-center"
+                              style={{ fontWeight: '400' }}
+                            >
+                              <AiOutlinePlayCircle className="mr-1" size={17} />
+
+                              <IntlMessages id="Video" />
+                            </Badge>
+                            <Badge
+                              color="outline-light"
+                              className="mb-1  w-25 text-primary text-center d-flex flex-row justify-content-center align-items-center"
+                              style={{ fontWeight: '400' }}
+                            >
+                              <LuFileUp className="mr-1" size={17} />
+
+                              <IntlMessages id="File" />
+                            </Badge>
+                          </div>
+                        </FormGroup>
+                      </Colxx>
+                    </Row>
+                    <Row>
+                      <Colxx lg="12" xl="12" md="12" className="mb-4">
+                        <FormGroup className="mb-2">
+                          <Label
+                            className="text-muted"
+                            style={{ fontSize: '14px', fontWeight: '500' }}
+                          >
+                            <IntlMessages id="Message" />
+                          </Label>
+                          {/* <ReactQuill
                       theme="bubble"
                       value={textQuillBubble}
                       onChange={(val) => setTextQuillBubble(val)}
                     /> */}
+                          <Input
+                            type="textarea"
+                            placeholder="Write text message"
+                            style={{ borderRadius: '8px' }}
+                          />
+                        </FormGroup>
+                        <span style={{ fontSize: '12px', color: '#667085' }}>
+                          <IntlMessages id="* Make sure the message you write is in the same language that you chose above." />
+                        </span>
+                      </Colxx>
+                    </Row>
+                    <Row>
+                      <Colxx lg="12" xl="12" md="12" className="mb-4">
+                        <FormGroup className="mb-2">
+                          <Label
+                            className="text-muted"
+                            style={{ fontSize: '14px', fontWeight: '500' }}
+                          >
+                            <IntlMessages id="Footer (Optional)" />
+                          </Label>
+                          <Input
+                            type="name"
+                            placeholder="Enter Footer text"
+                            style={{ borderRadius: '8px' }}
+                          />
+                        </FormGroup>
+                      </Colxx>
+                    </Row>
+                    <Row>
+                      <Colxx lg="6" xl="6" md="6" className="mb-2">
+                        <Label
+                          className="text-muted"
+                          style={{ fontSize: '14px', fontWeight: '500' }}
+                        >
+                          <IntlMessages id="Button text" />
+                        </Label>
                         <Input
-                          type="textarea"
-                          placeholder="Write text message"
+                          type="name"
+                          placeholder="Enter button text"
+                          style={{ borderRadius: '8px' }}
                         />
-                      </FormGroup>
-                      <IntlMessages id="* Make sure the message you write is in the same language that you chose above." />
-                    </Colxx>
-                  </Row>
-                  <Row>
-                    <Colxx lg="12" xl="12" md="12" className="mb-4">
-                      <FormGroup className="mb-2">
+                      </Colxx>
+                      <Colxx lg="6" xl="6" md="6" className="mb-2">
                         <Label
                           className="text-muted"
                           style={{ fontSize: '14px', fontWeight: '500' }}
                         >
-                          <IntlMessages id="Footer (Optional)" />
+                          <IntlMessages id="Website URL" />
                         </Label>
-                        <Input type="name" placeholder="Enter Footer text" />
-                      </FormGroup>
-                    </Colxx>
-                  </Row>
-                  <Row>
-                    <Colxx lg="6" xl="6" md="6" className="mb-2">
-                      <Label
-                        className="text-muted"
-                        style={{ fontSize: '14px', fontWeight: '500' }}
-                      >
-                        <IntlMessages id="Button text" />
-                      </Label>
-                      <Input type="name" placeholder="Enter button text" />
-                    </Colxx>
-                    <Colxx lg="6" xl="6" md="6" className="mb-2">
-                      <Label
-                        className="text-muted"
-                        style={{ fontSize: '14px', fontWeight: '500' }}
-                      >
-                        <IntlMessages id="Website URL" />
-                      </Label>
-                      <Input type="name" placeholder="Enter website URL" />
-                    </Colxx>
-                  </Row>
-                  <Row>
-                    <Colxx lg="12" xl="12" md="12" className="mb-4">
-                      <IntlMessages id="* You can add up to three regular buttons or one URL button. You can only pick one type of button, not both." />
-                    </Colxx>
-                  </Row>
-                  <Row>
-                    <Colxx lg="12" xl="12" md="12" className="mb-4">
-                      <FormGroup className="mb-2">
-                        <Label
-                          className="text-muted"
-                          style={{ fontSize: '14px', fontWeight: '500' }}
-                        >
-                          <IntlMessages id="Variable" />
-                        </Label>
-                        <Input type="name" placeholder="" />
-                      </FormGroup>
-                    </Colxx>
-                  </Row>
-                </Colxx>
-                <Colxx lg="6" xl="6" md="6" className="text-center">
-                  <img
-                    className=""
-                    // style={{ margin: 'auto -10px' }}
-                    alt="whatsapp"
-                    src="/assets/img/newsletter/whatsapp.svg"
-                    // width="20px"
-                    // height="20px"
-                  />
-                </Colxx>
-              </Row>
-            </TabPane>
-          </TabContent>
-        </Colxx>
-      </Card>
+                        <Input
+                          type="name"
+                          placeholder="Enter website URL"
+                          style={{ borderRadius: '8px' }}
+                        />
+                      </Colxx>
+                    </Row>
+                    <Row>
+                      <Colxx lg="12" xl="12" md="12" className="mb-4">
+                        <span style={{ fontSize: '12px', color: '#667085',lineHeight:'20px' }}>
+                          <IntlMessages id="* You can add up to three regular buttons or one URL button. You can only pick one type of button, not both." />
+                        </span>
+                      </Colxx>
+                    </Row>
+                    <Row>
+                      <Colxx lg="12" xl="12" md="12" className="mb-4">
+                        <FormGroup className="mb-2">
+                          <Label
+                            className="text-muted"
+                            style={{ fontSize: '14px', fontWeight: '500' }}
+                          >
+                            <IntlMessages id="Variable" />
+                          </Label>
+                          <Input
+                            type="name"
+                            placeholder=""
+                            style={{ borderRadius: '8px' }}
+                          />
+                        </FormGroup>
+                      </Colxx>
+                    </Row>
+                  </Colxx>
+                  <Colxx lg="6" xl="6" md="6" className="text-center">
+                    <img
+                      className=""
+                      // style={{ margin: 'auto -10px' }}
+                      alt="whatsapp"
+                      src="/assets/img/newsletter/whatsapp.svg"
+                      // width="20px"
+                      // height="20px"
+                    />
+                  </Colxx>
+                </Row>
+              </TabPane>
+            </TabContent>
+          </Colxx>
+        </Card>
+      </Colxx>
     </>
   );
 };

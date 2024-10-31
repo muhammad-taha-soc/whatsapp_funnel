@@ -22,6 +22,8 @@ import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 import products from 'data/products';
 import { BsSliders2 } from 'react-icons/bs';
 import { Separator } from 'components/common/CustomBootstrap';
+import { LuTrash2 } from 'react-icons/lu';
+import { FiMinusCircle } from 'react-icons/fi';
 
 function Table({ columns, data }) {
 
@@ -77,17 +79,33 @@ function Table({ columns, data }) {
                   key={`th_${columnIndex}`}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                 >
-                  {column.render('Header')}{' '}
-                  {column.render('Header') === 'Last edit' && (
-                    <>
-                      {column.isSortedDesc ? (
-                        <FaCaretDown className="ml-2" />
-                      ) : (
-                        <FaCaretUp className="ml-2" />
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <span>{column.render('Header')} </span>
+                    <span>
+                      {column.render('Header') === 'Last edit' && (
+                        <>
+                          {column.isSortedDesc ? (
+                            <FaCaretUp
+                              className="mr-1"
+                              // style={{ marginLeft: '70%' }}
+                            />
+                          ) : (
+                            <FaCaretDown
+                              className="mr-1"
+                              // style={{ marginLeft: '70%' }}
+                            />
+                          )}
+                        </>
                       )}
-                    </>
-                  )}
-                  <span />
+                    </span>
+                  </div>
                 </th>
               ))}
             </tr>
@@ -117,7 +135,7 @@ function Table({ columns, data }) {
       </table>
 
       <div className="d-flex flex-row justify-content-between align-items-center mr-2 ml-2">
-        <span className="text-muted">
+        <span className="text-muted text-14px">
           <IntlMessages id="Showing " />
           {startIndex + 1} - {data.length >= endIndex ? endIndex : data.length}
           <IntlMessages id=" from " />
@@ -147,7 +165,7 @@ const Draft = () => {
       {
         Header: 'Surname',
         accessor: 'newsLetter',
-        cellClass: 'w-75 font-weight-medium text-14px table-heading-row-color',
+        cellClass: 'w-70 font-weight-medium text-14px table-heading-row-color',
         Cell: (props) => (
           <span style={{ fontSize: '14px' }}>{props.value}</span>
         ),
@@ -155,15 +173,15 @@ const Draft = () => {
       },
       {
         Header: 'Last edit',
-        accessor: 'createDate',
-        cellClass: 'text-muted w-20 text-14px',
+        accessor: 'lastEdit',
+        cellClass: 'text-muted w-30 text-14px',
         Cell: (props) => <>{props.value}</>,
         sortType: 'basic',
       },
       {
         Header: 'Action',
         accessor: '',
-        cellClass: 'w-20 text-14px text-center',
+        cellClass: 'w-0 text-14px text-center',
         Cell: (props) => <ActionDropdown props={props} />, // Replaced with ActionDropdown component
         disableSortBy: true,
       },
@@ -175,14 +193,14 @@ const Draft = () => {
     <Card className="h-100">
       <CardBody className="p-4">
         <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
-          <span style={{ fontSize: '24px' }}>
+          <span style={{ fontSize: '24px', fontWeight: '500' }}>
             <IntlMessages id="Draft" />
           </span>
           <div>
             <Badge
               color=""
               className="mb-1 border border-theme-4"
-              style={{ fontWeight: '400', fontSize: '14px' }}
+              style={{ fontWeight: '500', fontSize: '14px', color: '#0D0D26' }}
             >
               <BsSliders2 className="mr-2" size={15} />
               <IntlMessages id="dashboards.filters" />
@@ -215,14 +233,17 @@ const ActionDropdown = ({ props }) => {
         tag="span"
         data-toggle="dropdown"
       />
-      <DropdownMenu right className=''>
-        <DropdownItem className="">
-          <i className="simple-icon-minus mr-2" />
+      <DropdownMenu right className="">
+        <DropdownItem
+          className="text-dark"
+          style={{ fontSize: '14px', color: '#0D0D26' }}
+        >
+          <FiMinusCircle className=" mr-2" size={18} />
           Duplicate{' '}
         </DropdownItem>
         <DropdownItem divider />
-        <DropdownItem className='text-theme-5 '>
-          <i className="simple-icon-trash mr-2" /> Delete
+        <DropdownItem className="text-theme-5 " style={{ fontSize: '14px' }}>
+          <LuTrash2 className=" mr-2" size={18} /> Delete
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>
