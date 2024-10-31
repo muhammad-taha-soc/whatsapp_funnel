@@ -11,6 +11,7 @@ import IntlMessages from 'helpers/IntlMessages';
 
 import products from 'data/products';
 import "./profile.css"
+import { Separator } from 'components/common/CustomBootstrap';
 
 function Table({ columns, data }) {
     const {
@@ -37,14 +38,16 @@ function Table({ columns, data }) {
 
     return (
         <>
-            <table {...getTableProps()} className="r-table table">
+            <table {...getTableProps()} className="r-table r1-table table">
                 <thead>
                     {headerGroups.map((headerGroup) => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
+                        <tr {...headerGroup.getHeaderGroupProps()}
+                            style={{ borderBottom: '1px solid #E8E8E9' }}>
                             {headerGroup.headers.map((column, columnIndex) => (
                                 <th
                                     key={`th_${columnIndex}`}
                                     {...column.getHeaderProps(column.getSortByToggleProps())}
+                                    style={{ padding: '12px 22px 18px 22px' }}
                                 // className={`
                                 //   ${
                                 //     column.isSorted
@@ -83,6 +86,7 @@ function Table({ columns, data }) {
                                         {...cell.getCellProps({
                                             className: cell.column.cellClass,
                                         })}
+                                        style={{ verticalAlign: "middle" }}
                                     >
                                         {cell.render('Cell')}
                                     </td>
@@ -153,16 +157,18 @@ const NewsLetter = () => {
     );
 
     return (
-        <CardBody className='card rounded-md mt-4' style={{ borderRadius: "16px" }}>
+        <CardBody className='card rounded-md mt-4' style={{ borderRadius: "16px", padding: '0px' }}>
             <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
                 <h2 className='billing-heading'>Billing History</h2>
-                <div style={{ cursor: "pointer" }}>
+                <div style={{ cursor: "pointer", marginRight: '14px', position: 'relative', top: '12px' }}>
                     <div className="b-btn">
                         <img src={'/assets/img/modals/download.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
                         <IntlMessages id="Download" />
                     </div>
                 </div>
             </CardTitle>
+            <Separator className=" separator-class" />
+
             <Table columns={cols} data={products} />
         </CardBody>
     );

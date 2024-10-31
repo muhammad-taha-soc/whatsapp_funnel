@@ -29,6 +29,11 @@
     font-weight: 500;
     font-size: 24px;
     margin: 0;
+    position: relative;
+    top: 20px;
+    right: 24px;
+    bottom: 20px;
+    left: 24px;
 }
 
 .b-btn {
@@ -40,6 +45,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+
 }
 
 .paymeny-card-w {
@@ -52,4 +58,5 @@
         padding: 0 !important;
         margin-bottom: 5px;
     }
+
 }
