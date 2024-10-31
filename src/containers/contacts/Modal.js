@@ -20,7 +20,7 @@ const Modal = ({ customer, onClose }) => {
     phone: '050 414 8788',
     date: '12 December 2022',
     coupons: ['Action name 1, Action name 2'],
-    suggestionSubmitted: 'Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem.',
+    suggestionSubmitted: 'Lorem ipsum  dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem.',
     reasonDissatisfaction: 'Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem.',
     notes: 'Lorem ipsum dolor sit amet consectetur. Eget hac faucibus at in. Sed pharetra nunc pellentesque ante adipiscing sit turpis lacus. Scelerisque pellentesque sed auctor sem.',
   };
@@ -69,14 +69,14 @@ const Modal = ({ customer, onClose }) => {
                       className="iconsminds-envelope-2"
                     
                     /> */}
-                    <HiOutlineMail   style={{
-                        fontWeight: '500',
-                        fontSize: '14px',
-                        marginRight: '8px',
-                        width: '22px',
-                        height: '22px',
-                        color: '#5C5C78',
-                      }} />
+                    <HiOutlineMail style={{
+                      fontWeight: '500',
+                      fontSize: '14px',
+                      marginRight: '8px',
+                      width: '22px',
+                      height: '22px',
+                      color: '#5C5C78',
+                    }} />
 
                     Email:
                     <br />
@@ -93,13 +93,13 @@ const Modal = ({ customer, onClose }) => {
                      
                     /> */}
                     <BsTelephone style={{
-                        marginRight: '8px',
-                        width: '22px',
-                        height: '22px',
-                        color: '#5C5C78',
-                        fontWeight: '500',
-                        fontSize: '14px',
-                      }} />
+                      marginRight: '8px',
+                      width: '22px',
+                      height: '22px',
+                      color: '#5C5C78',
+                      fontWeight: '500',
+                      fontSize: '14px',
+                    }} />
 
                     Telephone Number:
                     <br />
@@ -114,14 +114,14 @@ const Modal = ({ customer, onClose }) => {
                     className="iconsminds-calendar-4"
                   
                   /> */}
-                  <RiCalendar2Line   style={{
-                      marginRight: '8px',
-                      width: '22px',
-                      height: '22px',
-                      color: '#5C5C78',
-                      fontWeight: '500',
-                      fontSize: '14px',
-                    }} />
+                  <RiCalendar2Line style={{
+                    marginRight: '8px',
+                    width: '22px',
+                    height: '22px',
+                    color: '#5C5C78',
+                    fontWeight: '500',
+                    fontSize: '14px',
+                  }} />
 
                   Date:
                   <br />
