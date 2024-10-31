@@ -41,3 +41,15 @@
     align-items: center;
     gap: 8px;
 }
+
+.paymeny-card-w {
+    width: 50%;
+}
+
+@media screen and (max-width: 830px) {
+    .paymeny-card-w {
+        width: 100%;
+        padding: 0 !important;
+        margin-bottom: 5px;
+    }
+}

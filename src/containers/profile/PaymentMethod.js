@@ -21,7 +21,7 @@ const PaymentMethod = () => {
                 <h2 className='text-t1' style={{ fontSize: '24px', fontWeight: '500', marginBottom: "20px" }}>Payment method</h2>
                 <p className='text-t1' style={{ fontSize: '16px', fontWeight: '600' }}>Card details</p>
                 <div className='d-flex justify-content-between align-items-center flex-wrap'>
-                    <div className='w-50 pr-2'>
+                    <div className='paymeny-card-w pr-2'>
                         <div
                             className='d-flex justify-content-between'
                             style={{
@@ -57,7 +57,7 @@ const PaymentMethod = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-50 pl-2'>
+                    <div className='paymeny-card-w pl-2'>
                         <div
                             className='d-flex justify-content-between'
                             style={{
