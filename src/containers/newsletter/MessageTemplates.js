@@ -24,6 +24,7 @@ import { LuTrash2 } from 'react-icons/lu';
 import { FiEdit3 } from 'react-icons/fi';
 
 import products from 'data/products';
+import { Separator } from 'components/common/CustomBootstrap';
 // import { FaSearch } from 'react-icons/fa';
 
 function Table({ columns, data }) {
@@ -54,7 +55,10 @@ function Table({ columns, data }) {
       <table {...getTableProps()} className="r-table table">
         <thead>
           {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr
+              {...headerGroup.getHeaderGroupProps()}
+              style={{ borderBottom: '1px solid #E8E8E9' }}
+            >
               {headerGroup.headers.map((column, columnIndex) => (
                 <th
                   className="text-muted"
@@ -262,6 +266,7 @@ const MessageTemplates = () => {
             </Badge>{' '}
           </div>
         </CardTitle>
+        <Separator className="separator-class" />
         <Table columns={cols} data={products} />
       </CardBody>
     </Card>
