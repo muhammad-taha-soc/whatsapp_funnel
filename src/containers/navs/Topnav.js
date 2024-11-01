@@ -236,6 +236,7 @@ const TopNav = ({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-end',
+          marginRight: '-20px'
         }}
       >
         {isDarkSwitchActive && <TopnavDarkSwitch />}
