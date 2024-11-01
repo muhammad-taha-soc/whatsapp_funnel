@@ -3,7 +3,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-key */
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTable, usePagination, useSortBy } from 'react-table';
 import {
   Badge,
@@ -14,7 +14,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-} from 'reactstrap'; 
+} from 'reactstrap';
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
@@ -26,7 +26,6 @@ import { FiMinusCircle } from 'react-icons/fi';
 import { LuTrash2 } from 'react-icons/lu';
 
 function Table({ columns, data }) {
-
   const [currentPage, setCurrentPage] = useState(1);
   // const [totalItemCount] = useState(0);
   const [selectedPageSize] = useState(8);
@@ -95,7 +94,7 @@ function Table({ columns, data }) {
                       justifyContent: 'space-between',
                       alignItems: 'center',
                       marginLeft: `${
-                        column.render('Header') === 'Surname' && '1.75rem'
+                        column.render('Header') === 'Surname' && '1rem'
                       }`,
                       marginRight: `${
                         column.render('Header') === 'Action' && '1.75rem'
@@ -153,7 +152,7 @@ function Table({ columns, data }) {
 
       <div
         className="d-flex flex-row justify-content-between align-items-center"
-        style={{ margin: '0 1.75rem 0.9rem 2.5rem' }}
+        style={{ margin: '0 1rem 0.9rem 1.5rem' }}
       >
         <span className="text-muted text-14px">
           <IntlMessages id="Showing " />
@@ -190,7 +189,7 @@ const History = () => {
           <span
             style={{
               fontSize: '14px',
-              padding: '1.5rem 1.75rem 0.5rem 1.75rem',
+              padding: '1rem 0 0 1rem',
             }}
           >
             {props.value}
@@ -270,7 +269,7 @@ const History = () => {
       <CardBody className="p-0">
         <CardTitle
           className="d-flex flex-row justify-content-between font-weight-bold"
-          style={{ margin: '1.5rem 1.5rem 1.5rem 2.5rem' }}
+          style={{ margin: '1.5rem 1.5rem 1.5rem 1.5rem' }}
         >
           <span style={{ fontSize: '24px', fontWeight: '500' }}>
             <IntlMessages id="History" />
@@ -292,7 +291,6 @@ const History = () => {
     </Card>
   );
 };
-
 
 const ActionDropdown = ({ props }) => {
   console.log({ props });
