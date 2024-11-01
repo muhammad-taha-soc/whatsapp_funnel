@@ -12054,6 +12054,11 @@
     "react-overlays" "^4.1.1"
     "uncontrollable" "^7.0.0"
 
+"react-chartjs-2@^5.2.0":
+  "integrity" "sha512-98iN5aguJyVSxp5U3CblRLH67J8gkfyGNbiK3c+l1QI/G4irHMPQw44aEPmjVag+YKTyQ260NcF82GTQ3bdscA=="
+  "resolved" "https://registry.npmjs.org/react-chartjs-2/-/react-chartjs-2-5.2.0.tgz"
+  "version" "5.2.0"
+
 "react-circular-progressbar@^2.0.4":
   "integrity" "sha512-xp4THTrod4aLpGy68FX/k1Q3nzrfHUjUe5v6FsdwXBl3YVMwgeXYQKDrku7n/D6qsJA9CuunarAboC2xCiKs1g=="
   "resolved" "https://registry.npmjs.org/react-circular-progressbar/-/react-circular-progressbar-2.1.0.tgz"
