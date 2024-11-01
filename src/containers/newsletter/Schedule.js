@@ -98,6 +98,9 @@ function Table({ columns, data }) {
                       marginLeft: `${
                         column.render('Header') === 'Surname' && '1.75rem'
                       }`,
+                      marginRight: `${
+                        column.render('Header') === 'Action' && '1.75rem'
+                      }`,
                     }}
                   >
                     <span>{column.render('Header')} </span>
@@ -218,7 +221,7 @@ const Schedule = () => {
       <CardBody className="p-0">
         <CardTitle
           className="d-flex flex-row justify-content-between font-weight-bold"
-          style={{ margin: '1.5rem 1rem 1.5rem 2.5rem' }}
+          style={{ margin: '1.5rem 1.5rem 1.5rem 2.5rem' }}
         >
           <span style={{ fontSize: '24px', fontWeight: '500' }}>
             <IntlMessages id="Schedule" />
