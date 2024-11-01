@@ -64,19 +64,27 @@ const Modal = ({ customer, onClose }) => {
 
               <div className="customer-info">
                 <div className="d-flex justify-content-between align-items-center">
-                  <p>
+                  <p style={{ fontWeight: '500', fontSize: '14px', color: '#667085' }}>
                     {/* <i
                       className="iconsminds-envelope-2"
                     
                     /> */}
-                    <HiOutlineMail style={{
+                    {/* <HiOutlineMail style={{
                       fontWeight: '500',
                       fontSize: '14px',
                       marginRight: '8px',
                       width: '22px',
                       height: '22px',
                       color: '#5C5C78',
-                    }} />
+                    }} /> */}
+                    <img src='/assets/img/svg/envelope (1) 1.svg' style={{
+                      fontWeight: '500',
+                      fontSize: '14px',
+                      marginRight: '8px',
+                      width: '22px',
+                      height: '22px',
+                      color: '#5C5C78',
+                    }} alt='email' />
 
                     Email:
                     <br />
@@ -87,19 +95,28 @@ const Modal = ({ customer, onClose }) => {
                   <FaRegCopy style={{ width: '20px', height: '20px', color: '#86868A' }} />
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
-                  <p>
+                  <p style={{ fontWeight: '500', fontSize: '14px', color: '#667085' }}>
                     {/* <i
                       className="simple-icon-phone"
                      
                     /> */}
-                    <BsTelephone style={{
+                    {/* <BsTelephone style={{
                       marginRight: '8px',
                       width: '22px',
                       height: '22px',
                       color: '#5C5C78',
                       fontWeight: '500',
                       fontSize: '14px',
-                    }} />
+                    }} /> */}
+
+                    <img src='/assets/img/svg/phone-flip 1.svg' style={{
+                      fontWeight: '500',
+                      fontSize: '14px',
+                      marginRight: '8px',
+                      width: '22px',
+                      height: '22px',
+                      color: '#5C5C78',
+                    }} alt='email' />
 
                     Telephone Number:
                     <br />
@@ -109,19 +126,28 @@ const Modal = ({ customer, onClose }) => {
                   </p>
                   <FaRegCopy style={{ width: '20px', height: '20px', color: '#86868A' }} />
                 </div>
-                <p>
+                <p style={{ fontWeight: '500', fontSize: '14px', color: '#667085' }}>
                   {/* <i
                     className="iconsminds-calendar-4"
                   
                   /> */}
-                  <RiCalendar2Line style={{
+                  {/* <RiCalendar2Line style={{
                     marginRight: '8px',
                     width: '22px',
                     height: '22px',
                     color: '#5C5C78',
                     fontWeight: '500',
                     fontSize: '14px',
-                  }} />
+                  }} /> */}
+
+                  <img src='/assets/img/svg/calendar (1) 1.svg' style={{
+                    fontWeight: '500',
+                    fontSize: '14px',
+                    marginRight: '8px',
+                    width: '22px',
+                    height: '22px',
+                    color: '#5C5C78',
+                  }} alt='email' />
 
                   Date:
                   <br />

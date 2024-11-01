@@ -12,7 +12,7 @@
 }
 
 .c-modal-content {
-    background: white ;
+    background: white;
     padding: 20px;
     border-radius: 10px;
     width: 90%;
@@ -90,49 +90,49 @@
 
 .action-button {
 
-    background-color: white;
+    background-color: white !important;
     /* Light background color for buttons */
-    border: 1px solid #0DAC8A;
+    border: 1px solid #0DAC8A !important;
     /* Green border */
-    color: #0DAC8A;
+    color: #0DAC8A !important;
     /* Button text color */
-    border-radius: 12px;
-    padding: 10px;
-    margin: 5px 0;
+    border-radius: 12px !important;
+    padding: 10px !important;
+    margin: 5px 0 !important;
     /* Vertical spacing between buttons */
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background-color 0.3s, transform 0.2s !important;
     /* Smooth transitions */
 }
 
 .action-button:hover {
-    background-color: #e0f7fa;
+    background-color: #e0f7fa !important;
     /* Change background on hover */
-    transform: scale(1.05);
+    transform: scale(1.05) !important;
     /* Slightly grow button */
 }
 
 .delete-button {
-    background-color: white;
+    background-color: white !important;
     /* Light red background */
-    border: 1px solid #F5430B;
-    border-radius: 12px;
+    border: 1px solid #F5430B !important;
+    border-radius: 12px !important;
     /* Red border */
-    color: #F5430B;
+    color: #F5430B !important;
     /* Button text color */
-    transition: background-color 0.3s, transform 0.2s;
-    padding: 10px;
-    margin: 5px 0;
+    transition: background-color 0.3s, transform 0.2s !important;
+    padding: 10px !important;
+    margin: 5px 0 !important;
     /* Smooth transitions */
 }
 
 .delete-button:hover {
-    background-color: #ff9999;
+    background-color: #ff9999 !important;
     /* Darker red on hover */
-    transform: scale(1.05);
+    transform: scale(1.05) !important;
     /* Slightly grow button */
 }
 
