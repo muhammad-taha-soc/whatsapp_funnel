@@ -6,27 +6,34 @@ import { FaCaretUp } from 'react-icons/fa';
 const dailyData = [
   { day: 'Mon', users: 600 },
   { day: 'Tue', users: 800 },
-  { day: 'Wed', users: 250 },
+  { day: 'Wed', users: 750 },
   { day: 'Thu', users: 480 },
   { day: 'Fri', users: 1020 },
-  { day: 'Sat', users: 650 },
-  { day: 'Sun', users: 350 }
+  { day: 'Sat', users: 900 },
+  { day: 'Sun', users: 650 }
 ];
 
 const weeklyData = [
   { week: 'Week 1', users: 3500 },
-  { week: 'Week 2', users: 4200 },
-  { week: 'Week 3', users: 3800 },
-  { week: 'Week 4', users: 4500 }
+  { week: 'Week 2', users: 6200 },
+  { week: 'Week 3', users: 2800 },
+  { week: 'Week 4', users: 7500 }
 ];
 
+
 const monthlyData = [
-  { month: 'Jan', users: 15000 },
+  { month: 'Jan', users: 45000 },
   { month: 'Feb', users: 18000 },
   { month: 'Mar', users: 16500 },
   { month: 'Apr', users: 19000 },
   { month: 'May', users: 21000 },
-  { month: 'Jun', users: 20000 }
+  { month: 'Jun', users: 20000 },
+  { month: 'Jul', users: 30000 },
+  { month: 'Aug', users: 20310 },
+  { month: 'Sep', users: 35000 },
+  { month: 'Oct', users: 40020 },
+  { month: 'Nov', users: 38250 },
+  { month: 'Dec', users: 41000 },
 ];
 
 const yearlyData = [
@@ -38,8 +45,8 @@ const yearlyData = [
 ];
 
 export default function Component() {
-  const [interval, setInterval] = useState('Daily');
-  const [chartData, setChartData] = useState(dailyData);
+  const [interval, setInterval] = useState('Weekly');
+  const [chartData, setChartData] = useState(weeklyData);
   const [hoveredItem, setHoveredItem] = useState(null);
 
   const totalUsers = 26201;
@@ -126,8 +133,6 @@ export default function Component() {
             fontSize: '14px',
             fontWeight: 500,
             color: '#86868A',
-            position: 'relative',
-            top: '4px'
           }}>
             In Total
           </div>
@@ -189,7 +194,7 @@ export default function Component() {
       }}>
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }} onMouseMove={(e) => {
-            if (e && e.activeTooltipIndex !== undefined) {
+            if (e && e.activeTooltipIndex !== undefined && chartData[e.activeTooltipIndex]) {
               const key = interval === 'Daily' ? 'day' : interval === 'Weekly' ? 'week' : interval === 'Monthly' ? 'month' : 'year';
               setHoveredItem(chartData[e.activeTooltipIndex][key]);
             }
@@ -197,7 +202,7 @@ export default function Component() {
             onMouseLeave={() => setHoveredItem(null)} mouseMoveThrottleTime={50}>
             <defs>
               <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#0062FF" stopOpacity={0.1} />
+                <stop offset="5%" stopColor="#0062FF" stopOpacity={0.08} />
                 <stop offset="95%" stopColor="#0062FF" stopOpacity={0.0} />
               </linearGradient>
             </defs>
@@ -224,8 +229,9 @@ export default function Component() {
                   {payload.value}
                 </text>
               )}
-              padding={{ left: 30, right: 30 }}
+              padding={{ left: 40, right: 40 }}
               interval={0}
+              domain={['dataMin', 'dataMax']}
             />
             <YAxis
               axisLine={false}
@@ -259,8 +265,10 @@ export default function Component() {
                 strokeWidth: 3
               }}
               onMouseMove={(data) => {
-                const key = interval === 'Daily' ? 'day' : interval === 'Weekly' ? 'week' : interval === 'Monthly' ? 'month' : 'year';
-                setHoveredItem(data.activePayload[0].payload[key]);
+                if (data && data.activePayload && data.activePayload.length > 0) {
+                  const key = interval === 'Daily' ? 'day' : interval === 'Weekly' ? 'week' : interval === 'Monthly' ? 'month' : 'year';
+                  setHoveredItem(data.activePayload[0].payload[key]);
+                }
               }}
               onMouseLeave={() => setHoveredItem(null)}
             />

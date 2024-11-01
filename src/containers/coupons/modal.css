@@ -39,6 +39,21 @@
     max-height: 99vh;
 }
 
+.create-modal {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    /* width: 35%; */
+    /* Use percentage for responsiveness */
+    max-width: 800px;
+    /* Maintain a wide layout on larger screens */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    /* Slide down the modal */
+    max-height: 99vh;
+}
+
 .modal-header {
     display: flex;
     justify-content: space-between;
