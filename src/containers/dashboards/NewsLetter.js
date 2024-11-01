@@ -254,7 +254,7 @@ const NewsLetter = () => {
             </Badge>{' '}
           </div>
         </CardTitle>
-        <Separator className="separator-class" />
+        <Separator className="table-separator" />
         <Table columns={cols} data={products} />
       </CardBody>
       {/* <div className="">
