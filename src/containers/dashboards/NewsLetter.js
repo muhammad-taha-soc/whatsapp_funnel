@@ -55,16 +55,22 @@ function Table({ columns, data }) {
   return (
     <>
       <table {...getTableProps()} className="r-table table">
-        <thead>
+        <thead
+        // style={{ margin: '1.5rem 0 0 1.75rem !important' }}
+        >
           {headerGroups.map((headerGroup) => (
             <tr
               {...headerGroup.getHeaderGroupProps()}
-              style={{ borderBottom: '1px solid #E8E8E9' }}
+              style={{
+                borderBottom: '1px solid #E8E8E9',
+                // margin: '1.5rem 1.75rem 0.5rem 1.75rem',
+              }}
             >
               {headerGroup.headers.map((column, columnIndex) => (
                 <>
                   <th
                     className="text-muted font-weight-medium text-14px "
+                    // style={{ marginLeft:'1rem' }}
                     key={`th_${columnIndex}`}
                     {...column.getHeaderProps(column.getSortByToggleProps())}
                     // className={`
@@ -83,6 +89,9 @@ function Table({ columns, data }) {
                         flexDirection: 'row',
                         justifyContent: 'space-between',
                         alignItems: 'center',
+                        marginLeft: `${
+                          column.render('Header') === 'Newsletter' && '1.75rem'
+                        }`,
                       }}
                     >
                       <span>{column.render('Header')} </span>
@@ -134,7 +143,10 @@ function Table({ columns, data }) {
           })}
         </tbody>
       </table>
-      <div className="d-flex flex-row justify-content-between align-items-center mr-2 ml-2">
+      <div
+        className="d-flex flex-row justify-content-between align-items-center"
+        style={{ margin: '0 1.75rem 0.9rem 2.5rem' }}
+      >
         <span className="text-muted text-14px">
           <IntlMessages id="Showing " />
           {startIndex + 1} - {data.length >= endIndex ? endIndex : data.length}
@@ -167,7 +179,7 @@ const NewsLetter = () => {
         accessor: 'newsLetter',
         cellClass: 'font-weight-medium w-25 text-14px table-heading-row-color',
         Cell: (props) => (
-          <span style={{ fontSize: '14px' }}>{props.value}</span>
+          <span style={{ fontSize: '14px',padding:'1.5rem 1.75rem 0.5rem 1.75rem' }} >{props.value}</span>
         ),
         sortType: 'basic',
       },
@@ -221,9 +233,9 @@ const NewsLetter = () => {
   );
 
   return (
-    <Card className="h-100">
-      <CardBody className="p-4">
-        <CardTitle className="d-flex flex-row justify-content-between ">
+    <Card className="h-100 p-0">
+      <CardBody className="p-0">
+        <CardTitle className="d-flex flex-row justify-content-between " style={{margin:'1.5rem 1rem 1.5rem 2.5rem'}}>
           <span style={{ fontSize: '24px', fontWeight: '500' }}>
             <IntlMessages id="Newsletter" />
           </span>
