@@ -74,7 +74,10 @@ function Table({ columns, data }) {
                   //   }
                   // `}
                 >
-                  {column.render('Header')} <span />
+                  <span style={{ marginRight: `${column.render('Header') === "Action" && '1rem'}` }}>
+                    {' '}
+                    {column.render('Header')}{' '}
+                  </span>
                 </th>
               ))}
             </tr>
@@ -102,20 +105,21 @@ function Table({ columns, data }) {
           })}
         </tbody>
       </table>
-
-      <DatatablePagination
-        page={pageIndex}
-        pages={pageCount}
-        canPrevious={canPreviousPage}
-        canNext={canNextPage}
-        pageSizeOptions={[4, 10, 20, 30, 40, 50]}
-        showPageSizeOptions={false}
-        showPageJump={false}
-        defaultPageSize={pageSize}
-        onPageChange={(p) => gotoPage(p)}
-        onPageSizeChange={(s) => setPageSize(s)}
-        paginationMaxSize={pageCount}
-      />
+      <div style={{ margin: '0 1rem 0.9rem 0rem' }}>
+        <DatatablePagination
+          page={pageIndex}
+          pages={pageCount}
+          canPrevious={canPreviousPage}
+          canNext={canNextPage}
+          pageSizeOptions={[4, 10, 20, 30, 40, 50]}
+          showPageSizeOptions={false}
+          showPageJump={false}
+          defaultPageSize={pageSize}
+          onPageChange={(p) => gotoPage(p)}
+          onPageSizeChange={(s) => setPageSize(s)}
+          paginationMaxSize={pageCount}
+        />
+      </div>
     </>
   );
 }
@@ -141,7 +145,13 @@ const MessageTemplates = () => {
       {
         Header: () => (
           <div
-            style={{ display: 'flex', alignItems: 'center', color: '#667085' }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              color: '#667085',
+              marginLeft: '1rem',
+              // marginRight: '1.75rem',
+            }}
           >
             <input
               type="checkbox"
@@ -155,7 +165,12 @@ const MessageTemplates = () => {
         cellClass: 'w-40 font-weight-medium text-14px table-heading-row-color',
         Cell: ({ row }) => (
           <div
-            style={{ display: 'flex', alignItems: 'center', fontSize: '14px' }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              fontSize: '14px',
+              padding: '0rem 0rem 0rem 1rem',
+            }}
           >
             <input
               type="checkbox"
@@ -229,9 +244,12 @@ const MessageTemplates = () => {
   );
 
   return (
-    <Card className="h-100">
-      <CardBody>
-        <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
+    <Card className="h-100 p-0">
+      <CardBody className="p-0">
+        <CardTitle
+          className="d-flex flex-row justify-content-between font-weight-bold"
+          style={{ margin: '1.5rem 1.5rem 1.5rem 1.5rem' }}
+        >
           <div
             className="input-group"
             style={{ width: '300px', position: 'relative' }}
