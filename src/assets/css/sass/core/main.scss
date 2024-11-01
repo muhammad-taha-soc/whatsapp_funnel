@@ -18,6 +18,7 @@ main {
     padding-right: 0;
     margin-top: -10px !important;
     margin-right: 15px !important;
+    width: 103%
   }
 
   @include respond-below(xl) {
