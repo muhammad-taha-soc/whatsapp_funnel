@@ -22,6 +22,7 @@ import OverviewModal from './OverviewModal';
 
 import Calendar from './CalendarModal';
 import { Separator } from 'components/common/CustomBootstrap';
+import "./modal.css";
 
 function Table({ columns, data, onRowClick }) {
   const {
@@ -47,6 +48,8 @@ function Table({ columns, data, onRowClick }) {
 
   return (
     <>
+          <div className="table-responsive-md"> 
+
       <table {...getTableProps()} className="r-table r1-table table">
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -96,6 +99,7 @@ function Table({ columns, data, onRowClick }) {
           })}
         </tbody>
       </table>
+      </div>
       <DatatablePagination
         page={pageIndex}
         pages={pageCount}

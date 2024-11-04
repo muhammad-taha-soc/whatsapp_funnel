@@ -110,15 +110,6 @@
     .user {
       margin-right: $main-margin;
 
-
-      // div{
-      //   button{
-      //     div{
-      //       display: block;
-      //     }
-      //   }
-      // }
-
       @include respond-below(xl) {
         margin-right: $main-margin-lg;
       }

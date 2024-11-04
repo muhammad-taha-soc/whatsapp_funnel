@@ -11,6 +11,7 @@ import IntlMessages from 'helpers/IntlMessages';
 import { GoDotFill, GoArrowRight } from 'react-icons/go';
 import { FaCaretDown } from 'react-icons/fa';
 import { LuCalendar } from 'react-icons/lu';
+import './LandingModal.css'
 // import { GoArrowRight } from 'react-icons/go';
 // import { GoArrowRight } from 'react-icons/fa6';
 
@@ -24,12 +25,12 @@ const MakeMoney = () => {
           <span style={{ fontSize: '28px', fontWeight: '500' }}>
             <IntlMessages id="MakeMoney" />
           </span>
-          <div className="">
+          <div className="button-padding">
             <Button
               style={{ backgroundColor: '#f0f0f0' }}
               outline
               color="light"
-              className=" border border-theme-4 text-dark font-weight-bold  d-flex flex-row justify-content-between"
+              className=" border border-theme-4 text-dark font-weight-bold d-flex flex-row justify-content-between"
             >
               <LuCalendar className="mr-2" size={15} />
               <IntlMessages id="15/5/24 - 15/6/24" />

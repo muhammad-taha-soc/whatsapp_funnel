@@ -1,8 +1,8 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { FaCaretUp } from 'react-icons/fa';
-
+import './LandingModal.css';
 const dailyData = [
   { day: 'Mon', users: 600 },
   { day: 'Tue', users: 800 },
@@ -51,7 +51,6 @@ export default function Component() {
 
   const totalUsers = 26201;
   const percentageIncrease = 10;
-
   const handleIntervalChange = (selectedInterval) => {
     setInterval(selectedInterval);
     switch (selectedInterval) {
@@ -129,7 +128,9 @@ export default function Component() {
           }}>
             Users
           </div>
-          <div style={{
+        
+
+        <div style={{
             fontSize: '14px',
             fontWeight: 500,
             color: '#86868A',
@@ -157,8 +158,39 @@ export default function Component() {
               <FaCaretUp size={14} />
             </span>
           </div>
+          <div 
+          className='cal-none'
+          style={{
+          borderRadius: '100px',
+          display: 'flex',
+          gap: '12px',
+          backgroundColor: '#F8F9FB',
+        }} >
+          {['Daily', 'Weekly', 'Monthly', 'Yearly'].map((item) => (
+            <button
+              key={item}
+              onClick={() => handleIntervalChange(item)}
+              style={{
+                padding: '6px 12px',
+                borderRadius: '100px',
+                backgroundColor: interval === item ? '#FFFFFF' : 'transparent',
+                color: interval === item ? '#0DAC8A' : '#86868A',
+                fontSize: '14px',
+                fontWeight: interval === item ? 600 : 500,
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.2s'
+              }}
+            >
+              {item}
+            </button>
+          ))}
         </div>
-        <div style={{
+
+        </div>
+        <div 
+        className="cal-hd"
+        style={{
           borderRadius: '100px',
           display: 'flex',
           gap: '12px',

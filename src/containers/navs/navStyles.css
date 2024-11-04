@@ -8,3 +8,19 @@
     color: #1A1C21;
     margin-left: 1%;
   }
+
+  .Avatarpadding {
+    padding-right: 0; /* No padding on larger screens */
+}
+
+@media (max-width: 768px) {
+  .Avatarpadding {
+      padding-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Avatarpadding {
+      padding-right: 30px;
+  }
+}

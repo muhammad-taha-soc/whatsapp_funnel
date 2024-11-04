@@ -3,6 +3,7 @@
 /* eslint-disable no-use-before-define */
 import React, { useState } from 'react';
 import { injectIntl } from 'react-intl';
+import { Colxx } from 'components/common/CustomBootstrap';
 
 import {
   UncontrolledDropdown,
@@ -37,7 +38,7 @@ import {
 import TopnavNotifications from './Topnav.Notifications';
 import TopnavDarkSwitch from './Topnav.DarkSwitch';
 import { GoDotFill } from 'react-icons/go';
-
+import "./navStyles.css";
 const TopNav = ({
   intl,
   history,
@@ -204,6 +205,7 @@ const TopNav = ({
   console.log(messages);
 
   return (
+    <Colxx xxs="12">
     <nav className="navbar fixed-top">
       <div className="d-flex align-items-center navbar-left">
         {/* <NavLink
@@ -240,7 +242,9 @@ const TopNav = ({
         }}
       >
         {isDarkSwitchActive && <TopnavDarkSwitch />}
+        {/* <div className="header-icons d-inline-block align-middle" style={{ marginRight:'0px'}}> */}
         <div className="header-icons d-inline-block align-middle">
+
           {/* <TopnavEasyAccess /> */}
           {/* <i className="iconsminds-envelope-2" /> */}
           <div className="position-relative d-none d-sm-inline-block">
@@ -315,7 +319,7 @@ const TopNav = ({
           </button> */}
         </div>
         <div className="user d-inline-block">
-          <UncontrolledDropdown className="dropdown-menu-right">
+          <UncontrolledDropdown className="dropdown-menu-right Avatarpadding">
             <DropdownToggle
               className="p-0"
               color="empty"
@@ -383,6 +387,7 @@ const TopNav = ({
         </div>
       </div>
     </nav>
+    </Colxx>
   );
 };
 

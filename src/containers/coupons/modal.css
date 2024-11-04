@@ -433,3 +433,14 @@
     width: 10px;
     height: 10px;
 }
+
+.table-responsive-md {
+    overflow-x: auto;
+  }
+  
+  /* Control scrolling on medium screens only */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .table-responsive-md {
+      overflow-x: auto;
+    }
+  }

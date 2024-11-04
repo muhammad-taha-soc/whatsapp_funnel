@@ -24,6 +24,7 @@ import { BsSliders2 } from 'react-icons/bs';
 import { Separator } from 'components/common/CustomBootstrap';
 import { FiMinusCircle } from 'react-icons/fi';
 import { LuTrash2 } from 'react-icons/lu';
+import '../dashboards/LandingModal.css'
 
 function Table({ columns, data }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -65,6 +66,7 @@ function Table({ columns, data }) {
 
   return (
     <>
+      <div className="table-responsive-md"> 
       <table {...getTableProps()} className="r-table table">
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -149,7 +151,7 @@ function Table({ columns, data }) {
           })}
         </tbody>
       </table>
-
+</div>
       <div
         className="d-flex flex-row justify-content-between align-items-center"
         style={{ margin: '0 1rem 0.9rem 1.5rem' }}

@@ -14,6 +14,7 @@ import EditCoupon from './EditCouponModal';
 import {
     FaEllipsisV
 } from 'react-icons/fa';
+import "./modal.css";
 
 function Table({ columns, data, onEditCoupon }) {
     const {
@@ -40,6 +41,8 @@ function Table({ columns, data, onEditCoupon }) {
 
     return (
         <>
+                  <div className="table-responsive-md"> 
+
             <table {...getTableProps()} className="r-table table">
                 <thead>
                     {headerGroups.map((headerGroup) => (
@@ -106,6 +109,8 @@ function Table({ columns, data, onEditCoupon }) {
                     })}
                 </tbody>
             </table>
+
+            </div>
         </>
     );
 }
@@ -176,7 +181,7 @@ const AdministrationTable = () => {
 
 
     const handleEditCoupon = (coupon) => {
-        setSelectedCoupon(coupon);
+        setSelectedCoupon();
         setIsEditCouponOpen(true); // Open the edit coupon modal
     };
 

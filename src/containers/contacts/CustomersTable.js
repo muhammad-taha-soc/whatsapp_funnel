@@ -50,6 +50,7 @@ function Table({ columns, data, onRowClick }) {
 
     return (
         <>
+              <div className="table-responsive-md"> 
             <table {...getTableProps()} className="r-table r1-table table">
                 <thead>
                     {headerGroups.map((headerGroup) => (
@@ -100,6 +101,7 @@ function Table({ columns, data, onRowClick }) {
                     })}
                 </tbody>
             </table>
+            </div>
             <DatatablePagination
                 page={pageIndex}
                 pages={pageCount}

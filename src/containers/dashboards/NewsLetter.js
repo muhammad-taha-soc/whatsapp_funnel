@@ -12,6 +12,7 @@ import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 import products from 'data/products';
 import { BsSliders2 } from 'react-icons/bs';
 import { Separator } from 'components/common/CustomBootstrap';
+import './LandingModal.css'
 // import { FaCalendarDays } from 'react-icons/fa6';
 
 function Table({ columns, data }) {
@@ -54,6 +55,7 @@ function Table({ columns, data }) {
 
   return (
     <>
+      <div className="table-responsive-md"> 
       <table {...getTableProps()} className="r-table table">
         <thead
         // style={{ margin: '1.5rem 0 0 1.75rem !important' }}
@@ -143,6 +145,7 @@ function Table({ columns, data }) {
           })}
         </tbody>
       </table>
+      </div>
       <div
         className="d-flex flex-row justify-content-between align-items-center"
         style={{ margin: '0 1.75rem 0.9rem 2.5rem' }}

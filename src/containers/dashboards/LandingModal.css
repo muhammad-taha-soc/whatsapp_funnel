@@ -245,3 +245,34 @@ padding:1rem !important;
         padding: 8px;
     }
 }
+
+
+.table-responsive-md {
+    overflow-x: auto;
+  }
+  
+  /* Control scrolling on medium screens only */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .table-responsive-md {
+      overflow-x: auto;
+    }
+  }
+  
+
+  @media (max-width: 480px) {
+    .button-padding {
+        padding-left: 20px;
+    }
+  }
+
+
+  @media (max-width: 840px) {
+     .cal-hd{
+        display: none !important;
+    }
+  }
+  @media (min-width: 840px) {
+    .cal-none{
+        display: none !important;
+    }
+  }
