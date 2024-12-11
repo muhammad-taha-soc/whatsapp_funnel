@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import { Colxx, Separator } from 'components/common/CustomBootstrap';
 import Breadcrumb from 'containers/navs/Breadcrumb';
 import IconCardsCarousel from 'containers/dashboards/IconCardsCarousel';
-import UsersChartCard from 'containers/dashboards/UsersChartCard';
+// import UsersChartCard from 'containers/dashboards/UsersChartCard';
 import NewsLetter from 'containers/dashboards/NewsLetter';
 import MakeMoney from 'containers/dashboards/MakeMoney';
 import AccountProfile from 'containers/dashboards/AccountProfile';
@@ -90,7 +90,7 @@ const DefaultDashboard = ({ intl, match }) => {
             </Row>
             <Row>
               <Colxx sm="12" md="12" className="mb-4 rounded">
-                <UsersChartCard />
+                  <NewsLetter />
               </Colxx>
             </Row>
             <Row>
