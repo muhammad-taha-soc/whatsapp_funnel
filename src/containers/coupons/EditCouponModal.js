@@ -38,8 +38,8 @@ const EditCoupon = ({ isOpen, onClose }) => {
         couponGraphic: {
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: '15px',
+            marginBottom: '20px',
+            gap: '12px',
 
         },
         changeButton: {
@@ -50,13 +50,9 @@ const EditCoupon = ({ isOpen, onClose }) => {
             cursor: 'pointer',
             transition: 'background 0.3s',
             color: '#0DAC8A',
-            marginRight: '10px',
-            position: 'absolute',
-            left: '80px',
-            transform: 'translateY(-15%)',
         },
         formGroup: {
-            marginBottom: '15px',
+            marginBottom: '20px',
             position: 'relative',
         },
         label: {
@@ -69,6 +65,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
             padding: '10px',
             border: '1px solid #ccc',
             borderRadius: '4px',
+            color: '#667085'
         },
         textarea: {
             width: '100%',
@@ -77,10 +74,12 @@ const EditCoupon = ({ isOpen, onClose }) => {
             borderRadius: '4px',
             resize: 'none',
             height: '80px',
+            color: '#667085'
         },
         modalFooter: {
             display: 'flex',
-            justifyContent: 'flex-end',
+            justifyContent: 'space-between',
+            alignItems: 'center',
             marginTop: '15px',
         },
         cancelButton: {
@@ -104,46 +103,58 @@ const EditCoupon = ({ isOpen, onClose }) => {
             cursor: 'pointer',
         },
         icon: {
-            marginLeft: '5px',
-            marginRight: '5px',
+            // marginLeft: '5px',
+            // marginRight: '5px',
             color: '#0DAC8A',
             cursor: 'pointer', // Indicate that it's clickable
         },
         imageClass: {
-            position: 'relative',
             width: '64px',
             height: '64px',
             borderRadius: '8px',
-            overflow: 'hidden',
-            marginRight: '10px',
+            // overflow: 'hidden',
+            border: '1.33px solid #EEEEEE',
         },
     };
 
+    const style = {
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '14px',
+        fontWeight: 500,
+        lineHeight: '20px',
+        letterSpacing: '0.005em',
+        textAlign: 'left',
+        color: '#667085',
+        marginBottom: '4px',
+
+    };
     return (
         <>
             <div style={modalStyles.overlay} onClick={onClose}>
                 <div style={modalStyles.content} onClick={(e) => e.stopPropagation()}>
-                    <header className="modal-header" style={{ color: '#1A1C21', height: '30px', fontSize: '20px', fontWeight: '600px', padding: 0 }}>
-                        <h2 style={{ marginBottom: '15px', fontWeight: 'bold' }}>Edit Coupon</h2>
-                        <button className="close-button" onClick={onClose}>✖</button>
+                    <header className="modal-header" style={{ color: '#1A1C21', fontSize: '20px', fontWeight: '600px', padding: 0, marginBottom: '24px' }}>
+                        <h2 style={{ margin: 0, fontWeight: '600', fontSize: '20px', color: "#1A1C21" }}>Edit Coupon</h2>
+                        <img src={'/assets/img/modals/cross.svg'} style={{ width: '16px', height: '16px' }} alt='Visa' onClick={onClose} />
                     </header>
-                    <p style={{ color: '#667085' }}>Current coupon graphic</p>
+                    <p style={style}>Current coupon graphic</p>
                     <div style={modalStyles.couponGraphic}>
-                        <div style={modalStyles.imageClass}>
 
+                        <div style={modalStyles.imageClass}>
                             <img
                                 src="../../assets/img/blog/coupon.svg"
                                 alt="Coupon"
-                                style={{ width: '64px', height: '64' }}
+                                style={{ width: '64px', height: '64px' }}
                             />
                         </div>
-                        <button style={modalStyles.changeButton}>
-                            <LuPenLine style={modalStyles.icon} />
-                            Change
-                        </button>
+                        <div style={modalStyles.changeButton}>
+                            <img src={'/assets/img/modals/edit.svg'} style={{ width: '20px', height: '20px', marginRight: '4px' }} alt='Visa' />
+                            <span style={{ fontSize: '14px', fontWeight: "600" }}>
+                                Change
+                            </span>
+                        </div>
                     </div>
                     <div style={modalStyles.formGroup}>
-                        <label style={modalStyles.label}>Action name</label>
+                        <label style={style}>Action name</label>
                         <input
                             type="text"
                             defaultValue="20% on my products"
@@ -151,7 +162,7 @@ const EditCoupon = ({ isOpen, onClose }) => {
                         />
                     </div>
                     <div style={modalStyles.formGroup}>
-                        <label style={modalStyles.label}>Effective date</label>
+                        <label style={style}>Effective date</label>
                         <div style={{ position: 'relative' }}>
                             <input
                                 type="text"
@@ -169,18 +180,16 @@ const EditCoupon = ({ isOpen, onClose }) => {
                                 onClick={() => setIsCalendarOpen(true)} />
                         </div>
                     </div>
-                    <div style={modalStyles.formGroup}>
-                        <label style={modalStyles.label}>Condition</label>
+                    <div style={{ ...modalStyles.formGroup, marginBottom: "24px" }}>
+                        <label style={style}>Condition</label>
                         <textarea
                             defaultValue="Lorem ipsum dolor sit amet, consectetur..."
                             style={modalStyles.textarea}
                         />
                     </div>
                     <div style={modalStyles.modalFooter}>
-                        <button style={modalStyles.cancelButton} onClick={onClose}>
-                            Cancel
-                        </button>
-                        <button style={modalStyles.saveButton} onClick={onClose}>Save Changes</button>
+                        <button style={{ backgroundColor: 'white', color: '#86868A', border: "1px solid #86868A", borderRadius: '8px', padding: "10px 14px", fontSize: "14px", fontWeight: "600" }} onClick={onClose}>Cancel</button>
+                        <button style={{ backgroundColor: '#0dac8a', color: 'white', border: "1px solid #0dac8a", borderRadius: '8px', padding: "10px 14px", fontSize: "14px", fontWeight: "600" }} onClick={onClose}>Save Change</button>
                     </div>
                 </div>
             </div>

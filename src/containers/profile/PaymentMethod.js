@@ -18,10 +18,10 @@ const PaymentMethod = () => {
     return (
         <>
             <CardBody className='card rounded-md' style={{ borderRadius: "16px" }}>
-                <h2 style={{ fontSize: '24px', fontWeight: '500' }}>Payment method</h2>
-                <p style={{ fontSize: '16px', fontWeight: '600' }}>Card details</p>
+                <h2 className='text-t1' style={{ fontSize: '24px', fontWeight: '500', marginBottom: "20px" }}>Payment method</h2>
+                <p className='text-t1' style={{ fontSize: '16px', fontWeight: '600' }}>Card details</p>
                 <div className='d-flex justify-content-between align-items-center flex-wrap'>
-                    <div className='w-50 pr-2'>
+                    <div className='paymeny-card-w pr-2'>
                         <div
                             className='d-flex justify-content-between'
                             style={{
@@ -38,9 +38,9 @@ const PaymentMethod = () => {
                                         <img src={'/assets/img/payment/visa-image.png'} style={{ width: '30px', height: '30px' }} alt='Visa' />
                                     </div>
                                     <div>
-                                        <p className='mb-0' style={{ fontSize: '14px', fontWeight: '500' }}> Visa Ending in 2424</p>
-                                        <p className='mb-2' style={{ fontSize: '14px', fontWeight: '400' }}> Expiry 06/2024</p>
-                                        <p className='mb-0' style={{ fontSize: '14px', fontWeight: '600' }}> Set as default <span style={{ color: '#0DAC8A', fontWeight: '800', marginLeft: '10px' }}>Edit</span></p>
+                                        <p className='mb-0 text-t2' style={{ fontSize: '14px', fontWeight: '500' }}> Visa Ending in 2424</p>
+                                        <p className='mb-2 text-t3' style={{ fontSize: '14px', fontWeight: '400' }}> Expiry 06/2024</p>
+                                        <p className='mb-0 text-t3' style={{ fontSize: '14px', fontWeight: '600' }}> Set as default <span style={{ color: '#0DAC8A', fontWeight: '600', fontSize: "14px", marginLeft: '10px' }}>Edit</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@ const PaymentMethod = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-50 pl-2'>
+                    <div className='paymeny-card-w pl-2'>
                         <div
                             className='d-flex justify-content-between'
                             style={{
@@ -74,9 +74,9 @@ const PaymentMethod = () => {
                                         <img src={'/assets/img/payment/master-image.png'} style={{ width: '30px', height: '30px' }} alt='MasterCard' />
                                     </div>
                                     <div>
-                                        <p className='mb-0' style={{ fontSize: '14px', fontWeight: '500' }}> MasterCard Ending in 1234</p>
-                                        <p className='mb-2' style={{ fontSize: '14px', fontWeight: '400' }}> Expiry 07/2024</p>
-                                        <p className='mb-0' style={{ fontSize: '14px', fontWeight: '600' }}> Set as default <span style={{ color: '#0DAC8A', fontWeight: '800', marginLeft: '10px' }}>Edit</span></p>
+                                        <p className='mb-0 text-t2' style={{ fontSize: '14px', fontWeight: '500' }}> MasterCard Ending in 1234</p>
+                                        <p className='mb-2 text-t3' style={{ fontSize: '14px', fontWeight: '400' }}> Expiry 07/2024</p>
+                                        <p className='mb-0 text-t3' style={{ fontSize: '14px', fontWeight: '600' }}> Set as default <span style={{ color: '#0DAC8A', fontWeight: '600', fontSize: "14px", marginLeft: '10px' }}>Edit</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -98,26 +98,26 @@ const PaymentMethod = () => {
                 <p style={{ fontSize: '16px', fontWeight: '600' }}>Billing Information</p>
                 <div className='d-flex justify-content-between align-items-center mb-2'>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px" }}>
-                        <i className='simple-icon-user' style={{ fontSize: "16px" }} />
-                        <p style={{ fontSize: "14px", fontWeight: "500", margin: "0" }}>Surname</p>
+                        <img src={'/assets/img/modals/user.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
+                        <p className='text-t4' style={{ fontSize: "14px", fontWeight: "500", margin: "0" }}>Surname</p>
                     </div>
-                    <div style={{ fontSize: "14px", fontWeight: "500" }}>mtc Business Germany GmbH</div>
+                    <div className='text-t1' style={{ fontSize: "14px", fontWeight: "500" }}>mtc Business Germany GmbH</div>
                 </div>
                 <Separator className="mb-3" />
                 <div className='d-flex justify-content-between align-items-center mb-2'>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px" }}>
-                        <i className='simple-icon-location-pin' style={{ fontSize: "16px" }} />
-                        <p style={{ fontSize: "14px", fontWeight: "500", margin: "0" }}>Billing Address</p>
+                        <img src={'/assets/img/modals/location.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
+                        <p className='text-t4' style={{ fontSize: "14px", fontWeight: "500", margin: "0" }}>Billing Address</p>
                     </div>
-                    <div style={{ fontSize: "14px", fontWeight: "500" }}>Geldstrasse 1, 1111 Geldstadt</div>
+                    <div className='text-t1' style={{ fontSize: "14px", fontWeight: "500" }}>Geldstrasse 1, 1111 Geldstadt</div>
                 </div>
                 <Separator className="mb-3" />
                 <div className='d-flex justify-content-between align-items-center mb-2'>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px" }}>
-                        <i className='simple-icon-phone' style={{ fontSize: "16px" }} />
-                        <p style={{ fontSize: "14px", fontWeight: "500", margin: "0" }}>Telephone number</p>
+                        <img src={'/assets/img/modals/phone.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
+                        <p className='text-t4' style={{ fontSize: "14px", fontWeight: "500", margin: "0" }}>Telephone number</p>
                     </div>
-                    <div style={{ fontSize: "14px", fontWeight: "500" }}>+419123456789</div>
+                    <div className='text-t1' style={{ fontSize: "14px", fontWeight: "500" }}>+419123456789</div>
                 </div>
                 <Separator className="mb-3" />
             </CardBody>

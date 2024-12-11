@@ -20,8 +20,11 @@ import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 import { IoSearchOutline } from 'react-icons/io5';
 import { BsSliders2 } from 'react-icons/bs';
+import { LuTrash2 } from 'react-icons/lu';
+import { FiEdit3 } from 'react-icons/fi';
 
 import products from 'data/products';
+import { Separator } from 'components/common/CustomBootstrap';
 // import { FaSearch } from 'react-icons/fa';
 
 function Table({ columns, data }) {
@@ -52,10 +55,13 @@ function Table({ columns, data }) {
       <table {...getTableProps()} className="r-table table">
         <thead>
           {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr
+              {...headerGroup.getHeaderGroupProps()}
+              style={{ borderBottom: '1px solid #E8E8E9' }}
+            >
               {headerGroup.headers.map((column, columnIndex) => (
                 <th
-                className='text-muted'
+                  className="text-muted"
                   key={`th_${columnIndex}`}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                   // className={`
@@ -68,7 +74,10 @@ function Table({ columns, data }) {
                   //   }
                   // `}
                 >
-                  {column.render('Header')} <span />
+                  <span style={{ marginRight: `${column.render('Header') === "Action" && '1rem'}` }}>
+                    {' '}
+                    {column.render('Header')}{' '}
+                  </span>
                 </th>
               ))}
             </tr>
@@ -96,20 +105,21 @@ function Table({ columns, data }) {
           })}
         </tbody>
       </table>
-
-      <DatatablePagination
-        page={pageIndex}
-        pages={pageCount}
-        canPrevious={canPreviousPage}
-        canNext={canNextPage}
-        pageSizeOptions={[4, 10, 20, 30, 40, 50]}
-        showPageSizeOptions={false}
-        showPageJump={false}
-        defaultPageSize={pageSize}
-        onPageChange={(p) => gotoPage(p)}
-        onPageSizeChange={(s) => setPageSize(s)}
-        paginationMaxSize={pageCount}
-      />
+      <div style={{ margin: '0 1rem 0.9rem 0rem' }}>
+        <DatatablePagination
+          page={pageIndex}
+          pages={pageCount}
+          canPrevious={canPreviousPage}
+          canNext={canNextPage}
+          pageSizeOptions={[4, 10, 20, 30, 40, 50]}
+          showPageSizeOptions={false}
+          showPageJump={false}
+          defaultPageSize={pageSize}
+          onPageChange={(p) => gotoPage(p)}
+          onPageSizeChange={(s) => setPageSize(s)}
+          paginationMaxSize={pageCount}
+        />
+      </div>
     </>
   );
 }
@@ -133,11 +143,35 @@ const MessageTemplates = () => {
   const cols = React.useMemo(
     () => [
       {
-        Header: 'Surname',
+        Header: () => (
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              color: '#667085',
+              marginLeft: '1rem',
+              // marginRight: '1.75rem',
+            }}
+          >
+            <input
+              type="checkbox"
+              // Remove onChange for no functionality
+              style={{ marginRight: '8px' }}
+            />
+            <IntlMessages id="Surname" />
+          </div>
+        ),
         accessor: 'newsLetter',
-        cellClass: 'font-weight-bold w-40',
+        cellClass: 'w-40 font-weight-medium text-14px table-heading-row-color',
         Cell: ({ row }) => (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              fontSize: '14px',
+              padding: '0rem 0rem 0rem 1rem',
+            }}
+          >
             <input
               type="checkbox"
               checked={selectedRows.has(row.id)}
@@ -152,14 +186,14 @@ const MessageTemplates = () => {
       {
         Header: 'Category',
         accessor: 'createDate',
-        cellClass: 'text-muted w-20',
+        cellClass: 'text-muted w-20 text-14px ',
         Cell: () => <>Marketing</>,
         sortType: 'basic',
       },
       {
         Header: 'Language',
         accessor: 'stock',
-        cellClass: 'text-muted w-20',
+        cellClass: 'text-muted w-20 text-14px ',
         Cell: () => (
           <div>
             <img
@@ -176,12 +210,12 @@ const MessageTemplates = () => {
       {
         Header: 'Status',
         accessor: 'read',
-        cellClass: 'text-primary w-20',
+        cellClass: 'text-primary text-14px  w-20',
         Cell: () => (
           <>
             <Badge
               // color="outline-primary"
-              className="mb-1 text-primary bg-primary-opacity rounded pl-2 pr-2"
+              className="mb-1 text-primary bg-primary-opacity rounded pl-2 pr-2 text-14px "
               // style={{fontSize:"12px"}}
             >
               {/* <i className="iconsminds-record-2" /> */}
@@ -200,7 +234,7 @@ const MessageTemplates = () => {
       {
         Header: 'Action',
         accessor: '',
-        cellClass: 'w-10',
+        cellClass: 'w-10 text-14px text-center',
         Cell: (props) => <ActionDropdown props={props} />,
         // sortType: 'basic',
         disableSortBy: true,
@@ -210,9 +244,12 @@ const MessageTemplates = () => {
   );
 
   return (
-    <Card className="h-100">
-      <CardBody>
-        <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
+    <Card className="h-100 p-0">
+      <CardBody className="p-0">
+        <CardTitle
+          className="d-flex flex-row justify-content-between font-weight-bold"
+          style={{ margin: '1.5rem 1.5rem 1.5rem 1.5rem' }}
+        >
           <div
             className="input-group"
             style={{ width: '300px', position: 'relative' }}
@@ -222,7 +259,7 @@ const MessageTemplates = () => {
               placeholder="Search Customer..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              style={{ paddingLeft: '30px', borderRadius: '5px'}}
+              style={{ paddingLeft: '30px', borderRadius: '5px' }}
             />
             <IoSearchOutline
               className="search-icon"
@@ -237,12 +274,17 @@ const MessageTemplates = () => {
             />
           </div>
           <div>
-            <Badge color="" className="mb-1 border border-theme-4">
+            <Badge
+              color=""
+              className="mb-1 border border-theme-4"
+              style={{ fontWeight: '500', fontSize: '14px', color: '#0D0D26' }}
+            >
               <BsSliders2 className="mr-2" size={15} />
               <IntlMessages id="dashboards.filters" />
             </Badge>{' '}
           </div>
         </CardTitle>
+        <Separator className="separator-class" />
         <Table columns={cols} data={products} />
       </CardBody>
     </Card>
@@ -268,13 +310,16 @@ const ActionDropdown = ({ props }) => {
         data-toggle="dropdown"
       />
       <DropdownMenu right className="">
-        <DropdownItem className="">
-          <i className="simple-icon-minus mr-2" />
-          Duplicate{' '}
+        <DropdownItem
+          className="text-dark"
+          style={{ fontSize: '14px', color: '#0D0D26' }}
+        >
+          <FiEdit3 className=" mr-2" size={18} />
+          Edit{' '}
         </DropdownItem>
         <DropdownItem divider />
-        <DropdownItem className="text-theme-5 ">
-          <i className="simple-icon-trash mr-2" /> Delete
+        <DropdownItem className="text-theme-5 " style={{ fontSize: '14px' }}>
+          <LuTrash2 className=" mr-2" size={18} /> Delete
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

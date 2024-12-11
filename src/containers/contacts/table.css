@@ -13,6 +13,11 @@
     /* Shadow effect */
 }
 
+.dropdowns {
+    font-weight: 400 !important;
+    font-size: 14px !important
+}
+
 .option-group {
     border: 1px solid #ddd;
     /* Individual option group border */
@@ -77,3 +82,9 @@
     border-bottom: 2px solid #667085;
     /* If you want a different style for the header */
 }
+
+
+
+/* .r1-table tbody tr td {
+    padding: 18px 22px 18px 22px !important
+}  */

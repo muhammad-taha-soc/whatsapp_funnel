@@ -1,13 +1,14 @@
 /* eslint-disable */
 
 import React, { useState, useMemo } from 'react';
-import { useTable, usePagination, useSortBy } from 'react-table';
+import { useTable, usePagination } from 'react-table';
 import { Card, CardBody, CardTitle, Input, Badge } from 'reactstrap';
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 import products from 'data/products';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
-  import { BsSliders2 } from 'react-icons/bs';
+import { IoSearchOutline } from 'react-icons/io5';
+import { BsSliders2 } from 'react-icons/bs';
 import {
   FaEllipsisV,
   FaWhatsapp,
@@ -41,22 +42,22 @@ function Table({ columns, data, onRowClick }) {
       data,
       initialState: { pageIndex: 0, pageSize: 6 },
     },
-    useSortBy,
     usePagination
   );
 
   return (
     <>
-      <table {...getTableProps()} className="r-table table">
+      <table {...getTableProps()} className="r-table r1-table table">
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr key={headerGroup.id} {...headerGroup.getHeaderGroupProps()}
-              style={{ borderBottom: '1px solid #f3f3f3' }} // Border for header
+              style={{ borderBottom: '1px solid #E8E8E9' }} // Border for header
             >
               {headerGroup.headers.map((column) => (
                 <th
                   key={column.id}
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                  // {...column.getHeaderProps(column.getSortByToggleProps())}
+                  style={{ padding: '12px 22px 18px 22px' }}
                 >
                   {column.render('Header')}
                   {column.isSorted && (
@@ -85,6 +86,7 @@ function Table({ columns, data, onRowClick }) {
                   <td
                     key={cell.column.id}
                     {...cell.getCellProps({ className: cell.column.cellClass })}
+                    style={{ verticalAlign: "middle" }}
                   >
                     {cell.render('Cell')}
                   </td>
@@ -109,44 +111,104 @@ function Table({ columns, data, onRowClick }) {
 }
 const sampleCoupons = [
   {
-    id: 'C001',
-    actionName: 'Discount',
+    id: '112366',
+    actionName: 'List',
     status: 'On',
-    sourceOfOrigin: 'Website',
-    issueDate: '2024-01-01',
-    redemptionDate: '2024-06-01',
-    name: 'Customer A',
-    telephoneNo: '123-456-7890',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
   },
   {
-    id: 'C002',
-    actionName: 'Purchase',
+    id: '112366',
+    actionName: 'List',
     status: 'On',
-    sourceOfOrigin: 'App',
-    issueDate: '2024-02-01',
-    redemptionDate: '2024-07-01',
-    name: 'Customer B',
-    telephoneNo: '098-765-4321',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
   },
   {
-    id: 'C003',
-    actionName: 'Referral',
+    id: '112366',
+    actionName: 'List',
     status: 'On',
-    sourceOfOrigin: 'Email',
-    issueDate: '2024-03-01',
-    redemptionDate: '2024-08-01',
-    name: 'Customer C',
-    telephoneNo: '555-555-5555',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
   },
   {
-    id: 'C004',
-    actionName: 'Feedback',
+    id: '112366',
+    actionName: 'List',
     status: 'On',
-    sourceOfOrigin: 'Phone',
-    issueDate: '2024-04-01',
-    redemptionDate: '2024-09-01',
-    name: 'Customer D',
-    telephoneNo: '444-444-4444',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
+  },
+  {
+    id: '112366',
+    actionName: 'List',
+    status: 'On',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
+  },
+  {
+    id: '112366',
+    actionName: 'List',
+    status: 'On',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
+  },
+  {
+    id: '112366',
+    actionName: 'List',
+    status: 'On',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
+  },
+  {
+    id: '112366',
+    actionName: 'List',
+    status: 'On',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
+  },
+  {
+    id: '112366',
+    actionName: 'List',
+    status: 'On',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
+  },
+  {
+    id: '112366',
+    actionName: 'List',
+    status: 'On',
+    sourceOfOrigin: 'Demo',
+    issueDate: '10/12/2024',
+    redemptionDate: '10/12/2024',
+    name: 'Linda Blair',
+    telephoneNo: '+4919284434403',
   },
 ];
 
@@ -225,16 +287,24 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+            fontWeight: '500', fontSize: '14px'
           }}>
-            <IntlMessages id="coupons.id" />
-          </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontWeight: '500', fontSize: '14px' }}>
+              <IntlMessages id="coupons.id" />
+              <img src='/assets/img/svg/chevron.svg'
+                alt='chevron'
+              />
+            </div>
+          </div >
         ),
         accessor: 'id',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
+              fontWeight: '500', fontSize: '14px',
+              color: '#1A1C21'
             }}
           >
             {value}
@@ -247,6 +317,7 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.status" />
           </div>
@@ -265,8 +336,8 @@ const CouponsTable = () => {
               color: 'white',
               textAlign: 'center',
               position: 'relative', // For positioning the dot correctly
-              width: '50px', // Set a fixed width for consistency
-              height: '24px', // Set a fixed height for consistency
+              width: '55px', // Set a fixed width for consistency
+              height: '26px', // Set a fixed height for consistency
               bottom: '2px',
             }}
           >
@@ -306,16 +377,18 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.actionName" />
           </div>
         ), accessor: 'actionName',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
-              color: '#667085'
+              color: '#667085',
+              fontWeight: '500', fontSize: '14px'
             }}
           >
             {value}
@@ -328,16 +401,18 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.sourceofOrigin" />
           </div>
         ), accessor: 'sourceOfOrigin',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
-              color: '#667085'
+              color: '#667085',
+              fontWeight: '500', fontSize: '14px'
             }}
           >
             {value}
@@ -350,16 +425,18 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.issue-date" />
           </div>
         ), accessor: 'issueDate',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
-              color: '#667085'
+              color: '#667085',
+              fontWeight: '500', fontSize: '14px'
             }}
           >
             {value}
@@ -372,16 +449,18 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.redemption-date" />
           </div>
         ), accessor: 'redemptionDate',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
-              color: '#667085'
+              color: '#667085',
+              fontWeight: '500', fontSize: '14px'
             }}
           >
             {value}
@@ -394,16 +473,18 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.name" />
           </div>
         ), accessor: 'name',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
-              color: '#667085'
+              color: '#667085',
+              fontWeight: '500', fontSize: '14px'
             }}
           >
             {value}
@@ -416,16 +497,18 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.telephone" />
           </div>
         ), accessor: 'telephoneNo',
-        cellClass: 'font-weight-bold',
+        // cellClass: 'font-weight-bold',
         Cell: ({ value }) => (
           <div
             style={{
               cursor: 'pointer',
-              color: '#667085'
+              color: '#667085',
+              fontWeight: '500', fontSize: '14px'
             }}
           >
             {value}
@@ -438,6 +521,7 @@ const CouponsTable = () => {
             color: '#667085',
             // fontWeight: 'bold', // Optional: make it bold
             // fontSize: '16px', // Adjust font size if needed
+            fontWeight: '500', fontSize: '14px'
           }}>
             <IntlMessages id="coupons.action" />
           </div>
@@ -449,11 +533,11 @@ const CouponsTable = () => {
           >
             <button
               type="button"
-              onClick={() => handleActionToggle(row.id)}
+              // onClick={() => handleActionToggle(row.id)}
               className="btn btn-link"
               aria-expanded={expandedRowId === row.id}
               aria-haspopup="true"
-              style={{ cursor: 'pointer', color: "#858D9D" }}
+              style={{ cursor: 'pointer', color: "#858D9D", width: '24px', height: '24px' }}
             >
               <FaEllipsisV />
             </button>
@@ -507,20 +591,22 @@ const CouponsTable = () => {
   return (
     <>
       <Card className="h-100" style={{ borderRadius: '16px' }}>
-        <CardBody>
-          <CardTitle className="d-flex flex-row justify-content-between font-weight-bold mb-3">
+        <CardBody style={{ padding: '0px' }}>
+          <CardTitle className="d-flex flex-row justify-content-between font-weight-bold mb-0"
+            style={{ padding: '20px 22px' }}
+          >
             <div
               className="input-group"
               style={{ width: '300px', position: 'relative' }}
             >
               <Input
                 type="text"
-                placeholder="Search Coupon..."
+                placeholder="Search Customer..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                style={{ paddingLeft: '30px', borderRadius: '7px' }}
+                style={{ paddingLeft: '30px', borderRadius: '8px' }}
               />
-              <FaSearch
+              <IoSearchOutline
                 className="search-icon"
                 style={{
                   position: 'absolute',
@@ -538,7 +624,8 @@ const CouponsTable = () => {
                 className="mb-1 border border-theme-4"
                 style={{ cursor: 'pointer', padding: '10px 15px' }}
               >
-                <BsSliders2 className="mr-2" size={15} />
+                <BsSliders2 className="mr-2" size={17} />
+
                 <IntlMessages id="dashboards.filters" />
               </Badge>
               {filterDropdownOpen && (
@@ -754,7 +841,7 @@ const CouponsTable = () => {
               )}
             </div>
           </CardTitle>
-          <Separator className="mb-3" />
+          <Separator className=" separator-class" />
           <Table
             columns={cols}
             data={sampleCoupons}

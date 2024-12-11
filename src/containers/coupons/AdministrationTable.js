@@ -123,19 +123,19 @@ const AdministrationTable = () => {
                 accessor: 'newsLetter',
                 cellClass: 'w-15',
                 Cell: (props) => <>
-                    <div style={{ cursor: 'pointer', border: '1px solid #DDDDDD', borderRadius: '10px', width: '40px', height: '40px' }}>
-                        <img src={'/assets/img/blog/coupon.svg'} style={{ width: '100%', height: '100%' }} alt='Visa' />
+                    <div style={{ cursor: 'pointer', border: '1px solid #DDDDDD', borderRadius: '10px', width: '48px', height: '48px' }}>
+                        <img src={'/assets/img/blog/coupon.svg'} width={48} height={48} alt='Visa' />
                     </div>
                 </>,
                 sortType: 'basic',
             },
             {
                 Header: () => (
-                    <div style={{ cursor: 'pointer', color: "#667085", fontWeight: '600' }}>Promotion Name</div>
+                    <div style={{ cursor: 'pointer', color: "#667085", fontWeight: '500', fontSize: "14px" }}>Promotion Name</div>
                 ),
                 accessor: 'createDate',
                 cellClass: 'text-muted w-20',
-                Cell: (props) => <><div style={{ cursor: 'pointer', fontWeight: 'bold' }}>
+                Cell: (props) => <><div style={{ cursor: 'pointer', fontWeight: '500', fontSize: "14px", color: "#1A1C21" }}>
                     Demo</div></>,
                 sortType: 'basic',
             },
@@ -145,23 +145,23 @@ const AdministrationTable = () => {
                 ),
                 accessor: 'delivered',
                 cellClass: 'w-20',
-                Cell: (props) => <><div style={{ cursor: 'pointer', color: "#667085", fontWeight: '600' }}>
+                Cell: (props) => <><div style={{ cursor: 'pointer', color: "#667085", fontWeight: '500', fontSize: "14px", }}>
                     25.05.2025 - 25.08.2025</div></>,
                 sortType: 'basic',
             },
             {
                 Header: () => (
-                    <div style={{ cursor: 'pointer', color: "#667085", fontWeight: '600' }}>Condition</div>
+                    <div style={{ cursor: 'pointer', color: "#667085", fontWeight: '500', fontSize: "14px", }}>Condition</div>
                 ),
                 accessor: 'read',
                 cellClass: 'w-40',
-                Cell: (props) => <><div style={{ cursor: 'pointer', color: "#667085", fontWeight: '500' }}>
+                Cell: (props) => <><div style={{ cursor: 'pointer', color: "#667085", fontWeight: '500', fontSize: "14px", }}>
                     Lorem ipsum dolor sit amet consectetur. Urna sit felis donec adipiscing</div></>,
                 sortType: 'basic',
             },
             {
                 Header: () => (
-                    <div style={{ cursor: 'pointer', color: "#667085", fontWeight: '600' }}>Action</div>
+                    <div style={{ cursor: 'pointer', color: "#667085", fontWeight: '500', fontSize: "14px", }}>Action</div>
                 ),
                 accessor: 'clicked',
                 cellClass: 'text-theme-2 w-20',

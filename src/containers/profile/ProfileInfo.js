@@ -15,6 +15,7 @@ import IntlMessages from 'helpers/IntlMessages';
 import { Colxx, Separator } from 'components/common/CustomBootstrap';
 import SingleLightbox from 'components/pages/SingleLightbox';
 import ReactCountryDropdown from "react-country-dropdown";
+import "./profile.css"
 
 
 const ProfileInfo = () => {
@@ -49,9 +50,9 @@ const ProfileInfo = () => {
                     </div>
                     <div style={{ marginTop: "80px" }}>
                         <div>
-                            <p style={{ color: '#86868A', fontWeight: '500', fontSize: '14px' }}>Name</p>
+                            <p style={{ color: '#86868A', fontWeight: '500', fontSize: '14px', marginBottom: '4px' }}>Name</p>
                             <CardTitle className="mb-0 font-weight-bold">
-                                <p style={{ fontWeight: '600', fontSize: '20px' }}>Sam Emili</p>
+                                <p style={{ fontWeight: '600', fontSize: '20px', color: "#0D0D26" }}>Sam Emili</p>
                             </CardTitle>
                         </div>
                     </div>
@@ -59,8 +60,8 @@ const ProfileInfo = () => {
             </div>
 
             <CardBody>
-                <Separator className="mb-5" />
-                <h2 style={{ fontWeight: '600', fontSize: '16px' }}>General Information</h2>
+                <Separator className="mb-3" />
+                <h2 style={{ fontWeight: '600', fontSize: '16px', marginLeft: "8px" }}>General Information</h2>
                 <Row>
                     <Colxx
                         md="6"
@@ -147,24 +148,17 @@ const ProfileInfo = () => {
                     >
                         <div>
                             <p className="text-muted mb-0" style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}>Telephone Number</p>
-                            <Row>
-                                <Colxx
-                                    md="3"
-                                    lg="3"
-                                    xl="3">
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px" }}>
+                                <div>
                                     <ReactCountryDropdown
                                         defaultCountry="US"
                                         onSelect={(country) => console.log(country.name)}
                                     />
-                                </Colxx>
-                                <Colxx
-                                    md="9"
-                                    lg="9"
-                                    xl="9"
-                                >
+                                </div>
+                                <div style={{ width: "80%" }}>
                                     <Input className='w-100 rounded-sm' placeholder={"5415415214"} />
-                                </Colxx>
-                            </Row>
+                                </div>
+                            </div>
                         </div>
 
                     </Colxx>
@@ -176,30 +170,23 @@ const ProfileInfo = () => {
                     >
                         <div>
                             <p className="text-muted mb-0" style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}>Direct Chat WhatApp Number</p>
-                            <Row>
-                                <Colxx
-                                    md="3"
-                                    lg="3"
-                                    xl="3">
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px" }}>
+                                <div>
                                     <ReactCountryDropdown
                                         defaultCountry="US"
                                         onSelect={(country) => console.log(country.name)}
                                     />
-                                </Colxx>
-                                <Colxx
-                                    md="9"
-                                    lg="9"
-                                    xl="9"
-                                >
+                                </div>
+                                <div style={{ width: "80%" }}>
                                     <Input className='w-100 rounded-sm' placeholder={"5415415214"} />
-                                </Colxx>
-                            </Row>
+                                </div>
+                            </div>
                         </div>
 
                     </Colxx>
 
                 </Row>
-                <h2 style={{ fontWeight: '600', fontSize: '16px' }}>Opening Hours</h2>
+                <h2 style={{ fontWeight: '600', fontSize: '16px', color: "#0D0D26", marginLeft: "8px" }}>Opening Hours</h2>
                 <Row>
                     <Colxx
                         md="6"
@@ -207,13 +194,13 @@ const ProfileInfo = () => {
                         xl="6"
                         className="mb-4"
                     >
-                        <Row>
+                        <Row style={{ marginLeft: "-22px" }}>
                             <Colxx
                                 md="3"
                                 lg="3"
                                 xl="3"
-                                className="mb-4"
-                                style={{ color: '#667085', fontSize: '14px', fontWeight: '600' }}
+                                className="mb-3"
+                                style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}
                             >
                                 Day
                             </Colxx>
@@ -222,8 +209,8 @@ const ProfileInfo = () => {
                                 md="9"
                                 lg="9"
                                 xl="9"
-                                className="mb-4"
-                                style={{ color: '#667085', fontSize: '14px', fontWeight: '600' }}
+                                className="mb-3"
+                                style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}
                             >
                                 Form
                             </Colxx>
@@ -234,8 +221,8 @@ const ProfileInfo = () => {
                                 md="3"
                                 lg="3"
                                 xl="3"
-                                className="d-flex align-items-center"
-                                style={{ fontSize: '14px', fontWeight: '600' }}
+                                className="d-flex align-items-center text-t1"
+                                style={{ fontSize: '14px', fontWeight: '500' }}
                             >
                                 Monday
                             </Colxx>
@@ -246,9 +233,9 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
-                                        style={{ border: "none" }}
+                                <div className='form-inp-box'>
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
+                                        style={{ border: "none", fontSize: "14px" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
                                 </div>
@@ -259,8 +246,8 @@ const ProfileInfo = () => {
                                 md="3"
                                 lg="3"
                                 xl="3"
-                                className="d-flex align-items-center"
-                                style={{ fontSize: '14px', fontWeight: '600' }}
+                                className="d-flex align-items-center text-t1"
+                                style={{ fontSize: '14px', fontWeight: '500' }}
                             >
                                 Tuesday
                             </Colxx>
@@ -271,8 +258,8 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                <div className='form-inp-box'>
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
                                         style={{ border: "none" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
@@ -284,8 +271,8 @@ const ProfileInfo = () => {
                                 md="3"
                                 lg="3"
                                 xl="3"
-                                className="d-flex align-items-center"
-                                style={{ fontSize: '14px', fontWeight: '600' }}
+                                className="d-flex align-items-center text-t1"
+                                style={{ fontSize: '14px', fontWeight: '500' }}
                             >
                                 Wednesday
                             </Colxx>
@@ -296,8 +283,8 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                <div className='form-inp-box'>
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
                                         style={{ border: "none" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
@@ -309,8 +296,8 @@ const ProfileInfo = () => {
                                 md="3"
                                 lg="3"
                                 xl="3"
-                                className="d-flex align-items-center"
-                                style={{ fontSize: '14px', fontWeight: '600' }}
+                                className="d-flex align-items-center text-t1"
+                                style={{ fontSize: '14px', fontWeight: '500' }}
                             >
                                 Thursday
                             </Colxx>
@@ -321,8 +308,8 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                <div className='form-inp-box'>
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
                                         style={{ border: "none" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
@@ -334,8 +321,8 @@ const ProfileInfo = () => {
                                 md="3"
                                 lg="3"
                                 xl="3"
-                                className="d-flex align-items-center"
-                                style={{ fontSize: '14px', fontWeight: '600' }}
+                                className="d-flex align-items-center text-t1"
+                                style={{ fontSize: '14px', fontWeight: '500' }}
                             >
                                 Friday
                             </Colxx>
@@ -346,8 +333,8 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                <div className='form-inp-box'>
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
                                         style={{ border: "none" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
@@ -359,8 +346,8 @@ const ProfileInfo = () => {
                                 md="3"
                                 lg="3"
                                 xl="3"
-                                className="d-flex align-items-center"
-                                style={{ fontSize: '14px', fontWeight: '600' }}
+                                className="d-flex align-items-center text-t1"
+                                style={{ fontSize: '14px', fontWeight: '500' }}
                             >
                                 Saturaday
                             </Colxx>
@@ -371,8 +358,8 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                <div className='form-inp-box'>
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
                                         style={{ border: "none" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
@@ -384,8 +371,8 @@ const ProfileInfo = () => {
                                 md="3"
                                 lg="3"
                                 xl="3"
-                                className="d-flex align-items-center"
-                                style={{ fontSize: '14px', fontWeight: '600', }}
+                                className="d-flex align-items-center text-t1"
+                                style={{ fontSize: '14px', fontWeight: '500', }}
                             >
                                 Sunday
                             </Colxx>
@@ -396,8 +383,8 @@ const ProfileInfo = () => {
                                 xl="9"
 
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
-                                    <Input className='w-100 rounded-sm' placeholder={"18"}
+                                <div className='form-inp-box'>
+                                    <Input className='w-100 rounded-sm' placeholder={"5"}
                                         style={{ border: "none" }}
                                     />
                                     <i className='simple-icon-clock' style={{ fontSize: "12px", fontWeight: "600", color: "#86868A" }} />
@@ -417,7 +404,7 @@ const ProfileInfo = () => {
                                 md="12"
                                 lg="12"
                                 xl="12"
-                                className="mb-4"
+                                className="mb-3"
                                 style={{ color: '#667085', fontSize: '14px', fontWeight: '500' }}
                             >
                                 Unit
@@ -429,7 +416,7 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                <div className='form-inp-box'>
                                     <Input className='w-100 rounded-sm' placeholder={"18"}
                                         style={{ border: "none" }}
                                     />
@@ -443,7 +430,7 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                <div className='form-inp-box'>
                                     <Input className='w-100 rounded-sm' placeholder={"18"}
                                         style={{ border: "none" }}
                                     />
@@ -457,7 +444,7 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                <div className='form-inp-box'>
                                     <Input className='w-100 rounded-sm' placeholder={"18"}
                                         style={{ border: "none" }}
                                     />
@@ -471,7 +458,7 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                <div className='form-inp-box'>
                                     <Input className='w-100 rounded-sm' placeholder={"18"}
                                         style={{ border: "none" }}
                                     />
@@ -485,7 +472,7 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                <div className='form-inp-box'>
                                     <Input className='w-100 rounded-sm' placeholder={"18"}
                                         style={{ border: "none" }}
                                     />
@@ -499,7 +486,7 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                <div className='form-inp-box'>
                                     <Input className='w-100 rounded-sm' placeholder={"18"}
                                         style={{ border: "none" }}
                                     />
@@ -513,7 +500,7 @@ const ProfileInfo = () => {
                                 lg="12"
                                 xl="12"
                             >
-                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #d7d7d7", borderRadius: "4px", padding: "0 5px" }}>
+                                <div className='form-inp-box'>
                                     <Input className='w-100 rounded-sm' placeholder={"18"}
                                         style={{ border: "none" }}
                                     />

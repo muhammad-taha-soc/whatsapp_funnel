@@ -20,10 +20,13 @@ const MakeMoney = () => {
   return (
     <Card className="h-100">
       <CardBody>
-        <CardTitle className="d-flex flex-row justify-content-between align-items-center mb-0 font-weight-bold">
-          <IntlMessages id="MakeMoney" />
+        <CardTitle className="d-flex flex-row justify-content-between align-items-center mb-1 font-weight-bold">
+          <span style={{ fontSize: '28px', fontWeight: '500' }}>
+            <IntlMessages id="MakeMoney" />
+          </span>
           <div className="">
             <Button
+              style={{ backgroundColor: '#f0f0f0' }}
               outline
               color="light"
               className=" border border-theme-4 text-dark font-weight-bold  d-flex flex-row justify-content-between"
@@ -34,8 +37,13 @@ const MakeMoney = () => {
             </Button>{' '}
           </div>
         </CardTitle>
-        <span className="text-muted font-weight-bold">525 689 656</span>
-        <div className="d-flex flex-row justify-content-between align-items-center mt-1">
+        <span
+          className="text-muted font-weight-bold"
+          style={{ letterSpacing:'1px' }}
+        >
+          525 689 656
+        </span>
+        <div className="d-flex flex-row justify-content-between align-items-center mt-2">
           <Badge
             color="primary"
             className="mb-1 rounder pl-2 pr-2 badge-pill border border-theme-4 text-extra-small d-flex flex-row justify-content-between align-items-center"
@@ -43,9 +51,16 @@ const MakeMoney = () => {
             <GoDotFill className="" size={12} />
             <IntlMessages id="button.active" />
           </Badge>{' '}
-          <span className="ml-2 d-inline mb-2 text-primary">
+          <span
+            className="ml-2 d-inline mb-0 text-primary"
+            style={{ fontSize: '14px', fontWeight: '500' }}
+          >
             <IntlMessages id="dashboards.view-profiles" />{' '}
-            <GoArrowRight className="text-extra-small" size={15} />
+            <GoArrowRight
+              className="text-extra-small"
+              size={15}
+              style={{ fontSize: '14px', fontWeight: '500' }}
+            />
           </span>
         </div>
       </CardBody>

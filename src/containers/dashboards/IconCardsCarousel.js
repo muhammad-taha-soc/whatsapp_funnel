@@ -18,7 +18,8 @@ const IconCardsCarousel = ({ className = 'icon-cards-row rounded' }) => {
             768: { perView: 3 },
             1100: { perView: 4 },
             1600: { perView: 5 },
-            // 1800: { perView: 4 },
+            1700: { perView: 5 },
+            1800: { perView: 5 },
           },
           hideNav: true,
         }}

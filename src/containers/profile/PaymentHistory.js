@@ -10,6 +10,8 @@ import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 
 import products from 'data/products';
+import "./profile.css"
+import { Separator } from 'components/common/CustomBootstrap';
 
 function Table({ columns, data }) {
     const {
@@ -36,14 +38,16 @@ function Table({ columns, data }) {
 
     return (
         <>
-            <table {...getTableProps()} className="r-table table">
+            <table {...getTableProps()} className="r-table r1-table table">
                 <thead>
                     {headerGroups.map((headerGroup) => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
+                        <tr {...headerGroup.getHeaderGroupProps()}
+                            style={{ borderBottom: '1px solid #E8E8E9' }}>
                             {headerGroup.headers.map((column, columnIndex) => (
                                 <th
                                     key={`th_${columnIndex}`}
                                     {...column.getHeaderProps(column.getSortByToggleProps())}
+                                    style={{ padding: '12px 22px 18px 22px' }}
                                 // className={`
                                 //   ${
                                 //     column.isSorted
@@ -82,6 +86,7 @@ function Table({ columns, data }) {
                                         {...cell.getCellProps({
                                             className: cell.column.cellClass,
                                         })}
+                                        style={{ verticalAlign: "middle" }}
                                     >
                                         {cell.render('Cell')}
                                     </td>
@@ -116,28 +121,28 @@ const NewsLetter = () => {
                 Header: 'Invoice',
                 accessor: 'newsLetter',
                 cellClass: 'font-weight-bold w-25',
-                Cell: (props) => <>Basic Plan - Dec 2022</>,
+                Cell: (props) => <div style={{ fontSize: "14px", fontWeight: "500", color: "#1A1C21" }}>Basic Plan - Dec 2022</div>,
                 sortType: 'basic',
             },
             {
                 Header: 'Amount',
                 accessor: 'createDate',
                 cellClass: 'text-muted w-20',
-                Cell: (props) => <>USD $10.00</>,
+                Cell: (props) => <div style={{ fontSize: "14px", fontWeight: "500", color: "#667085" }}>USD $10.00</div>,
                 sortType: 'basic',
             },
             {
                 Header: 'Date',
                 accessor: 'delivered',
                 cellClass: ' w-20 ',
-                Cell: (props) => <>Dec 1, 2022</>,
+                Cell: (props) => <div style={{ fontSize: "14px", fontWeight: "500", color: "#667085" }}>Dec 1, 2022</div>,
                 sortType: 'basic',
             },
             {
                 Header: 'Status',
                 accessor: 'read',
                 cellClass: ' w-20',
-                Cell: (props) => <div><span style={{ backgroundColor: "#0DAC8A1A", color: "#0DAC8A", padding: "4px 10px", borderRadius: "50px" }}>Paid</span> </div>,
+                Cell: (props) => <div><span style={{ backgroundColor: "#0DAC8A1A", color: "#0DAC8A", padding: "4px 10px", borderRadius: "50px", fontSize: "14px", fontWeight: "500" }}>Paid</span> </div>,
                 sortType: 'basic',
             },
             {
@@ -152,16 +157,18 @@ const NewsLetter = () => {
     );
 
     return (
-        <CardBody className='card rounded-md mt-4' style={{ borderRadius: "16px" }}>
+        <CardBody className='card rounded-md mt-4' style={{ borderRadius: "16px", padding: '0px' }}>
             <CardTitle className="d-flex flex-row justify-content-between font-weight-bold">
-                <IntlMessages id='Billing History' />
-                <div style={{ cursor: "pointer" }}>
-                    <Badge color="" className="mb-1 border border-theme-4">
-                        <i className="iconsminds-download" />
+                <h2 className='billing-heading'>Billing History</h2>
+                <div style={{ cursor: "pointer", marginRight: '14px', position: 'relative', top: '12px' }}>
+                    <div className="b-btn">
+                        <img src={'/assets/img/modals/download.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
                         <IntlMessages id="Download" />
-                    </Badge>
+                    </div>
                 </div>
             </CardTitle>
+            <Separator className=" separator-class" />
+
             <Table columns={cols} data={products} />
         </CardBody>
     );

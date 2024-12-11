@@ -33,46 +33,81 @@ const OverviewModal = ({ customer, onClose }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        cursor: ' pointer'
+        cursor: ' pointer',
+        width: "49px",
+        height: "26px",
+        fontSize: '14px',
+        fontWeight: 500
+    };
+    const style = {
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '14px',
+        fontWeight: 500,
+        lineHeight: '20px',
+        letterSpacing: '0.005em',
+        textAlign: 'left',
+        color: "#666571"
+    };
+
+    const style_sec = {
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '14px',
+        fontWeight: 500,
+        lineHeight: '20px',
+        letterSpacing: '0.005em',
+        textAlign: 'left',
+        color: "#0D0D26"
     };
 
     return (
         <div className="modal-overlay">
-            <div className="modal-content">
+            <div className="overviewmodal-content">
                 <div className="d-flex justify-content-between align-items-center mb-4" style={{ color: 'black' }}>
-                    <h2 style={{ fontSize: '20px', fontWeight: '700' }}>Overview</h2>
-                    <button className="close-button" onClick={onClose}>✖</button>
+                    <h2 style={{
+                        color: "#1A1C21",
+                        fontSize: '20px', fontWeight: '600', lineHeight: '30px',
+                        letterSpacing: '0.005em',
+                        textAlign: 'left',
+                        margin: 0
+                    }}>Overview</h2>
+                    <img src={'/assets/img/modals/cross.svg'} style={{ width: '16px', height: '16px' }} alt='Visa' onClick={onClose} />
                 </div>
 
-                <div >
-                    <div className='d-flex justify-content-between align-items-center mb-2'>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                            <img src={'/assets/img/modals/wifi-box.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Coupon ID </span>
+                <div>
+                    <div className='d-flex justify-content-between align-items-center' style={{ marginBottom: "12px" }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
+                            <img src={'/assets/img/modals/flag-alt.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
+                            <span style={style}> Coupon ID </span>
                         </div>
-                        <div style={{ fontWeight: '800' }}>111221254</div>
+                        <div style={style_sec}>111221254</div>
                     </div>
-                    <Separator className="mb-2" />
-                    <div className='d-flex justify-content-between align-items-center mb-2'>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                            <img src={'/assets/img/modals/flag-alt.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Action Name</span>
+                    <div style={{ marginBottom: "12px" }}>
+                        <Separator />
+                    </div>
+                    <div className='d-flex justify-content-between align-items-center' style={{ marginBottom: "12px" }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
+                            <img src={'/assets/img/modals/user.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
+                            <span style={style}> Action Name</span>
                         </div>
                         <div style={stylesOnHold}>list</div>
                     </div>
-                    <Separator className="mb-2" />
-                    <div className='d-flex justify-content-between align-items-center mb-2'>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                            <img src={'/assets/img/modals/user.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Source of origin</span>
-                        </div>
-                        <div style={{ fontWeight: '800' }}>Demo</div>
+                    <div style={{ marginBottom: "12px" }}>
+                        <Separator />
                     </div>
-                    <Separator className="mb-2" />
-                    <div className='d-flex justify-content-between align-items-center mb-2'>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                            <img src={'/assets/img/modals/laptop.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Status</span>
+                    <div className='d-flex justify-content-between align-items-center' style={{ marginBottom: "12px" }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
+                            <img src={'/assets/img/modals/laptop.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
+                            <span style={style}> Source of origin</span>
+                        </div>
+                        <div style={style_sec}>Demo</div>
+                    </div>
+                    <div style={{ marginBottom: "12px" }}>
+                        <Separator />
+                    </div>
+                    <div className='d-flex justify-content-between align-items-center' style={{ marginBottom: "12px" }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
+                            <img src={'/assets/img/modals/wifi-box.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
+                            <span style={style}> Status</span>
                         </div>
                         <div
                             className="status-indicator"
@@ -85,8 +120,8 @@ const OverviewModal = ({ customer, onClose }) => {
                                 color: 'white',
                                 textAlign: 'center',
                                 position: 'relative', // For positioning the dot correctly
-                                width: '50px', // Set a fixed width for consistency
-                                height: '24px', // Set a fixed height for consistency
+                                width: '55.8px', // Set a fixed width for consistency
+                                height: '26px', // Set a fixed height for consistency
                                 bottom: '2px'
                             }}
                         >
@@ -102,59 +137,89 @@ const OverviewModal = ({ customer, onClose }) => {
                                     backgroundColor: 'white',
                                 }}
                             ></div>
-                            <div style={{ top: '50%', transform: 'translateY(3%)', marginLeft: '9px', width: '20px', height: '17px', fontWeight: '500px', fontalign: 'center', fontSize: '14px', lineHeight: '16.94px' }}>
+                            <div style={{
+                                top: '50%', transform: 'translateY(3%)',
+                                marginLeft: '9px', width: '20px', height: '17px',
+                                fontWeight: '500px', fontalign: 'center',
+                                fontSize: '14px', lineHeight: '16.94px'
+                            }}>
 
                                 {value}
                             </div>
                         </div>
                     </div>
-                    <Separator className="mb-2" />
-                    <div className='d-flex justify-content-between align-items-center mb-2'>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                            <img src={'/assets/img/modals/wifi-box.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Issue date</span>
-                        </div>
-                        <div style={{ fontWeight: '800' }}>10/12/2024</div>
+                    <div style={{ marginBottom: "12px" }}>
+                        <Separator />
                     </div>
-                    <Separator className="mb-2" />
-                    <div className='d-flex justify-content-between align-items-center mb-2'>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                            <img src={'/assets/img/modals/calendar.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Redemption date</span>
+                    <div className='d-flex justify-content-between align-items-center' style={{ marginBottom: "12px" }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
+                            <img src={'/assets/img/modals/calendar.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
+                            <span style={style}> Issue date</span>
                         </div>
-                        <div style={{ fontWeight: '800' }}>10/12/2024</div>
+                        <div style={{
+                            fontFamily: 'Inter, sans-serif',
+                            fontSize: '14px',
+                            fontWeight: 500,
+                            lineHeight: '20px',
+                            letterSpacing: '0.005em',
+                            textAlign: 'left',
+                            color: "#0D0D26"
+                        }}>10/12/2024</div>
                     </div>
-                    <Separator className="mb-2" />
-                    <div className='d-flex justify-content-between align-items-center mb-2'>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                            <img src={'/assets/img/modals/user.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Surname</span>
+                    <div style={{ marginBottom: "12px" }}>
+                        <Separator />
+                    </div>
+                    <div className='d-flex justify-content-between align-items-center' style={{ marginBottom: "12px" }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
+                            <img src={'/assets/img/modals/calendar.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
+                            <span style={style}> Redemption date</span>
                         </div>
-                        <div style={{ fontWeight: '800' }}>Linda Blair</div>
+                        <div style={{
+                            fontFamily: 'Inter, sans-serif',
+                            fontSize: '14px',
+                            fontWeight: 500,
+                            lineHeight: '20px',
+                            letterSpacing: '0.005em',
+                            textAlign: 'left',
+                            color: "#0D0D26"
+                        }}>10/12/2024</div>
                     </div>
-                    <Separator className="mb-2" />
-                    <div className='d-flex justify-content-between align-items-center mb-2'>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                            <img src={'/assets/img/modals/phone-flip.svg'} style={{ width: '15px', height: '15px' }} alt='Visa' />
-                            <span style={{ fontSize: '14px', fontWeight: "500" }}> Telephone number</span>
+                    <div style={{ marginBottom: "12px" }}>
+                        <Separator />
+                    </div>
+                    <div className='d-flex justify-content-between align-items-center' style={{ marginBottom: "12px" }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
+                            <img src={'/assets/img/modals/user.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
+                            <span style={style}> Surname</span>
                         </div>
-                        <div style={{ fontWeight: '800' }}>+419123456789</div>
+                        <div style={style_sec}>Linda Blair</div>
                     </div>
-                    <Separator className="mb-3" />
+                    <div style={{ marginBottom: "12px" }}>
+                        <Separator />
+                    </div>
+                    <div className='d-flex justify-content-between align-items-center' style={{ marginBottom: "20px" }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
+                            <img src={'/assets/img/modals/phone-flip.svg'} style={{ width: '20px', height: '20px' }} alt='Visa' />
+                            <span style={style}> Telephone number</span>
+                        </div>
+                        <div style={style_sec}>+419123456789</div>
+                    </div>
                 </div>
                 <div>
-                    <span>Note</span>
-                    <div style={{ border: '1px solid #E8E8E9', borderRadius: '8px', padding: '10px' }}>
-                        Lorem ipsum dolor sit amet consectetur. Urna sit felis donec adipiscing
-                        vitae mi. Massa mauris ultrices ipsum venenatis consectetur pharetra
-                        vitae turpis nibh. Mattis neque massa in quis eget nisi.
-                        Lorem ipsum dolor sit amet consectetur. Urna sit felis donec adipiscing vitae mi.
-                        Massa mauris ultrices ipsum venenatis consectetur pharetra vitae turpis nibh. Mattis neque
+                    <span style={{ fontSize: "14px", fontWeight: "500", color: "#667085" }}>Note</span>
+                    <div style={{ border: '1px solid #E8E8E9', borderRadius: '8px', padding: '16px', marginTop: "8px" }}>
+                        <div style={{ overflow: 'hidden', maxHeight: '95px', }}>
+                            Lorem ipsum dolor sit amet consectetur. Urna sit felis donec adipiscing
+                            vitae mi. Massa mauris ultrices ipsum venenatis consectetur pharetra
+                            vitae turpis nibh. Mattis neque massa in quis eget nisi.
+                            Lorem ipsum dolor sit amet consectetur. Urna sit felis donec adipiscing vitae mi.
+                            Massa mauris ultrices ipsum venenatis consectetur pharetra vitae turpis nibh. Mattis neque
+                        </div>
                     </div>
                 </div>
                 <div className='d-flex justify-content-between align-items-center mt-4'>
-                    <button style={{ backgroundColor: 'white', color: 'black', border: "1px solid gray", borderRadius: '8px', padding: "10px 14px" }} onClick={onClose}>Cancel</button>
-                    <button style={{ backgroundColor: '#0dac8a', color: 'white', border: "1px solid #0dac8a", borderRadius: '8px', padding: "10px 14px" }} onClick={onClose}>Save Apply</button>
+                    <button style={{ backgroundColor: 'white', color: '#86868A', border: "1px solid #86868A", borderRadius: '8px', padding: "10px 14px", fontSize: "14px", fontWeight: "600" }} onClick={onClose}>Cancel</button>
+                    <button style={{ backgroundColor: '#0dac8a', color: 'white', border: "1px solid #0dac8a", borderRadius: '8px', padding: "10px 14px", fontSize: "14px", fontWeight: "600" }} onClick={onClose}>Save Change</button>
                 </div>
             </div>
         </div >

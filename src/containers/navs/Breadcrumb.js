@@ -15,17 +15,21 @@ import IntlMessages from 'helpers/IntlMessages';
 // };
 
 const BreadcrumbContainer = ({ heading }) => {
+
   return (
     <>
       {heading && (
-        <h1>
+
+        <h1 className='pb-0' style={{ fontWeight: '500' }}>
+
           <IntlMessages id={heading} />
         </h1>
       )}
       {/* <BreadcrumbItems match={match} /> */}
     </>
   );
-};
+}
+
 
 // const BreadcrumbItems = ({ match }) => {
 //   const path = match.path.substr(1);
