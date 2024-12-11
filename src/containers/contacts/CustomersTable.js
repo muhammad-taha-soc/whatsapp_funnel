@@ -1,13 +1,20 @@
 /* eslint-disable */
 
 import React, { useState, useMemo } from 'react';
-import { useTable, usePagination, useSortBy } from 'react-table';
+import { useTable, usePagination } from 'react-table';
 import { Card, CardBody, CardTitle, Input, Badge } from 'reactstrap';
 import DatatablePagination from 'components/DatatablePagination';
 import IntlMessages from 'helpers/IntlMessages';
 import products from 'data/products';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
+import { IoSearchOutline } from 'react-icons/io5';
 import { BsSliders2 } from 'react-icons/bs';
+import { CiCircleMinus } from "react-icons/ci";
+// import { FaWhatsapp } from "react-icons/fa";
+import { TbFileDownload } from "react-icons/tb";
+
+
+
 import {
     FaEllipsisV,
     FaWhatsapp,
@@ -38,22 +45,23 @@ function Table({ columns, data, onRowClick }) {
             data,
             initialState: { pageIndex: 0, pageSize: 6 },
         },
-        useSortBy,
         usePagination
     );
 
     return (
         <>
-            <table {...getTableProps()} className="r-table table">
+            <table {...getTableProps()} className="r-table r1-table table">
                 <thead>
                     {headerGroups.map((headerGroup) => (
                         <tr key={headerGroup.id} {...headerGroup.getHeaderGroupProps()}
-                            style={{ borderBottom: '1px solid #f3f3f3 ' }} // Border for header
+                            style={{ borderBottom: '1px solid #E8E8E9' }} // Border for header
                         >
                             {headerGroup.headers.map((column) => (
                                 <th
                                     key={column.id}
-                                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                                    // {...column.getHeaderProps(column.getSortByToggleProps())}
+                                    style={{ paddingLeft: '22px', paddingRight: '0px' }}
+
                                 >
                                     {column.render('Header')}
                                     {column.isSorted && (
@@ -82,6 +90,7 @@ function Table({ columns, data, onRowClick }) {
                                     <td
                                         key={cell.column.id}
                                         {...cell.getCellProps({ className: cell.column.cellClass })}
+                                        style={{ verticalAlign: "middle" }}
                                     >
                                         {cell.render('Cell')}
                                     </td>
@@ -119,7 +128,7 @@ const CustomersTable = () => {
     const [filterDropdownOpen, setFilterDropdownOpen] = useState(false);
     const [selectedRows, setSelectedRows] = useState(new Set());
     const [selectedCustomer, setSelectedCustomer] = useState(null); // State for selected customer
-    
+
 
     const [filterStates, setFilterStates] = useState({
         status: false,
@@ -188,38 +197,66 @@ const CustomersTable = () => {
         () => [
             {
                 Header: () => (
-                    <div style={{ display: 'flex', alignItems: 'center', color: '#667085' }}>
-                        <input
-                            type="checkbox"
-                            // Remove onChange for no functionality
-                            style={{ marginRight: '8px' }}
-                        />
-                        <IntlMessages id="contacts.title" />
+                    <div style={{ display: 'flex', alignItems: 'center', color: '#667085', fontWeight: '500', fontSize: '14px', justifyContent: 'space-between' }}>
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+
+                            <input
+                                type="checkbox"
+                                // Remove onChange for no functionality
+                                style={{
+                                    marginRight: '8px',
+                                    appearance: 'none', // Remove default styling
+                                    width: '20px', // Custom width
+                                    height: '20px', // Custom height
+                                    border: '2px solid #A3A9B6', // Custom border color and thickness
+                                    borderRadius: '6px', // Optional: Add some rounding
+                                    outline: 'none', // Remove default focus outline
+                                    cursor: 'pointer', // Change cursor to pointer
+                                }}
+                            />
+                            <IntlMessages id="contacts.title" />
+                        </div>
+                        <div>
+                            <img
+                                src='/assets/img/svg/chevron.svg'
+                                alt='chevron'
+                            />
+                        </div>
                     </div>
                 ),
                 accessor: 'title',
-                cellClass: 'font-weight-bold',
                 Cell: ({ row }) => (
                     <div
                         className="checkbox-container"
-                        style={{ display: 'flex', alignItems: 'center' }}
+                        style={{ display: 'flex', alignItems: 'center', color: '#1A1C21', fontWeight: '500', fontSize: '14px' }}
                     >
                         <input
                             type="checkbox"
                             checked={selectedRows.has(row.id)}
                             onChange={() => toggleRowSelection(row.id)}
-                            style={{ marginRight: '8px' }}
+                            style={{
+                                marginRight: '8px',
+                                appearance: 'none', // Remove default styling
+                                width: '20px', // Custom width
+                                height: '20px', // Custom height
+                                border: '2px solid #A3A9B6', // Custom border color and thickness
+                                borderRadius: '6px', // Optional: Add some rounding
+                                outline: 'none', // Remove default focus outline
+                                cursor: 'pointer', // Change cursor to pointer
+                            }}
                         />
                         {row.original.title}
                     </div>
                 ),
             },
+
             {
                 Header: () => (
                     <div style={{
                         color: '#667085',
                         // fontWeight: 'bold', // Optional: make it bold
                         // fontSize: '16px', // Adjust font size if needed
+                        fontWeight: '500', fontSize: '14px'
                     }}>
                         <IntlMessages id="contacts.status" />
                     </div>
@@ -239,6 +276,7 @@ const CustomersTable = () => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         cursor: ' pointer',
+                        fontWeight: '500', fontSize: '14px'
                     };
 
                     const stylesProcessed = {
@@ -253,6 +291,7 @@ const CustomersTable = () => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         cursor: ' pointer',
+                        fontWeight: '500', fontSize: '14px'
                     };
 
                     if (value === 'ON HOLD') {
@@ -270,8 +309,16 @@ const CustomersTable = () => {
                         color: '#667085',
                         // fontWeight: 'bold', // Optional: make it bold
                         // fontSize: '16px', // Adjust font size if needed
+                        fontWeight: '500', fontSize: '14px'
                     }}>
-                        <IntlMessages id="contacts.satisfied" />
+
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontWeight: '500', fontSize: '14px' }}>
+                            <IntlMessages id="contacts.satisfied" />
+                            <img
+                                src='/assets/img/svg/chevron.svg'
+                                alt='chevron'
+                            />
+                        </div>
                     </div>
                 ),
                 accessor: 'satisfied',
@@ -279,7 +326,7 @@ const CustomersTable = () => {
                 Cell: ({ value }) =>
                     value ? (
                         <AiFillCheckCircle
-                            className="text-success"
+                            // className="text-success"
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -289,7 +336,7 @@ const CustomersTable = () => {
                         />
                     ) : (
                         <AiFillCloseCircle
-                            className="text-danger"
+                            // className="text-danger"
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -305,8 +352,15 @@ const CustomersTable = () => {
                         color: '#667085',
                         // fontWeight: 'bold', // Optional: make it bold
                         // fontSize: '16px', // Adjust font size if needed
+                        fontWeight: '500', fontSize: '14px',
                     }}>
-                        <IntlMessages id="contacts.review-link" />
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontWeight: '500', fontSize: '14px' }}>
+
+                            <IntlMessages id="contacts.review-link" />
+                            <img src='/assets/img/svg/chevron.svg'
+                                alt='chevron'
+                            />
+                        </div>
                     </div>
                 ),
                 accessor: 'reviewLink',
@@ -314,7 +368,7 @@ const CustomersTable = () => {
                 Cell: ({ value }) =>
                     value ? (
                         <AiFillCheckCircle
-                            className="text-success"
+                            // className="text-success"
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -324,7 +378,7 @@ const CustomersTable = () => {
                         />
                     ) : (
                         <AiFillCloseCircle
-                            className="text-danger"
+                            // className="text-danger"
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -340,8 +394,14 @@ const CustomersTable = () => {
                         color: '#667085',
                         // fontWeight: 'bold', // Optional: make it bold
                         // fontSize: '16px', // Adjust font size if needed
+                        fontWeight: '500', fontSize: '14px'
                     }}>
-                        <IntlMessages id="contacts.suggestion" />
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontWeight: '500', fontSize: '14px' }}>
+                            <IntlMessages id="contacts.suggestion" />
+                            <img src='/assets/img/svg/chevron.svg'
+                                alt='chevron'
+                            />
+                        </div>
                     </div>
                 ),
                 accessor: 'suggestion',
@@ -349,7 +409,7 @@ const CustomersTable = () => {
                 Cell: ({ value }) =>
                     value ? (
                         <AiFillCheckCircle
-                            className="text-success"
+                            // className="text-success"
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -359,7 +419,7 @@ const CustomersTable = () => {
                         />
                     ) : (
                         <AiFillCloseCircle
-                            className="text-danger"
+                            // className="text-danger"
                             style={{
                                 width: '20px',
                                 height: '20px',
@@ -375,6 +435,7 @@ const CustomersTable = () => {
                         color: '#667085',
                         // fontWeight: 'bold', // Optional: make it bold
                         // fontSize: '16px', // Adjust font size if needed
+                        fontWeight: '500', fontSize: '14px'
                     }}>
                         <IntlMessages id="contacts.action" />
                     </div>
@@ -388,32 +449,43 @@ const CustomersTable = () => {
                             className="btn btn-link"
                             aria-expanded={expandedRowId === row.id}
                             aria-haspopup="true"
-                            style={{ cursor: 'pointer', color: '#858D9D' }}
+                            style={{ cursor: 'pointer', color: '#858D9D', width: '24px', height: '24px' }}
                         >
                             <FaEllipsisV />
                         </button>
-                        <div style={{ position: 'absolute', right: '140px' }}>
+                        <div style={{ position: 'absolute', right: '310px', bottom: '18px' }}>
 
                             {expandedRowId === row.id && (
                                 <div
                                     className="dropdown-menu show"
-                                    style={{ position: 'absolute', zIndex: 1000 }}
+                                    style={{ position: 'absolute', zIndex: 1000, borderRadius: '14px' }}
                                 >
-                                    <div className="dropdown-item">
-                                        <i className="simple-icon-minus mr-2" />{' '}
+                                    <div className="dropdown-item dropdowns">
+                                        {/* <i className="simple-icon-minus mr-2" /> */}
+                                        {/* <CiCircleMinus className='mr-2' /> */}
+                                        <img src='/assets/img/svg/minus-circle 1.svg' className='mr-1' style={{ width: '17px', height: '17px' }} />{' '}
                                         <IntlMessages id="Unsubscribe from Account" />
                                     </div>
-                                    <div className="dropdown-item">
-                                        <FaWhatsapp className="mr-2" />{' '}
+                                    <Separator className='separator-class-1' />
+                                    {/* <div className="dropdown-divider" /> */}
+                                    <div className="dropdown-item dropdowns">
+                                        {/* <FaWhatsapp className="mr-2" />{' '} */}
+                                        <img src='/assets/img/svg/whatsapp 1.svg' className='mr-1' style={{ width: '17px', height: '17px' }} />{' '}
                                         <IntlMessages id="Unsubscribe from Whatsapp" />
                                     </div>
-                                    <div className="dropdown-item">
-                                        <FaFileDownload className="mr-2" />{' '}
+                                    <Separator className='separator-class-1' />
+                                    {/* <div className="dropdown-divider" /> */}
+                                    <div className="dropdown-item dropdowns">
+                                        {/* <TbFileDownload className="mr-2" />{' '} */}
+                                        <img src='/assets/img/svg/file-download 1.svg' className='mr-1' style={{ width: '17px', height: '17px' }} />{' '}
                                         <IntlMessages id="Download Contact Data" />
                                     </div>
-                                    <div className="dropdown-divider" />
-                                    <div className="dropdown-item text-danger">
-                                        <FaTrash className="mr-2" />{' '}
+                                    <Separator className='separator-class-1' />
+                                    {/* <div className="dropdown-divider" /> */}
+                                    <div className="dropdown-item text-danger dropdowns">
+                                        {/* <FaTrash className="mr-2" />{' '} */}
+                                        <img src='/assets/img/svg/trash 1.svg' className='mr-1' style={{ width: '17px', height: '17px' }} />{' '}
+
                                         <IntlMessages id="Delete Contact" />
                                     </div>
                                 </div>
@@ -435,9 +507,11 @@ const CustomersTable = () => {
 
     return (
         <>
-            <Card className="h-100" style={{ borderRadius: '16px' }}>
-                <CardBody>
-                    <CardTitle className="d-flex flex-row justify-content-between font-weight-bold mb-3">
+            <Card className="h-100" style={{ borderRadius: '16px', margin: '24px 24px 24px 0' }}>
+                <CardBody style={{ padding: '0px' }}>
+                    <CardTitle className="d-flex flex-row justify-content-between mb-0"
+                        style={{ padding: '20px 22px' }}
+                    >
                         <div
                             className="input-group"
                             style={{ width: '300px', position: 'relative' }}
@@ -447,9 +521,9 @@ const CustomersTable = () => {
                                 placeholder="Search Customer..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                style={{ paddingLeft: '30px', borderRadius: '7px' }}
+                                style={{ paddingLeft: '30px', borderRadius: '8px' }}
                             />
-                            <FaSearch
+                            <IoSearchOutline
                                 className="search-icon"
                                 style={{
                                     position: 'absolute',
@@ -472,7 +546,7 @@ const CustomersTable = () => {
                                 <IntlMessages id="dashboards.filters" />
                             </Badge>
                             {filterDropdownOpen && (
-                                <div style={{ position: 'absolute', zIndex: 1000, right: '50px' }}>
+                                <div style={{ position: 'absolute', zIndex: 1000, right: '-10px', top: '-15px' }}>
 
                                     <FilterDropdown />
                                 </div>
@@ -693,7 +767,7 @@ const CustomersTable = () => {
                             )}
                         </div>
                     </CardTitle>
-                    <Separator className="mb-3" />
+                    <Separator className=" separator-class" />
                     <Table
                         columns={cols}
                         data={filteredData}
