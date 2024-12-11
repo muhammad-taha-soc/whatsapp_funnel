@@ -49,7 +49,7 @@ body {
 }
 
 .fixed-background {
-  // background: url('/assets/img/login/balloon-lg.jpg') no-repeat center center
+  // background: url('/assets/img/login/auth-background.svg') no-repeat center center
   //   fixed;
   background-size: cover;
   width: 100%;
@@ -162,8 +162,8 @@ hr {
   right: 0;
 }
 
-.ps__rail-y:hover > .ps__thumb-y,
-.ps__rail-y:focus > .ps__thumb-y,
+.ps__rail-y:hover>.ps__thumb-y,
+.ps__rail-y:focus>.ps__thumb-y,
 .ps__rail-y.ps--clicking .ps__thumb-y {
   width: 5px;
   left: 0;
@@ -220,12 +220,12 @@ hr {
 }
 
 .logo-single-login {
-  width: 110px;
-  height: 35px;
+  width: 144.87px;
+  height: 51.5px;
   background: url($logo-path) no-repeat;
   background-position: center center;
   display: inline-block;
-  margin-bottom: 15px;
+  margin-bottom: 32px;
 }
 
 .list-item-heading-container {
@@ -323,12 +323,22 @@ p {
   font-size: 0.6rem;
 }
 
+.text-14px {
+  font-size: 0.9rem !important;
+}
+
+.table-heading-row-color {
+  color: #1A1C21;
+
+}
+
 .text-default {
   color: $primary-color !important;
 }
 
 .text-muted {
   color: $muted-color !important;
+  font-size: 16px;
 }
 
 .text-semi-muted {
@@ -386,7 +396,7 @@ p {
 
   .btn-outline-dark:not(:disabled):not(.disabled):active,
   .btn-outline-dark:not(:disabled):not(.disabled).active,
-  .show > .btn-outline-dark.dropdown-toggle {
+  .show>.btn-outline-dark.dropdown-toggle {
     background-color: $theme-color-1;
     border-color: $theme-color-1;
     color: $button-text-color;
@@ -417,9 +427,11 @@ p {
 .text-theme-3 {
   color: $theme-color-3 !important;
 }
+
 .text-theme-4 {
   color: $theme-color-4 !important;
 }
+
 .text-theme-5 {
   color: $theme-color-5 !important;
 }
@@ -441,6 +453,24 @@ p {
   border-bottom: 1px solid $separator-color;
 }
 
+.separator-class {
+  border-bottom: 1px solid #E8E8E9 !important;
+  margin-bottom: 7px
+}
+
+
+.separator-class-1 {
+  border-bottom: 1px solid #E8E8E9 !important;
+}
+
+
+.table-separator {
+  border-bottom: 1px solid #E8E8E9 !important;
+  margin-bottom: 7px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .alert-dismissible .close {
   padding: 0.5rem 1.25rem;
 }
@@ -454,9 +484,11 @@ p {
   padding: 0;
   border: initial;
 }
+
 .img-fluid {
   width: 100%;
 }
+
 .white {
   color: $button-text-color !important;
 }
@@ -472,9 +504,11 @@ p {
 .opacity-75 {
   opacity: 0.75;
 }
+
 .jumbotron {
   background: initial;
 }
+
 .c-pointer {
   cursor: pointer !important;
 }
@@ -482,6 +516,7 @@ p {
 .right-menu {
   footer.page-footer {
     padding-right: $app-menu-width;
+
     @include respond-below(lg) {
       padding-right: 0;
     }
@@ -494,6 +529,7 @@ p {
 
 .rtl {
   direction: rtl;
+
   .text-center p,
   .text-center div,
   .text-center span,
@@ -525,6 +561,7 @@ p {
     right: 0 !important;
     left: initial !important;
   }
+
   .float-right {
     float: left !important;
   }
@@ -537,6 +574,7 @@ p {
     .float-xxl-left {
       float: right !important;
     }
+
     .float-xxl-right {
       float: left !important;
     }
@@ -546,6 +584,7 @@ p {
     .float-xl-left {
       float: right !important;
     }
+
     .float-xl-right {
       float: left !important;
     }
@@ -555,6 +594,7 @@ p {
     .float-lg-left {
       float: right !important;
     }
+
     .float-lg-right {
       float: left !important;
     }
@@ -564,6 +604,7 @@ p {
     .float-md-left {
       float: right !important;
     }
+
     .float-md-right {
       float: left !important;
     }
@@ -573,6 +614,7 @@ p {
     .float-sm-left {
       float: right !important;
     }
+
     .float-sm-right {
       float: left !important;
     }
@@ -582,14 +624,17 @@ p {
     .float-xs-left {
       float: right !important;
     }
+
     .float-xs-right {
       float: left !important;
     }
   }
+
   .r-0 {
     left: 0;
     right: initial;
   }
+
   .heading-number {
     margin-right: 0;
     margin-left: 10px;
@@ -633,6 +678,7 @@ p {
     margin-right: 0;
     padding-right: 0;
   }
+
   .icon-button {
     text-align: center;
   }

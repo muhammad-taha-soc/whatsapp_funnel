@@ -1,11 +1,12 @@
 .account-profile-img {
-  height: 120px;
+  height: 140px !important;
+  width: 140px !important;
   border-radius: 50% !important;
-  border: 3px solid $foreground-color;
+  // border: 3px solid $foreground-color;
 }
 
 .account-profile-background-layer {
-  height: 15vh;
+  height: 110px !important;
 }
 
 .account-profile-background-layer-btn {
@@ -66,6 +67,10 @@
   width: 350 !important;
 }
 
+._container_1c03y_8 {
+  height: auto !important;
+}
+
 .checkbox_r {
   position: relative;
   overflow: hidden;
@@ -82,7 +87,7 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 1px solid #0DAC8A;
+  border: 1px solid #D0D5DD;
   background: transparent no-repeat center;
 }
 
