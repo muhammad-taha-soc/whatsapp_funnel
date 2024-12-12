@@ -371,10 +371,10 @@ const TopNav = ({
                 {' '}
                 Account
               </DropdownItem>
-              <DropdownItem>Features</DropdownItem>
+              {/* <DropdownItem>Features</DropdownItem>
               <DropdownItem>History</DropdownItem>
               <DropdownItem>Support</DropdownItem>
-              <DropdownItem divider />
+              <DropdownItem divider /> */}
               <DropdownItem onClick={() => handleLogout()}>
                 Sign out
               </DropdownItem>
