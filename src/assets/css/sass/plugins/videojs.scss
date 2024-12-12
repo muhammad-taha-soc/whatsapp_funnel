@@ -161,11 +161,11 @@
 
 .video-js.video-content {
   width: 100%;
-  height: 245px;
+  height: 350px;
   background-color: $background-color;
   overflow: hidden;
   max-height: unset;
-  border-radius: 16px !important;
+  border-radius: 20px !important;
 
   video {
     object-fit: cover;
