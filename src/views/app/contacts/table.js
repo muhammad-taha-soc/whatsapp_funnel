@@ -12,14 +12,14 @@ const DefaultCustomers = ({ match }) => {
   const [isLandingModalOpen, setIsLandingModalOpen] = useState(false);
 //   const { messages } = intl; 
   // const [activeSecondTab, setActiveSecondTab] = useState('1');
-  const hasVisited = localStorage.getItem('hasVisited');
+  // const hasVisited = localStorage.getItem('hasVisited');
   useEffect(() => {
-    if (hasVisited) {
-      setIsLandingModalOpen(false);
-      return;
-    }
+    // if (hasVisited) {
+    //   setIsLandingModalOpen(false);
+    //   return;
+    // }
     setIsLandingModalOpen(true);
-    localStorage.setItem('hasVisited', 'true');
+    // localStorage.setItem('hasVisited', 'true');
   }, []);
 
   const handleClose = () => {
