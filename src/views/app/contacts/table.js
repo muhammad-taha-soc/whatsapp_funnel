@@ -15,7 +15,7 @@ const DefaultCustomers = ({ match }) => {
   const hasVisited = localStorage.getItem('hasVisited');
   useEffect(() => {
     if (hasVisited) {
-      setIsLandingModalOpen(false);
+      setIsLandingModalOpen(true);
       return;
     }
     setIsLandingModalOpen(true);

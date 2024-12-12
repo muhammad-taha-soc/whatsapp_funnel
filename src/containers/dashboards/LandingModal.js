@@ -28,7 +28,6 @@ const LandingModal = ({ isOpen, onClose }) => {
         }
 
         return daysArray;
-
     };
 
     const handlePrevMonth = () => {
@@ -59,18 +58,14 @@ const LandingModal = ({ isOpen, onClose }) => {
     const monthName = currentDate.toLocaleString('default', { month: 'long' });
     const year = currentDate.getFullYear();
 
-    let dayArray = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    let resultArray = [...dayArray, ...daysArray.filter(item => item !== null)];
-    console.log(resultArray)
     return (
       <>
-      <div>
-      {isOpen && (
+        {isOpen && (
           <div className="modal-overlay" onClick={() => onClose()}>
             {/* <div><VideoPlayer /></div> */}
 
             <div
-              className="modal-content-landing-page"
+              className="modal-content"
               style={{ color: 'black' }}
               onClick={(e) => e.stopPropagation()}
             >
@@ -96,12 +91,10 @@ const LandingModal = ({ isOpen, onClose }) => {
                 // }}
                 className="text-muted text-one"
               >
+                <IntlMessages id="Please arrange an onboarding call. We look forward to seeing you!" />
               </div>
-              <div className='video-text'>Please arrange an onboarding call. We look forward to seeing you! </div>
-          
-
-              <Card >
-                <CardBody className='cal'>
+              <Card>
+                <CardBody>
                   <div
                     className=" d-flex flex-row justify-content-between align-items-center"
                     // style={{ marginRight: '2px', marginLeft: '2px', gap: 4 }}
@@ -116,7 +109,6 @@ const LandingModal = ({ isOpen, onClose }) => {
                     // }}
                     className='mb-4'
                     >{`${monthName} ${year}`}</CardTitle>
-                    
                     <div style={{ display: 'flex', gap: '5px' }} className='mb-4'>
                       <button
                         onClick={handleTodayClick}
@@ -145,18 +137,17 @@ const LandingModal = ({ isOpen, onClose }) => {
                       </button>
                     </div>
                   </div>
-                   <div className="flex-container">
-                    {resultArray.map(
-                      (day) => (
-                        // <div key={day} className="day-header">
-                       <div key={day} className="flex-item">
 
+                  <div className="day-names">
+                    {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(
+                      (day) => (
+                        <div key={day} className="day-header">
                           {day}
                         </div>
                       )
                     )}
-                  </div> 
-                  {/* <div className="calendar-body">
+                  </div>
+                  <div className="calendar-body">
                     {daysArray.map((day, index) => (
                       <div
                         key={index}
@@ -172,7 +163,7 @@ const LandingModal = ({ isOpen, onClose }) => {
                         {day}
                       </div>
                     ))}
-                  </div> */}
+                  </div>
 
                   <div className="calendar-footer">
                     <button className="cancel-button" onClick={() => onClose()}>
@@ -184,12 +175,9 @@ const LandingModal = ({ isOpen, onClose }) => {
                   </div>
                 </CardBody>
               </Card>
-      
             </div>
           </div>
         )}
-      </div>
- 
       </>
     );
 
