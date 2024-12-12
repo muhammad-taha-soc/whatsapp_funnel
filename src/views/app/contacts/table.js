@@ -18,7 +18,7 @@ const DefaultCustomers = ({ match }) => {
       setIsLandingModalOpen(false);
       return;
     }
-    setIsLandingModalOpen(false);
+    setIsLandingModalOpen(true);
     localStorage.setItem('hasVisited', 'true');
   }, []);
 

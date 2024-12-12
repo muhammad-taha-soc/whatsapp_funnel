@@ -22,7 +22,7 @@ padding:1rem !important;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     /* width: 749px; Fixed width for desktop */
     overflow: hidden; /* Prevent overflow */
-    height: 90vh;
+    max-height: 90vh;
 }
 
 .flex-container {
