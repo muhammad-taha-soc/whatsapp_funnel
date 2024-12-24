@@ -2,6 +2,8 @@ import { all, call, fork, put, takeEvery } from 'redux-saga/effects';
 import { auth } from 'helpers/Firebase';
 import { adminRoot, currentUser } from 'constants/defaultValues';
 import { setCurrentUser } from 'helpers/Utils';
+// import axios from 'axios';
+import axiosInstance from 'helpers/authApiCalls';
 import {
   LOGIN_USER,
   REGISTER_USER,
@@ -24,30 +26,36 @@ import {
 export function* watchLoginUser() {
   // eslint-disable-next-line no-use-before-define
   yield takeEvery(LOGIN_USER, loginWithEmailPassword);
+  console.log({currentUser});
+  
 }
 
-const loginWithEmailPasswordAsync = async (email, password) =>
-  // eslint-disable-next-line no-return-await
-  await auth
-    .signInWithEmailAndPassword(email, password)
-    .then((user) => user)
-    .catch((error) => error);
+// const loginWithEmailPasswordAsync = async (email, password) =>
+//   // eslint-disable-next-line no-return-await
+//   await auth
+//     .signInWithEmailAndPassword(email, password)
+//     .then((user) => user)
+//     .catch((error) => error);
 
 function* loginWithEmailPassword({ payload }) {
-  const { email, password } = payload.user;
-  const { history } = payload;
+ 
+  console.log('loginWithEmailPassword -> email', payload);
+  
+  const { user, history } = payload;
   try {
-    const loginUser = yield call(loginWithEmailPasswordAsync, email, password);
-    if (!loginUser.message) {
-      const item = { uid: loginUser.user.uid, ...currentUser };
-      setCurrentUser(item);
-      yield put(loginUserSuccess(item));
-      history.push(adminRoot);
-    } else {
-      yield put(loginUserError(loginUser.message));
-    }
+    const response = yield call(axiosInstance.post, '/auth/login', user);
+    const { token, user: userData } = response.data;
+console.log('token -> token', token);
+    // Store token in localStorage
+    localStorage.setItem('token', token);
+
+    yield put(loginUserSuccess(userData, token));
+
+    // Redirect to dashboard or desired route
+    history.push('/app/contacts/table');
   } catch (error) {
-    yield put(loginUserError(error));
+    const errorMsg = error.response?.data?.message || 'Login failed';
+    yield put(loginUserError(errorMsg));
   }
 }
 
@@ -56,32 +64,26 @@ export function* watchRegisterUser() {
   yield takeEvery(REGISTER_USER, registerWithEmailPassword);
 }
 
-const registerWithEmailPasswordAsync = async (email, password) =>
-  // eslint-disable-next-line no-return-await
-  await auth
-    .createUserWithEmailAndPassword(email, password)
-    .then((user) => user)
-    .catch((error) => error);
+// const registerWithEmailPasswordAsync = async (email, password) =>
+//   // eslint-disable-next-line no-return-await
+//   await auth
+//     .createUserWithEmailAndPassword(email, password)
+//     .then((user) => user)
+//     .catch((error) => error);
 
 function* registerWithEmailPassword({ payload }) {
-  const { email, password } = payload.user;
-  const { history } = payload;
+  const { user, history } = payload;
   try {
-    const registerUser = yield call(
-      registerWithEmailPasswordAsync,
-      email,
-      password
-    );
-    if (!registerUser.message) {
-      const item = { uid: registerUser.user.uid, ...currentUser };
-      setCurrentUser(item);
-      yield put(registerUserSuccess(item));
-      history.push(adminRoot);
-    } else {
-      yield put(registerUserError(registerUser.message));
-    }
+    const response = yield call(axiosInstance.post, '/auth/signup', user);
+    const { message } = response.data;
+
+    yield put(registerUserSuccess(message));
+
+    // Optionally, redirect to login or dashboard
+    history.push('/user/login');
   } catch (error) {
-    yield put(registerUserError(error));
+    const errorMsg = error.response?.data?.message || 'Registration failed';
+    yield put(registerUserError(errorMsg));
   }
 }
 

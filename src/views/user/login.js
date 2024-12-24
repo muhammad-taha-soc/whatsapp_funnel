@@ -31,8 +31,8 @@ const validateEmail = (value) => {
 };
 
 const Login = ({ history, loading, error, loginUserAction }) => {
-  const [email] = useState('demo@gogo.com');
-  const [password] = useState('gogo123');
+  const [email] = useState('');
+  const [password] = useState('');
 
   useEffect(() => {
     if (error) {
@@ -44,7 +44,7 @@ const Login = ({ history, loading, error, loginUserAction }) => {
     if (!loading) {
       if (values.email !== '' && values.password !== '') {
         loginUserAction(values, history);
-        history.push('/app/contacts/table');
+        // history.push('/app/contacts/table');
       }
     }
   };
@@ -75,7 +75,7 @@ const Login = ({ history, loading, error, loginUserAction }) => {
             </div>
             <div className="text-center mb-4">
               <CardTitle className="mb-0 font-weight-bold">
-                <IntlMessages id="Sign Up" />
+                <IntlMessages id="Sign In" />
               </CardTitle>
 
               <IntlMessages id="Create your account to start your journey with us!" />
@@ -134,15 +134,15 @@ const Login = ({ history, loading, error, loginUserAction }) => {
                         <span className="bounce3" />
                       </span>
                       <span className="label">
-                        <IntlMessages id="Sign Up" />
+                        <IntlMessages id="Sign In" />
                       </span>
                     </Button>
                   </div>
-                  <div className="mt-2 text-center">
-                    {/* <NavLink to="/user/forgot-password"> */}
+                  {/* <div className="mt-2 text-center">
+                    <NavLink to="/user/forgot-password">
                     <IntlMessages id="Already have an account?" />
-                    {/* </NavLink> */}
-                  </div>
+                    </NavLink>
+                  </div> */}
                 </Form>
               )}
             </Formik>

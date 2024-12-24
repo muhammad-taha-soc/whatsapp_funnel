@@ -23,6 +23,7 @@ const INIT_STATE = {
   resetPasswordCode: '',
   loading: false,
   error: '',
+  token: localStorage.getItem('token') || null,
 };
 
 export default (state = INIT_STATE, action) => {
@@ -94,7 +95,8 @@ export default (state = INIT_STATE, action) => {
         error: action.payload.message,
       };
     case LOGOUT_USER:
-      return { ...state, currentUser: null, error: '' };
+      localStorage.removeItem('token');
+      return { ...state, currentUser: null,token:null, error: '' };
     default:
       return { ...state };
   }

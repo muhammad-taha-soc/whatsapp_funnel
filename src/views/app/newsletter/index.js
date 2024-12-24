@@ -1,17 +1,17 @@
 import React, { Suspense } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Switch } from 'react-router-dom';
 // import CreateNewTemplate from './createNewTemplate';
 // import { ProtectedRoute, UserRole } from 'helpers/authHelper';
 
-const DashboardNewsLetter = React.lazy(() =>
-  import(/* webpackChunkName: "dashboard-default" */ './default')
-);
-const CreateNewsLetter = React.lazy(() =>
-  import(/* webpackChunkName: "dashboard-content" */ './createNewsLetter')
-);
-const CreateNewTemplate = React.lazy(() =>
-  import(/* webpackChunkName: "dashboard-content" */ './createNewTemplate')
-);
+// const DashboardNewsLetter = React.lazy(() =>
+//   import(/* webpackChunkName: "dashboard-default" */ './default')
+// );
+// const CreateNewsLetter = React.lazy(() =>
+//   import(/* webpackChunkName: "dashboard-content" */ './createNewsLetter')
+// );
+// const CreateNewTemplate = React.lazy(() =>
+//   import(/* webpackChunkName: "dashboard-content" */ './createNewTemplate')
+// );
 
 
 const NewsLetter = ({ match }) => {
@@ -19,7 +19,7 @@ const NewsLetter = ({ match }) => {
     return (
       <Suspense fallback={<div className="loading" />}>
         <Switch>
-          <Redirect
+          {/* <Redirect
             exact
             from={`${match.url}/news-letter`}
             to={`${match.url}/news-letter`}
@@ -35,7 +35,7 @@ const NewsLetter = ({ match }) => {
           <Route
             path={`${match.url}`}
             render={(props) => <DashboardNewsLetter {...props} />}
-          />
+          /> */}
           <Redirect to="/error" />
         </Switch>
       </Suspense>

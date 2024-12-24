@@ -17,16 +17,17 @@ import IntlMessages from 'helpers/IntlMessages';
 import { Colxx } from 'components/common/CustomBootstrap';
 import { adminRoot } from 'constants/defaultValues';
 
-const Register = ({ history }) => {
-  const [email] = useState('demo@gogo.com');
-  const [password] = useState('gogo123');
-  const [name] = useState('Sarah Kortney');
-
+const Register = ({ history, registerUserAction }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  // const [name] = useState('Sarah Kortney');
+  const values = { email, password };
   const onUserRegister = () => {
-    if (email !== '' && password !== '') {
+    if (values.email !== '' && values.password !== '') {
       history.push(adminRoot);
     }
-    // call registerUserAction()
+
+    registerUserAction(values, history);
   };
 
   return (
@@ -49,39 +50,51 @@ const Register = ({ history }) => {
               <span className="logo-single" />
             </NavLink>
             <CardTitle className="mb-4">
-              <IntlMessages id="user.register" />
+              <IntlMessages id="Sign Up" />
             </CardTitle>
             <Form>
-              <FormGroup className="form-group has-float-label  mb-4">
+              {/* <FormGroup className="form-group has-float-label  mb-4">
                 <Label>
                   <IntlMessages id="user.fullname" />
                 </Label>
                 <Input type="name" defaultValue={name} />
-              </FormGroup>
+              </FormGroup> */}
 
               <FormGroup className="form-group has-float-label  mb-4">
                 <Label>
                   <IntlMessages id="user.email" />
                 </Label>
-                <Input type="email" defaultValue={email} />
+                <Input
+                  type="email"
+                  defaultValue={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </FormGroup>
 
               <FormGroup className="form-group has-float-label  mb-4">
                 <Label>
                   <IntlMessages id="user.password" defaultValue={password} />
                 </Label>
-                <Input type="password" />
+                <Input
+                  type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </FormGroup>
 
-              <div className="d-flex justify-content-end align-items-center">
+              <div className="d-flex  justify-content-between align-items-center">
                 <Button
                   color="primary"
-                  className="btn-shadow"
+                  className="btn-shadow w-100"
                   size="lg"
                   onClick={() => onUserRegister()}
                 >
-                  <IntlMessages id="user.register-button" />
+                  <IntlMessages id="Sign Up" />
                 </Button>
+              </div>
+              <div className="mt-2 text-center">
+                {/* <NavLink to="/user/forgot-password"> */}
+                <IntlMessages id="Already have an account?" />
+                {/* </NavLink> */}
               </div>
             </Form>
           </div>

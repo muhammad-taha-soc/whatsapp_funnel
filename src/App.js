@@ -17,7 +17,7 @@ import {
   UserRole,
 } from './constants/defaultValues';
 import { getDirection } from './helpers/Utils';
-import { ProtectedRoute } from './helpers/authHelper';
+import  ProtectedRoute  from './helpers/authHelper';
 
 // const ViewHome = React.lazy(() =>
 //   import(/* webpackChunkName: "views" */ './views/home')

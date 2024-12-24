@@ -31,13 +31,13 @@ const TopnavEasyAccess = () => {
             <i className="iconsminds-shop-4 d-block" />{' '}
             <IntlMessages id="menu.contacts" />
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to={`${adminRoot}/coupons/table`}
             className="icon-menu-item"
           >
             <i className="iconsminds-shop-4 d-block" />{' '}
             <IntlMessages id="menu.coupons" />
-          </NavLink>
+          </NavLink> */}
 
           <NavLink to={`${adminRoot}/ui`} className="icon-menu-item">
             <i className="iconsminds-pantone d-block" />{' '}

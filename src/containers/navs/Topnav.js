@@ -37,7 +37,6 @@ import {
 import TopnavNotifications from './Topnav.Notifications';
 import TopnavDarkSwitch from './Topnav.DarkSwitch';
 import { GoDotFill } from 'react-icons/go';
-
 const TopNav = ({
   intl,
   history,
@@ -177,7 +176,9 @@ const TopNav = ({
   // };
 
   const handleLogout = () => {
-    logoutUserAction(history);
+    logoutUserAction();
+    // Optionally, redirect to login
+    window.location.href = '/user/login';
   };
 
   // const menuButtonClick = (e, _clickCount, _conClassnames) => {
@@ -236,7 +237,7 @@ const TopNav = ({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-end',
-          marginRight: '-20px'
+          marginRight: '-20px',
         }}
       >
         {isDarkSwitchActive && <TopnavDarkSwitch />}
@@ -326,7 +327,14 @@ const TopNav = ({
               }}
             >
               <span className="name mr-1 text-right">
-                <div style={{ fontWeight: '500', fontSize: '14px', color: "#1A1C21", fontFamily: "Inter" }}>
+                <div
+                  style={{
+                    fontWeight: '500',
+                    fontSize: '14px',
+                    color: '#1A1C21',
+                    fontFamily: 'Inter',
+                  }}
+                >
                   Jay Hargodson
                 </div>
                 <div>Manager</div>
