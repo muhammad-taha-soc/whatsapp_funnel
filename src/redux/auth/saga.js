@@ -26,8 +26,7 @@ import {
 export function* watchLoginUser() {
   // eslint-disable-next-line no-use-before-define
   yield takeEvery(LOGIN_USER, loginWithEmailPassword);
-  console.log({currentUser});
-  
+  console.log({ currentUser });
 }
 
 // const loginWithEmailPasswordAsync = async (email, password) =>
@@ -38,16 +37,16 @@ export function* watchLoginUser() {
 //     .catch((error) => error);
 
 function* loginWithEmailPassword({ payload }) {
- 
   console.log('loginWithEmailPassword -> email', payload);
-  
+
   const { user, history } = payload;
   try {
     const response = yield call(axiosInstance.post, '/auth/login', user);
-    const { token, user: userData } = response.data;
-console.log('token -> token', token);
+    const { orderId, token, user: userData } = response.data;
+
     // Store token in localStorage
     localStorage.setItem('token', token);
+    localStorage.setItem('orderId', orderId);
 
     yield put(loginUserSuccess(userData, token));
 

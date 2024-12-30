@@ -1,74 +1,157 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './LandingModal.css'; // Ensure you have appropriate styles
 import VideoPlayer from 'components/common/VideoPlayer';
 import { Card, CardBody, CardTitle } from 'reactstrap';
 import IntlMessages from 'helpers/IntlMessages';
 
+const LandingModal = ({ isOpen, onClose, agencyId }) => {
+  // Assuming agencyId is passed as a prop
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [affiliatedLink, setAffiliatedLink] = useState('');
+  const [linkSaved, setLinkSaved] = useState(false);
+  const [error, setError] = useState(null); // To track errors
+  const [linkExists, setLinkExists] = useState(false); // Track if the link already exists
 
-const LandingModal = ({ isOpen, onClose }) => {
-    const [currentDate, setCurrentDate] = useState(new Date());
-    const [selectedDate, setSelectedDate] = useState(null);
+  const orderId = localStorage.getItem('orderId');
+  console.log({ orderId });
 
-    const daysInMonth = (month, year) => new Date(year, month + 1, 0).getDate();
+  // Check if the affiliated link already exists
+  useEffect(() => {
+    const checkLinkExists = async () => {
+      try {
+        const response = await fetch(
+          `http://3.76.225.188:5000/affiliated-link/${orderId}`
+        );
+        const { data } = await response.json();
+        console.log({ data });
 
-    const getDaysArray = () => {
-        const year = currentDate.getFullYear();
-        const month = currentDate.getMonth();
-        const days = daysInMonth(month, year);
-        const firstDay = new Date(year, month, 1).getDay();
-
-        const daysArray = [];
-        for (let i = 0; i < firstDay; i++) {
-            daysArray.push(null); // Fill the start of the week with null
+        if (!data?.affiliated_link) {
+          setLinkExists(true); // Link already exists, don't show the modal
+        } else {
+          setLinkExists(false); // Link does not exist, show the modal
         }
-
-        for (let day = 1; day <= days; day++) {
-            daysArray.push(day);
-        }
-
-        return daysArray;
-
+      } catch (err) {
+        console.error('Error checking if link exists:', err);
+        setError('Error checking link existence');
+      }
     };
 
-    const handlePrevMonth = () => {
-        setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1));
-    };
+    checkLinkExists();
+  }, []);
+  console.log({ linkExists });
 
-    const handleNextMonth = () => {
-        setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1));
-    };
+  const daysInMonth = (month, year) => new Date(year, month + 1, 0).getDate();
 
-    const handleDateClick = (day) => {
-        setSelectedDate(day);
-    };
-
-    const handleTodayClick = () => {
-        setCurrentDate(new Date());
-        setSelectedDate(new Date().getDate());
-    };
-
-    const handleApplyClick = () => {
-        if (selectedDate) {
-            console.log(`Selected date: ${selectedDate}`);
-            onClose(); // Close the modal after selection
-        }
-    };
-
-    const daysArray = getDaysArray();
-    const monthName = currentDate.toLocaleString('default', { month: 'long' });
+  const getDaysArray = () => {
     const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    const days = daysInMonth(month, year);
+    const firstDay = new Date(year, month, 1).getDay();
 
-    let dayArray = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    let resultArray = [...dayArray, ...daysArray.filter(item => item !== null)];
-    console.log(resultArray)
-    return (
-      <>
+    const daysArray = [];
+    for (let i = 0; i < firstDay; i++) {
+      daysArray.push(null); // Fill the start of the week with null
+    }
+
+    for (let day = 1; day <= days; day++) {
+      daysArray.push(day);
+    }
+
+    return daysArray;
+  };
+
+  const handlePrevMonth = () => {
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() - 1)
+    );
+  };
+
+  const handleNextMonth = () => {
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() + 1)
+    );
+  };
+
+  const handleDateClick = (day) => {
+    setSelectedDate(day);
+  };
+
+  const handleTodayClick = () => {
+    setCurrentDate(new Date());
+    setSelectedDate(new Date().getDate());
+  };
+
+  const handleApplyClick = () => {
+    if (selectedDate) {
+      console.log(`Selected date: ${selectedDate}`);
+      onClose(); // Close the modal after selection
+    }
+  };
+
+  const handleAffiliatedLinkChange = (e) => {
+    setAffiliatedLink(e.target.value);
+    setLinkSaved(false); // Reset the saved state when the link is changed
+  };
+
+  const handleSaveAffiliatedLink = async () => {
+    if (affiliatedLink.trim()) {
+      // Get the orderId from localStorage
+      if (!orderId) {
+        setError('Order ID not found in localStorage!');
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          'http://3.76.225.188:5000/affiliated-link',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              affiliated_link: affiliatedLink,
+              agency_id: orderId, // Pass the agencyId as part of the body
+            }),
+          }
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+          console.log('Link saved successfully:', data);
+          setLinkSaved(true);
+          setError(null); // Reset any previous errors
+          setLinkExists(true); // After saving, mark the link as existing
+          setTimeout(() => {
+            onClose();
+          }, 2000);
+        } else {
+          setError(data.message || 'Failed to save the affiliated link');
+        }
+      } catch (err) {
+        setError('Error while saving the link: ' + err.message);
+      }
+    } else {
+      alert('Please enter a valid link');
+    }
+  };
+
+  const daysArray = getDaysArray();
+  const monthName = currentDate.toLocaleString('default', { month: 'long' });
+  const year = currentDate.getFullYear();
+
+  let dayArray = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  let resultArray = [...dayArray, ...daysArray.filter((item) => item !== null)];
+
+  return (
+    <>
       <div>
-      {isOpen && (
+        {/* Only show the modal if the link does not exist */}
+        {isOpen && linkExists && (
           <div className="modal-overlay" onClick={() => onClose()}>
-            {/* <div><VideoPlayer /></div> */}
-
             <div
               className="modal-content-landing-page"
               style={{ color: 'black' }}
@@ -86,113 +169,106 @@ const LandingModal = ({ isOpen, onClose }) => {
                   },
                 ]}
               />
-              <div
-                // style={{
-                //   //   width: '440px',
-                //   //   height: '30px',
-                //   fontWeight: '600px',
-                //   lineHeight: '30px',
-                //   fontSize: '20px',
-                // }}
-                className="text-muted text-one"
-              >
+              <div className="text-muted text-one"></div>
+              <div className="video-text">
+                Please arrange an onboarding call. We look forward to seeing
+                you!
               </div>
-              <div className='video-text'>Please arrange an onboarding call. We look forward to seeing you! </div>
-          
 
-              <Card >
-                <CardBody className='cal'>
-                  <div
-                    className=" d-flex flex-row justify-content-between align-items-center"
-                    // style={{ marginRight: '2px', marginLeft: '2px', gap: 4 }}
-                  >
-                    <CardTitle
-                    // style={{
-                    //   width: '99px',
-                    //   height: '17px',
-                    //   fontWeight: '500px',
-                    //   lineHeight: '16.94px',
-                    //   fontSize: '14px',
-                    // }}
-                    className='mb-4'
-                    >{`${monthName} ${year}`}</CardTitle>
-                    
-                    <div style={{ display: 'flex', gap: '5px' }} className='mb-4'>
-                      <button
-                        onClick={handleTodayClick}
-                        className="today-button"
+              <Card>
+                <CardBody className="cal">
+                  <div style={{ marginTop: '10px' }}>
+                    <label
+                      htmlFor="affiliatedLink"
+                      style={{
+                        display: 'block',
+                        fontSize: '14px',
+                        fontWeight: '600',
+                        color: '#333',
+                        marginBottom: '2px',
+                      }}
+                    >
+                      Enter Affiliated Link:
+                    </label>
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px',
+                      }}
+                    >
+                      <input
+                        type="url"
+                        id="affiliatedLink"
+                        value={affiliatedLink}
+                        onChange={handleAffiliatedLinkChange}
+                        placeholder="https://example.com"
                         style={{
-                          border: '1px solid #0DAC8A',
-                          color: '#0DAC8A',
-                          backgroundColor: 'white',
+                          flex: '1',
+                          padding: '8px 12px',
+                          fontSize: '14px',
+                          border: '1px solid #ccc',
+                          borderRadius: '4px',
+                          outline: 'none',
+                          transition: 'border-color 0.3s ease',
                         }}
-                      >
-                        Today
-                      </button>
+                        onFocus={(e) =>
+                          (e.target.style.borderColor = '#0DAC8A')
+                        }
+                        onBlur={(e) => (e.target.style.borderColor = '#ccc')}
+                      />
                       <button
-                        onClick={handlePrevMonth}
-                        className="arrow-button"
-                        style={{ backgroundColor: '#0DAC8A', color: 'white' }}
+                        onClick={handleSaveAffiliatedLink}
+                        style={{
+                          padding: '8px 16px',
+                          backgroundColor: '#0DAC8A',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '4px',
+                          cursor: 'pointer',
+                          transition: 'background-color 0.3s ease',
+                        }}
+                        onMouseOver={(e) =>
+                          (e.target.style.backgroundColor = '#0a9d76')
+                        }
+                        onMouseOut={(e) =>
+                          (e.target.style.backgroundColor = '#0DAC8A')
+                        }
                       >
-                        <i className="simple-icon-arrow-left"></i>
-                      </button>
-                      <button
-                        onClick={handleNextMonth}
-                        className="arrow-button"
-                        style={{ color: 'white', backgroundColor: '#0DAC8A' }}
-                      >
-                        <i className="simple-icon-arrow-right"></i>
+                        Save
                       </button>
                     </div>
-                  </div>
-                   <div className="flex-container">
-                    {resultArray.map(
-                      (day) => (
-                        // <div key={day} className="day-header">
-                       <div key={day} className="flex-item">
-
-                          {day}
-                        </div>
-                      )
-                    )}
-                  </div> 
-                  {/* <div className="calendar-body">
-                    {daysArray.map((day, index) => (
-                      <div
-                        key={index}
-                        className={`day ${
-                          day === null
-                            ? 'blank'
-                            : day === selectedDate
-                            ? 'selected'
-                            : ''
-                        }`}
-                        onClick={() => day && handleDateClick(day)}
+                    {linkSaved && (
+                      <p
+                        style={{
+                          color: 'green',
+                          fontSize: '14px',
+                          marginTop: '10px',
+                        }}
                       >
-                        {day}
-                      </div>
-                    ))}
-                  </div> */}
-
-                  <div className="calendar-footer">
-                    <button className="cancel-button" onClick={() => onClose()}>
-                      Cancel
-                    </button>
-                    <button className="apply-button" onClick={handleApplyClick}>
-                      Apply
-                    </button>
+                        Link saved successfully!
+                      </p>
+                    )}
+                    {error && (
+                      <p
+                        style={{
+                          color: 'red',
+                          fontSize: '14px',
+                          marginTop: '10px',
+                        }}
+                      >
+                        {error}
+                      </p>
+                    )}
                   </div>
                 </CardBody>
               </Card>
-      
             </div>
           </div>
         )}
       </div>
- 
-      </>
-    );
-
+    </>
+  );
 };
 
 export default LandingModal;
